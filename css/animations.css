@@ -1,0 +1,72 @@
+/* =========================================================
+   MAYA'S HOMES V2 — micro-animations
+   GSAP handles the heavy lifts (scroll-scrub, reveals).
+   This file holds the resting CSS states + ambient motion.
+   ========================================================= */
+
+/* — Initial states for GSAP-driven reveals — */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+
+/* — Tile lift on hover (pairs with image scale) — */
+.tile { transition: transform 700ms var(--ease-out); }
+.tile:hover { transform: translateY(-4px); }
+
+/* — Eyebrow dot pulse — */
+.eyebrow .dot {
+  animation: pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(139, 111, 71, 0.10); }
+  50% { box-shadow: 0 0 0 7px rgba(139, 111, 71, 0.04); }
+}
+
+/* — Section reveal: applied via JS (.is-in) — */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1100ms var(--ease-out), transform 1100ms var(--ease-out);
+  will-change: transform, opacity;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* — Display word stagger — */
+.display .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.display .word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+.display.is-in .word > span {
+  transform: translateY(0%);
+  transition: transform 1000ms var(--ease-out);
+}
+.display.is-in .word:nth-child(1) > span { transition-delay: 40ms; }
+.display.is-in .word:nth-child(2) > span { transition-delay: 90ms; }
+.display.is-in .word:nth-child(3) > span { transition-delay: 140ms; }
+.display.is-in .word:nth-child(4) > span { transition-delay: 190ms; }
+.display.is-in .word:nth-child(5) > span { transition-delay: 240ms; }
+.display.is-in .word:nth-child(6) > span { transition-delay: 290ms; }
+.display.is-in .word:nth-child(7) > span { transition-delay: 340ms; }
+.display.is-in .word:nth-child(8) > span { transition-delay: 380ms; }
+.display.is-in .word:nth-child(n+9) > span { transition-delay: 420ms; }
+
+/* — Cursor magnet for nav CTA — */
+.nav__cta { will-change: transform; }
+
+/* — Lenis smooth-scroll required body class — */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
