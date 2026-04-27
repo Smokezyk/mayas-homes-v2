@@ -440,12 +440,13 @@ html.is-intro body {
 .projects__grid--three { grid-template-columns: repeat(3, 1fr); }
 
 .tile { position: relative; }
-.tile--portrait .tile__media { aspect-ratio: 4 / 10; }
+/* Aspect ratio is dictated by the source video's intrinsic dimensions
+   (3324×2492 — ≈4:3). The site never imposes its own crop. */
+.tile--portrait .tile__media { aspect-ratio: 3324 / 2492; }
 
 @media (max-width: 900px) {
   .projects__grid,
   .projects__grid--three { grid-template-columns: 1fr; max-width: 560px; }
-  .tile--portrait .tile__media { aspect-ratio: 4 / 6; }
 }
 
 /* The button wrapper — neutralised to behave like a transparent block.
@@ -467,7 +468,7 @@ html.is-intro body {
 
 .tile__media {
   position: relative;
-  aspect-ratio: 4 / 10;
+  aspect-ratio: 3324 / 2492;  /* matches the source video — no crop, no letterbox */
   overflow: hidden;
   background: var(--bone-2);
   border: 1px solid var(--hairline);
@@ -475,7 +476,7 @@ html.is-intro body {
 .tile__media img,
 .tile__video {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;        /* respect the asset's native composition */
   display: block;
   transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
   will-change: transform;
