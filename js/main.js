@@ -110,53 +110,51 @@ document.querySelectorAll('.display, .reveal, .eyebrow, blockquote, .tile, .cont
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* — Maya's Eye: optional cursor follower for interest while
-     hovering tiles. Adds a tiny "+" cursor inside the tile. — */
-document.querySelectorAll('[data-tile]').forEach((tile) => {
-  const dot = document.createElement('span');
-  dot.className = 'tile__cursor';
-  dot.setAttribute('aria-hidden', 'true');
-  dot.textContent = '+';
-  Object.assign(dot.style, {
-    position: 'absolute',
-    top: '0', left: '0',
-    width: '64px', height: '64px',
-    display: 'grid', placeItems: 'center',
-    color: 'var(--bone)',
-    fontFamily: 'var(--serif)',
-    fontStyle: 'italic',
-    fontSize: '24px',
-    pointerEvents: 'none',
-    transform: 'translate(-50%, -50%) scale(0)',
-    transition: 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1), opacity 280ms',
-    opacity: '0',
-    zIndex: '5',
-    mixBlendMode: 'difference',
-  });
-  const media = tile.querySelector('.tile__media');
-  if (!media) return;
-  media.style.position = 'relative';
-  media.appendChild(dot);
+/* =========================================================
+   PROJECT TILES — click-to-reveal morph videos.
 
-  let raf = 0;
-  const onMove = (e) => {
-    const r = media.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    const y = e.clientY - r.top;
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      dot.style.left = x + 'px';
-      dot.style.top = y + 'px';
-    });
+   Each tile holds a <video data-tile-video> paused on frame 0.
+   Clicking (or tapping) the tile plays the morph from start to
+   finish. The text/blueprint overlays remain on top of the video
+   so the problem-solving copy reads as the morph transforms.
+   ========================================================= */
+document.querySelectorAll('[data-tile]').forEach((tile) => {
+  const video = tile.querySelector('[data-tile-video]');
+  if (!video) return;
+
+  // Hard-set playback flags — same belt-and-braces as the intro.
+  video.muted = true;
+  video.playsInline = true;
+  video.setAttribute('webkit-playsinline', '');
+
+  // Pre-decode frame 0 once metadata arrives, so the user always
+  // sees the actual first frame ("before") rather than the poster
+  // or a blank canvas while the browser is deciding what to show.
+  const lockFrameZero = () => {
+    try { video.currentTime = 0; } catch (_) {}
+    try { video.pause(); } catch (_) {}
   };
-  media.addEventListener('pointerenter', () => {
-    dot.style.transform = 'translate(-50%, -50%) scale(1)';
-    dot.style.opacity = '1';
-    media.addEventListener('pointermove', onMove);
-  });
-  media.addEventListener('pointerleave', () => {
-    dot.style.transform = 'translate(-50%, -50%) scale(0)';
-    dot.style.opacity = '0';
-    media.removeEventListener('pointermove', onMove);
+  if (video.readyState >= 1) lockFrameZero();
+  else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
+
+  // Click-to-reveal — the magic.
+  const play = (e) => {
+    if (e) e.preventDefault();
+    // If already playing, ignore — let the morph finish naturally.
+    if (!video.paused && !video.ended) return;
+    tile.classList.add('is-playing');
+    try { video.currentTime = 0; } catch (_) {}
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
+  // The button wrapper is the natural click + keyboard target.
+  const btn = tile.querySelector('.tile__link') || tile;
+  btn.addEventListener('click', play);
+
+  // When the morph completes, video sits on its true last frame
+  // (the "after" state). Mark `is-revealed` so the hint stays gone.
+  video.addEventListener('ended', () => {
+    tile.classList.add('is-revealed');
   });
 });

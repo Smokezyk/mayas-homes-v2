@@ -22,10 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/door-entry.mp4?v=11" />
-  <link rel="preload" as="video" href="assets/videos/kitchen-zoom-in.mp4?v=11" />
-  <link rel="stylesheet" href="css/index.css?v=11" />
-  <link rel="stylesheet" href="css/animations.css?v=11" />
+  <link rel="preload" as="video" href="assets/videos/door-entry.mp4?v=12" />
+  <link rel="preload" as="video" href="assets/videos/kitchen-zoom-in.mp4?v=12" />
+  <link rel="stylesheet" href="css/index.css?v=12" />
+  <link rel="stylesheet" href="css/animations.css?v=12" />
 
   <script type="application/ld+json">
   {
@@ -76,7 +76,7 @@
       <video
         class="intro__layer intro__layer--1"
         data-intro-1
-        src="assets/videos/door-entry.mp4?v=11"
+        src="assets/videos/door-entry.mp4?v=12"
         autoplay
         muted
         playsinline
@@ -87,7 +87,7 @@
       <video
         class="intro__layer intro__layer--2"
         data-intro-2
-        src="assets/videos/kitchen-zoom-in.mp4?v=11"
+        src="assets/videos/kitchen-zoom-in.mp4?v=12"
         muted
         playsinline
         preload="auto"
@@ -166,9 +166,18 @@
 
       <div class="projects__grid projects__grid--three">
         <article class="tile tile--portrait" data-tile>
-          <a class="tile__link" href="#" aria-label="Bairro do Rosário, Cascais">
+          <button class="tile__link" type="button" aria-label="Reveal the Rosário transformation">
             <figure class="tile__media">
-              <img src="assets/images/rosario-hero.webp" alt="Bairro do Rosário living room with patio doors" loading="lazy" />
+              <video
+                class="tile__video"
+                data-tile-video
+                src="assets/videos/transformation-rosario.mp4?v=12"
+                poster="assets/images/rosario-hero.webp"
+                muted
+                playsinline
+                preload="metadata"
+                tabindex="-1"
+              ></video>
               <div class="tile__blueprint" aria-hidden="true">
                 <svg viewBox="0 0 400 500" preserveAspectRatio="none">
                   <defs>
@@ -189,19 +198,29 @@
               <div class="tile__solved" aria-hidden="true">
                 <p class="tile__solved-text">From cramped corridors<br /><em>to a single, breathing space.</em></p>
               </div>
+              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
             </figure>
             <div class="tile__caption">
               <span class="tile__index">01</span>
               <h3 class="tile__title">The Rosário Residence</h3>
               <p class="tile__meta">T2 · Cascais</p>
             </div>
-          </a>
+          </button>
         </article>
 
         <article class="tile tile--portrait" data-tile>
-          <a class="tile__link" href="#" aria-label="Alvide Ocean View, Cascais">
+          <button class="tile__link" type="button" aria-label="Reveal the Alvide transformation">
             <figure class="tile__media">
-              <img src="assets/images/alvide-hero.webp" alt="Alvide ocean view living space" loading="lazy" />
+              <video
+                class="tile__video"
+                data-tile-video
+                src="assets/videos/transformation-alvide.mp4?v=12"
+                poster="assets/images/alvide-hero.webp"
+                muted
+                playsinline
+                preload="metadata"
+                tabindex="-1"
+              ></video>
               <div class="tile__blueprint" aria-hidden="true">
                 <svg viewBox="0 0 400 500" preserveAspectRatio="none">
                   <defs>
@@ -222,19 +241,29 @@
               <div class="tile__solved" aria-hidden="true">
                 <p class="tile__solved-text">From a closed kitchen<br /><em>to an ocean-facing canvas.</em></p>
               </div>
+              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
             </figure>
             <div class="tile__caption">
               <span class="tile__index">02</span>
               <h3 class="tile__title">Luminous Alvide</h3>
               <p class="tile__meta">T2 · Cascais</p>
             </div>
-          </a>
+          </button>
         </article>
 
         <article class="tile tile--portrait" data-tile>
-          <a class="tile__link" href="#" aria-label="Riviera Villa, Cascais">
+          <button class="tile__link" type="button" aria-label="Reveal the Riviera transformation">
             <figure class="tile__media">
-              <img src="assets/images/riviera-openplan.webp" alt="Riviera villa open plan" loading="lazy" />
+              <video
+                class="tile__video"
+                data-tile-video
+                src="assets/videos/transformation-riviera.mp4?v=12"
+                poster="assets/images/riviera-openplan.webp"
+                muted
+                playsinline
+                preload="metadata"
+                tabindex="-1"
+              ></video>
               <div class="tile__blueprint" aria-hidden="true">
                 <svg viewBox="0 0 400 500" preserveAspectRatio="none">
                   <defs>
@@ -255,13 +284,14 @@
               <div class="tile__solved" aria-hidden="true">
                 <p class="tile__solved-text">From a dated villa<br /><em>to a contemporary retreat.</em></p>
               </div>
+              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
             </figure>
             <div class="tile__caption">
               <span class="tile__index">03</span>
               <h3 class="tile__title">The Riviera Sanctuary</h3>
               <p class="tile__meta">T3 · Cascais</p>
             </div>
-          </a>
+          </button>
         </article>
       </div>
 
@@ -456,8 +486,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=11" type="module"></script>
-  <script src="js/scroll-scrub.js?v=11" type="module"></script>
-  <script src="js/nav.js?v=11" type="module"></script>
+  <script src="js/main.js?v=12" type="module"></script>
+  <script src="js/scroll-scrub.js?v=12" type="module"></script>
+  <script src="js/nav.js?v=12" type="module"></script>
 </body>
 </html>

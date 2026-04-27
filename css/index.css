@@ -440,37 +440,63 @@ html.is-intro body {
 .projects__grid--three { grid-template-columns: repeat(3, 1fr); }
 
 .tile { position: relative; }
-.tile--portrait .tile__media { aspect-ratio: 3 / 4.2; }
+.tile--portrait .tile__media { aspect-ratio: 4 / 10; }
 
 @media (max-width: 900px) {
   .projects__grid,
   .projects__grid--three { grid-template-columns: 1fr; max-width: 560px; }
-  .tile--portrait .tile__media { aspect-ratio: 4 / 5; }
+  .tile--portrait .tile__media { aspect-ratio: 4 / 6; }
 }
 
-.tile__link { display: block; }
+/* The button wrapper — neutralised to behave like a transparent block.
+   Cursor is `pointer` so the entire tile reads as clickable. */
+.tile__link {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.tile__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
 .tile__media {
   position: relative;
-  aspect-ratio: 3 / 4.2;
+  aspect-ratio: 4 / 10;
   overflow: hidden;
   background: var(--bone-2);
   border: 1px solid var(--hairline);
 }
-.tile__media img {
+.tile__media img,
+.tile__video {
   width: 100%; height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
   will-change: transform;
 }
-.tile:hover .tile__media img,
-.tile:focus-within .tile__media img {
-  transform: scale(1.04);
-  filter: brightness(0.55) saturate(0.4);
+.tile__video { background: var(--bone-2); }
+
+/* Hover halo — same treatment for img or video. */
+.tile:hover .tile__media > img,
+.tile:focus-within .tile__media > img,
+.tile:hover .tile__video,
+.tile:focus-within .tile__video {
+  transform: scale(1.02);
 }
+/* Once playing, kill the dimming so the morph reads cleanly. */
+.tile.is-playing .tile__video { filter: none !important; transform: none !important; }
+.tile.is-playing:hover .tile__video { filter: none !important; }
 
 /* — Maya's Eye blueprint overlay — */
 .tile__blueprint {
   position: absolute; inset: 0;
+  z-index: 2;
   color: rgba(244, 239, 230, 0.92);
   opacity: 0;
   transform: scale(1.02);
@@ -509,7 +535,7 @@ html.is-intro body {
   transform: translateY(8px);
   transition: opacity 620ms 80ms var(--ease-out), transform 720ms 80ms var(--ease-out);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 .tile__solved-text {
   font-family: var(--serif);
@@ -534,6 +560,46 @@ html.is-intro body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* — "Click to reveal" hint — pearl badge in the corner of each tile.
+     Fades out when the morph plays. — */
+.tile__hint {
+  position: absolute;
+  top: clamp(14px, 1.6vw, 22px);
+  left: clamp(14px, 1.6vw, 22px);
+  z-index: 4;
+  padding: 8px 14px;
+  border: 1px solid rgba(244, 239, 230, 0.4);
+  border-radius: 999px;
+  background: rgba(20, 17, 14, 0.32);
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.92);
+  pointer-events: none;
+  transition: opacity 360ms var(--ease-out), transform 480ms var(--ease-out);
+}
+
+/* — While the morph is playing, the overlays stay visible above the
+     video so the problem-solving copy reads as the video transforms
+     behind it. The hint disappears, having served its purpose. — */
+.tile.is-playing .tile__blueprint {
+  opacity: 1;
+  transform: scale(1);
+}
+.tile.is-playing .tile__solved {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tile.is-playing .tile__hint {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.tile.is-revealed .tile__hint { opacity: 0; }
 
 .tile__caption {
   display: flex; align-items: baseline;
