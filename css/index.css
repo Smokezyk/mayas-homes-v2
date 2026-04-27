@@ -420,9 +420,9 @@ html.is-intro body {
 .manifesto__copy .display {
   max-width: 24ch;
   /* "Leon taste" polish — drop a step or two from the global display
-     scale and let the line breathe. */
+     scale and let the line breathe (relaxed leading). */
   font-size: clamp(34px, 4.4vw, 64px);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .manifesto__lede {
   font-size: var(--fs-lg);

@@ -36,11 +36,16 @@
   transform: translateY(0);
 }
 
-/* — Display word stagger — */
+/* — Display word stagger.
+     padding-bottom + negative margin-bottom give italic descenders
+     ("g", "p", "y") room below the baseline so they aren't clipped
+     by overflow: hidden — without shifting any layout. — */
 .display .word {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
+  padding-bottom: 0.25em;
+  margin-bottom: -0.25em;
 }
 .display .word > span {
   display: inline-block;
