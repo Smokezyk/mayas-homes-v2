@@ -7,7 +7,7 @@
    no possibility of a stutter or hang.
 
    Behaviour:
-     1. Master video autoplays + loops in the background.
+     1. Master video autoplays once through (no loop).
      2. Body scroll is locked until the video reaches the timestamp
         where the interior is fully revealed (REVEAL_TIME_S).
      3. At that timestamp:
@@ -15,7 +15,7 @@
           - The nav (logo) soft-fades into the top-left.
           - Scroll unlocks.
           - The "Scroll to Explore" cue fades in.
-     4. The video keeps looping in the background indefinitely.
+     4. Video plays through to its last frame and freezes there.
    ========================================================= */
 
 const { gsap } = window;
@@ -118,12 +118,20 @@ if (!introEl || !video) {
   };
 
   /* — Timestamp watcher: when the master reaches REVEAL_TIME_S,
-       crystallise the brand, which chains into unlockPage. The
-       `revealed` flag prevents re-firing on subsequent loop passes. — */
+       crystallise the brand, which chains into unlockPage. — */
   video.addEventListener('timeupdate', () => {
     if (!revealed && video.currentTime >= REVEAL_TIME_S) {
       crystallise();
     }
+  });
+
+  /* — Backup: if `timeupdate` somehow misses the threshold, the
+       `ended` event will catch it. Also ensures the video stays
+       paused on the final decoded frame — browsers do this by
+       default after `ended`, but we pin it explicitly. — */
+  video.addEventListener('ended', () => {
+    try { video.pause(); } catch (_) {}
+    if (!revealed) crystallise();
   });
 
   /* — Skip button: jump straight to the reveal moment. — */
