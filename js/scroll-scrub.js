@@ -27,11 +27,10 @@ const brand     = document.querySelector('[data-brand]');
 const cue       = document.querySelector('[data-cue]');
 const skipBtn   = document.querySelector('[data-intro-skip]');
 
-/* The master is door-entry (5.04s) + kitchen-zoom-in (5.04s)
-   stitched losslessly = 10.08s. The interior is fully revealed
-   at the very end of the kitchen-zoom segment. We trigger the
-   reveal a hair before the natural end for crisp timing. */
-const REVEAL_TIME_S = 9.9;
+/* The master (introvidfinal.mp4) is a single pre-stitched cinematic,
+   7.917s long. Interior is fully revealed on the final frame; we
+   trigger the reveal a hair before the natural end for crisp timing. */
+const REVEAL_TIME_S = 7.8;
 
 if (!introEl || !video) {
   // No intro markup — nothing to do.
