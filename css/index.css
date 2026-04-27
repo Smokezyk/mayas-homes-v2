@@ -192,22 +192,16 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   isolation: isolate;
 }
-.intro__layer {
+/* Single stitched master — autoplays, loops, no JS handover required. */
+.intro__video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: contrast(1.04) saturate(0.97);
-  /* No opacity transition — any fade reveals the .intro #000 backdrop
-     between the two layers, which reads as a "black frame". */
+  z-index: 2;
 }
-/* V2 sits UNDERNEATH V1, already playing, fully opaque.
-   V1 covers it until the moment of handover. */
-.intro__layer--1 { z-index: 3; opacity: 1; }
-.intro__layer--2 { z-index: 2; opacity: 1; }
-/* Handover = simply yank V1 out of view. V2 is revealed mid-playback. */
-.intro__layer--1.is-out { opacity: 0; visibility: hidden; }
 
 .intro__brand {
   position: absolute;
