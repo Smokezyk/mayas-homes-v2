@@ -73,7 +73,16 @@ if (!introEl || !v1 || !v2) {
   if (v2.readyState >= 1) prewarmV2();
   else v2.addEventListener('loadedmetadata', prewarmV2, { once: true });
 
-  /* — 3. THE BAM. Hide V1 + start V2 from frame 0. — */
+  /* — 3. THE BAM with frame-accurate sync.
+         The OLD bug: we hid V1 at the same instant we called play(),
+         but the browser takes a few frames (~30–100ms) to actually
+         present a moving frame. During that decoder warm-up, V2 sat
+         on a static frame 0 — that's the "hang" on V2's first frame.
+
+         The FIX: we kick V2 first, then use requestVideoFrameCallback
+         to wait for V2 to actually present a moving frame, and ONLY
+         then hide V1. The cut is delayed by ~1 frame (16–33ms) but
+         V2 is visibly in motion the moment it's revealed. — */
   let handed = false;
   let frozen = false;
   let unlocked = false;
@@ -82,19 +91,51 @@ if (!introEl || !v1 || !v2) {
     if (handed) return;
     handed = true;
 
-    // Hide V1 — V2 is the only visible layer from this moment on.
-    v1.classList.add('is-out');
+    // Safety: re-anchor only if drift somehow occurred.
+    if (v2.currentTime > 0.05) {
+      try { v2.currentTime = 0; } catch (_) {}
+    }
 
-    // Anchor V2 to its actual frame 0, then start playback.
-    try { v2.currentTime = 0; } catch (_) {}
+    let v1Hidden = false;
+    const hideV1 = () => {
+      if (v1Hidden) return;
+      v1Hidden = true;
+      v1.classList.add('is-out');
+    };
+
+    // Kick V2 — decoder starts working.
     const p = v2.play();
     if (p && typeof p.then === 'function') {
       p.then(startV2Watch).catch(() => {
         console.warn('[intro] V2 autoplay blocked. Freezing on first frame.');
+        hideV1();
         freezeAndReveal({ force: true });
       });
     } else {
       startV2Watch();
+    }
+
+    // Sync V1's disappearance with V2's first MOVING frame.
+    if ('requestVideoFrameCallback' in v2) {
+      let baseline = -1;
+      const onFrame = (_now, meta) => {
+        if (v1Hidden) return;
+        if (baseline < 0) baseline = meta.mediaTime;
+        // mediaTime has clearly advanced — V2 is rendering frame N+1.
+        if (meta.mediaTime > baseline + 0.03) {
+          hideV1();
+          return;
+        }
+        v2.requestVideoFrameCallback(onFrame);
+      };
+      v2.requestVideoFrameCallback(onFrame);
+      // Failsafe in case rVFC stalls (rare): hide within 150ms.
+      setTimeout(hideV1, 150);
+    } else {
+      // Browsers without rVFC: wait for `playing` event + grace.
+      v2.addEventListener('playing', () => setTimeout(hideV1, 40), { once: true });
+      // Belt-and-braces failsafe.
+      setTimeout(hideV1, 200);
     }
   };
 
