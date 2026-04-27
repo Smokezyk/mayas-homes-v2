@@ -133,12 +133,49 @@ if (!introEl || !video) {
     if (!revealed) crystallise();
   });
 
-  /* — Skip button: jump straight to the reveal moment. — */
+  /* — Skip button: cut INSTANTLY to the final state.
+       No animation — just jump the video to its last frame and snap
+       every UI element into the revealed/unlocked configuration. — */
   if (skipBtn) {
     skipBtn.addEventListener('click', () => {
-      if (revealed) return;
-      try { video.currentTime = REVEAL_TIME_S; } catch (_) {}
-      crystallise();
+      if (unlocked) return;
+
+      // Mark state up front so any in-flight watchers no-op.
+      revealed = true;
+      unlocked = true;
+
+      // Cancel any GSAP tweens that might be running on these targets.
+      if (gsap) gsap.killTweensOf([brand, cue, skipBtn].filter(Boolean));
+
+      // Park the video on its very last frame, paused.
+      try {
+        if (isFinite(video.duration)) video.currentTime = video.duration;
+        video.pause();
+      } catch (_) {}
+
+      // Snap the brand to its final state — no transition.
+      if (brand) {
+        brand.style.transition = 'none';
+        brand.style.opacity = '1';
+        brand.style.filter = 'blur(0px)';
+      }
+
+      // Snap the nav (logo) into view.
+      const navEl = document.querySelector('[data-nav]');
+      if (navEl) navEl.classList.add('is-visible');
+
+      // Snap the cue in.
+      if (cue) {
+        cue.style.transition = 'none';
+        cue.style.opacity = '1';
+      }
+
+      // Hide the skip button itself.
+      skipBtn.setAttribute('hidden', '');
+
+      // Unlock scroll & broadcast.
+      root.classList.remove('is-intro');
+      window.dispatchEvent(new CustomEvent('intro:end'));
     });
   }
 
