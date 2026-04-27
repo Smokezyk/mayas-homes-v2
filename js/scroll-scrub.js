@@ -26,6 +26,26 @@ const video     = document.querySelector('[data-hero-master]');
 const brand     = document.querySelector('[data-brand]');
 const cue       = document.querySelector('[data-cue]');
 const skipBtn   = document.querySelector('[data-intro-skip]');
+const nameEl    = document.querySelector('.intro__name');
+
+/* — Split MAYA'S HOMES into per-character spans for the architectural
+     build animation. Aria-label preserves the readable text for
+     screen readers while the visual spans are decorative. — */
+const nameChars = [];
+if (nameEl) {
+  const original = nameEl.textContent.trim();
+  nameEl.setAttribute('aria-label', original);
+  nameEl.textContent = '';
+  for (const ch of original) {
+    const span = document.createElement('span');
+    span.className = 'intro__name-char';
+    span.setAttribute('aria-hidden', 'true');
+    // U+00A0 non-breaking space preserves visible spacing between words.
+    span.textContent = ch === ' ' ? ' ' : ch;
+    nameEl.appendChild(span);
+    nameChars.push(span);
+  }
+}
 
 /* The master (introvidfinal.mp4) is a single pre-stitched cinematic,
    7.917s long. Interior is fully revealed on the final frame; we
@@ -61,7 +81,10 @@ if (!introEl || !video) {
 
   /* — Crystallize text reveal:
          filter: blur(10px) opacity 0  →  filter: blur(0px) opacity 1
-         duration: 1.5s, ease: power2.out — */
+         duration: 1.5s, ease: power2.out
+       — runs in parallel with the architectural build for MAYA'S HOMES,
+       which assembles per-character with alternating Y offsets,
+       then locks in (color resolves, stroke fades). */
   const crystallise = () => {
     if (revealed) return;
     revealed = true;
@@ -76,6 +99,33 @@ if (!introEl || !video) {
       brand.style.opacity = '1';
       brand.style.filter = 'blur(0px)';
       setTimeout(unlockPage, 1500);
+    }
+
+    /* Architectural build for MAYA'S HOMES — kicks in as the hook
+       settles. Two phases:
+         (1) Assembly: each char from alternating Y offsets, opacity
+             0 → 1, expo.out for that "mechanical, heavy" snap.
+         (2) Lock: CSS class .is-locked toggles color: transparent →
+             #000 and stroke: dark → transparent, both eased over
+             ~620ms. Total architectural sequence ≈ 1.7s. */
+    if (gsap && nameChars.length) {
+      gsap.fromTo(nameChars,
+        { y: (i) => i % 2 === 0 ? 22 : -22, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.55,
+          stagger: 0.045,
+          ease: 'expo.out',
+          delay: 1.0,                                  // start as hook settles
+          onComplete: () => nameEl.classList.add('is-locked'),
+        });
+    } else if (nameEl && nameChars.length) {
+      // No GSAP — snap reveal after a short delay.
+      setTimeout(() => {
+        nameChars.forEach((c) => { c.style.opacity = '1'; });
+        nameEl.classList.add('is-locked');
+      }, 1100);
     }
 
     /* Logo UI Transition: nav (logo) soft-fades into the top-left
@@ -145,7 +195,7 @@ if (!introEl || !video) {
       unlocked = true;
 
       // Cancel any GSAP tweens that might be running on these targets.
-      if (gsap) gsap.killTweensOf([brand, cue, skipBtn].filter(Boolean));
+      if (gsap) gsap.killTweensOf([brand, cue, skipBtn, ...nameChars].filter(Boolean));
 
       // Park the video on its very last frame, paused.
       try {
@@ -159,6 +209,16 @@ if (!introEl || !video) {
         brand.style.opacity = '1';
         brand.style.filter = 'blur(0px)';
       }
+
+      // Snap MAYA'S HOMES chars to fully assembled + locked state.
+      nameChars.forEach((c) => {
+        c.style.transition = 'none';
+        c.style.transform = 'translateY(0)';
+        c.style.opacity = '1';
+        c.style.color = '#000';
+        c.style.webkitTextStrokeColor = 'transparent';
+      });
+      if (nameEl) nameEl.classList.add('is-locked');
 
       // Snap the nav (logo) into view.
       const navEl = document.querySelector('[data-nav]');
