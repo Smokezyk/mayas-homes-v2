@@ -207,8 +207,11 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   display: grid;
-  /* Centred in the section — sits squarely in the middle of the page. */
-  place-items: center;
+  /* Bottom-anchored: MAYA'S HOMES (the last child) is pinned at the
+     line set by padding-bottom. Adding lines above grows the cluster
+     UPWARD instead of pushing MAYA'S HOMES down. */
+  place-items: end center;
+  padding-bottom: clamp(160px, 40vh, 480px);
   text-align: center;
   pointer-events: none;
   z-index: 4;
