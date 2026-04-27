@@ -61,6 +61,11 @@
 .display.is-in .word:nth-child(8) > span { transition-delay: 380ms; }
 .display.is-in .word:nth-child(n+9) > span { transition-delay: 420ms; }
 
+/* Once the slide-up reveal has fully settled, open the word wrapper
+   so italic glyphs ("biggest", "perfection.", "problem-solver") can
+   extend beyond their bounding box without being clipped. */
+.display.is-locked-in .word { overflow: visible; }
+
 /* — Cursor magnet for nav CTA — */
 .nav__cta { will-change: transform; }
 

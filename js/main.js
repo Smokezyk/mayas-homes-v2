@@ -87,12 +87,21 @@ const splitDisplay = (el) => {
 };
 document.querySelectorAll('.display').forEach(splitDisplay);
 
-/* — Reveal sections + display headlines on intersection — */
+/* — Reveal sections + display headlines on intersection. After the
+     slide-up reveal completes, .display elements get an additional
+     .is-locked-in class so their .word wrappers can switch to
+     overflow: visible — italic glyphs no longer get clipped. — */
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-in');
-      io.unobserve(entry.target);
+      const el = entry.target;
+      el.classList.add('is-in');
+      // Slide-up animation runs ~1000ms with up to ~420ms stagger →
+      // 1500ms is comfortably past the last word settling.
+      if (el.classList.contains('display')) {
+        setTimeout(() => el.classList.add('is-locked-in'), 1500);
+      }
+      io.unobserve(el);
     }
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
