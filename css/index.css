@@ -252,10 +252,10 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   display: grid;
   /* Bottom-anchored: MAYA'S HOMES (the last child) is pinned at the
-     line set by padding-bottom. Adjusted slightly down (~2.5vh)
-     while preserving every internal grid gap. */
+     line set by padding-bottom. Smaller padding -> cluster sits a
+     touch lower; internal grid gaps untouched. */
   place-items: end center;
-  padding-bottom: clamp(210px, 47.5vh, 580px);
+  padding-bottom: clamp(195px, 46vh, 560px);
   text-align: center;
   pointer-events: none;
   z-index: 4;
