@@ -1,17 +1,12 @@
 /* =========================================================
    CINEMATIC INTRO — single stitched master video.
 
-   The two source clips (door-entry, kitchen-zoom-in) have been
-   stitched into ONE file (hero-cinematic-master.mp4) so the
-   transition is part of the encoded video itself — no JS handover,
-   no possibility of a stutter or hang.
-
    Behaviour:
      1. Master video autoplays once through (no loop).
      2. Body scroll is locked until the video reaches the timestamp
         where the interior is fully revealed (REVEAL_TIME_S).
      3. At that timestamp:
-          - The hero text crystallises in (blur 10px → 0, ease-out).
+          - The hero brand crystallises in (blur 10px → 0, ease-out).
           - The nav (logo) soft-fades into the top-left.
           - Scroll unlocks.
           - The "Scroll to Explore" cue fades in.
@@ -26,26 +21,6 @@ const video     = document.querySelector('[data-hero-master]');
 const brand     = document.querySelector('[data-brand]');
 const cue       = document.querySelector('[data-cue]');
 const skipBtn   = document.querySelector('[data-intro-skip]');
-const nameEl    = document.querySelector('.intro__name');
-
-/* — Split MAYA'S HOMES into per-character spans for the architectural
-     build animation. Aria-label preserves the readable text for
-     screen readers while the visual spans are decorative. — */
-const nameChars = [];
-if (nameEl) {
-  const original = nameEl.textContent.trim();
-  nameEl.setAttribute('aria-label', original);
-  nameEl.textContent = '';
-  for (const ch of original) {
-    const span = document.createElement('span');
-    span.className = 'intro__name-char';
-    span.setAttribute('aria-hidden', 'true');
-    // U+00A0 non-breaking space preserves visible spacing between words.
-    span.textContent = ch === ' ' ? ' ' : ch;
-    nameEl.appendChild(span);
-    nameChars.push(span);
-  }
-}
 
 /* The master (introvidfinal.mp4) is a single pre-stitched cinematic,
    ~8.04s long. Interior is fully revealed on the final frame; we
@@ -84,9 +59,8 @@ if (!introEl || !video) {
   /* — Crystallize text reveal:
          filter: blur(10px) opacity 0  →  filter: blur(0px) opacity 1
          duration: 1.5s, ease: power2.out
-       — runs in parallel with the architectural build for MAYA'S HOMES,
-       which assembles per-character with alternating Y offsets,
-       then locks in (color resolves, stroke fades). */
+       The whole brand block (hook, guarantee lines, MAYA'S HOMES) fades
+       in as one unit. No per-character build. — */
   const crystallise = () => {
     if (revealed) return;
     revealed = true;
@@ -101,33 +75,6 @@ if (!introEl || !video) {
       brand.style.opacity = '1';
       brand.style.filter = 'blur(0px)';
       setTimeout(unlockPage, 1500);
-    }
-
-    /* Architectural build for MAYA'S HOMES — kicks in as the hook
-       settles. Two phases:
-         (1) Assembly: each char from alternating Y offsets, opacity
-             0 → 1, expo.out for that "mechanical, heavy" snap.
-         (2) Lock: CSS class .is-locked toggles color: transparent →
-             #000 and stroke: dark → transparent, both eased over
-             ~620ms. Total architectural sequence ≈ 1.7s. */
-    if (gsap && nameChars.length) {
-      gsap.fromTo(nameChars,
-        { y: (i) => i % 2 === 0 ? 22 : -22, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.55,
-          stagger: 0.045,
-          ease: 'expo.out',
-          delay: 1.0,                                  // start as hook settles
-          onComplete: () => nameEl.classList.add('is-locked'),
-        });
-    } else if (nameEl && nameChars.length) {
-      // No GSAP — snap reveal after a short delay.
-      setTimeout(() => {
-        nameChars.forEach((c) => { c.style.opacity = '1'; });
-        nameEl.classList.add('is-locked');
-      }, 1100);
     }
 
     /* Logo UI Transition: nav (logo) soft-fades into the top-left
@@ -178,8 +125,7 @@ if (!introEl || !video) {
 
   /* — Backup: if `timeupdate` somehow misses the threshold, the
        `ended` event will catch it. Also ensures the video stays
-       paused on the final decoded frame — browsers do this by
-       default after `ended`, but we pin it explicitly. — */
+       paused on the final decoded frame. — */
   video.addEventListener('ended', () => {
     try { video.pause(); } catch (_) {}
     if (!revealed) crystallise();
@@ -197,7 +143,7 @@ if (!introEl || !video) {
       unlocked = true;
 
       // Cancel any GSAP tweens that might be running on these targets.
-      if (gsap) gsap.killTweensOf([brand, cue, skipBtn, ...nameChars].filter(Boolean));
+      if (gsap) gsap.killTweensOf([brand, cue, skipBtn].filter(Boolean));
 
       // Park the video on its very last frame, paused.
       try {
@@ -211,16 +157,6 @@ if (!introEl || !video) {
         brand.style.opacity = '1';
         brand.style.filter = 'blur(0px)';
       }
-
-      // Snap MAYA'S HOMES chars to fully assembled + locked state.
-      nameChars.forEach((c) => {
-        c.style.transition = 'none';
-        c.style.transform = 'translateY(0)';
-        c.style.opacity = '1';
-        c.style.color = '#000';
-        c.style.webkitTextStrokeColor = 'transparent';
-      });
-      if (nameEl) nameEl.classList.add('is-locked');
 
       // Snap the nav (logo) into view.
       const navEl = document.querySelector('[data-nav]');
@@ -241,12 +177,11 @@ if (!introEl || !video) {
     });
   }
 
-  /* — Failsafe: if for some reason `timeupdate` never fires (rare),
-       force the reveal after 15s so the user is never trapped. — */
+  /* — Failsafe: 30s rescue. — */
   setTimeout(() => {
-    if (!revealed) {
-      console.warn('[intro] failsafe reveal fired (timeupdate never crossed threshold).');
-      crystallise();
+    if (!unlocked) {
+      console.warn('[intro] failsafe unlock fired.');
+      if (!revealed) crystallise();
     }
-  }, 15000);
+  }, 30000);
 }

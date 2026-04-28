@@ -253,9 +253,10 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   /* Bottom-anchored: MAYA'S HOMES (the last child) is pinned at the
      line set by padding-bottom. Adding lines above grows the cluster
-     UPWARD instead of pushing MAYA'S HOMES down. */
+     UPWARD instead of pushing MAYA'S HOMES down. Bumped padding by
+     ~10vh to lift the whole cluster up another 10% of viewport. */
   place-items: end center;
-  padding-bottom: clamp(160px, 40vh, 480px);
+  padding-bottom: clamp(220px, 50vh, 600px);
   text-align: center;
   pointer-events: none;
   z-index: 4;
@@ -323,26 +324,6 @@ a { color: inherit; text-decoration: none; }
 .intro__brand--dark .intro__guarantee { color: #000 !important; opacity: 0.78; }
 .intro__brand--dark .intro__name { color: #000 !important; text-shadow: none !important; }
 
-/* =========================================================
-   ARCHITECTURAL BUILD — MAYA'S HOMES per-character reveal.
-   Each character starts as a wireframe outline (transparent fill +
-   thin dark stroke), then GSAP assembles them with alternating Y
-   offsets, and finally the `.is-locked` class transitions the fill
-   in and the stroke out.
-   ========================================================= */
-.intro__name-char {
-  display: inline-block;
-  opacity: 0;                                    /* invisible until GSAP brings them in */
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.45);  /* blueprint outline */
-  color: transparent;
-  transition: color 620ms cubic-bezier(0.16, 1, 0.3, 1),
-              -webkit-text-stroke-color 620ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity, color;
-}
-.intro__name.is-locked .intro__name-char {
-  color: #000;                          /* fill resolves to solid */
-  -webkit-text-stroke-color: transparent; /* stroke fades */
-}
 
 /* Guarantee uses standard grid gap above and below — every gap in
    the brand cluster is exactly the grid `gap` on .intro__brand-inner. */
