@@ -142,14 +142,15 @@ a { color: inherit; text-decoration: none; }
               border-color 380ms var(--ease-out),
               box-shadow 380ms var(--ease-out);
 }
-/* Past the hero: full glassmorphism — 70% bone + blur. */
+/* Once the brand lands: subtle glass — 55% bone, gentle blur,
+   hairline border, faint shadow. Just enough to seat the wordmark. */
 .nav.is-scrolled .nav__inner {
-  background: rgba(244, 239, 230, 0.7);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(244, 239, 230, 0.55);
+  backdrop-filter: blur(14px) saturate(135%);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
   border-color: var(--hairline);
-  box-shadow: 0 12px 40px -16px rgba(20, 17, 14, 0.18),
-              inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 28px -16px rgba(20, 17, 14, 0.14),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .nav__brand {
   display: inline-flex;
@@ -310,13 +311,16 @@ a { color: inherit; text-decoration: none; }
   line-height: 1;
 }
 
-/* The Brand — final signature. Tracked Cormorant, ultra-light. */
+/* The Brand — final signature. Tracked Cormorant, ultra-light.
+   letter-spacing held at 0.15em — same as the header wordmark — so
+   typography stays visually consistent through the scroll-driven
+   scale-down into the header. */
 .intro__name {
   font-family: var(--serif);
   font-weight: 200;
   font-size: clamp(28px, 3.6vw, 56px);
-  letter-spacing: 0.32em;
-  text-indent: 0.32em;
+  letter-spacing: 0.15em;
+  text-indent: 0.15em;
   color: #F5F5F0;
   line-height: 1;
   text-shadow: 0 2px 36px rgba(0,0,0,0.18);
@@ -334,7 +338,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 720px) {
   .intro__hook { font-size: clamp(22px, 6.5vw, 36px); }
-  .intro__name { letter-spacing: 0.24em; text-indent: 0.24em; }
+  .intro__name { letter-spacing: 0.15em; text-indent: 0.15em; }
 }
 
 .intro__cue {

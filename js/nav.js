@@ -24,10 +24,10 @@ if (nav) {
   const HIDE_DELTA = 6;
   const SHOW_DELTA = 4;
   const TOP_ANCHOR_Y = 80;        // always visible above this scrollY post-intro
-  /* Glass kicks in as soon as the user starts scrolling — synced with
-     the brand-flight window (0 → 100 px). Header is transparent at
-     scrollY 0 and gains the glassmorphism the moment scroll begins. */
-  const GLASS_AT_Y = () => 30;
+  /* Glass appears AT the moment the brand locks into the header —
+     the end of the 100 px flight. Until then the header is fully
+     transparent so the wordmark "lands" cleanly into a settled pill. */
+  const GLASS_AT_Y = () => 90;
 
   const setVisible = (next) => {
     if (next === visible) return;
@@ -112,24 +112,28 @@ if (nav) {
       },
     });
 
-    /* The hero wordmark stays VISIBLE while it scales + translates
-       toward the top-left. The opacity handoff only happens in the
-       last sliver of the timeline so it reads as a single element
-       arriving in the header rather than two crossfading. */
+    /* The hero wordmark physically TRAVELS to the header. Scale
+       down to roughly the nav wordmark size, translate up-left to
+       the header position. By scroll = 100% the brand visually sits
+       on the same spot as the (still-invisible) nav wordmark. The
+       nav brand then takes over — same letter-spacing (0.15em) so
+       the swap is imperceptible.
 
-    // Whole window: scale + translate the hero brand toward the header.
+       Reverse: scrub returns scale & position to the centred hero
+       state, nav fades back out, hero brand reappears. */
+
     tl.to(heroBrand, {
-      scale: 0.32,
-      xPercent: -30,
-      yPercent: -32,
+      scale: 0.3,
+      x: '-42vw',
+      y: '-45vh',
       ease: 'power2.in',
     }, 0);
 
-    // Final 15%: hero brand fades out smoothly...
-    tl.to(heroBrand, { opacity: 0, duration: 0.15, ease: 'none' }, 0.85);
-    // ...and the nav wordmark JUMPS in the instant the hero is gone.
-    // ease: 'steps(1)' holds at 0 for the whole tween, then snaps to 1.
-    tl.to(navBrand,  { opacity: 1, duration: 0.05, ease: 'steps(1)' }, 0.95);
+    // 92 → 100%: invisible handoff at the landing. Both elements
+    // sit at the same visual position with the same letter-spacing,
+    // so the user doesn't perceive a swap — just an arrival.
+    tl.to(heroBrand, { opacity: 0, duration: 0.08, ease: 'none' }, 0.92);
+    tl.to(navBrand,  { opacity: 1, duration: 0.08, ease: 'none' }, 0.92);
 
     // Pill expansion runs across the full window (so the header
     // already has space when the wordmark lands).
