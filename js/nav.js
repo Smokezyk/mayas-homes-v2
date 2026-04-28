@@ -112,15 +112,12 @@ if (nav) {
       },
     });
 
-    /* The hero wordmark physically TRAVELS to the header. Scale
-       down to roughly the nav wordmark size, translate up-left to
-       the header position. By scroll = 100% the brand visually sits
-       on the same spot as the (still-invisible) nav wordmark. The
-       nav brand then takes over — same letter-spacing (0.15em) so
-       the swap is imperceptible.
+    /* The nav wordmark is permanently visible (CSS), so MAYA'S HOMES
+       is always on screen — either in the centred hero or in the
+       header (or both during the brief travel).
 
-       Reverse: scrub returns scale & position to the centred hero
-       state, nav fades back out, hero brand reappears. */
+       Hero wordmark scales + translates toward the header and fades
+       at the end of the window. Nav wordmark stays put. */
 
     tl.to(heroBrand, {
       scale: 0.3,
@@ -129,20 +126,8 @@ if (nav) {
       ease: 'power2.in',
     }, 0);
 
-    // 92 → 100%: invisible handoff at the landing. Both elements
-    // sit at the same visual position with the same letter-spacing,
-    // so the user doesn't perceive a swap — just an arrival.
-    tl.to(heroBrand, { opacity: 0, duration: 0.08, ease: 'none' }, 0.92);
-    tl.to(navBrand,  { opacity: 1, duration: 0.08, ease: 'none' }, 0.92);
-
-    // Pill expansion runs across the full window (so the header
-    // already has space when the wordmark lands).
-    if (navBrandLink) {
-      tl.to(navBrandLink, {
-        maxWidth: '16em',
-        ease: 'power2.out',
-      }, 0);
-    }
+    // 80 → 100%: hero brand fades out as it arrives at the header.
+    tl.to(heroBrand, { opacity: 0, duration: 0.2, ease: 'none' }, 0.8);
 
     // Refresh after the intro lifts the scroll lock — the page can
     // finally scroll, so ScrollTrigger needs to re-measure.

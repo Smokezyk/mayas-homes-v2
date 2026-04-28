@@ -160,12 +160,8 @@ a { color: inherit; text-decoration: none; }
   font-size: var(--fs-lg);
   font-weight: 500;
   letter-spacing: -0.01em;
-  /* Collapsed by default — GSAP scrub tweens max-width as the user
-     scrolls 0 → 100px so the pill expands in lockstep with the
-     wordmark fading in. */
-  max-width: 0;
-  overflow: hidden;
-  will-change: max-width;
+  /* Always sized to content — wordmark is permanently visible in the
+     header so MAYA'S HOMES is on screen at every scroll position. */
 }
 .nav__brand-logo {
   height: clamp(28px, 3.4vw, 38px);
@@ -174,8 +170,7 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 /* Wordmark in the header — wide-spaced, restrained, high-end serif.
-   Initially invisible: faded in by GSAP during the first 100px of
-   scroll while the hero brand "flies" toward the top-left. */
+   Permanently visible as soon as the nav itself appears (post intro). */
 .nav__brand-name {
   display: inline-block;
   font-family: var(--serif);
@@ -185,8 +180,6 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--ink);
   white-space: nowrap;
-  opacity: 0;
-  will-change: opacity;
 }
 .nav__links {
   display: flex; align-items: center;
