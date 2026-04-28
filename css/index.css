@@ -160,6 +160,14 @@ a { color: inherit; text-decoration: none; }
   font-size: var(--fs-lg);
   font-weight: 500;
   letter-spacing: -0.01em;
+  /* Collapse to zero width while the wordmark is invisible, so the
+     pill doesn't reserve space for text that isn't shown yet. */
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 520ms var(--ease-out);
+}
+.nav__brand.is-shown {
+  max-width: 16em;
 }
 .nav__brand-logo {
   height: clamp(28px, 3.4vw, 38px);

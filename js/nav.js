@@ -96,6 +96,20 @@ if (nav) {
   if (gsap && ScrollTrigger && heroBrand && navBrand) {
     gsap.registerPlugin(ScrollTrigger);
 
+    /* Collapse / expand the brand <a> at the first nudge of scroll.
+       Pre-scroll: max-width 0 → pill is sized just for links + CTA.
+       Past scrollY 6: max-width grows → pill expands to show the
+       wordmark. CSS handles the smooth width transition. */
+    const navBrandLink = document.querySelector('.nav__brand');
+    if (navBrandLink) {
+      ScrollTrigger.create({
+        trigger: 'body',
+        start: '6 top',
+        onEnter: () => navBrandLink.classList.add('is-shown'),
+        onLeaveBack: () => navBrandLink.classList.remove('is-shown'),
+      });
+    }
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: 'body',
