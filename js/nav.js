@@ -97,12 +97,17 @@ if (nav) {
     gsap.registerPlugin(ScrollTrigger);
 
     const navBrandLink = document.querySelector('.nav__brand');
+    const introSection = document.querySelector('[data-intro]');
 
+    /* Trigger the flight only AFTER the hero exits — bottom of the
+       hero passing the top of the viewport. While the user is still
+       inside the hero, the pill stays compact and the wordmark stays
+       in the centre of the page. Reversal is automatic via scrub. */
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: '100 top',
+        trigger: introSection || 'body',
+        start: 'bottom top',
+        end: '+=140',
         scrub: 0.4,
       },
     });
