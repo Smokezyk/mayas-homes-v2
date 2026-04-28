@@ -98,17 +98,16 @@ if (nav) {
 
     const navBrandLink = document.querySelector('.nav__brand');
 
-    /* Gradual flight from scroll = 0 → ~60% of viewport.
-       At the top: hero brand in the centre, pill compact.
-       Halfway through the window: hero brand half-faded, pill mid-grown.
-       At the end (scroll ~ 0.6 × viewport): hero brand gone,
-       pill fully holding MAYA'S HOMES. Reversal is automatic. */
+    /* Quick flight: starts the instant the user nudges scroll, and
+       wraps up in ~320 px (≈ 3 mouse-wheel ticks). Reversal is
+       automatic — same 320 px window in reverse takes the wordmark
+       back into the hero. */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: 'body',
         start: 'top top',
-        end: () => `+=${Math.round(window.innerHeight * 0.6)}`,
-        scrub: 0.4,
+        end: '+=320',
+        scrub: 0.3,
         invalidateOnRefresh: true,
       },
     });
