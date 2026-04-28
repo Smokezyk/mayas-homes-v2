@@ -97,18 +97,19 @@ if (nav) {
     gsap.registerPlugin(ScrollTrigger);
 
     const navBrandLink = document.querySelector('.nav__brand');
-    const introSection = document.querySelector('[data-intro]');
 
-    /* Trigger the flight only AFTER the hero exits — bottom of the
-       hero passing the top of the viewport. While the user is still
-       inside the hero, the pill stays compact and the wordmark stays
-       in the centre of the page. Reversal is automatic via scrub. */
+    /* Gradual flight from scroll = 0 → ~60% of viewport.
+       At the top: hero brand in the centre, pill compact.
+       Halfway through the window: hero brand half-faded, pill mid-grown.
+       At the end (scroll ~ 0.6 × viewport): hero brand gone,
+       pill fully holding MAYA'S HOMES. Reversal is automatic. */
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: introSection || 'body',
-        start: 'bottom top',
-        end: '+=140',
+        trigger: 'body',
+        start: 'top top',
+        end: () => `+=${Math.round(window.innerHeight * 0.6)}`,
         scrub: 0.4,
+        invalidateOnRefresh: true,
       },
     });
 
