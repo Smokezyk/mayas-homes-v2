@@ -112,27 +112,58 @@ if (nav) {
       },
     });
 
-    /* Logo Transfer: hero wordmark migrates to the header.
-       — 0 → 100%: scales down + translates up-left to land on top
-         of where the (still-invisible) nav wordmark sits.
-       — 80 → 100%: hero opacity 1 → 0 AND nav opacity 0 → 1,
-         crossfading at the same visual position so the user
-         perceives one element settling into the header.
-       — 0 → 100%: pill maxWidth 0 → 16em, so the header has space
-         for the wordmark when it lands.
-       Reverse: pure scrub. Returns to centred hero on scroll-up. */
+    /* Logo Transfer: hero wordmark migrates to the EXACT spot the
+       nav wordmark occupies in the header (just before "Our
+       Standard"). We compute the target offset dynamically so it
+       lands precisely regardless of viewport size. */
 
-    // Pure vertical zoom — straight up to the header line. No
-     // horizontal drift; the brand stays centred as it scales down.
+    const computeTarget = () => {
+      if (!heroBrand || !navBrand || !navBrandLink) return { x: 0, y: 0, scale: 0.3 };
+
+      // Reset hero transform so we measure its natural position.
+      const savedTransform = heroBrand.style.transform;
+      heroBrand.style.transform = '';
+
+      // Temporarily expand the nav so we can read where the
+      // wordmark actually sits when visible.
+      const savedMW  = navBrandLink.style.maxWidth;
+      const savedOp  = navBrand.style.opacity;
+      navBrandLink.style.maxWidth = '16em';
+      navBrand.style.opacity = '1';
+
+      const hero = heroBrand.getBoundingClientRect();
+      const nav  = navBrand.getBoundingClientRect();
+
+      // Restore.
+      heroBrand.style.transform = savedTransform;
+      navBrandLink.style.maxWidth = savedMW;
+      navBrand.style.opacity = savedOp;
+
+      const heroCx = hero.left + hero.width  / 2;
+      const heroCy = hero.top  + hero.height / 2;
+      const navCx  = nav.left  + nav.width   / 2;
+      const navCy  = nav.top   + nav.height  / 2;
+
+      return {
+        x: navCx - heroCx,
+        y: navCy - heroCy,
+        scale: hero.width > 0 ? Math.max(nav.width / hero.width, 0.15) : 0.3,
+      };
+    };
+
+    // Hero scales + translates to the nav brand's exact spot.
     tl.to(heroBrand, {
-      scale: 0.3,
-      y: '-45vh',
-      ease: 'power2.in',
+      x:     () => computeTarget().x,
+      y:     () => computeTarget().y,
+      scale: () => computeTarget().scale,
+      ease:  'power2.in',
     }, 0);
 
+    // 80 → 100%: invisible handoff at the landing.
     tl.to(heroBrand, { opacity: 0, duration: 0.2, ease: 'none' }, 0.8);
     tl.to(navBrand,  { opacity: 1, duration: 0.2, ease: 'none' }, 0.8);
 
+    // Pill grows over the full window so the header has space ready.
     if (navBrandLink) {
       tl.to(navBrandLink, {
         maxWidth: '16em',
