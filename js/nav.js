@@ -24,9 +24,10 @@ if (nav) {
   const HIDE_DELTA = 6;
   const SHOW_DELTA = 4;
   const TOP_ANCHOR_Y = 80;        // always visible above this scrollY post-intro
-  /* Glass kicks in once the user has scrolled past ~80% of the
-     hero (one viewport). Cleaner than waiting for the full 100vh. */
-  const GLASS_AT_Y = () => Math.max(window.innerHeight * 0.8, 600);
+  /* Glass kicks in as soon as the user starts scrolling — synced with
+     the brand-flight window (0 → 100 px). Header is transparent at
+     scrollY 0 and gains the glassmorphism the moment scroll begins. */
+  const GLASS_AT_Y = () => 30;
 
   const setVisible = (next) => {
     if (next === visible) return;
@@ -98,15 +99,15 @@ if (nav) {
 
     const navBrandLink = document.querySelector('.nav__brand');
 
-    /* Almost-instant flight: as soon as the brand is no longer
-       perfectly centred, it snaps up to the header. ~80 px window
-       ≈ a single wheel tick. Reverses 1:1 on scroll-up. */
+    /* Smooth flight across the first 100 px of scroll. Reversal is
+       automatic via scrub — same 100 px window in reverse takes the
+       wordmark back into the hero centre. */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: 'body',
         start: 'top top',
-        end: '+=80',
-        scrub: 0.2,
+        end: '+=100',
+        scrub: 0.3,
         invalidateOnRefresh: true,
       },
     });
