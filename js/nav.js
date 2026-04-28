@@ -98,16 +98,15 @@ if (nav) {
 
     const navBrandLink = document.querySelector('.nav__brand');
 
-    /* Quick flight: starts the instant the user nudges scroll, and
-       wraps up in ~320 px (≈ 3 mouse-wheel ticks). Reversal is
-       automatic — same 320 px window in reverse takes the wordmark
-       back into the hero. */
+    /* Almost-instant flight: as soon as the brand is no longer
+       perfectly centred, it snaps up to the header. ~80 px window
+       ≈ a single wheel tick. Reverses 1:1 on scroll-up. */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: 'body',
         start: 'top top',
-        end: '+=320',
-        scrub: 0.3,
+        end: '+=80',
+        scrub: 0.2,
         invalidateOnRefresh: true,
       },
     });
