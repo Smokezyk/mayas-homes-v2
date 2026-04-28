@@ -493,6 +493,79 @@ html.is-intro body {
 }
 
 /* =========================================================
+   STATS BAND — key trust figures
+   ========================================================= */
+/* =========================================================
+   STATS BAND — editorial figures, hairline-divided.
+   Cascais meets Architectural Digest — light, restrained, refined.
+   ========================================================= */
+.stats {
+  background: var(--paper);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: clamp(80px, 10vw, 160px) var(--pad-x);
+}
+.stats__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+}
+.stats__item {
+  position: relative;
+  padding: clamp(8px, 1vw, 18px) clamp(20px, 3vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.4vw, 22px);
+}
+/* Hairline rule on the left of every item except the first —
+   classic editorial divider treatment. */
+.stats__item + .stats__item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8%; bottom: 8%;
+  width: 1px;
+  background: var(--hairline);
+}
+.stats__number {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6.4vw, 112px);
+  line-height: 0.95;
+  font-weight: 200;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+}
+.stats__number sup {
+  font-size: 0.4em;
+  font-weight: 300;
+  vertical-align: super;
+  margin-left: 0.06em;
+  color: var(--mid);
+}
+.stats__label {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--mid);
+}
+
+@media (max-width: 900px) {
+  .stats__inner { grid-template-columns: repeat(2, 1fr); }
+  .stats__item { padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 32px); }
+  .stats__item + .stats__item::before { display: none; }
+  .stats__item:nth-child(odd)::after,
+  .stats__item:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    inset: auto 8% -1px 8%;
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+
+/* =========================================================
    PROJECTS
    ========================================================= */
 .projects {
@@ -1012,20 +1085,128 @@ html.is-intro body {
 /* =========================================================
    FOOTER
    ========================================================= */
+/* =========================================================
+   FOOTER — refined editorial dark.
+   Anchor wordmark, hairline-divided three columns, generous space.
+   ========================================================= */
 .foot {
-  padding: 32px var(--pad-x);
-  background: var(--ink-2);
-  color: rgba(244, 239, 230, 0.6);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-top: 1px solid rgba(244, 239, 230, 0.08);
+  background: var(--ink);
+  color: rgba(244, 239, 230, 0.62);
+  padding: clamp(96px, 12vw, 200px) var(--pad-x) clamp(28px, 3vw, 48px);
 }
 .foot__inner {
   max-width: var(--container);
   margin: 0 auto;
-  display: flex; flex-wrap: wrap; gap: 18px;
+}
+
+/* Wordmark anchor */
+.foot__signature {
+  display: grid;
+  gap: clamp(14px, 1.4vw, 22px);
+  padding-bottom: clamp(48px, 6vw, 100px);
+  border-bottom: 1px solid rgba(244, 239, 230, 0.12);
+  margin-bottom: clamp(48px, 6vw, 100px);
+}
+.foot__brand {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(40px, 6vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+.foot__tagline {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 300;
+  letter-spacing: 0.005em;
+  color: rgba(244, 239, 230, 0.7);
+  max-width: 38ch;
+}
+.foot__tagline em { font-style: italic; color: rgba(244, 239, 230, 0.85); }
+
+/* Three-column meta grid */
+.foot__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(36px, 4vw, 88px);
+  padding-bottom: clamp(56px, 7vw, 120px);
+}
+.foot__col {
+  display: grid;
+  gap: clamp(14px, 1.4vw, 22px);
+}
+.foot__heading {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.55);
+}
+.foot__address,
+.foot__licences {
+  font-family: var(--serif);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  color: rgba(244, 239, 230, 0.92);
+}
+.foot__licences { font-size: var(--fs-sm); letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.7; }
+
+.foot__links {
+  list-style: none;
+  display: grid;
+  gap: clamp(8px, 0.8vw, 12px);
+}
+.foot__links a {
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.2vw, 20px);
+  font-weight: 300;
+  letter-spacing: 0.005em;
+  color: rgba(244, 239, 230, 0.92);
+  position: relative;
+  display: inline-block;
+  transition: color 280ms var(--ease-out), padding-left 380ms var(--ease-out);
+}
+.foot__links a::before {
+  content: '→';
+  position: absolute;
+  left: -1.3em;
+  opacity: 0;
+  transition: opacity 280ms var(--ease-out), transform 380ms var(--ease-out);
+  transform: translateX(-6px);
+  color: rgba(244, 239, 230, 0.55);
+}
+.foot__links a:hover {
+  color: var(--bone);
+  padding-left: 1.3em;
+}
+.foot__links a:hover::before { opacity: 1; transform: translateX(0); }
+
+/* Bottom rule + © line */
+.foot__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.6vw, 24px);
   justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(24px, 2.4vw, 36px);
+  border-top: 1px solid rgba(244, 239, 230, 0.12);
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.45);
+}
+
+@media (max-width: 900px) {
+  .foot__grid { grid-template-columns: 1fr; gap: clamp(32px, 6vw, 56px); }
+  .foot__bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 /* — Reduced motion — */

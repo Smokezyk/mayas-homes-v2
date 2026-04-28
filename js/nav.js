@@ -150,7 +150,7 @@ if (nav) {
       };
     };
 
-    // Hero scales + translates to land at the header position.
+    // Hero scales + translates to land precisely on the header slot.
     tl.to(heroBrand, {
       x:     () => computeTarget().x,
       y:     () => computeTarget().y,
@@ -158,8 +158,8 @@ if (nav) {
       ease:  'power2.in',
     }, 0);
 
-    // Pill grows over the full window so the slot is the right
-    // size when the brand arrives.
+    // Pill grows so the header has the right slot size by the time
+    // the brand arrives.
     if (navBrandLink) {
       tl.to(navBrandLink, {
         maxWidth: '16em',
@@ -167,19 +167,15 @@ if (nav) {
       }, 0);
     }
 
-    /* Once the migration completes (scroll past 100 px), pin the
-       hero brand in place. ScrollTrigger applies position: fixed,
-       so the brand stays anchored at the header position — it IS
-       the header logo from now on, no separate element. */
-    ScrollTrigger.create({
-      trigger: 'body',
-      start: '100 top',
-      endTrigger: 'body',
-      end: 'bottom bottom',
-      pin: heroBrand,
-      pinSpacing: false,
-      invalidateOnRefresh: true,
-    });
+    /* At the end of the migration the hero brand is sitting on top
+       of the (still-invisible) nav wordmark with the same letter-
+       spacing, the same scaled size. We swap them in the last 10%
+       of the timeline — invisible to the user — so from then on the
+       nav wordmark (which is fixed inside the floating nav pill)
+       carries the brand. The pill stays anchored regardless of
+       scroll, so MAYA'S HOMES truly stays in the header. */
+    tl.to(heroBrand, { opacity: 0, duration: 0.1, ease: 'none' }, 0.9);
+    tl.to(navBrand,  { opacity: 1, duration: 0.1, ease: 'none' }, 0.9);
 
     // Refresh after the intro lifts the scroll lock — the page can
     // finally scroll, so ScrollTrigger needs to re-measure.
