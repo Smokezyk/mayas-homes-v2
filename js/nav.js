@@ -125,9 +125,11 @@ if (nav) {
       ease: 'power2.in',
     }, 0);
 
-    // Final 15%: hero brand snaps out, nav wordmark snaps in.
-    tl.to(heroBrand, { opacity: 0, ease: 'none' }, 0.85);
-    tl.to(navBrand,  { opacity: 1, ease: 'none' }, 0.85);
+    // Final 15%: hero brand fades out smoothly...
+    tl.to(heroBrand, { opacity: 0, duration: 0.15, ease: 'none' }, 0.85);
+    // ...and the nav wordmark JUMPS in the instant the hero is gone.
+    // ease: 'steps(1)' holds at 0 for the whole tween, then snaps to 1.
+    tl.to(navBrand,  { opacity: 1, duration: 0.05, ease: 'steps(1)' }, 0.95);
 
     // Pill expansion runs across the full window (so the header
     // already has space when the wordmark lands).
