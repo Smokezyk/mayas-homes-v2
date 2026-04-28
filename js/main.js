@@ -120,6 +120,34 @@ const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* =========================================================
+   STATS COUNT-UP — fast, sharp, GSAP ScrollTrigger.
+   Each .stats__number has data-count="N" and a child
+   .stats__digit that we tween from 0 → N as the band enters
+   the viewport. snap: 1 keeps every visible value an integer.
+   ========================================================= */
+if (gsap && ScrollTrigger) {
+  document.querySelectorAll('.stats__number').forEach((el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const digit = el.querySelector('.stats__digit');
+    if (!digit || isNaN(target) || target === 0) return;
+
+    const obj = { value: 0 };
+    gsap.to(obj, {
+      value: target,
+      duration: 0.9,
+      ease: 'power1.out',
+      snap: { value: 1 },
+      onUpdate: () => { digit.textContent = obj.value | 0; },
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+      },
+    });
+  });
+}
+
+/* =========================================================
    PROJECT TILES — click-to-reveal morph videos.
 
    Each tile holds a <video data-tile-video> paused on frame 0.
