@@ -111,24 +111,25 @@ if (nav) {
       },
     });
 
-    // Hero brand drifts toward the top-left, scaling and fading out.
+    /* The hero wordmark stays VISIBLE while it scales + translates
+       toward the top-left. The opacity handoff only happens in the
+       last sliver of the timeline so it reads as a single element
+       arriving in the header rather than two crossfading. */
+
+    // Whole window: scale + translate the hero brand toward the header.
     tl.to(heroBrand, {
-      scale: 0.42,
-      opacity: 0,
-      xPercent: -22,
-      yPercent: -22,
+      scale: 0.32,
+      xPercent: -30,
+      yPercent: -32,
       ease: 'power2.in',
     }, 0);
 
-    // Nav wordmark fades in over the same window.
-    tl.to(navBrand, {
-      opacity: 1,
-      ease: 'power2.out',
-    }, 0);
+    // Final 15%: hero brand snaps out, nav wordmark snaps in.
+    tl.to(heroBrand, { opacity: 0, ease: 'none' }, 0.85);
+    tl.to(navBrand,  { opacity: 1, ease: 'none' }, 0.85);
 
-    // Pill expands in lockstep — max-width tweens with the same
-    // scrub, so the header grows/shrinks as the wordmark
-    // appears/disappears. Bidirectional via scrub reversal.
+    // Pill expansion runs across the full window (so the header
+    // already has space when the wordmark lands).
     if (navBrandLink) {
       tl.to(navBrandLink, {
         maxWidth: '16em',
