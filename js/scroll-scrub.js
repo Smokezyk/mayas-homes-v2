@@ -23,11 +23,10 @@ const cue       = document.querySelector('[data-cue]');
 const skipBtn   = document.querySelector('[data-intro-skip]');
 
 /* The master (introvidfinal.mp4) is a single pre-stitched cinematic,
-   ~8.04s long. Interior is fully revealed on the final frame; we
-   trigger the reveal a hair before the natural end for crisp timing.
-   Video has no loop — it freezes on the last frame as the
-   marble-backsplash background. */
-const REVEAL_TIME_S = 7.9;
+   ~8.04s long. Crystallise duration is 1.5s, so we fire it at 6.5s
+   — brand is FULLY visible by the time the video freezes on the
+   marble backsplash. No "coming in" effect after the video stops. */
+const REVEAL_TIME_S = 6.5;
 
 if (!introEl || !video) {
   // No intro markup — nothing to do.
