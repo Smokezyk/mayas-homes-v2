@@ -496,73 +496,68 @@ html.is-intro body {
    STATS BAND — key trust figures
    ========================================================= */
 /* =========================================================
-   STATS BAND — editorial figures, hairline-divided.
-   Cascais meets Architectural Digest — light, restrained, refined.
+   STATS BAND — slim editorial line. Hairline-divided.
+   Discreet, restrained, in keeping with the site's aesthetic.
    ========================================================= */
 .stats {
   background: var(--paper);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
-  padding: clamp(80px, 10vw, 160px) var(--pad-x);
+  padding: clamp(28px, 3vw, 48px) var(--pad-x);
 }
 .stats__inner {
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: end;
+  align-items: center;
 }
 .stats__item {
   position: relative;
-  padding: clamp(8px, 1vw, 18px) clamp(20px, 3vw, 56px);
+  padding: 0 clamp(16px, 2.4vw, 40px);
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.4vw, 22px);
+  align-items: center;
+  text-align: center;
+  gap: clamp(4px, 0.5vw, 8px);
 }
-/* Hairline rule on the left of every item except the first —
-   classic editorial divider treatment. */
+/* Hairline rule between items. */
 .stats__item + .stats__item::before {
   content: '';
   position: absolute;
-  left: 0; top: 8%; bottom: 8%;
+  left: 0; top: 12%; bottom: 12%;
   width: 1px;
   background: var(--hairline);
 }
 .stats__number {
   font-family: var(--serif);
-  font-size: clamp(52px, 6.4vw, 112px);
-  line-height: 0.95;
-  font-weight: 200;
-  letter-spacing: -0.022em;
+  font-size: clamp(28px, 2.6vw, 44px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.012em;
   color: var(--ink);
 }
 .stats__number sup {
-  font-size: 0.4em;
-  font-weight: 300;
+  font-size: 0.45em;
+  font-weight: 400;
   vertical-align: super;
-  margin-left: 0.06em;
+  margin-left: 0.05em;
   color: var(--mid);
 }
 .stats__label {
   font-family: var(--sans);
-  font-size: var(--fs-xs);
+  font-size: clamp(10px, 0.7vw, 11px);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.24em;
   color: var(--mid);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
   .stats__inner { grid-template-columns: repeat(2, 1fr); }
-  .stats__item { padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 32px); }
+  .stats__item { padding: clamp(10px, 3vw, 18px) clamp(8px, 3vw, 16px); }
   .stats__item + .stats__item::before { display: none; }
-  .stats__item:nth-child(odd)::after,
-  .stats__item:nth-child(2)::after {
-    content: '';
-    position: absolute;
-    inset: auto 8% -1px 8%;
-    border-bottom: 1px solid var(--hairline);
-  }
+  .stats__item:nth-child(2)::before { display: block; }
 }
 
 /* =========================================================
