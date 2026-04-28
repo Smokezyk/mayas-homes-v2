@@ -125,12 +125,29 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: clamp(20px, 3vw, 56px);
   padding: 14px 16px 14px 22px;
-  background: rgba(244, 239, 230, 0.72);
+  /* Default: minimal — nav floats over the hero with no chrome.
+     Glass treatment gets dialled in once the user scrolls past
+     the hero via .nav.is-scrolled. */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: none;
+  transition: background 380ms var(--ease-out),
+              backdrop-filter 380ms var(--ease-out),
+              -webkit-backdrop-filter 380ms var(--ease-out),
+              border-color 380ms var(--ease-out),
+              box-shadow 380ms var(--ease-out);
+}
+/* Past the hero: full glassmorphism — 70% bone + blur. */
+.nav.is-scrolled .nav__inner {
+  background: rgba(244, 239, 230, 0.7);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid var(--hairline);
-  border-radius: 999px;
-  box-shadow: 0 12px 40px -16px rgba(20, 17, 14, 0.18), inset 0 1px 0 rgba(255,255,255,0.55);
+  border-color: var(--hairline);
+  box-shadow: 0 12px 40px -16px rgba(20, 17, 14, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 .nav__brand {
   display: inline-flex;
