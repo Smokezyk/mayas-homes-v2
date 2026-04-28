@@ -79,6 +79,56 @@ if (nav) {
 }
 
 /* =========================================================
+   BRAND FLIGHT — MAYA'S HOMES from hero centre to header top-left.
+
+   Over the first 100px of scroll, a scrubbed GSAP timeline
+   shrinks/translates/fades-out the hero brand while fading in the
+   nav brand wordmark in the same window. The user perceives the
+   wordmark migrating from the centre of the hero to the top-left
+   of the page.
+   ========================================================= */
+{
+  const heroBrand = document.querySelector('.intro__name');
+  const navBrand  = document.querySelector('[data-nav-brand]');
+  const gsap = window.gsap;
+  const ScrollTrigger = window.ScrollTrigger;
+
+  if (gsap && ScrollTrigger && heroBrand && navBrand) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: '100 top',
+        scrub: 0.4,
+      },
+    });
+
+    // Hero brand drifts toward the top-left, scaling and fading out.
+    tl.to(heroBrand, {
+      scale: 0.42,
+      opacity: 0,
+      xPercent: -22,
+      yPercent: -22,
+      ease: 'power2.in',
+    }, 0);
+
+    // Nav wordmark fades in over the same window.
+    tl.to(navBrand, {
+      opacity: 1,
+      ease: 'power2.out',
+    }, 0);
+
+    // Refresh after the intro lifts the scroll lock — the page can
+    // finally scroll, so ScrollTrigger needs to re-measure.
+    window.addEventListener('intro:end', () => {
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    });
+  }
+}
+
+/* =========================================================
    MAGNETIC HOVER — CTA button drifts toward the cursor.
    ========================================================= */
 const cta = document.querySelector('.nav__cta');

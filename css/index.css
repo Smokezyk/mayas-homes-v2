@@ -167,6 +167,21 @@ a { color: inherit; text-decoration: none; }
   object-fit: contain;
   display: block;
 }
+/* Wordmark in the header — wide-spaced, restrained, high-end serif.
+   Initially invisible: faded in by GSAP during the first 100px of
+   scroll while the hero brand "flies" toward the top-left. */
+.nav__brand-name {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(13px, 1.05vw, 16px);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  opacity: 0;
+  will-change: opacity;
+}
 .nav__links {
   display: flex; align-items: center;
   justify-content: center;
