@@ -112,29 +112,28 @@ if (nav) {
       },
     });
 
-    /* Logo Transfer: hero wordmark migrates to the EXACT spot the
-       nav wordmark occupies in the header (just before "Our
-       Standard"). We compute the target offset dynamically so it
-       lands precisely regardless of viewport size. */
+    /* Logo Transfer: the SAME element migrates from hero centre to
+       header. No crossfade, no second wordmark. After the migration
+       completes (scroll > 100px), ScrollTrigger pins the hero brand
+       at its final header position so it stays there as the page
+       continues to scroll. Reverse via scrub. */
 
     const computeTarget = () => {
       if (!heroBrand || !navBrand || !navBrandLink) return { x: 0, y: 0, scale: 0.3 };
 
-      // Reset hero transform so we measure its natural position.
       const savedTransform = heroBrand.style.transform;
       heroBrand.style.transform = '';
 
-      // Temporarily expand the nav so we can read where the
-      // wordmark actually sits when visible.
-      const savedMW  = navBrandLink.style.maxWidth;
-      const savedOp  = navBrand.style.opacity;
+      // Temporarily reveal the nav wordmark slot so we can measure
+      // where it sits — that's our target.
+      const savedMW = navBrandLink.style.maxWidth;
+      const savedOp = navBrand.style.opacity;
       navBrandLink.style.maxWidth = '16em';
       navBrand.style.opacity = '1';
 
       const hero = heroBrand.getBoundingClientRect();
       const nav  = navBrand.getBoundingClientRect();
 
-      // Restore.
       heroBrand.style.transform = savedTransform;
       navBrandLink.style.maxWidth = savedMW;
       navBrand.style.opacity = savedOp;
@@ -151,7 +150,7 @@ if (nav) {
       };
     };
 
-    // Hero scales + translates to the nav brand's exact spot.
+    // Hero scales + translates to land at the header position.
     tl.to(heroBrand, {
       x:     () => computeTarget().x,
       y:     () => computeTarget().y,
@@ -159,17 +158,28 @@ if (nav) {
       ease:  'power2.in',
     }, 0);
 
-    // 80 → 100%: invisible handoff at the landing.
-    tl.to(heroBrand, { opacity: 0, duration: 0.2, ease: 'none' }, 0.8);
-    tl.to(navBrand,  { opacity: 1, duration: 0.2, ease: 'none' }, 0.8);
-
-    // Pill grows over the full window so the header has space ready.
+    // Pill grows over the full window so the slot is the right
+    // size when the brand arrives.
     if (navBrandLink) {
       tl.to(navBrandLink, {
         maxWidth: '16em',
         ease: 'power2.out',
       }, 0);
     }
+
+    /* Once the migration completes (scroll past 100 px), pin the
+       hero brand in place. ScrollTrigger applies position: fixed,
+       so the brand stays anchored at the header position — it IS
+       the header logo from now on, no separate element. */
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: '100 top',
+      endTrigger: 'body',
+      end: 'bottom bottom',
+      pin: heroBrand,
+      pinSpacing: false,
+      invalidateOnRefresh: true,
+    });
 
     // Refresh after the intro lifts the scroll lock — the page can
     // finally scroll, so ScrollTrigger needs to re-measure.

@@ -22,9 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=57" />
-  <link rel="stylesheet" href="css/index.css?v=57" />
-  <link rel="stylesheet" href="css/animations.css?v=57" />
+  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=58" />
+  <link rel="stylesheet" href="css/index.css?v=58" />
+  <link rel="stylesheet" href="css/animations.css?v=58" />
 
   <script type="application/ld+json">
   {
@@ -75,7 +75,7 @@
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=57"
+        src="assets/videos/introvidfinal.mp4?v=58"
         autoplay
         muted
         playsinline
@@ -119,7 +119,7 @@
         </div>
         
         <figure class="manifesto__portrait">
-          <img src="assets/images/maja-portrait-v2.webp?v=57" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
+          <img src="assets/images/maja-portrait-v2.webp?v=58" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
           <figcaption>Maja Milič — Cascais</figcaption>
         </figure>
       </div>
@@ -150,6 +150,29 @@
       </div>
     </section>
 
+    <!-- ============ STATS BAND — key trust figures ============ -->
+    <section class="stats" aria-label="Key Figures">
+      <div class="stats__inner">
+        <div class="stats__item">
+          <span class="stats__number">35+</span>
+          <span class="stats__label">Turnkey Projects</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">10</span>
+          <span class="stats__label">In-House Experts</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">25+</span>
+          <span class="stats__label">Years Experience</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">7</span>
+          <span class="stats__label">Languages</span>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ============ PROJECT TEASERS — three curated transformations ============ -->
     <section class="projects" id="projects">
       <header class="projects__head">
@@ -164,7 +187,7 @@
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-rosario.mp4?v=57"
+                src="assets/videos/transformation-rosario.mp4?v=58"
                 poster="assets/images/rosario-hero.webp"
                 muted
                 playsinline
@@ -190,7 +213,7 @@
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-alvide.mp4?v=57"
+                src="assets/videos/transformation-alvide.mp4?v=58"
                 poster="assets/images/alvide-hero.webp"
                 muted
                 playsinline
@@ -216,7 +239,7 @@
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-riviera.mp4?v=57"
+                src="assets/videos/transformation-riviera.mp4?v=58"
                 poster="assets/images/riviera-openplan.webp"
                 muted
                 playsinline
@@ -404,22 +427,48 @@
             <span>Send to Maja</span>
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
           </button>
-
-          <p class="contact__legal">
-            IMPIC · Alvará 97976‑PAR · AMI 18698
-          </p>
         </form>
+
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="foot__inner">
-      <span>© <span data-year>2026</span> Maya's Homes · Maja Milič</span>
-      <span>Cascais · Estoril · Portugal</span>
-      <span>Designed in Cascais</span>
+    <div class="foot__grid">
+      <div class="foot__col">
+        <span class="foot__brand">MAYA&rsquo;S HOMES</span>
+        <p class="foot__tagline">Boutique Renovation & Interior Design</p>
+        <p class="foot__legal-item">IMPIC Alvará 97976‑PAR</p>
+        <p class="foot__legal-item">AMI 18698</p>
+      </div>
+
+      <div class="foot__col">
+        <span class="foot__heading">Studio</span>
+        <address class="foot__address">
+          Rua de Pádua 143<br />
+          2645‑643 Alcabideche<br />
+          Cascais · Portugal
+        </address>
+      </div>
+
+      <div class="foot__col">
+        <span class="foot__heading">Inquiries</span>
+        <ul class="foot__links">
+          <li><a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a></li>
+          <li><a href="tel:+351913037527">+351 913 037 527</a></li>
+          <li><a href="https://wa.me/351913037527" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot__bottom">
+      <div class="foot__bottom-inner">
+        <span>&copy; <span data-year>2026</span> Maya&rsquo;S Homes · Maja Milič</span>
+        <span>Designed in Cascais</span>
+      </div>
     </div>
   </footer>
+
 
   <!-- GSAP & ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -428,8 +477,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=57" type="module"></script>
-  <script src="js/scroll-scrub.js?v=57" type="module"></script>
-  <script src="js/nav.js?v=57" type="module"></script>
+  <script src="js/main.js?v=58" type="module"></script>
+  <script src="js/scroll-scrub.js?v=58" type="module"></script>
+  <script src="js/nav.js?v=58" type="module"></script>
 </body>
 </html>
