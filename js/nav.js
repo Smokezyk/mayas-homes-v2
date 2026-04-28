@@ -112,12 +112,15 @@ if (nav) {
       },
     });
 
-    /* The nav wordmark is permanently visible (CSS), so MAYA'S HOMES
-       is always on screen — either in the centred hero or in the
-       header (or both during the brief travel).
-
-       Hero wordmark scales + translates toward the header and fades
-       at the end of the window. Nav wordmark stays put. */
+    /* Logo Transfer: hero wordmark migrates to the header.
+       — 0 → 100%: scales down + translates up-left to land on top
+         of where the (still-invisible) nav wordmark sits.
+       — 80 → 100%: hero opacity 1 → 0 AND nav opacity 0 → 1,
+         crossfading at the same visual position so the user
+         perceives one element settling into the header.
+       — 0 → 100%: pill maxWidth 0 → 16em, so the header has space
+         for the wordmark when it lands.
+       Reverse: pure scrub. Returns to centred hero on scroll-up. */
 
     tl.to(heroBrand, {
       scale: 0.3,
@@ -126,8 +129,15 @@ if (nav) {
       ease: 'power2.in',
     }, 0);
 
-    // 80 → 100%: hero brand fades out as it arrives at the header.
     tl.to(heroBrand, { opacity: 0, duration: 0.2, ease: 'none' }, 0.8);
+    tl.to(navBrand,  { opacity: 1, duration: 0.2, ease: 'none' }, 0.8);
+
+    if (navBrandLink) {
+      tl.to(navBrandLink, {
+        maxWidth: '16em',
+        ease: 'power2.out',
+      }, 0);
+    }
 
     // Refresh after the intro lifts the scroll lock — the page can
     // finally scroll, so ScrollTrigger needs to re-measure.

@@ -160,8 +160,10 @@ a { color: inherit; text-decoration: none; }
   font-size: var(--fs-lg);
   font-weight: 500;
   letter-spacing: -0.01em;
-  /* Always sized to content — wordmark is permanently visible in the
-     header so MAYA'S HOMES is on screen at every scroll position. */
+  /* Collapsed by default — GSAP scrub expands maxWidth as the
+     hero brand migrates into the header. */
+  max-width: 0;
+  overflow: hidden;
 }
 .nav__brand-logo {
   height: clamp(28px, 3.4vw, 38px);
@@ -170,7 +172,8 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 /* Wordmark in the header — wide-spaced, restrained, high-end serif.
-   Permanently visible as soon as the nav itself appears (post intro). */
+   Hidden until the hero brand has migrated into the header (GSAP
+   scrub crossfades opacity 0 → 1 in the last sliver of the flight). */
 .nav__brand-name {
   display: inline-block;
   font-family: var(--serif);
@@ -180,6 +183,8 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   color: var(--ink);
   white-space: nowrap;
+  opacity: 0;
+  will-change: opacity;
 }
 .nav__links {
   display: flex; align-items: center;
@@ -398,7 +403,10 @@ html.is-intro body {
    MANIFESTO — Maja as problem-solver
    ========================================================= */
 .manifesto {
-  padding: var(--pad-section) var(--pad-x);
+  /* Bottom padding tightened to roughly match the natural breathing
+     room above the pillars — avoids a gaping gap below "Seven
+     languages" before the next section. */
+  padding: var(--pad-section) var(--pad-x) clamp(40px, 5vw, 96px);
   background: var(--paper);
   border-bottom: 1px solid var(--hairline);
 }
