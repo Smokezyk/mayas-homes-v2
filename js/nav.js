@@ -122,9 +122,10 @@ if (nav) {
          for the wordmark when it lands.
        Reverse: pure scrub. Returns to centred hero on scroll-up. */
 
+    // Pure vertical zoom — straight up to the header line. No
+     // horizontal drift; the brand stays centred as it scales down.
     tl.to(heroBrand, {
       scale: 0.3,
-      x: '-42vw',
       y: '-45vh',
       ease: 'power2.in',
     }, 0);
