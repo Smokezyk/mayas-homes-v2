@@ -48,9 +48,11 @@ if (nameEl) {
 }
 
 /* The master (introvidfinal.mp4) is a single pre-stitched cinematic,
-   7.917s long. Interior is fully revealed on the final frame; we
-   trigger the reveal a hair before the natural end for crisp timing. */
-const REVEAL_TIME_S = 7.8;
+   ~15.04s long. Interior is fully revealed on the final frame; we
+   trigger the reveal a hair before the natural end for crisp timing.
+   Video has no loop — it freezes on the last frame as the
+   marble-backsplash background. */
+const REVEAL_TIME_S = 14.9;
 
 if (!introEl || !video) {
   // No intro markup — nothing to do.
