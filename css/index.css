@@ -555,12 +555,12 @@ html.is-intro body {
   max-width: 56ch;
 }
 
-/* — Maja's pull-quote: handwritten voice, right-aligned, crystallises in. — */
+/* — Maja's pull-quote: handwritten voice, centred, crystallises in. — */
 .method__quote {
-  margin: clamp(40px, 5vw, 72px) 0 0 auto;
+  margin: clamp(40px, 5vw, 72px) auto 0;
   padding: 0;
-  text-align: right;
-  max-width: 28ch;
+  text-align: center;
+  max-width: 30ch;
   /* Initial state — blurred and invisible. Resolves to 0/1 when
      .is-in is added (matches the hero brand crystallise). */
   filter: blur(10px);
@@ -573,10 +573,10 @@ html.is-intro body {
   opacity: 1;
 }
 .method__quote-text {
-  font-family: 'Caveat', cursive;
-  font-weight: 500;
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.32;
+  font-family: 'Sacramento', cursive;
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 42px);
+  line-height: 1.28;
   color: var(--ink-2);
   letter-spacing: 0.005em;
 }
@@ -606,9 +606,9 @@ html.is-intro body {
     padding-top: clamp(28px, 4vw, 48px);
   }
   .method__quote {
-    margin-right: 0;
-    margin-left: 0;
-    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
     max-width: 100%;
   }
 }
@@ -869,83 +869,40 @@ html.is-intro body {
   margin-top: 4px;
 }
 
-/* — Tile caption: re-grid for index / body / meta + reveal link — */
+/* — Tile caption: centred title + always-visible "View Project" line — */
 .tile__caption {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  column-gap: 16px;
-  row-gap: 0;
+  justify-items: center;
+  text-align: center;
+  gap: 10px;
   margin-top: 18px;
   padding-top: 14px;
   border-top: 1px solid var(--hairline);
 }
-.tile__caption-body { display: grid; gap: 6px; min-width: 0; }
-
-.tile__index {
-  font-family: var(--sans);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--soft);
-}
 .tile__title {
   font-family: var(--serif);
-  font-size: var(--fs-xl);
+  font-size: clamp(20px, 1.7vw, 26px);
   font-weight: 400;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.008em;
   color: var(--ink);
+  white-space: nowrap;
 }
-
-/* — Technical detail line under the title — */
-.tile__detail {
-  font-size: var(--fs-sm);
-  color: var(--mid);
-  line-height: 1.5;
-  max-width: 38ch;
-}
-
-.tile__meta {
-  font-size: var(--fs-sm);
-  color: var(--mid);
-  letter-spacing: 0.02em;
-  text-align: right;
-}
-
-/* — "View the project" link: hidden until the morph completes — */
 .tile__view {
-  grid-column: 1 / -1;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--hairline);
   font-family: var(--sans);
   font-size: var(--fs-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
-  width: max-content;
+  transition: transform 320ms var(--ease-out);
 }
 .tile__view svg { width: 12px; height: 12px; transition: transform 320ms var(--ease-out); }
-.tile.is-revealed .tile__view {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
 .tile__view:hover svg { transform: translateX(4px); }
 
 @media (max-width: 640px) {
-  .tile__caption {
-    grid-template-columns: auto 1fr;
-    row-gap: 4px;
-  }
-  .tile__meta { grid-column: 2 / 3; text-align: left; }
+  .tile__title { white-space: normal; }
 }
 
 .projects__cta {
