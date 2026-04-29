@@ -1052,10 +1052,13 @@ html.is-intro body {
 .testimonial {
   position: relative;
   padding: clamp(20px, 2.4vw, 44px) clamp(24px, 3vw, 56px);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: clamp(20px, 2.4vw, 36px);
-  align-content: start;
 }
+/* Pin every citation block to the bottom of its card so the cite rows
+   line up across columns even when the quotes wrap to different lengths. */
+.testimonial__cite { margin-top: auto; }
 /* Hairline dividers between columns — drawn on the right edge of all
    but the last cell so the band reads as one continuous block. */
 .testimonial + .testimonial::before {
