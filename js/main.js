@@ -192,8 +192,10 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   };
 
   // The button wrapper is the natural click + keyboard target.
-  const btn = tile.querySelector('.tile__link') || tile;
-  btn.addEventListener('click', play);
+  // Bind ONLY to .tile__link — falling back to the whole tile would
+  // also intercept clicks on the post-reveal "View the project" link.
+  const btn = tile.querySelector('.tile__link');
+  if (btn) btn.addEventListener('click', play);
 
   // When the morph completes, video sits on its true last frame
   // (the "after" state). Mark `is-revealed` so the hint stays gone.
