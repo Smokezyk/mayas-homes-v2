@@ -726,11 +726,11 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Editorial horizontal ribbon — full bleed, scroll-snaps tile-by-tile. */
+/* Editorial horizontal ribbon — full bleed, scroll-snaps card-by-card. */
 .projects__grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: clamp(260px, 22vw, 340px);
+  grid-auto-columns: clamp(280px, 22vw, 360px);
   gap: clamp(20px, 2vw, 36px);
   overflow-x: auto;
   overflow-y: visible;
@@ -744,15 +744,28 @@ html.is-intro body {
 }
 .projects__grid::-webkit-scrollbar { display: none; }
 
-.tile { position: relative; scroll-snap-align: start; }
-.tile--portrait .tile__media { aspect-ratio: 4 / 5; }
-
 @media (max-width: 640px) {
-  .projects__grid { grid-auto-columns: 78vw; }
+  .projects__grid { grid-auto-columns: 80vw; }
+}
+
+/* OUTER CARD — 4:5 portrait silhouette, designed catalogue entry */
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  transition: transform 700ms var(--ease-out),
+              border-color 320ms var(--ease-out);
+}
+.tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--hairline-strong);
 }
 
 /* The button wrapper — neutralised to behave like a transparent block.
-   Cursor is `pointer` so the entire tile reads as clickable. */
+   Cursor is `pointer` so the photo frame reads as clickable. */
 .tile__link {
   display: block;
   width: 100%;
@@ -768,17 +781,18 @@ html.is-intro body {
 }
 .tile__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
+/* PHOTO FRAME — native 4:3 landscape inside the portrait card */
 .tile__media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--bone-2);
-  border: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
 }
 .tile__media img,
 .tile__video {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
   will-change: transform;
@@ -855,7 +869,7 @@ html.is-intro body {
   position: absolute; inset: 0;
   display: grid;
   place-items: center;
-  padding: clamp(16px, 4%, 32px);
+  padding: clamp(14px, 4%, 28px);
   z-index: 3;
   opacity: 0;
   transform: translateY(8px);
@@ -867,18 +881,19 @@ html.is-intro body {
 .tile__solved-text {
   font-family: var(--serif);
   font-weight: 200;
-  font-size: clamp(15px, 1.3vw, 22px);
+  font-size: clamp(14px, 1.2vw, 20px);
   line-height: 1.35;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.96);
   text-align: center;
   max-width: 22ch;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  margin: 0;
 }
 .tile__solved-text em {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   font-style: italic;
   letter-spacing: 0.22em;
   color: rgba(244, 239, 230, 0.82);
@@ -916,36 +931,58 @@ html.is-intro body {
   margin-top: 4px;
 }
 
-/* — Tile caption: centred title + technical detail; View Project link
-     gated behind .is-revealed (appears only after the morph completes). — */
+/* — Caption block: designed catalogue entry, paper background.
+     Index → Title → Detail → Hairline-divided foot (meta + gated link). */
 .tile__caption {
   display: grid;
-  justify-items: center;
-  text-align: center;
   gap: 8px;
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--hairline);
+  padding: clamp(16px, 1.6vw, 22px) clamp(16px, 1.6vw, 22px) clamp(14px, 1.4vw, 20px);
+  background: var(--paper);
+}
+.tile__index {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 .tile__title {
   font-family: var(--serif);
-  font-size: clamp(18px, 1.5vw, 24px);
+  font-size: clamp(18px, 1.4vw, 23px);
   font-weight: 400;
   letter-spacing: -0.008em;
   color: var(--ink);
+  line-height: 1.18;
   white-space: normal;
+  margin: 0;
 }
 .tile__detail {
   font-size: var(--fs-xs);
   color: var(--mid);
-  line-height: 1.5;
-  max-width: 32ch;
+  line-height: 1.55;
+  margin: 0;
+}
+.tile__caption-foot {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 28px;
+}
+.tile__meta {
+  font-size: var(--fs-xs);
+  color: var(--mid);
+  letter-spacing: 0.04em;
+  margin: 0;
 }
 .tile__view {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 8px;
   font-family: var(--sans);
   font-size: var(--fs-xs);
   letter-spacing: 0.22em;
