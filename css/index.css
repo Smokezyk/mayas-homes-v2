@@ -40,10 +40,10 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* — Projects grid: white-channel mounting between photos on the
-       white card. Halved from clamp(20-36 px) so tiles sit close
-       together — scrapbook-style mounting, not generous breathing. — */
-  --tile-gap: clamp(10px, 1.2vw, 18px);
+  /* — Projects grid: paper-channel seams between photos on the
+       paper card. Halved again to clamp(4-8 px) — collage seams,
+       not separator bands. — */
+  --tile-gap: clamp(4px, 0.5vw, 8px);
 }
 
 /* — Reset — */
@@ -731,15 +731,18 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* White-card mount — photographs sit on a single white rectangle that
-   floats inside the bone section. Internal padding insets the photos
-   from the card's edges; gaps between tiles render as white channels
-   because the parent and tiles all share the same white surface. */
+/* Paper-card mount — photographs sit on a single paper rectangle
+   (var(--paper) = #FAF7F2, the brand's warm off-white) floating inside
+   the bone section. Internal padding insets the photos from the card's
+   edges; gaps between tiles render as paper channels because parent
+   and tiles share the same surface. The padding is visibly larger
+   than the inter-tile gap so the relationship reads as 'photos
+   arranged on a card', not 'photos floating with equal margins'. */
 .projects__grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(16px, 2vw, 28px);
-  background: #ffffff;
+  padding: clamp(12px, 1.5vw, 22px);
+  background: var(--paper);
   display: flex;
   flex-direction: column;
   gap: var(--tile-gap);
@@ -748,12 +751,12 @@ html.is-intro body {
   display: flex;
   gap: var(--tile-gap);
   align-items: flex-start;
-  background: #ffffff;
+  background: var(--paper);
 }
 
-.tile.tile--square    { flex: 1;     min-width: 0; background: #ffffff; }
-.tile.tile--landscape { flex: 1.333; min-width: 0; background: #ffffff; }
-.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: #ffffff; }
+.tile.tile--square    { flex: 1;     min-width: 0; background: var(--paper); }
+.tile.tile--landscape { flex: 1.333; min-width: 0; background: var(--paper); }
+.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: var(--paper); }
 
 @media (max-width: 760px) {
   .projects__row {
