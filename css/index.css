@@ -1295,7 +1295,11 @@ html.is-intro body {
 }
 .craft__shot img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  /* contain — fit the entire photograph inside the 4:3 frame, even
+     when its native aspect doesn't match. The .craft__shot's
+     var(--bone-2) background fills any letterboxing on whichever
+     axis the photo doesn't span. */
+  object-fit: contain;
   display: block;
   transition: transform 1200ms var(--ease-out);
 }
