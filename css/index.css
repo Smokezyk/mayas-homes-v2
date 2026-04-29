@@ -39,6 +39,10 @@
   /* — Motion — */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* — Projects grid divider weight & colour. Tune in one place. — */
+  --divider-w: 3px;
+  --divider-c: var(--ink-2);
 }
 
 /* — Reset — */
@@ -726,29 +730,29 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Full-bleed collection grid — escapes the section's horizontal padding
-   via 100vw + negative margin. 1px gaps inside reveal the parent's
-   hairline-strong colour as dividers between tiles and rows. */
+/* Contained grid — sits inside the page's normal box. The section's
+   horizontal padding gives the symmetric left/right margins; the grid
+   itself caps at the container width. Inter-tile gaps reveal the
+   --divider-c colour through the parent's background as deliberate
+   rules between photographs. */
 .projects__grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-  background: var(--hairline-strong);
-  gap: 1px;
+  background: var(--divider-c);
+  gap: var(--divider-w);
 }
 .projects__row {
   display: flex;
-  gap: 1px;
+  gap: var(--divider-w);
   align-items: flex-start;
-  background: var(--hairline-strong);
+  background: var(--divider-c);
 }
 
 /* Each tile carries a bone background so the photo loads on bone
-   rather than on the underlying hairline-strong colour. */
+   rather than on the underlying divider colour. */
 .tile.tile--square    { flex: 1;     min-width: 0; background: var(--bone); }
 .tile.tile--landscape { flex: 1.333; min-width: 0; background: var(--bone); }
 .tile.tile--portrait  { flex: 0.75;  min-width: 0; background: var(--bone); }
@@ -756,7 +760,7 @@ html.is-intro body {
 @media (max-width: 760px) {
   .projects__row {
     flex-direction: column;
-    gap: 1px;
+    gap: var(--divider-w);
   }
   .tile.tile--square,
   .tile.tile--landscape,
