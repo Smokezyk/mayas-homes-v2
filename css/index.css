@@ -927,6 +927,111 @@ html.is-intro body {
 .projects__cta:hover svg { transform: translateX(4px); }
 
 /* =========================================================
+   TESTIMONIALS — three editorial quotes, hairline-divided.
+   ========================================================= */
+.testimonials {
+  padding: var(--pad-section) var(--pad-x);
+  background: var(--paper);
+  border-top: 1px solid var(--hairline);
+}
+.testimonials__head {
+  max-width: var(--container);
+  margin: 0 auto clamp(48px, 6vw, 96px);
+  display: grid;
+  gap: clamp(14px, 1.4vw, 24px);
+  text-align: center;
+  justify-items: center;
+}
+.testimonials__head .display { max-width: 22ch; }
+
+.testimonials__grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.testimonial {
+  position: relative;
+  padding: clamp(20px, 2.4vw, 44px) clamp(24px, 3vw, 56px);
+  display: grid;
+  gap: clamp(20px, 2.4vw, 36px);
+  align-content: start;
+}
+/* Hairline dividers between columns — drawn on the right edge of all
+   but the last cell so the band reads as one continuous block. */
+.testimonial + .testimonial::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  left: 0;
+  width: 1px;
+  background: var(--hairline);
+}
+/* Decorative opening quotation glyph — large, serif, soft ink. */
+.testimonial__quote {
+  position: relative;
+  margin: 0;
+  padding-top: clamp(28px, 2.8vw, 44px);
+}
+.testimonial__quote::before {
+  content: '\201C';                    /* opening curly double-quote */
+  position: absolute;
+  top: -0.18em;
+  left: -0.04em;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(64px, 6vw, 96px);
+  line-height: 1;
+  color: var(--soft);
+  pointer-events: none;
+}
+.testimonial__quote p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  letter-spacing: -0.002em;
+  max-width: 32ch;
+}
+.testimonial__cite {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.testimonial__name { color: var(--ink); font-weight: 500; }
+.testimonial__loc  { color: var(--mid); }
+.testimonial__cite::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--hairline-strong);
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .testimonials__grid { grid-template-columns: 1fr; max-width: 620px; }
+  .testimonial + .testimonial::before {
+    top: 0;
+    bottom: auto;
+    left: 8%;
+    right: 8%;
+    width: auto;
+    height: 1px;
+  }
+}
+
+/* =========================================================
    100% IN-HOUSE TRUST BLOCK — the differentiator
    ========================================================= */
 .craft {
