@@ -537,12 +537,12 @@ html.is-intro body {
   max-width: 22ch;
 }
 .method__head .display {
-  /* Each line on its own row — wider max-width so "One signature."
-     never wraps mid-phrase. Larger font-size so the headline reads
-     as a true header next to the body copy. */
-  max-width: 16ch;
+  /* No max-width — each phrase ("One hand.", "One eye.",
+     "One signature.") gets full room and never wraps mid-word.
+     The <br /> tags handle the line breaks. */
   font-size: clamp(36px, 4.2vw, 64px);
   line-height: 1.08;
+  white-space: nowrap;
 }
 .method__body {
   display: grid;
