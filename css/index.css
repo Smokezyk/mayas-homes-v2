@@ -1210,32 +1210,50 @@ html.is-intro body {
   max-width: 64ch;
 }
 
-/* — Maja's pull-quote in the Craft section — italic Cormorant with an
-     ochre left-border. Distinct from the Method section's handwritten
-     Sacramento treatment; this one carries authority, not warmth. — */
+/* — Maja's pull-quote in the Craft section — clone of .method__quote
+     so this section's quote lands in the same visual register
+     (handwritten Sacramento + blur-to-clear scroll reveal). — */
 .craft__quote {
-  margin: clamp(20px, 2vw, 32px) 0 0;
-  padding: 4px 0 4px 18px;
-  border-left: 2px solid var(--ochre);
-  max-width: 56ch;
+  margin: clamp(40px, 5vw, 72px) auto 0;
+  padding: 0;
+  text-align: center;
+  max-width: 30ch;
+  filter: blur(10px);
+  opacity: 0;
+  transition: filter 1.2s var(--ease-out), opacity 1.2s var(--ease-out);
+  will-change: filter, opacity;
+}
+.craft__quote.is-in {
+  filter: blur(0);
+  opacity: 1;
 }
 .craft__quote-text {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(17px, 1.4vw, 22px);
-  line-height: 1.55;
-  color: var(--ink);
-  letter-spacing: -0.005em;
-  margin: 0 0 6px 0;
+  font-family: 'Sacramento', cursive;
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 42px);
+  line-height: 1.28;
+  color: var(--ink-2);
+  letter-spacing: 0.005em;
 }
 .craft__quote-cite {
+  display: block;
+  margin-top: clamp(10px, 1vw, 16px);
   font-family: var(--sans);
-  font-size: var(--fs-xs);
   font-style: normal;
-  letter-spacing: 0.22em;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mid);
+}
+
+@media (max-width: 900px) {
+  .craft__quote {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    max-width: 100%;
+  }
 }
 
 .craft__grid {
