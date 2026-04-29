@@ -156,6 +156,23 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
   livingPortraits.forEach((v) => portraitObserver.observe(v));
 }
 
+/* — 'Play again' button on the Process Result closer — resets the
+     video to t=0 and plays it. Since the closer's video plays once
+     and freezes on its final frame, this is the only way to re-watch
+     it without a full page refresh. */
+document.querySelectorAll('[data-result-replay]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const aside = btn.closest('.process__result');
+    const video = aside ? aside.querySelector('video') : null;
+    if (!video) return;
+    try {
+      video.currentTime = 0;
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    } catch (_) {}
+  });
+});
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
