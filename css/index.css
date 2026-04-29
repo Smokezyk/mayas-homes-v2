@@ -806,7 +806,11 @@ html.is-intro body {
 .tile__media img,
 .tile__video {
   width: 100%; height: 100%;
-  object-fit: contain;
+  /* cover — fills the frame at every aspect ratio. The morph action sits
+     in the centre of every clip, so edge-cropping is acceptable for the
+     16:9, 4:5, 1:1, 3:4, and 2:1 frames carved from a 4:3 source. */
+  object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
   will-change: transform;
