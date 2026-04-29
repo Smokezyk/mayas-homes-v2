@@ -801,12 +801,15 @@ html.is-intro body {
 .tile__frame { position: relative; }
 
 /* PHOTO FRAME — default 4:3; per-position modifiers below override this.
-   No border / no chrome — the photographs themselves form the rhythm. */
+   1 px hairline frame on every photo reads as a deliberate print mount
+   without fighting the image. Universal box-sizing: border-box keeps
+   the border inside the aspect-ratio frame so row baselines stay aligned. */
 .tile__media {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--bone-2);
+  border: 1px solid var(--hairline-strong);
 }
 /* Aspect ratios on the photo frame — paired with the flex-grow values
    above so each row of three tiles shares one consistent height. */
