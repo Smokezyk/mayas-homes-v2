@@ -1471,7 +1471,7 @@ html.is-intro body {
   text-align: center;
   gap: clamp(18px, 2vw, 28px);
   margin: clamp(80px, 10vw, 140px) auto 0;
-  max-width: 480px;
+  max-width: 560px;
   padding: 0 var(--pad-x);
 }
 .process__result-eyebrow {
@@ -1485,7 +1485,7 @@ html.is-intro body {
 .process__result-visual {
   margin: 0;
   width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: var(--bone-2);
 }

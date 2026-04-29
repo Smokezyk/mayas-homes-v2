@@ -138,9 +138,18 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
     entries.forEach((entry) => {
       const video = entry.target;
       if (entry.isIntersecting) {
-        video.play().catch(() => {}); /* swallow autoplay rejection */
+        // Only start play if the video hasn't already finished a full
+        // playthrough this session. Once .ended, it stays frozen on
+        // its final frame for the rest of the session.
+        if (!video.ended) {
+          video.play().catch(() => {}); /* swallow autoplay rejection */
+        }
       } else {
-        video.pause();
+        // Only pause if the video is still mid-playback. If it has
+        // ended, leave it frozen on the final frame.
+        if (!video.ended) {
+          video.pause();
+        }
       }
     });
   }, { threshold: 0.15 });
