@@ -726,34 +726,37 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Justified gallery — two flex rows; tile widths are determined by
-   each row sharing one anchored baseline. flex grow values are the
-   aspect-ratio (width / height) so frames in a row come out the same
-   height once their photo aspect is set. No JS, no calc(). */
+/* Full-bleed collection grid — escapes the section's horizontal padding
+   via 100vw + negative margin. 1px gaps inside reveal the parent's
+   hairline-strong colour as dividers between tiles and rows. */
 .projects__grid {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 var(--pad-x);
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 4vw, 64px);
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
+  background: var(--hairline-strong);
+  gap: 1px;
 }
 .projects__row {
   display: flex;
-  gap: clamp(20px, 2.4vw, 40px);
+  gap: 1px;
   align-items: flex-start;
+  background: var(--hairline-strong);
 }
 
-/* Three aspect modifiers — locked to position (class), not project. */
-.tile.tile--square    { flex: 1;     min-width: 0; }
-.tile.tile--landscape { flex: 1.333; min-width: 0; }
-.tile.tile--portrait  { flex: 0.75;  min-width: 0; }
+/* Each tile carries a bone background so the photo loads on bone
+   rather than on the underlying hairline-strong colour. */
+.tile.tile--square    { flex: 1;     min-width: 0; background: var(--bone); }
+.tile.tile--landscape { flex: 1.333; min-width: 0; background: var(--bone); }
+.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: var(--bone); }
 
 @media (max-width: 760px) {
-  .projects__grid { gap: 32px; }
   .projects__row {
     flex-direction: column;
-    gap: 32px;
+    gap: 1px;
   }
   .tile.tile--square,
   .tile.tile--landscape,
@@ -838,29 +841,60 @@ html.is-intro body {
 .tile.is-playing .tile__video { filter: none !important; transform: none !important; }
 .tile.is-playing:hover .tile__video { filter: none !important; }
 
-/* — "Click to reveal" hint — light glass pill in the top-left of
-     every tile. Light treatment + ink text reads clearly over any
-     video frame (dark or light). Fades out when the morph plays. — */
-.tile__hint {
+/* — Hover overlay: project title + meta + "Click to reveal" pill.
+     Visible on hover/focus on desktop; persistently visible on mobile
+     (where hover doesn't exist) but with the click hint hidden. — */
+.tile__hover {
   position: absolute;
-  top: clamp(14px, 1.6vw, 22px);
-  left: clamp(14px, 1.6vw, 22px);
-  z-index: 5;
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(8px) saturate(140%);
-  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(16px, 4%, 32px);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(20,17,14,0.10) 0%, rgba(20,17,14,0.55) 100%);
+  transition: opacity 360ms var(--ease-out);
+  text-align: center;
+}
+.tile:hover .tile__hover,
+.tile:focus-within .tile__hover {
+  opacity: 1;
+}
+/* Hide hover overlay during morph play and after reveal. */
+.tile.is-playing .tile__hover,
+.tile.is-revealed .tile__hover {
+  opacity: 0 !important;
+}
+.tile__hover-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.6vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.008em;
+  color: rgba(244, 239, 230, 0.98);
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.tile__hover-meta {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.78);
+  margin: 0 0 24px 0;
+}
+.tile__hover-hint {
   font-family: var(--sans);
   font-size: 10px;
-  font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--ink);
-  pointer-events: none;
-  transition: opacity 360ms var(--ease-out), transform 480ms var(--ease-out);
-  box-shadow: 0 4px 14px -8px rgba(20, 17, 14, 0.25);
+  color: rgba(244, 239, 230, 0.88);
+  padding: 6px 14px;
+  border: 1px solid rgba(244, 239, 230, 0.4);
+  border-radius: 999px;
 }
 
 /* — "What changed" overlay — appears ONLY after the morph has finished
@@ -919,12 +953,6 @@ html.is-intro body {
   transform: translateY(0);
 }
 
-/* Hint fades while the morph plays, stays gone post-reveal. */
-.tile.is-playing .tile__hint {
-  opacity: 0;
-  transform: translateY(-4px);
-}
-.tile.is-revealed .tile__hint { opacity: 0; }
 
 /* — Projects: section lede — */
 .projects__head .projects__lede {
@@ -933,35 +961,6 @@ html.is-intro body {
   line-height: 1.55;
   max-width: 48ch;
   margin-top: 4px;
-}
-
-/* — Slim caption: title on the left, meta on the right. No rule above,
-     no View Project link — that link is now a pill on the photo. — */
-.tile__caption {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 14px;
-  padding: 0;
-  background: transparent;
-}
-.tile__title {
-  font-family: var(--serif);
-  font-size: clamp(18px, 1.5vw, 26px);
-  font-weight: 400;
-  letter-spacing: -0.008em;
-  color: var(--ink);
-  line-height: 1.18;
-  margin: 0;
-}
-.tile__meta {
-  font-family: var(--sans);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.04em;
-  color: var(--mid);
-  margin: 0;
-  white-space: nowrap;
 }
 
 /* — View Project: bone pill anchored to the bottom-centre of the photo
@@ -1009,8 +1008,20 @@ html.is-intro body {
 }
 .tile__view:hover svg { transform: translateX(4px); }
 
-@media (max-width: 640px) {
-  .tile__caption { flex-direction: column; align-items: flex-start; gap: 4px; }
+/* Mobile: title + meta become persistently visible (hover doesn't
+   exist on touch). The Click-to-reveal hint is dropped — every tile
+   reads as obviously tappable on touch. */
+@media (max-width: 760px) {
+  .tile__hover {
+    opacity: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(20,17,14,0) 0%, rgba(20,17,14,0.55) 100%);
+    justify-content: flex-end;
+    padding-bottom: clamp(20px, 5vw, 32px);
+  }
+  .tile__hover-hint { display: none; }
+  .tile.is-playing .tile__hover,
+  .tile.is-revealed .tile__hover { opacity: 0 !important; }
 }
 
 .projects__cta {
