@@ -121,6 +121,12 @@ document.querySelectorAll('.display, .reveal, .eyebrow, blockquote, .tile, .cont
 const pillarList = document.querySelector('.manifesto__pillars');
 if (pillarList) io.observe(pillarList);
 
+/* — Maja's pull-quote: crystallises in (blur 10px → 0, opacity 0 → 1)
+     on scroll-in, same treatment as the hero brand. CSS owns the
+     transition; the observer just toggles `.is-in`. */
+const methodQuote = document.querySelector('[data-method-quote]');
+if (methodQuote) io.observe(methodQuote);
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -555,6 +555,43 @@ html.is-intro body {
   max-width: 56ch;
 }
 
+/* — Maja's pull-quote: handwritten voice, right-aligned, crystallises in. — */
+.method__quote {
+  margin: clamp(40px, 5vw, 72px) 0 0 auto;
+  padding: 0;
+  text-align: right;
+  max-width: 28ch;
+  /* Initial state — blurred and invisible. Resolves to 0/1 when
+     .is-in is added (matches the hero brand crystallise). */
+  filter: blur(10px);
+  opacity: 0;
+  transition: filter 1.2s var(--ease-out), opacity 1.2s var(--ease-out);
+  will-change: filter, opacity;
+}
+.method__quote.is-in {
+  filter: blur(0);
+  opacity: 1;
+}
+.method__quote-text {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.32;
+  color: var(--ink-2);
+  letter-spacing: 0.005em;
+}
+.method__quote-cite {
+  display: block;
+  margin-top: clamp(10px, 1vw, 16px);
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
 @media (max-width: 900px) {
   .method__grid { grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); }
   .method__head {
@@ -567,6 +604,12 @@ html.is-intro body {
     border-left: 0;
     border-top: 1px solid var(--hairline);
     padding-top: clamp(28px, 4vw, 48px);
+  }
+  .method__quote {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+    max-width: 100%;
   }
 }
 
