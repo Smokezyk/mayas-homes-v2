@@ -537,11 +537,12 @@ html.is-intro body {
   max-width: 22ch;
 }
 .method__head .display {
-  max-width: 12ch;
-  /* Smaller than the global display scale — sits in proportion
-     with the right-column body copy and reads side-by-side. */
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.15;
+  /* Each line on its own row — wider max-width so "One signature."
+     never wraps mid-phrase. Larger font-size so the headline reads
+     as a true header next to the body copy. */
+  max-width: 16ch;
+  font-size: clamp(36px, 4.2vw, 64px);
+  line-height: 1.08;
 }
 .method__body {
   display: grid;
