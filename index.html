@@ -22,9 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=85" />
-  <link rel="stylesheet" href="css/index.css?v=85" />
-  <link rel="stylesheet" href="css/animations.css?v=85" />
+  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=86" />
+  <link rel="stylesheet" href="css/index.css?v=86" />
+  <link rel="stylesheet" href="css/animations.css?v=86" />
 
   <script type="application/ld+json">
   {
@@ -75,7 +75,7 @@
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=85"
+        src="assets/videos/introvidfinal.mp4?v=86"
         autoplay
         muted
         playsinline
@@ -119,7 +119,7 @@
         </div>
         
         <figure class="manifesto__portrait">
-          <img src="assets/images/maja-portrait-v2.webp?v=85" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
+          <img src="assets/images/maja-portrait-v2.webp?v=86" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
           <figcaption>Maja Milič — Cascais</figcaption>
         </figure>
       </div>
@@ -135,7 +135,7 @@
     <section class="stats" aria-label="At a glance">
       <video
         class="stats__bg"
-        src="assets/videos/stats-band-bg.mp4?v=85"
+        src="assets/videos/stats-band-bg.mp4?v=86"
         autoplay loop muted playsinline preload="auto"
         aria-hidden="true"
         tabindex="-1"
@@ -195,13 +195,14 @@
       </header>
 
       <div class="projects__grid">
-        <article class="tile tile--wide tile--cinema" data-tile>
+        <div class="projects__row">
+        <article class="tile tile--square" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Rosário transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-rosario.mp4?v=85"
+                src="assets/videos/transformation-rosario.mp4?v=86"
                 poster="assets/images/rosario-hero.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -233,13 +234,13 @@
           </div>
         </article>
 
-        <article class="tile tile--portrait" data-tile>
+        <article class="tile tile--landscape" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Alvide transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-alvide.mp4?v=85"
+                src="assets/videos/transformation-alvide.mp4?v=86"
                 poster="assets/images/alvide-hero.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -271,13 +272,13 @@
           </div>
         </article>
 
-        <article class="tile tile--square" data-tile>
+        <article class="tile tile--portrait" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Amoreira transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-amoreira.mp4?v=85"
+                src="assets/videos/transformation-amoreira.mp4?v=86"
                 poster="assets/images/amoreira-hero.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -308,14 +309,16 @@
             </a>
           </div>
         </article>
+        </div>
 
-        <article class="tile tile--portrait-tall" data-tile>
+        <div class="projects__row">
+        <article class="tile tile--landscape" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Rebelva transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-rebelva.mp4?v=85"
+                src="assets/videos/transformation-rebelva.mp4?v=86"
                 poster="assets/images/rebelva-sala.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -347,13 +350,13 @@
           </div>
         </article>
 
-        <article class="tile tile--standard" data-tile>
+        <article class="tile tile--portrait" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Figueiras transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-figueiras.mp4?v=85"
+                src="assets/videos/transformation-figueiras.mp4?v=86"
                 poster="assets/images/figueiras-open-plan.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -385,13 +388,13 @@
           </div>
         </article>
 
-        <article class="tile tile--full tile--panorama" data-tile>
+        <article class="tile tile--square" data-tile>
           <button class="tile__link" type="button" aria-label="Reveal the Riviera transformation">
             <figure class="tile__media">
               <video
                 class="tile__video"
                 data-tile-video
-                src="assets/videos/transformation-riviera.mp4?v=85"
+                src="assets/videos/transformation-riviera.mp4?v=86"
                 poster="assets/images/riviera-openplan.webp"
                 muted playsinline preload="metadata" tabindex="-1"
               ></video>
@@ -422,6 +425,7 @@
             </a>
           </div>
         </article>
+        </div>
       </div>
 
       <a class="projects__cta" href="/projects" data-todo="project-page">
@@ -734,8 +738,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=85" type="module"></script>
-  <script src="js/scroll-scrub.js?v=85" type="module"></script>
-  <script src="js/nav.js?v=85" type="module"></script>
+  <script src="js/main.js?v=86" type="module"></script>
+  <script src="js/scroll-scrub.js?v=86" type="module"></script>
+  <script src="js/nav.js?v=86" type="module"></script>
 </body>
 </html>

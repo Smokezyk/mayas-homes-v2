@@ -726,36 +726,39 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Mosaic grid — three columns. Tile sizes vary; photo aspect varies too.
-   Tiles in a row are top-aligned so the row's bottom edge can be
-   intentionally irregular (magazine-spread feel). */
+/* Justified gallery — two flex rows; tile widths are determined by
+   each row sharing one anchored baseline. flex grow values are the
+   aspect-ratio (width / height) so frames in a row come out the same
+   height once their photo aspect is set. No JS, no calc(). */
 .projects__grid {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--pad-x);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.4vw, 40px);
-  overflow: visible;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 4vw, 64px);
 }
-.tile--wide { grid-column: span 2; }
-.tile--full { grid-column: 1 / -1; }
+.projects__row {
+  display: flex;
+  gap: clamp(20px, 2.4vw, 40px);
+  align-items: flex-start;
+}
+
+/* Three aspect modifiers — locked to position (class), not project. */
+.tile.tile--square    { flex: 1;     min-width: 0; }
+.tile.tile--landscape { flex: 1.333; min-width: 0; }
+.tile.tile--portrait  { flex: 0.75;  min-width: 0; }
 
 @media (max-width: 760px) {
-  .projects__grid { grid-template-columns: 1fr; }
-  .tile--wide,
-  .tile--full { grid-column: auto; }
-
-  /* All tiles standard 4:3 on mobile — varied aspects are a desktop
-     rhythm; on a single column they'd just look erratic. */
-  .tile.tile--cinema .tile__media,
-  .tile.tile--portrait .tile__media,
-  .tile.tile--square .tile__media,
-  .tile.tile--portrait-tall .tile__media,
-  .tile.tile--standard .tile__media,
-  .tile.tile--panorama .tile__media {
-    aspect-ratio: 4 / 3;
+  .projects__grid { gap: 32px; }
+  .projects__row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .tile.tile--square,
+  .tile.tile--landscape,
+  .tile.tile--portrait {
+    flex: 1 1 auto;
   }
 }
 
@@ -794,15 +797,19 @@ html.is-intro body {
   background: var(--bone-2);
   border: 1px solid var(--hairline);
 }
-/* Aspect ratio modifiers — locked to position (the modifier class), not
-   to the project. Re-ordering articles re-shuffles which project lands
-   at which aspect. */
-.tile.tile--cinema .tile__media        { aspect-ratio: 16 / 9; }
-.tile.tile--portrait .tile__media      { aspect-ratio: 4 / 5;  }
-.tile.tile--square .tile__media        { aspect-ratio: 1 / 1;  }
-.tile.tile--portrait-tall .tile__media { aspect-ratio: 3 / 4;  }
-.tile.tile--standard .tile__media      { aspect-ratio: 4 / 3;  }
-.tile.tile--panorama .tile__media      { aspect-ratio: 2 / 1;  }
+/* Aspect ratios on the photo frame — paired with the flex-grow values
+   above so each row of three tiles shares one consistent height. */
+.tile.tile--square    .tile__media { aspect-ratio: 1 / 1; }
+.tile.tile--landscape .tile__media { aspect-ratio: 4 / 3; }
+.tile.tile--portrait  .tile__media { aspect-ratio: 3 / 4; }
+
+@media (max-width: 760px) {
+  .tile.tile--square    .tile__media,
+  .tile.tile--landscape .tile__media,
+  .tile.tile--portrait  .tile__media {
+    aspect-ratio: 4 / 3;
+  }
+}
 .tile__media img,
 .tile__video {
   width: 100%; height: 100%;
