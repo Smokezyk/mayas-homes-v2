@@ -13,12 +13,10 @@
      4. Video plays through to its last frame and freezes there.
 
    Auto-skip:
-     - If sessionStorage.mh_intro_seen === '1' (the user has already
-       seen the intro in this tab/session), or
      - If the URL carries a hash anchor (deep-link to a section),
-     the intro is bypassed instantly: the page snaps into the unlocked,
-     post-intro state on load. New tabs / new browser windows get a
-     fresh sessionStorage and so see the intro again on first visit.
+       the intro is bypassed instantly and the page snaps into the
+       unlocked, post-intro state on load. Every other visit — fresh
+       OR refresh — plays the cinematic from the top.
    ========================================================= */
 
 const { gsap } = window;
@@ -36,19 +34,18 @@ const skipBtn   = document.querySelector('[data-intro-skip]');
    marble backsplash. No "coming in" effect after the video stops. */
 const REVEAL_TIME_S = 6.5;
 
-/* — Auto-skip conditions —
-   1. The user has already seen the intro in this browser session.
-   2. The URL has a hash anchor (deep-link navigation — the user is
-      jumping to a section and doesn't need the cinematic from the top).
-   In either case, snap to the post-intro state immediately rather than
-   making the user sit through ~8s of video again. */
-let introAlreadySeenThisSession = false;
-try {
-  introAlreadySeenThisSession = sessionStorage.getItem('mh_intro_seen') === '1';
-} catch (_) {}
+/* — One-time cleanup: previous build of this file persisted a session
+   flag to skip the intro on refresh. That behaviour was reverted; clear
+   the flag so any tab that still carries it doesn't keep auto-skipping. */
+try { sessionStorage.removeItem('mh_intro_seen'); } catch (_) {}
+
+/* — Auto-skip condition: hash anchor (deep-link navigation). When the
+   user is jumping to a section, they don't need the cinematic from the
+   top — snap straight to the unlocked state. Every other visit plays
+   the intro from the start. */
 const hasHashAnchor =
   window.location.hash && window.location.hash.length > 1;
-const shouldAutoSkip = introAlreadySeenThisSession || hasHashAnchor;
+const shouldAutoSkip = hasHashAnchor;
 
 if (!introEl || !video) {
   // No intro markup — nothing to do.
@@ -157,9 +154,6 @@ if (!introEl || !video) {
       if (unlocked) return;
       unlocked = true;
       root.classList.remove('is-intro');
-      /* Mark this session as having seen the intro — refresh won't
-         replay it. New tabs get a fresh session and will see it again. */
-      try { sessionStorage.setItem('mh_intro_seen', '1'); } catch (_) {}
       window.dispatchEvent(new CustomEvent('intro:end'));
 
       if (skipBtn) {
@@ -240,9 +234,6 @@ if (!introEl || !video) {
 
         // Hide the skip button itself.
         skipBtn.setAttribute('hidden', '');
-
-        // Mark the session — refresh after skip shouldn't replay either.
-        try { sessionStorage.setItem('mh_intro_seen', '1'); } catch (_) {}
 
         // Unlock scroll & broadcast.
         root.classList.remove('is-intro');
