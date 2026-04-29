@@ -118,18 +118,28 @@ if (nav) {
        at its final header position so it stays there as the page
        continues to scroll. Reverse via scrub. */
 
+    const navEl = document.querySelector('[data-nav]');
+
     const computeTarget = () => {
       if (!heroBrand || !navBrand || !navBrandLink) return { x: 0, y: 0, scale: 0.3 };
 
       const savedTransform = heroBrand.style.transform;
       heroBrand.style.transform = '';
 
-      // Temporarily reveal the nav wordmark slot so we can measure
-      // where it sits — that's our target.
+      // Temporarily expand the nav wordmark slot AND force the nav
+      // into its `is-visible` state so getBoundingClientRect() returns
+      // the rect at the seated position — not 120 % above the viewport
+      // (where the pre-intro / tucked-away transform parks it). Without
+      // this, the brand flies to the tucked location on resize / refresh.
       const savedMW = navBrandLink.style.maxWidth;
       const savedOp = navBrand.style.opacity;
+      const navHadVisible = navEl ? navEl.classList.contains('is-visible') : true;
       navBrandLink.style.maxWidth = '16em';
       navBrand.style.opacity = '1';
+      if (navEl) navEl.classList.add('is-visible');
+
+      // Force a layout flush before reading geometry.
+      void navBrand.offsetHeight;
 
       const hero = heroBrand.getBoundingClientRect();
       const nav  = navBrand.getBoundingClientRect();
@@ -137,6 +147,7 @@ if (nav) {
       heroBrand.style.transform = savedTransform;
       navBrandLink.style.maxWidth = savedMW;
       navBrand.style.opacity = savedOp;
+      if (navEl && !navHadVisible) navEl.classList.remove('is-visible');
 
       const heroCx = hero.left + hero.width  / 2;
       const heroCy = hero.top  + hero.height / 2;
