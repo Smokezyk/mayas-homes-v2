@@ -40,9 +40,10 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
-  /* — Projects grid: bone-coloured breathing room around each photograph
-       (collage feel, not stitched cells). Tune in one place. — */
-  --tile-gap: clamp(20px, 2.4vw, 36px);
+  /* — Projects grid: white-channel mounting between photos on the
+       white card. Halved from clamp(20-36 px) so tiles sit close
+       together — scrapbook-style mounting, not generous breathing. — */
+  --tile-gap: clamp(10px, 1.2vw, 18px);
 }
 
 /* — Reset — */
@@ -730,15 +731,15 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Contained grid — sits inside the page's normal box. The section's
-   horizontal padding gives the symmetric left/right margins; the grid
-   itself caps at the container width. Inter-tile gaps are bone-coloured
-   breathing room — the section's bone background shows through directly,
-   so each photograph reads as a discrete element rather than a cell. */
+/* White-card mount — photographs sit on a single white rectangle that
+   floats inside the bone section. Internal padding insets the photos
+   from the card's edges; gaps between tiles render as white channels
+   because the parent and tiles all share the same white surface. */
 .projects__grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0;
+  padding: clamp(16px, 2vw, 28px);
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: var(--tile-gap);
@@ -747,11 +748,12 @@ html.is-intro body {
   display: flex;
   gap: var(--tile-gap);
   align-items: flex-start;
+  background: #ffffff;
 }
 
-.tile.tile--square    { flex: 1;     min-width: 0; }
-.tile.tile--landscape { flex: 1.333; min-width: 0; }
-.tile.tile--portrait  { flex: 0.75;  min-width: 0; }
+.tile.tile--square    { flex: 1;     min-width: 0; background: #ffffff; }
+.tile.tile--landscape { flex: 1.333; min-width: 0; background: #ffffff; }
+.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: #ffffff; }
 
 @media (max-width: 760px) {
   .projects__row {
