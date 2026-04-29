@@ -1214,6 +1214,34 @@ html.is-intro body {
   max-width: 64ch;
 }
 
+/* — Maja's pull-quote in the Craft section — italic Cormorant with an
+     ochre left-border. Distinct from the Method section's handwritten
+     Sacramento treatment; this one carries authority, not warmth. — */
+.craft__quote {
+  margin: clamp(20px, 2vw, 32px) 0 0;
+  padding: 4px 0 4px 18px;
+  border-left: 2px solid var(--ochre);
+  max-width: 56ch;
+}
+.craft__quote-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 1.55;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 6px 0;
+}
+.craft__quote-cite {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  font-style: normal;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
 .craft__grid {
   max-width: var(--container);
   margin: 0 auto;
