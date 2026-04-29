@@ -760,45 +760,6 @@ html.is-intro body {
   transform: scale(1);
 }
 
-/* — Problem-Solved one-liner overlay — sits on top of the blueprint
-     when the tile is hovered. Ultra-light Cormorant, wide tracking. — */
-.tile__solved {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: clamp(20px, 4%, 40px);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 620ms 80ms var(--ease-out), transform 720ms 80ms var(--ease-out);
-  pointer-events: none;
-  z-index: 3;
-}
-.tile__solved-text {
-  font-family: var(--serif);
-  font-weight: 200;
-  font-size: clamp(18px, 1.55vw, 26px);
-  line-height: 1.35;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.96);
-  max-width: 24ch;
-}
-.tile__solved-text em {
-  display: block;
-  margin-top: 8px;
-  font-style: italic;
-  letter-spacing: 0.22em;
-  color: rgba(244, 239, 230, 0.78);
-  text-transform: none;
-}
-.tile:hover .tile__solved,
-.tile:focus-within .tile__solved {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* — "Click to reveal" hint — pearl badge in the corner of each tile.
      Fades out when the morph plays. — */
 .tile__hint {
