@@ -510,8 +510,59 @@ html.is-intro body {
 }
 
 /* =========================================================
-   STATS BAND — key trust figures
+   THE METHOD — two-column lock-up.
+   Headline (left, 40%) is position: sticky and stays in view as
+   the body (right, 60%) scrolls past. Hairline rule between.
    ========================================================= */
+.method {
+  padding: var(--pad-section) var(--pad-x);
+  background: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+}
+.method__grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;
+  align-items: start;
+}
+.method__head {
+  position: sticky;
+  top: clamp(96px, 14vh, 160px);
+  align-self: start;
+  display: grid;
+  gap: clamp(20px, 2vw, 32px);
+  padding-right: clamp(40px, 6vw, 120px);
+  max-width: 22ch;
+}
+.method__head .display { max-width: 12ch; }
+.method__body {
+  display: grid;
+  gap: clamp(22px, 2vw, 36px);
+  padding-left: clamp(40px, 6vw, 120px);
+  border-left: 1px solid var(--hairline);
+  font-size: var(--fs-lg);
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 56ch;
+}
+
+@media (max-width: 900px) {
+  .method__grid { grid-template-columns: 1fr; gap: clamp(28px, 4vw, 48px); }
+  .method__head {
+    position: static;
+    padding-right: 0;
+    max-width: 100%;
+  }
+  .method__body {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+    padding-top: clamp(28px, 4vw, 48px);
+  }
+}
+
 /* =========================================================
    STATS BAND — slim editorial line. Hairline-divided.
    Discreet, restrained, in keeping with the site's aesthetic.
