@@ -156,6 +156,40 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
   livingPortraits.forEach((v) => portraitObserver.observe(v));
 }
 
+/* — Process Timeline step animations: click-to-play overlay and
+     post-end replay button. Mirrors the project-tile pattern; full
+     video data only loads after the user clicks play, so the four
+     step videos don't share initial-load bandwidth. */
+document.querySelectorAll('[data-step]').forEach((figure) => {
+  const video = figure.querySelector('[data-step-video]');
+  const playBtn = figure.querySelector('.process__play');
+  const replayBtn = figure.querySelector('.process__replay');
+  if (!video) return;
+
+  // Belt-and-braces playback flags — same as the intro and tile videos.
+  video.muted = true;
+  video.playsInline = true;
+  video.setAttribute('webkit-playsinline', '');
+
+  const play = () => {
+    figure.classList.add('is-playing');
+    figure.classList.remove('is-revealed');
+    try { video.currentTime = 0; } catch (_) {}
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
+  if (playBtn)   playBtn.addEventListener('click', play);
+  if (replayBtn) replayBtn.addEventListener('click', play);
+
+  // When the morph completes, swap from is-playing → is-revealed
+  // so the replay pill can fade in.
+  video.addEventListener('ended', () => {
+    figure.classList.remove('is-playing');
+    figure.classList.add('is-revealed');
+  });
+});
+
 /* — 'Play again' button on the Process Result closer — resets the
      video to t=0 and plays it. Since the closer's video plays once
      and freezes on its final frame, this is the only way to re-watch
