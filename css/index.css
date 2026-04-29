@@ -481,7 +481,24 @@ html.is-intro body {
   font-size: var(--fs-xl);
   letter-spacing: -0.012em;
   color: var(--ink);
+  /* Gold-leaf hairline anchor — drawn 0 → 100% on scroll-in. */
+  position: relative;
+  display: inline-block;
+  padding-bottom: clamp(5px, 0.5vw, 9px);
 }
+.manifesto__pillars b::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ochre);
+  transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.manifesto__pillars.is-in b::after { width: 100%; }
+.manifesto__pillars.is-in li:nth-child(2) b::after { transition-delay: 80ms; }
+.manifesto__pillars.is-in li:nth-child(3) b::after { transition-delay: 160ms; }
 .manifesto__pillars span {
   font-size: var(--fs-base);
   color: var(--mid);

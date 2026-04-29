@@ -115,6 +115,12 @@ document.querySelectorAll('.display, .reveal, .eyebrow, blockquote, .tile, .cont
     io.observe(el);
   });
 
+/* — Manifesto pillars: observe the list itself so .is-in toggles
+     the gold-leaf hairline animation under each <b>. No `.reveal`
+     class — only the hairlines should animate, not the list itself. */
+const pillarList = document.querySelector('.manifesto__pillars');
+if (pillarList) io.observe(pillarList);
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
