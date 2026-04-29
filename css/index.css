@@ -536,7 +536,13 @@ html.is-intro body {
   padding-right: clamp(40px, 6vw, 120px);
   max-width: 22ch;
 }
-.method__head .display { max-width: 12ch; }
+.method__head .display {
+  max-width: 12ch;
+  /* Smaller than the global display scale — sits in proportion
+     with the right-column body copy and reads side-by-side. */
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.15;
+}
 .method__body {
   display: grid;
   gap: clamp(22px, 2vw, 36px);
