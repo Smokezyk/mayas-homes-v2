@@ -1466,6 +1466,23 @@ html.is-intro body {
   padding: var(--pad-section) var(--pad-x);
   background: var(--bone);
 }
+
+/* Atmospheric place-photograph — full-width above the two-column grid.
+   Asset to be supplied by Maja; placeholder paths carry data-todo. */
+.cascais__atmosphere {
+  margin: 0 auto clamp(64px, 7vw, 110px);
+  max-width: var(--container);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.cascais__atmosphere img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .cascais__grid {
   max-width: var(--container);
   margin: 0 auto;
@@ -1516,6 +1533,79 @@ html.is-intro body {
   color: var(--ink);
 }
 .cascais__points span { font-size: var(--fs-sm); color: var(--mid); line-height: 1.55; }
+
+/* Maja's pull-quote — clone of .craft__quote (italic Cormorant + ochre
+   left-border + blur-to-clear scroll reveal). */
+.cascais__quote {
+  margin: clamp(28px, 3vw, 48px) 0 0;
+  padding: 4px 0 4px 18px;
+  border-left: 2px solid var(--ochre);
+  max-width: 56ch;
+  text-align: left;
+  filter: blur(10px);
+  opacity: 0;
+  transition: filter 1.2s var(--ease-out), opacity 1.2s var(--ease-out);
+  will-change: filter, opacity;
+}
+.cascais__quote.is-in {
+  filter: blur(0);
+  opacity: 1;
+}
+.cascais__quote-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 1.55;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 6px 0;
+}
+.cascais__quote-cite {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* 'Currently building in' line — small editorial note beneath the
+   pillars. Italic Cormorant so it reads as ongoing context, not a
+   marketing claim. */
+.cascais__active {
+  margin-top: clamp(20px, 2vw, 32px);
+  padding-top: clamp(16px, 1.6vw, 24px);
+  border-top: 1px solid var(--hairline);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(15px, 1.2vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  letter-spacing: -0.002em;
+  max-width: 56ch;
+}
+
+/* Supplier video slot — small inset within the supply-chain pillar.
+   Markup is currently HTML-commented; uncomment when Maja's clip lands. */
+.cascais__supplier {
+  margin: 14px 0 0;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.cascais__supplier-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (max-width: 900px) {
   .cascais__grid { grid-template-columns: 1fr; }
   .cascais__points li { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }

@@ -125,7 +125,7 @@ if (pillarList) io.observe(pillarList);
      on scroll-in, same treatment as the hero brand. CSS owns the
      transition; the observer just toggles `.is-in`. Both the Method
      section quote and the Craft section quote share this reveal. */
-document.querySelectorAll('[data-method-quote], [data-craft-quote]')
+document.querySelectorAll('[data-method-quote], [data-craft-quote], [data-cascais-quote]')
   .forEach((el) => io.observe(el));
 
 /* — Living portraits — autoplay loop while in viewport, pause when
