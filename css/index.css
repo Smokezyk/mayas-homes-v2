@@ -431,7 +431,7 @@ html.is-intro body {
   aspect-ratio: 4 / 5;
 }
 .manifesto__portrait img,
-.manifesto__portrait video {
+.manifesto__portrait-video {
   width: 100%; height: 100%;
   object-fit: cover;
   /* Maja sits on the right of the source frame — shift the crop

@@ -128,6 +128,25 @@ if (pillarList) io.observe(pillarList);
 document.querySelectorAll('[data-method-quote], [data-craft-quote]')
   .forEach((el) => io.observe(el));
 
+/* — Living portraits — autoplay loop while in viewport, pause when
+   off-screen. Saves CPU and respects users' scroll-out-of-view
+   expectations. The video carries no `autoplay` attribute in markup;
+   this observer is the only thing that ever calls .play() on it. */
+const livingPortraits = document.querySelectorAll('[data-living-portrait]');
+if (livingPortraits.length && 'IntersectionObserver' in window) {
+  const portraitObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {}); /* swallow autoplay rejection */
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.15 });
+  livingPortraits.forEach((v) => portraitObserver.observe(v));
+}
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
