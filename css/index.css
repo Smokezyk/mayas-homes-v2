@@ -726,46 +726,37 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Editorial horizontal ribbon — full bleed, scroll-snaps card-by-card. */
+/* Mosaic grid — three columns. Tile sizes vary; photo aspect doesn't. */
 .projects__grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: clamp(280px, 22vw, 360px);
-  gap: clamp(20px, 2vw, 36px);
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--pad-x);
-  padding: 4px var(--pad-x) 28px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  max-width: none;
-  margin: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 40px);
+  overflow: visible;
 }
-.projects__grid::-webkit-scrollbar { display: none; }
+.tile--wide { grid-column: span 2; }
+.tile--full { grid-column: 1 / -1; }
 
-@media (max-width: 640px) {
-  .projects__grid { grid-auto-columns: 80vw; }
+@media (max-width: 760px) {
+  .projects__grid { grid-template-columns: 1fr; }
+  .tile--wide,
+  .tile--full { grid-column: auto; }
 }
 
-/* OUTER CARD — 4:5 portrait silhouette, designed catalogue entry */
+/* OUTER TILE — no portrait wrapper; just the landscape photo + slim caption. */
 .tile {
   position: relative;
   display: flex;
   flex-direction: column;
-  scroll-snap-align: start;
-  background: var(--paper);
-  border: 1px solid var(--hairline);
-  transition: transform 700ms var(--ease-out),
-              border-color 320ms var(--ease-out);
+  background: transparent;
+  border: 0;
+  transition: transform 700ms var(--ease-out);
 }
-.tile:hover {
-  transform: translateY(-4px);
-  border-color: var(--hairline-strong);
-}
+.tile:hover { transform: translateY(-4px); }
 
-/* The button wrapper — neutralised to behave like a transparent block.
-   Cursor is `pointer` so the photo frame reads as clickable. */
+/* The button wrapper — neutralised to behave like a transparent block. */
 .tile__link {
   display: block;
   width: 100%;
@@ -781,13 +772,13 @@ html.is-intro body {
 }
 .tile__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
-/* PHOTO FRAME — native 4:3 landscape inside the portrait card */
+/* PHOTO FRAME — native 4:3, takes whatever width the grid gives it. */
 .tile__media {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--bone-2);
-  border-bottom: 1px solid var(--hairline);
+  border: 1px solid var(--hairline);
 }
 .tile__media img,
 .tile__video {
@@ -864,40 +855,50 @@ html.is-intro body {
   box-shadow: 0 4px 14px -8px rgba(20, 17, 14, 0.25);
 }
 
-/* — "What changed" overlay — visible on hover and while morph plays. — */
+/* — "What changed" overlay — carries both the solved headline and the
+     technical detail line. Visible on hover and while morph plays. — */
 .tile__solved {
   position: absolute; inset: 0;
   display: grid;
   place-items: center;
-  padding: clamp(14px, 4%, 28px);
+  padding: clamp(18px, 4%, 40px);
   z-index: 3;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 620ms 80ms var(--ease-out),
               transform 720ms 80ms var(--ease-out);
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,17,14,0) 0%, rgba(20,17,14,0.45) 100%);
+  background: linear-gradient(180deg, rgba(20,17,14,0) 0%, rgba(20,17,14,0.5) 100%);
+  text-align: center;
 }
 .tile__solved-text {
   font-family: var(--serif);
   font-weight: 200;
-  font-size: clamp(14px, 1.2vw, 20px);
-  line-height: 1.35;
+  font-size: clamp(16px, 1.4vw, 26px);
+  line-height: 1.3;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.96);
-  text-align: center;
-  max-width: 22ch;
+  max-width: 24ch;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
-  margin: 0;
+  margin: 0 0 14px 0;
 }
 .tile__solved-text em {
   display: block;
-  margin-top: 6px;
+  margin-top: 8px;
   font-style: italic;
   letter-spacing: 0.22em;
   color: rgba(244, 239, 230, 0.82);
   text-transform: none;
+}
+.tile__solved-detail {
+  font-family: var(--sans);
+  font-size: clamp(11px, 0.85vw, 13px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.78);
+  margin: 0;
+  max-width: 36ch;
 }
 .tile:hover .tile__solved,
 .tile:focus-within .tile__solved {
@@ -931,58 +932,40 @@ html.is-intro body {
   margin-top: 4px;
 }
 
-/* — Caption block: designed catalogue entry, paper background.
-     Index → Title → Detail → Hairline-divided foot (meta + gated link). */
+/* — Slim caption: title on the left, meta on the right; View Project
+     link appears below once the morph has finished revealing. — */
 .tile__caption {
-  display: grid;
-  gap: 8px;
-  padding: clamp(16px, 1.6vw, 22px) clamp(16px, 1.6vw, 22px) clamp(14px, 1.4vw, 20px);
-  background: var(--paper);
-}
-.tile__index {
-  font-family: var(--sans);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--soft);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  padding: 0;
+  background: transparent;
+  flex-wrap: wrap;
 }
 .tile__title {
   font-family: var(--serif);
-  font-size: clamp(18px, 1.4vw, 23px);
+  font-size: clamp(18px, 1.5vw, 26px);
   font-weight: 400;
   letter-spacing: -0.008em;
   color: var(--ink);
   line-height: 1.18;
-  white-space: normal;
   margin: 0;
-}
-.tile__detail {
-  font-size: var(--fs-xs);
-  color: var(--mid);
-  line-height: 1.55;
-  margin: 0;
-}
-.tile__caption-foot {
-  margin-top: 8px;
-  padding-top: 12px;
-  border-top: 1px solid var(--hairline);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  min-height: 28px;
 }
 .tile__meta {
+  font-family: var(--sans);
   font-size: var(--fs-xs);
-  color: var(--mid);
   letter-spacing: 0.04em;
+  color: var(--mid);
   margin: 0;
+  white-space: nowrap;
 }
 .tile__view {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-top: 10px;
   font-family: var(--sans);
   font-size: var(--fs-xs);
   letter-spacing: 0.22em;
@@ -992,6 +975,8 @@ html.is-intro body {
   transform: translateY(4px);
   pointer-events: none;
   transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+  width: max-content;
+  flex-basis: 100%;
 }
 .tile__view svg { width: 12px; height: 12px; transition: transform 320ms var(--ease-out); }
 .tile.is-revealed .tile__view {
@@ -1000,6 +985,10 @@ html.is-intro body {
   pointer-events: auto;
 }
 .tile__view:hover svg { transform: translateX(4px); }
+
+@media (max-width: 640px) {
+  .tile__caption { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
 
 .projects__cta {
   display: inline-flex;
