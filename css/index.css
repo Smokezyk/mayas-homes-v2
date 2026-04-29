@@ -652,6 +652,21 @@ html.is-intro body {
   .stats__item:nth-child(2)::before { display: block; }
 }
 
+/* — Tiny elegant licence line under the stats grid — */
+.stats__legal {
+  position: relative;
+  z-index: 1;
+  margin: clamp(20px, 2.4vw, 36px) auto 0;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: clamp(9px, 0.65vw, 10.5px);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--mid);
+  opacity: 0.78;
+}
+
 /* =========================================================
    PROJECTS
    ========================================================= */
