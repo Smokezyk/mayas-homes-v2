@@ -731,18 +731,14 @@ html.is-intro body {
 }
 .projects__head .display { max-width: 18ch; }
 
-/* Paper-card mount — photographs sit on a single paper rectangle
-   (var(--paper) = #FAF7F2, the brand's warm off-white) floating inside
-   the bone section. Internal padding insets the photos from the card's
-   edges; gaps between tiles render as paper channels because parent
-   and tiles share the same surface. The padding is visibly larger
-   than the inter-tile gap so the relationship reads as 'photos
-   arranged on a card', not 'photos floating with equal margins'. */
+/* No backing card — photographs sit directly on the section's bone
+   background. The hairline frame on each .tile__media is now the
+   only piece of structure on each photo. Tile gap stays tight
+   (var(--tile-gap) = 4-8 px) so the section reads as a collage. */
 .projects__grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: clamp(12px, 1.5vw, 22px);
-  background: var(--paper);
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: var(--tile-gap);
@@ -751,12 +747,11 @@ html.is-intro body {
   display: flex;
   gap: var(--tile-gap);
   align-items: flex-start;
-  background: var(--paper);
 }
 
-.tile.tile--square    { flex: 1;     min-width: 0; background: var(--paper); }
-.tile.tile--landscape { flex: 1.333; min-width: 0; background: var(--paper); }
-.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: var(--paper); }
+.tile.tile--square    { flex: 1;     min-width: 0; background: var(--bone); }
+.tile.tile--landscape { flex: 1.333; min-width: 0; background: var(--bone); }
+.tile.tile--portrait  { flex: 0.75;  min-width: 0; background: var(--bone); }
 
 @media (max-width: 760px) {
   .projects__row {
