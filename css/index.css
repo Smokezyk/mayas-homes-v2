@@ -789,13 +789,16 @@ html.is-intro body {
 }
 .tile__link:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
-/* PHOTO FRAME — default 4:3; per-position modifiers below override this. */
+/* Positioning context for the post-reveal pill (.tile__view). */
+.tile__frame { position: relative; }
+
+/* PHOTO FRAME — default 4:3; per-position modifiers below override this.
+   No border / no chrome — the photographs themselves form the rhythm. */
 .tile__media {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--bone-2);
-  border: 1px solid var(--hairline);
 }
 /* Aspect ratios on the photo frame — paired with the flex-grow values
    above so each row of three tiles shares one consistent height. */
@@ -835,35 +838,6 @@ html.is-intro body {
 .tile.is-playing .tile__video { filter: none !important; transform: none !important; }
 .tile.is-playing:hover .tile__video { filter: none !important; }
 
-/* — Maya's Eye blueprint overlay — */
-.tile__blueprint {
-  position: absolute; inset: 0;
-  z-index: 2;
-  color: rgba(244, 239, 230, 0.92);
-  opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 520ms var(--ease-out), transform 800ms var(--ease-out);
-  pointer-events: none;
-  mix-blend-mode: screen;
-}
-.tile__blueprint::before {
-  content: '— MAYA\'S EYE';
-  position: absolute;
-  top: 18px; right: 22px;
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 0.32em;
-  color: rgba(244, 239, 230, 0.85);
-}
-.tile__blueprint svg {
-  width: 100%; height: 100%;
-}
-.tile:hover .tile__blueprint,
-.tile:focus-within .tile__blueprint {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* — "Click to reveal" hint — light glass pill in the top-left of
      every tile. Light treatment + ink text reads clearly over any
      video frame (dark or light). Fades out when the morph plays. — */
@@ -889,37 +863,42 @@ html.is-intro body {
   box-shadow: 0 4px 14px -8px rgba(20, 17, 14, 0.25);
 }
 
-/* — "What changed" overlay — carries both the solved headline and the
-     technical detail line. Visible on hover and while morph plays. — */
+/* — "What changed" overlay — appears ONLY after the morph has finished
+     (.is-revealed). Not on hover. Not during play. Bottom padding leaves
+     room for the View Project pill that fades in beneath it. — */
 .tile__solved {
-  position: absolute; inset: 0;
-  display: grid;
-  place-items: center;
-  padding: clamp(18px, 4%, 40px);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 5%, 36px);
+  padding-bottom: clamp(70px, 16%, 96px);
   z-index: 3;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 620ms 80ms var(--ease-out),
-              transform 720ms 80ms var(--ease-out);
+  transition: opacity 720ms 120ms var(--ease-out),
+              transform 820ms 120ms var(--ease-out);
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(20,17,14,0) 0%, rgba(20,17,14,0.5) 100%);
+  background: linear-gradient(180deg, rgba(20,17,14,0) 0%, rgba(20,17,14,0.55) 100%);
   text-align: center;
 }
 .tile__solved-text {
   font-family: var(--serif);
   font-weight: 200;
-  font-size: clamp(16px, 1.4vw, 26px);
-  line-height: 1.3;
+  font-size: clamp(15px, 1.3vw, 22px);
+  line-height: 1.32;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.96);
-  max-width: 24ch;
+  max-width: 22ch;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
 }
 .tile__solved-text em {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   font-style: italic;
   letter-spacing: 0.22em;
   color: rgba(244, 239, 230, 0.82);
@@ -927,30 +906,20 @@ html.is-intro body {
 }
 .tile__solved-detail {
   font-family: var(--sans);
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(10px, 0.8vw, 12px);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.78);
   margin: 0;
-  max-width: 36ch;
+  max-width: 30ch;
 }
-.tile:hover .tile__solved,
-.tile:focus-within .tile__solved {
+/* The ONLY trigger for the solved overlay — post-morph reveal. */
+.tile.is-revealed .tile__solved {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* — While the morph is playing, the overlays stay visible above the
-     video so the problem-solving copy reads as the video transforms
-     behind it. The hint disappears, having served its purpose. — */
-.tile.is-playing .tile__blueprint {
-  opacity: 1;
-  transform: scale(1);
-}
-.tile.is-playing .tile__solved {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Hint fades while the morph plays, stays gone post-reveal. */
 .tile.is-playing .tile__hint {
   opacity: 0;
   transform: translateY(-4px);
@@ -966,8 +935,8 @@ html.is-intro body {
   margin-top: 4px;
 }
 
-/* — Slim caption: title on the left, meta on the right; View Project
-     link appears below once the morph has finished revealing. — */
+/* — Slim caption: title on the left, meta on the right. No rule above,
+     no View Project link — that link is now a pill on the photo. — */
 .tile__caption {
   display: flex;
   align-items: baseline;
@@ -976,7 +945,6 @@ html.is-intro body {
   margin-top: 14px;
   padding: 0;
   background: transparent;
-  flex-wrap: wrap;
 }
 .tile__title {
   font-family: var(--serif);
@@ -995,28 +963,49 @@ html.is-intro body {
   margin: 0;
   white-space: nowrap;
 }
+
+/* — View Project: bone pill anchored to the bottom-centre of the photo
+     frame. Fades in 240 ms after the solved caption, only when the tile
+     has .is-revealed. Lives inside .tile__frame as a sibling of the
+     button, so it's its own click target. — */
 .tile__view {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 5%, 36px);
+  transform: translateX(-50%) translateY(8px);
+  z-index: 4;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 10px;
+  padding: 11px 22px;
+  background: var(--bone);
+  color: var(--ink);
   font-family: var(--sans);
   font-size: var(--fs-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink);
+  border-radius: 999px;
+  white-space: nowrap;
   opacity: 0;
-  transform: translateY(4px);
   pointer-events: none;
-  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
-  width: max-content;
-  flex-basis: 100%;
+  transition: opacity 520ms 240ms var(--ease-out),
+              transform 520ms 240ms var(--ease-out),
+              background 280ms var(--ease-out),
+              color 280ms var(--ease-out);
 }
-.tile__view svg { width: 12px; height: 12px; transition: transform 320ms var(--ease-out); }
+.tile__view svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 320ms var(--ease-out);
+}
 .tile.is-revealed .tile__view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
+}
+.tile__view:hover {
+  background: var(--ink);
+  color: var(--bone);
 }
 .tile__view:hover svg { transform: translateX(4px); }
 

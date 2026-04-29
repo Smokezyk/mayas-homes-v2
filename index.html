@@ -22,9 +22,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=86" />
-  <link rel="stylesheet" href="css/index.css?v=86" />
-  <link rel="stylesheet" href="css/animations.css?v=86" />
+  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=87" />
+  <link rel="stylesheet" href="css/index.css?v=87" />
+  <link rel="stylesheet" href="css/animations.css?v=87" />
 
   <script type="application/ld+json">
   {
@@ -75,7 +75,7 @@
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=86"
+        src="assets/videos/introvidfinal.mp4?v=87"
         autoplay
         muted
         playsinline
@@ -119,7 +119,7 @@
         </div>
         
         <figure class="manifesto__portrait">
-          <img src="assets/images/maja-portrait-v2.webp?v=86" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
+          <img src="assets/images/maja-portrait-v2.webp?v=87" alt="Maja Milič — founder, designer, problem-solver" loading="lazy" />
           <figcaption>Maja Milič — Cascais</figcaption>
         </figure>
       </div>
@@ -135,7 +135,7 @@
     <section class="stats" aria-label="At a glance">
       <video
         class="stats__bg"
-        src="assets/videos/stats-band-bg.mp4?v=86"
+        src="assets/videos/stats-band-bg.mp4?v=87"
         autoplay loop muted playsinline preload="auto"
         aria-hidden="true"
         tabindex="-1"
@@ -196,235 +196,187 @@
 
       <div class="projects__grid">
         <div class="projects__row">
-        <article class="tile tile--square" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Rosário transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-rosario.mp4?v=86"
-                poster="assets/images/rosario-hero.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From cramped corridors<br /><em>to a single, breathing space.</em></p>
-                <p class="tile__solved-detail">Load-bearing wall removed. Open plan, structurally engineered.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">The Rosário Residence</h3>
-            <p class="tile__meta">T2 · Cascais</p>
-            <a class="tile__view" href="/projects/rosario" data-todo="project-page" aria-label="View the full Rosário project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 01 — Rosário (square) -->
+          <article class="tile tile--square" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Rosário transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-rosario.mp4?v=87"
+                    poster="assets/images/rosario-hero.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From cramped corridors<br /><em>to a single, breathing space.</em></p>
+                    <p class="tile__solved-detail">Load-bearing wall removed. Open plan, structurally engineered.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/rosario" data-todo="project-page" aria-label="View the full Rosário project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">The Rosário Residence</h3>
+              <p class="tile__meta">T2 · Cascais</p>
+            </div>
+          </article>
 
-        <article class="tile tile--landscape" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Alvide transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-alvide.mp4?v=86"
-                poster="assets/images/alvide-hero.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From a closed kitchen<br /><em>to an ocean-facing canvas.</em></p>
-                <p class="tile__solved-detail">South-facing wall opened. Atlantic drawn into the living room.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">Luminous Alvide</h3>
-            <p class="tile__meta">T2 · Cascais</p>
-            <a class="tile__view" href="/projects/alvide" data-todo="project-page" aria-label="View the full Alvide project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 02 — Luminous Alvide (landscape) -->
+          <article class="tile tile--landscape" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Alvide transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-alvide.mp4?v=87"
+                    poster="assets/images/alvide-hero.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From a closed kitchen<br /><em>to an ocean-facing canvas.</em></p>
+                    <p class="tile__solved-detail">South-facing wall opened. Atlantic drawn into the living room.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/alvide" data-todo="project-page" aria-label="View the full Alvide project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">Luminous Alvide</h3>
+              <p class="tile__meta">T2 · Cascais</p>
+            </div>
+          </article>
 
-        <article class="tile tile--portrait" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Amoreira transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-amoreira.mp4?v=86"
-                poster="assets/images/amoreira-hero.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From a restaurant floor<br /><em>to a residence.</em></p>
-                <p class="tile__solved-detail">Commercial-to-residential conversion. Industrial lines kept; warmth added.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">Amoreira Loft</h3>
-            <p class="tile__meta">T2 · Cascais</p>
-            <a class="tile__view" href="/projects/amoreira" data-todo="project-page" aria-label="View the full Amoreira project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 03 — The Riviera Sanctuary (portrait) — swapped from 06 -->
+          <article class="tile tile--portrait" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Riviera transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-riviera.mp4?v=87"
+                    poster="assets/images/riviera-openplan.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From a dated villa<br /><em>to a contemporary retreat.</em></p>
+                    <p class="tile__solved-detail">Full structural and finish remodel.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/riviera" data-todo="project-page" aria-label="View the full Riviera project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">The Riviera Sanctuary</h3>
+              <p class="tile__meta">T3 · Cascais</p>
+            </div>
+          </article>
         </div>
 
         <div class="projects__row">
-        <article class="tile tile--landscape" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Rebelva transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-rebelva.mp4?v=86"
-                poster="assets/images/rebelva-sala.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From builder-grade walls<br /><em>to a layered, lived-in living room.</em></p>
-                <p class="tile__solved-detail">Bespoke joinery and feature wallpaper throughout.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">Rebelva Layered</h3>
-            <p class="tile__meta">T2 · Carcavelos</p>
-            <a class="tile__view" href="/projects/rebelva" data-todo="project-page" aria-label="View the full Rebelva project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 04 — Figueiras Open Plan (landscape) — swapped from 05 -->
+          <article class="tile tile--landscape" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Figueiras transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-figueiras.mp4?v=87"
+                    poster="assets/images/figueiras-open-plan.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From three small rooms<br /><em>to one open plan, anchored by an island.</em></p>
+                    <p class="tile__solved-detail">Two walls removed. New circulation around an oak island.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/figueiras" data-todo="project-page" aria-label="View the full Figueiras project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">Figueiras Open Plan</h3>
+              <p class="tile__meta">T2 · Cascais</p>
+            </div>
+          </article>
 
-        <article class="tile tile--portrait" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Figueiras transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-figueiras.mp4?v=86"
-                poster="assets/images/figueiras-open-plan.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From three small rooms<br /><em>to one open plan, anchored by an island.</em></p>
-                <p class="tile__solved-detail">Two walls removed. New circulation around an oak island.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">Figueiras Open Plan</h3>
-            <p class="tile__meta">T2 · Cascais</p>
-            <a class="tile__view" href="/projects/figueiras" data-todo="project-page" aria-label="View the full Figueiras project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 05 — Rebelva Layered (portrait) — swapped from 04 -->
+          <article class="tile tile--portrait" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Rebelva transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-rebelva.mp4?v=87"
+                    poster="assets/images/rebelva-sala.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From builder-grade walls<br /><em>to a layered, lived-in living room.</em></p>
+                    <p class="tile__solved-detail">Bespoke joinery and feature wallpaper throughout.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/rebelva" data-todo="project-page" aria-label="View the full Rebelva project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">Rebelva Layered</h3>
+              <p class="tile__meta">T2 · Carcavelos</p>
+            </div>
+          </article>
 
-        <article class="tile tile--square" data-tile>
-          <button class="tile__link" type="button" aria-label="Reveal the Riviera transformation">
-            <figure class="tile__media">
-              <video
-                class="tile__video"
-                data-tile-video
-                src="assets/videos/transformation-riviera.mp4?v=86"
-                poster="assets/images/riviera-openplan.webp"
-                muted playsinline preload="metadata" tabindex="-1"
-              ></video>
-              <div class="tile__blueprint" aria-hidden="true">
-                <svg viewBox="0 0 100 75" preserveAspectRatio="none">
-                  <path d="M4 4 L4 14 M4 4 L14 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 4 L96 14 M96 4 L86 4" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M4 71 L4 61 M4 71 L14 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <path d="M96 71 L96 61 M96 71 L86 71" fill="none" stroke="currentColor" stroke-width="0.4"/>
-                  <line x1="48" y1="37.5" x2="52" y2="37.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="50" y1="35.5" x2="50" y2="39.5" stroke="currentColor" stroke-width="0.3"/>
-                  <line x1="20" y1="66" x2="80" y2="66" stroke="currentColor" stroke-width="0.25" stroke-dasharray="1 1"/>
-                </svg>
-              </div>
-              <div class="tile__solved" aria-hidden="true">
-                <p class="tile__solved-text">From a dated villa<br /><em>to a contemporary retreat.</em></p>
-                <p class="tile__solved-detail">Full structural and finish remodel.</p>
-              </div>
-              <span class="tile__hint" aria-hidden="true">Click to reveal</span>
-            </figure>
-          </button>
-          <div class="tile__caption">
-            <h3 class="tile__title">The Riviera Sanctuary</h3>
-            <p class="tile__meta">T3 · Cascais</p>
-            <a class="tile__view" href="/projects/riviera" data-todo="project-page" aria-label="View the full Riviera project">
-              View Project
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-            </a>
-          </div>
-        </article>
+          <!-- POSITION 06 — Amoreira Loft (square) — swapped from 03 -->
+          <article class="tile tile--square" data-tile>
+            <div class="tile__frame">
+              <button class="tile__link" type="button" aria-label="Reveal the Amoreira transformation">
+                <figure class="tile__media">
+                  <video
+                    class="tile__video"
+                    data-tile-video
+                    src="assets/videos/transformation-amoreira.mp4?v=87"
+                    poster="assets/images/amoreira-hero.webp"
+                    muted playsinline preload="metadata" tabindex="-1"
+                  ></video>
+                  <div class="tile__solved" aria-hidden="true">
+                    <p class="tile__solved-text">From a restaurant floor<br /><em>to a residence.</em></p>
+                    <p class="tile__solved-detail">Commercial-to-residential conversion. Industrial lines kept; warmth added.</p>
+                  </div>
+                  <span class="tile__hint" aria-hidden="true">Click to reveal</span>
+                </figure>
+              </button>
+              <a class="tile__view" href="/projects/amoreira" data-todo="project-page" aria-label="View the full Amoreira project">
+                <span>View Project</span>
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </a>
+            </div>
+            <div class="tile__caption">
+              <h3 class="tile__title">Amoreira Loft</h3>
+              <p class="tile__meta">T2 · Cascais</p>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -738,8 +690,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=86" type="module"></script>
-  <script src="js/scroll-scrub.js?v=86" type="module"></script>
-  <script src="js/nav.js?v=86" type="module"></script>
+  <script src="js/main.js?v=87" type="module"></script>
+  <script src="js/scroll-scrub.js?v=87" type="module"></script>
+  <script src="js/nav.js?v=87" type="module"></script>
 </body>
 </html>
