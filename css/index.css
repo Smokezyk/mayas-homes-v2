@@ -1067,6 +1067,21 @@ html.is-intro body {
   width: 1px;
   background: var(--hairline);
 }
+/* Five-star rating row — small ochre stars at the top of each card. */
+.testimonial__stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 14px;
+  color: var(--ochre);
+}
+.testimonial__stars svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  display: block;
+}
+
 /* Decorative opening quotation glyph — large, serif, soft ink. */
 .testimonial__quote {
   position: relative;
@@ -1088,31 +1103,61 @@ html.is-intro body {
 }
 .testimonial__quote p {
   font-family: var(--serif);
-  font-weight: 400;
   font-style: italic;
-  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 22px);
   line-height: 1.55;
-  color: var(--ink-2);
-  letter-spacing: -0.002em;
+  color: var(--ink);
+  letter-spacing: -0.005em;
   max-width: 32ch;
 }
+
+/* Citation block — name·location on top, then project, then date. */
 .testimonial__cite {
-  display: flex;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 10px;
+  row-gap: 4px;
   align-items: baseline;
-  gap: 12px;
+}
+.testimonial__name {
+  grid-column: 1;
+  grid-row: 1;
   font-family: var(--sans);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.22em;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.testimonial__name { color: var(--ink); font-weight: 500; }
-.testimonial__loc  { color: var(--mid); }
-.testimonial__cite::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--hairline-strong);
-  align-self: center;
+.testimonial__loc {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--mid);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.testimonial__project {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-sm);
+  color: var(--mid);
+  letter-spacing: -0.002em;
+}
+.testimonial__date {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--soft);
+  letter-spacing: 0.06em;
 }
 
 @media (max-width: 900px) {
