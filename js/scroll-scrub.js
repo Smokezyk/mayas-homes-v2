@@ -67,6 +67,11 @@ if (!introEl) {
     if (unlocked) return;
     unlocked = true;
     root.classList.remove('is-intro');
+    /* Mark the hero as having reached its composed final state.
+       Whether the user watched the build or auto-skipped, the
+       resting state is the same — wordmark + build lines + soft
+       backsplash, locked visible. */
+    introEl.classList.add('intro--settled');
     /* Mark this session as having seen the intro — refresh won't
        replay it. New tabs get a fresh session and will see it again. */
     try { sessionStorage.setItem('mh_intro_seen', '1'); } catch (_) {}
@@ -102,6 +107,9 @@ if (!introEl) {
   };
 
   if (shouldAutoSkip) {
+    /* Mark settled state BEFORE snap so the .intro--settled CSS rules
+       win on first paint — no flicker of the pre-animation state. */
+    introEl.classList.add('intro--settled');
     snapToFinal();
     if (skipBtn) skipBtn.setAttribute('hidden', '');
     /* Hash deep-link skips the 'Scroll to explore' cue too — the user

@@ -396,6 +396,41 @@ html.is-intro body {
   height: 100vh;
 }
 
+/* Settled state: the hero's composed final frame. Locks every
+   animated element into its end position whether the user watched
+   the build animation play through OR auto-skipped on a session
+   refresh. Layered backsplash — a soft radial gradient from paper
+   at the centre to bone at the edges, plus a hairline frame around
+   the brand cluster — gives the hero the same 'finished composition'
+   feel the prior video version had at its freeze frame. */
+.intro--settled .build-letter,
+.intro--settled [data-build-line] {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+.intro--settled {
+  background:
+    radial-gradient(
+      ellipse at center,
+      var(--paper) 0%,
+      var(--bone) 70%
+    ),
+    var(--bone);
+}
+.intro--settled .intro__brand-inner {
+  position: relative;
+}
+.intro--settled .intro__brand-inner::before {
+  content: '';
+  position: absolute;
+  inset: clamp(-32px, -3vw, -56px) clamp(-40px, -4vw, -72px);
+  border: 1px solid var(--hairline);
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* =========================================================
    MANIFESTO — Maja as problem-solver
    ========================================================= */
