@@ -1759,6 +1759,103 @@ html.is-intro body {
 }
 
 /* =========================================================
+   SERVICES — what we offer, six-card grid + future-venture footnote
+   ========================================================= */
+.services {
+  padding: var(--pad-section) var(--pad-x);
+  background: var(--bone);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.services__head {
+  max-width: var(--container);
+  margin: 0 auto clamp(48px, 6vw, 96px);
+  display: grid;
+  gap: clamp(16px, 1.6vw, 28px);
+}
+.services__head .display { max-width: 18ch; }
+.services__lede {
+  font-size: var(--fs-lg);
+  color: var(--mid);
+  line-height: 1.55;
+  max-width: 64ch;
+}
+.services__grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3vw, 56px);
+}
+.services__card {
+  display: grid;
+  gap: clamp(14px, 1.4vw, 22px);
+  align-content: start;
+}
+.services__shot {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bone-2);
+  border: 1px solid var(--hairline);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: clamp(16px, 2vw, 28px);
+}
+.services__placeholder {
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  max-width: 24ch;
+  line-height: 1.5;
+}
+.services__title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.7vw, 26px);
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+}
+.services__copy {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--mid);
+  max-width: 38ch;
+  margin: 0;
+}
+.services__future {
+  max-width: 64ch;
+  margin: clamp(64px, 7vw, 110px) auto 0;
+  padding-top: clamp(28px, 3vw, 44px);
+  border-top: 1px solid var(--hairline);
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--mid);
+  text-align: center;
+}
+.services__future em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink);
+  margin-right: 4px;
+}
+
+@media (max-width: 900px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .services__grid { grid-template-columns: 1fr; max-width: 480px; }
+}
+
+/* =========================================================
    FINAL INVITATION — contact form (dark)
    ========================================================= */
 .contact {
