@@ -1394,97 +1394,87 @@ html.is-intro body {
   display: block;
 }
 
-/* — Click-to-play overlay on Process Timeline step animations.
-     Centred bone play disc dims the first frame slightly. After
-     the video ends, a small 'Play again' pill in the bottom-right
-     corner lets the user re-watch. Mirrors the project-tile
-     pattern, sized for the step's 4:3 frame. — */
-.process__play {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(20, 17, 14, 0.18);
+/* — Click-to-play wrapper: full-coverage transparent button. Whole
+     video frame becomes the click target without imposing visual
+     chrome. Mirrors the project-tile pattern. — */
+.process__step-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
   border: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
-  transition: opacity 360ms var(--ease-out), background 280ms var(--ease-out);
-  z-index: 2;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
-.process__play:hover { background: rgba(20, 17, 14, 0.32); }
-
-.process__play-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(56px, 7vw, 80px);
-  height: clamp(56px, 7vw, 80px);
-  background: rgba(244, 239, 230, 0.94);
-  border-radius: 999px;
-  color: var(--ink);
-  transition: transform 280ms var(--ease-out), background 280ms var(--ease-out);
-  box-shadow: 0 8px 28px -12px rgba(20, 17, 14, 0.4);
-}
-.process__play:hover .process__play-icon {
-  transform: scale(1.06);
-  background: var(--bone);
-}
-.process__play-icon svg {
-  width: clamp(20px, 2.4vw, 28px);
-  height: clamp(20px, 2.4vw, 28px);
-  margin-left: clamp(2px, 0.3vw, 4px);
+.process__step-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
 }
 
-.process__visual.is-playing .process__play,
-.process__visual.is-revealed .process__play {
-  opacity: 0;
-  pointer-events: none;
+/* Subtle scale on hover so the user knows the frame is clickable. */
+.process__visual .process__video,
+.process__visual .process__result-video {
+  transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
+  will-change: transform;
+}
+.process__step-link:hover .process__video,
+.process__step-link:focus-visible .process__video,
+.process__step-link:hover .process__result-video,
+.process__step-link:focus-visible .process__result-video {
+  transform: scale(1.015);
+}
+.process__visual.is-playing .process__video,
+.process__visual.is-playing .process__result-video {
+  transform: none !important;
+  filter: none !important;
 }
 
-.process__replay {
+/* Hint pill: top-left corner, glass-morphism, tracked uppercase.
+   Matches the project-tile hint pill exactly. */
+.process__hint {
   position: absolute;
-  bottom: clamp(12px, 1.5vw, 18px);
-  right: clamp(12px, 1.5vw, 18px);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  top: clamp(14px, 1.6vw, 22px);
+  left: clamp(14px, 1.6vw, 22px);
+  z-index: 5;
   padding: 8px 14px;
-  background: rgba(244, 239, 230, 0.94);
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
   font-family: var(--sans);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--ink);
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(6px);
   pointer-events: none;
-  transition: opacity 380ms var(--ease-out),
-              transform 380ms var(--ease-out),
-              background 280ms var(--ease-out);
-  z-index: 3;
-  white-space: nowrap;
+  transition: opacity 360ms var(--ease-out), transform 480ms var(--ease-out);
+  box-shadow: 0 4px 14px -8px rgba(20, 17, 14, 0.25);
 }
-.process__replay svg { width: 12px; height: 12px; flex-shrink: 0; }
-.process__replay:hover { background: var(--bone); }
 
-.process__visual.is-revealed .process__replay {
+/* Hide the pill while the video is actively playing. */
+.process__visual.is-playing .process__hint {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* Two-state label: 'Click to reveal' before play, 'Play again' after. */
+.process__hint-label--initial { display: inline; }
+.process__hint-label--replay  { display: none; }
+.process__visual.is-revealed .process__hint-label--initial { display: none; }
+.process__visual.is-revealed .process__hint-label--replay  { display: inline; }
+
+/* The pill comes back after the video ends, now reading 'Play again'. */
+.process__visual.is-revealed .process__hint {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
-}
-
-@media (max-width: 760px) {
-  .process__play-icon { width: 64px; height: 64px; }
-  .process__replay {
-    bottom: 10px;
-    right: 10px;
-    padding: 8px 12px;
-    font-size: 9px;
-  }
 }
 
 .process__copy {
@@ -1607,39 +1597,6 @@ html.is-intro body {
   letter-spacing: -0.005em;
   margin: 0;
   max-width: 32ch;
-}
-
-/* 'Play again' pill — re-runs the closer's animation since it plays
-   once and freezes by default. */
-.process__result-replay {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: clamp(8px, 1vw, 14px);
-  padding: 10px 18px;
-  background: transparent;
-  border: 1px solid var(--hairline-strong);
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  cursor: pointer;
-  transition: background 280ms var(--ease-out),
-              border-color 280ms var(--ease-out),
-              color 280ms var(--ease-out);
-}
-.process__result-replay:hover {
-  background: var(--ink);
-  color: var(--bone);
-  border-color: var(--ink);
-}
-.process__result-replay svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
 }
 
 @media (max-width: 760px) {

@@ -156,22 +156,24 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
   livingPortraits.forEach((v) => portraitObserver.observe(v));
 }
 
-/* — Process Timeline step animations: click-to-play overlay and
-     post-end replay button. Mirrors the project-tile pattern; full
-     video data only loads after the user clicks play, so the four
-     step videos don't share initial-load bandwidth. */
+/* — Process Timeline animations (four steps + Result closer): click
+     anywhere on the video frame to play. The hint pill in the top-
+     left switches its label from 'Click to reveal' to 'Play again'
+     once the video has played through; clicking again replays. Full
+     video data only loads after the user opts in, so the five
+     videos don't share initial-load bandwidth. */
 document.querySelectorAll('[data-step]').forEach((figure) => {
   const video = figure.querySelector('[data-step-video]');
-  const playBtn = figure.querySelector('.process__play');
-  const replayBtn = figure.querySelector('.process__replay');
-  if (!video) return;
+  const link  = figure.querySelector('.process__step-link');
+  if (!video || !link) return;
 
   // Belt-and-braces playback flags — same as the intro and tile videos.
   video.muted = true;
   video.playsInline = true;
   video.setAttribute('webkit-playsinline', '');
 
-  const play = () => {
+  const play = (e) => {
+    if (e) e.preventDefault();
     figure.classList.add('is-playing');
     figure.classList.remove('is-revealed');
     try { video.currentTime = 0; } catch (_) {}
@@ -179,31 +181,13 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
     if (p && typeof p.catch === 'function') p.catch(() => {});
   };
 
-  if (playBtn)   playBtn.addEventListener('click', play);
-  if (replayBtn) replayBtn.addEventListener('click', play);
+  link.addEventListener('click', play);
 
-  // When the morph completes, swap from is-playing → is-revealed
-  // so the replay pill can fade in.
+  // When the morph completes, swap from is-playing → is-revealed so
+  // the hint pill returns reading 'Play again'.
   video.addEventListener('ended', () => {
     figure.classList.remove('is-playing');
     figure.classList.add('is-revealed');
-  });
-});
-
-/* — 'Play again' button on the Process Result closer — resets the
-     video to t=0 and plays it. Since the closer's video plays once
-     and freezes on its final frame, this is the only way to re-watch
-     it without a full page refresh. */
-document.querySelectorAll('[data-result-replay]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const aside = btn.closest('.process__result');
-    const video = aside ? aside.querySelector('video') : null;
-    if (!video) return;
-    try {
-      video.currentTime = 0;
-      const p = video.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-    } catch (_) {}
   });
 });
 
