@@ -1614,14 +1614,15 @@ html.is-intro body {
   background: var(--bone);
 }
 
-/* Atmospheric place-photograph — full-width above the two-column grid.
-   Asset to be supplied by Maja; placeholder paths carry data-todo. */
+/* Atmospheric closer — Maya's Homes van on the Cascais waterfront,
+   sitting at the bottom of the section as the emotional anchor. */
 .cascais__atmosphere {
-  margin: 0 auto clamp(64px, 7vw, 110px);
+  margin: clamp(64px, 7vw, 110px) auto 0;
   max-width: var(--container);
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: var(--bone-2);
 }
 .cascais__atmosphere img {
   width: 100%;
