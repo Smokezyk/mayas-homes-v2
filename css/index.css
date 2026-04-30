@@ -1644,11 +1644,10 @@ html.is-intro body {
 }
 /* Pillars — full-width alternating media + copy rows. */
 .cascais-pillars {
-  max-width: var(--container);
-  margin: clamp(60px, 8vw, 120px) auto;
   display: flex;
   flex-direction: column;
   gap: clamp(80px, 10vw, 140px);
+  margin: clamp(60px, 8vw, 120px) 0;
 }
 .cascais-pillar {
   display: grid;
