@@ -191,6 +191,31 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
   });
 });
 
+/* — Cascais pillar tiles: click-to-play, mirrors the [data-step]
+     handler. Each tile's <video> ships with empty src as a CSS-
+     placeholder; this handler bails silently in that state, so
+     adding real videos later is just src='...' + preload='metadata'. */
+document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
+  const video = figure.querySelector('[data-cascais-video]');
+  const link  = figure.querySelector('.cascais-pillar__media-link');
+  if (!video || !link) return;
+
+  link.addEventListener('click', (e) => {
+    if (e) e.preventDefault();
+    if (!video.getAttribute('src')) return; /* placeholder, no video yet */
+    figure.classList.add('is-playing');
+    figure.classList.remove('is-revealed');
+    try { video.currentTime = 0; } catch (_) {}
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  });
+
+  video.addEventListener('ended', () => {
+    figure.classList.remove('is-playing');
+    figure.classList.add('is-revealed');
+  });
+});
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
