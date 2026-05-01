@@ -1874,12 +1874,27 @@ html.is-intro body {
 /* Atmospheric closer — Maya's Homes van on the Cascais waterfront,
    sitting at the bottom of the section as the emotional anchor. */
 .cascais__atmosphere {
-  margin: clamp(64px, 7vw, 110px) auto 0;
+  margin: 0 auto clamp(40px, 6vw, 80px);
   max-width: var(--container);
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--bone-2);
+}
+
+/* Bridge lede between the section header and the van photo —
+   acknowledges the practice is in Cascais, then sets up the
+   wider corridor the map will show. */
+.cascais__lede-bridge {
+  max-width: 720px;
+  margin: clamp(20px, 3vw, 36px) auto clamp(40px, 5vw, 64px);
+  padding: 0 clamp(16px, 3vw, 32px);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  text-align: center;
 }
 .cascais__atmosphere img {
   width: 100%;
@@ -1898,27 +1913,31 @@ html.is-intro body {
 }
 .cascais__head .display { max-width: 22ch; }
 
-/* Local Mastery — tabs above a two-column split: map (left) + content
-   (right). Tab strip stays full-width across the top. The right
-   column always has a caption, lede, and quote — including the
-   resting "overview" state — so the section never feels empty. */
+/* Local Mastery — tabs + map share the LEFT grid column, content
+   sits in the RIGHT column. The hairline below the tabs naturally
+   ends at the map's right edge because the tabs container is
+   nested inside the map column. */
 .local-mastery {
   max-width: 1440px;
   margin: clamp(40px, 6vw, 80px) auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
 }
 
-/* Tabs — left-aligned over the map column; the hairline beneath
-   spans the full section width because the container itself
-   stretches edge-to-edge. */
+.local-mastery__map-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 36px);
+  min-width: 0;
+}
+
 .local-mastery__tabs {
   display: flex;
   justify-content: flex-start;
   gap: clamp(8px, 1.5vw, 24px);
   border-bottom: 1px solid var(--hairline);
-  margin-bottom: clamp(28px, 4vw, 48px);
   padding-left: clamp(0px, 1vw, 16px);
 }
 
@@ -1970,16 +1989,7 @@ html.is-intro body {
   white-space: nowrap;
 }
 
-/* Two-column split — map column grows ~30 % so the map reads
-   physically larger without changing the 16:9 frame. */
-.local-mastery__split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: clamp(40px, 5vw, 72px);
-  align-items: start;
-}
-
-/* Map frame — left column */
+/* Map frame — sits in the LEFT grid column beneath the tabs. */
 .local-mastery__frame {
   position: relative;
   margin: 0;
@@ -2113,16 +2123,16 @@ html.is-intro body {
   color: var(--ink-2);
 }
 
-/* Mobile — stack vertically, map first then content; recentre
-   the tabs since the layout is no longer two-column. */
+/* Mobile — stack vertically, map column first then content;
+   recentre the tabs since the layout is no longer two-column. */
 @media (max-width: 960px) {
+  .local-mastery {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   .local-mastery__tabs {
     justify-content: center;
     padding-left: 0;
-  }
-  .local-mastery__split {
-    grid-template-columns: 1fr;
-    gap: 32px;
   }
 }
 
