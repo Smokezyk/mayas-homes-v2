@@ -1617,13 +1617,20 @@ html.is-intro body {
   align-items: center;
   gap: clamp(36px, 5vw, 88px);
 }
-.process__step--reverse .process__visual {
+.process__step--reverse .process__visual-stack {
   grid-column: 2;
   grid-row: 1;
 }
 .process__step--reverse .process__copy {
   grid-column: 1;
   grid-row: 1;
+}
+
+/* Wrapper that holds a step's video figure + the small caption
+   beneath it so both occupy a single grid cell. */
+.process__visual-stack {
+  display: grid;
+  gap: clamp(18px, 2vw, 28px);
 }
 
 .process__visual {
@@ -1834,7 +1841,9 @@ html.is-intro body {
   object-fit: cover;
   display: block;
 }
-.process__result-caption {
+/* Shared caption beneath each step video and the result video.
+   One rule, five places, identical typography. */
+.process__caption {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 300;
@@ -1842,8 +1851,9 @@ html.is-intro body {
   line-height: 1.4;
   color: var(--ink-2);
   letter-spacing: -0.005em;
-  margin: 0;
+  margin: 0 auto;
   max-width: 32ch;
+  text-align: center;
 }
 
 @media (max-width: 760px) {
@@ -1888,19 +1898,19 @@ html.is-intro body {
 }
 .cascais__head .display { max-width: 22ch; }
 
-/* Local Mastery — one centred editorial column. Tabs / map / caption /
-   lede / pull quote stack vertically and centre. A tab click cross-fades
-   four things together (map, caption, lede, quote) on .is-active. */
+/* Local Mastery — tabs above a two-column split: map (left) + content
+   (right). Tab strip stays full-width across the top. The right
+   column always has a caption, lede, and quote — including the
+   resting "overview" state — so the section never feels empty. */
 .local-mastery {
-  max-width: 920px;
+  max-width: 1240px;
   margin: clamp(40px, 6vw, 80px) auto 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  text-align: center;
 }
 
-/* Tabs */
+/* Tabs — full width above the split */
 .local-mastery__tabs {
   display: flex;
   justify-content: center;
@@ -1922,16 +1932,10 @@ html.is-intro body {
   position: relative;
   color: var(--mid);
   transition: color 240ms ease;
-  text-align: center;
 }
 
-.local-mastery__tab:hover {
-  color: var(--ink-2);
-}
-
-.local-mastery__tab.is-active {
-  color: var(--ink);
-}
+.local-mastery__tab:hover { color: var(--ink-2); }
+.local-mastery__tab.is-active { color: var(--ink); }
 
 .local-mastery__tab.is-active::after {
   content: "";
@@ -1963,10 +1967,18 @@ html.is-intro body {
   white-space: nowrap;
 }
 
-/* Map frame — with subtle inset shadow */
+/* Two-column split */
+.local-mastery__split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+}
+
+/* Map frame — left column */
 .local-mastery__frame {
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
   background: transparent;
   aspect-ratio: 16 / 9;
@@ -1985,19 +1997,23 @@ html.is-intro body {
   transition: opacity 400ms ease;
 }
 
-.local-mastery__map.is-active {
-  opacity: 1;
+.local-mastery__map.is-active { opacity: 1; }
+
+/* Right column content */
+.local-mastery__content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.5vw, 32px);
+  padding-top: 4px;
 }
 
-/* Caption bar */
-.local-mastery__caption-bar {
+/* Eyebrow row — progress + caption */
+.local-mastery__eyebrow {
   display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 24px;
-  padding: 14px 0 0;
-  margin-top: clamp(20px, 3vw, 32px);
-  border-top: 1px solid var(--hairline);
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--hairline);
 }
 
 .local-mastery__progress {
@@ -2019,29 +2035,24 @@ html.is-intro body {
   color: var(--ink);
 }
 
-.local-mastery__progress-sep {
-  opacity: 0.6;
-}
+.local-mastery__progress-sep { opacity: 0.5; }
 
 .local-mastery__caption {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.4;
-  color: var(--ink-2);
+  color: var(--ink);
   display: none;
+  margin: 0;
 }
 
-.local-mastery__caption.is-active {
-  display: inline;
-}
+.local-mastery__caption.is-active { display: inline; }
 
-/* Lede — full width, display toggle (no absolute trap) */
+/* Lede paragraph */
 .local-mastery__lede {
   position: relative;
-  margin: clamp(24px, 4vw, 40px) auto 0;
   width: 100%;
-  max-width: 62ch;
 }
 
 .local-mastery__lede-text {
@@ -2051,10 +2062,9 @@ html.is-intro body {
   color: var(--ink);
   letter-spacing: -0.005em;
   margin: 0;
-  text-align: center;
   display: none;
   opacity: 0;
-  transition: opacity 400ms ease 200ms;
+  transition: opacity 400ms ease 150ms;
 }
 
 .local-mastery__lede-text.is-active {
@@ -2062,27 +2072,26 @@ html.is-intro body {
   opacity: 1;
 }
 
-/* Quote — full width, display toggle */
+/* Quote */
 .local-mastery__quote {
   position: relative;
-  margin: clamp(40px, 6vw, 80px) auto 0;
   width: 100%;
-  max-width: 720px;
-  padding: 0;
+  margin: 0;
+  padding: clamp(20px, 2.5vw, 32px) 0 0;
   border: 0;
-  text-align: center;
+  border-top: 1px solid var(--hairline);
 }
 
 .local-mastery__quote-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(20px, 2.4vw, 26px);
+  font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.45;
   color: var(--ink);
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   display: none;
   opacity: 0;
-  transition: opacity 400ms ease 400ms;
+  transition: opacity 400ms ease 300ms;
 }
 
 .local-mastery__quote-text.is-active {
@@ -2092,7 +2101,6 @@ html.is-intro body {
 
 .local-mastery__quote cite {
   display: block;
-  margin-top: 18px;
   font-family: var(--sans);
   font-size: 11px;
   letter-spacing: 0.32em;
@@ -2101,16 +2109,12 @@ html.is-intro body {
   color: var(--ink-2);
 }
 
-/* Hide lede + quote in overview state */
-.local-mastery[data-active="overview"] .local-mastery__lede,
-.local-mastery[data-active="overview"] .local-mastery__quote {
-  display: none;
-}
-
-/* Defensive: keep the cascais header in normal flow. */
-.cascais__head {
-  transform: none !important;
-  margin-top: 0 !important;
+/* Mobile — stack vertically, map first then content */
+@media (max-width: 960px) {
+  .local-mastery__split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -2123,13 +2127,13 @@ html.is-intro body {
     padding: 14px 16px;
     border-bottom: 1px solid var(--hairline);
   }
-  .local-mastery__tab.is-active::after {
-    display: none;
-  }
-  .local-mastery__caption-bar {
-    flex-direction: column;
-    gap: 8px;
-  }
+  .local-mastery__tab.is-active::after { display: none; }
+}
+
+/* Defensive: keep the cascais header in normal flow. */
+.cascais__head {
+  transform: none !important;
+  margin-top: 0 !important;
 }
 /* Pillars — full-width alternating media + copy rows. */
 .cascais-pillars {
