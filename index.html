@@ -22,10 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=137" />
+  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=138" />
 
-  <link rel="stylesheet" href="css/index.css?v=137" />
-  <link rel="stylesheet" href="css/animations.css?v=137" />
+  <link rel="stylesheet" href="css/index.css?v=138" />
+  <link rel="stylesheet" href="css/animations.css?v=138" />
 
   <script type="application/ld+json">
   {
@@ -74,13 +74,12 @@
 
   <main id="top">
     <!-- ============ CINEMATIC INTRO: TWO-STAGE VIDEO + BRAND REVEAL ============ -->
-    <section class="intro" data-intro aria-label="Maya's Homes — introduction">
+    <section class="intro" data-intro data-intro-state="gate" aria-label="Maya's Homes — introduction">
 
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=137"
-        autoplay
+        src="assets/videos/introvidfinal.mp4?v=138"
         muted
         playsinline
         preload="auto"
@@ -89,20 +88,25 @@
 
       <div class="intro__brand intro__brand--build" data-brand>
         <div class="intro__brand-inner">
-          <h1 class="intro__name" data-build-text>MAYA&rsquo;S HOMES</h1>
+          <p class="intro__hook" data-build-line>Whatever you dream,<br /><em>we bring it to life.</em></p>
           <p class="intro__guarantee" data-build-line>One Team. Zero Subcontractors.</p>
           <p class="intro__guarantee" data-build-line>Flawless Execution.</p>
-          <p class="intro__hook" data-build-line>Whatever you dream,<br /><em>we bring it to life.</em></p>
+          <h1 class="intro__name" data-build-text>MAYA&rsquo;S HOMES</h1>
         </div>
+      </div>
+
+      <div class="intro__gate" data-intro-gate>
+        <button type="button" class="intro__gate-btn intro__gate-btn--enter" data-intro-action="enter">
+          <span>Enter</span>
+        </button>
+        <button type="button" class="intro__gate-btn intro__gate-btn--skip" data-intro-action="skip">
+          <span>Skip</span>
+        </button>
       </div>
 
       <div class="intro__cue" data-cue aria-hidden="true">
         <span>Scroll to Explore</span>
       </div>
-
-      <button class="intro__skip" data-intro-skip type="button" aria-label="Skip intro">
-        Skip
-      </button>
 
     </section>
 
@@ -127,8 +131,8 @@
           <video
             class="manifesto__portrait-video"
             data-living-portrait
-            src="assets/videos/maja-animation.mp4?v=137"
-            poster="assets/images/maja-portrait-v2.webp?v=137"
+            src="assets/videos/maja-animation.mp4?v=138"
+            poster="assets/images/maja-portrait-v2.webp?v=138"
             muted loop playsinline preload="metadata"
             aria-label="Maja Milič — founder, designer, problem-solver"
           ></video>
@@ -147,7 +151,7 @@
     <section class="stats" aria-label="At a glance">
       <video
         class="stats__bg"
-        src="assets/videos/stats-band-bg.mp4?v=137"
+        src="assets/videos/stats-band-bg.mp4?v=138"
         autoplay loop muted playsinline preload="metadata"
         aria-hidden="true"
         tabindex="-1"
@@ -216,7 +220,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rosario.mp4?v=137"
+                    src="assets/videos/transformation-rosario.mp4?v=138"
                     poster="assets/images/rosario-hero.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -246,7 +250,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-alvide.mp4?v=137"
+                    src="assets/videos/transformation-alvide.mp4?v=138"
                     poster="assets/images/alvide-hero.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -276,7 +280,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-riviera.mp4?v=137"
+                    src="assets/videos/transformation-riviera.mp4?v=138"
                     poster="assets/images/riviera-openplan.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -308,7 +312,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-figueiras.mp4?v=137"
+                    src="assets/videos/transformation-figueiras.mp4?v=138"
                     poster="assets/images/figueiras-open-plan.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -338,7 +342,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rebelva.mp4?v=137"
+                    src="assets/videos/transformation-rebelva.mp4?v=138"
                     poster="assets/images/rebelva-sala.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -368,7 +372,7 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-amoreira.mp4?v=137"
+                    src="assets/videos/transformation-amoreira.mp4?v=138"
                     poster="assets/images/amoreira-hero.webp"
                     muted playsinline preload="metadata" tabindex="-1"
                   ></video>
@@ -480,7 +484,7 @@
       <div class="craft__grid">
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-1.png?v=137" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-1.png?v=138" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">The hand that drew it is the hand that lays it.</h3>
           <p class="craft__copy">Every craftsperson on a Maya&rsquo;s Homes project has been with Maja for years. The team that builds your home is one she trusts with her own.</p>
@@ -488,7 +492,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-2.png?v=137" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-2.png?v=138" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">One number. The same names.</h3>
           <p class="craft__copy">When something needs to change, you call Maja. The person who shows up is the same person who built the room&nbsp;— chosen by her, kept by her, known to her by name for years.</p>
@@ -496,7 +500,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-3.png?v=137" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-3.png?v=138" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">We never really leave.</h3>
           <p class="craft__copy">A bulb in year three. A hinge in year five. The people who built your home are the people who maintain it&nbsp;— and Maja walks back through the door with them.</p>
@@ -967,8 +971,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=137" type="module"></script>
-  <script src="js/scroll-scrub.js?v=137" type="module"></script>
-  <script src="js/nav.js?v=137" type="module"></script>
+  <script src="js/main.js?v=138" type="module"></script>
+  <script src="js/scroll-scrub.js?v=138" type="module"></script>
+  <script src="js/nav.js?v=138" type="module"></script>
 </body>
 </html>
