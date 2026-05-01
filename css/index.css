@@ -1683,6 +1683,124 @@ html.is-intro body {
   height: 100%;
   display: block;
 }
+
+/* Interactive three-state map diagram — sits where the static SVG
+   used to live. Tabs above; cross-fade between three pre-rendered
+   hand-drawn map images below. */
+.local-mastery-diagram {
+  margin: clamp(40px, 6vw, 80px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.local-mastery-diagram__tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 2;
+}
+.local-mastery-diagram__tab {
+  flex: 1 1 0;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  border-right: 0;
+  padding: 18px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--sans);
+  color: var(--mid);
+  text-align: left;
+  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+.local-mastery-diagram__tab:last-child {
+  border-right: 1px solid var(--hairline);
+}
+.local-mastery-diagram__tab:hover {
+  color: var(--ink-2);
+  background: rgba(26, 26, 26, 0.02);
+}
+.local-mastery-diagram__tab.is-active {
+  color: var(--ink);
+  border-color: var(--ink);
+  background: var(--paper);
+  border-bottom-color: var(--paper);
+  z-index: 3;
+}
+.local-mastery-diagram__tab-num {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.75;
+}
+.local-mastery-diagram__tab-label {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.local-mastery-diagram__frame {
+  position: relative;
+  margin: 0;
+  background: var(--paper);
+  border: 1px solid var(--hairline-strong);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-top: 0;
+}
+.local-mastery-diagram__map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.local-mastery-diagram__map.is-active {
+  opacity: 1;
+}
+.local-mastery-diagram__caption {
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  right: 24px;
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+.local-mastery-diagram__caption-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.local-mastery-diagram__caption-line.is-active {
+  opacity: 1;
+  position: relative;
+}
+
+@media (max-width: 720px) {
+  .local-mastery-diagram__tabs { flex-direction: column; }
+  .local-mastery-diagram__tab { border-right: 1px solid var(--hairline); }
+  .local-mastery-diagram__tab:last-child { border-bottom: 1px solid var(--hairline); }
+  .local-mastery-diagram__tab.is-active { border-bottom-color: var(--ink); }
+  .local-mastery-diagram__frame {
+    aspect-ratio: 4 / 3;
+    border-top: 1px solid var(--hairline-strong);
+  }
+}
+
 .cascais__copy { display: grid; gap: clamp(20px, 2vw, 28px); max-width: 56ch; }
 .cascais__copy .display { max-width: 22ch; }
 .cascais__lede {

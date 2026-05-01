@@ -216,6 +216,30 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
   });
 });
 
+/* — Local-mastery interactive map diagram: three rectangular tabs
+     (Area / Permits / Climate) that cross-fade between three
+     pre-rendered hand-drawn maps. ~12 lines. */
+(function initLocalMasteryDiagram() {
+  const root = document.querySelector('.local-mastery-diagram');
+  if (!root) return;
+  const tabs  = root.querySelectorAll('.local-mastery-diagram__tab');
+  const maps  = root.querySelectorAll('.local-mastery-diagram__map');
+  const lines = root.querySelectorAll('.local-mastery-diagram__caption-line');
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      maps.forEach((m) => m.classList.toggle('is-active', m.dataset.state === target));
+      lines.forEach((l) => l.classList.toggle('is-active', l.dataset.state === target));
+      root.dataset.active = target;
+    });
+  });
+})();
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
