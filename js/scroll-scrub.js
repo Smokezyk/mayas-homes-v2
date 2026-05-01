@@ -40,14 +40,26 @@ if (!introEl) {
     introEl.dataset.introState = state;
   };
 
+  /* Seek the hero video to its last decoded frame and pause. If
+     metadata hasn't loaded yet, defer the seek until `loadedmetadata`
+     fires — otherwise duration is NaN and the seek silently no-ops,
+     leaving the user staring at frame 0 on a seen-refresh. */
   const snapVideoToEnd = () => {
     if (!heroVideo) return;
-    try {
-      if (isFinite(heroVideo.duration) && heroVideo.duration > 0) {
-        heroVideo.currentTime = heroVideo.duration;
-      }
-      heroVideo.pause();
-    } catch (_) {}
+    const seek = () => {
+      try {
+        if (isFinite(heroVideo.duration) && heroVideo.duration > 0) {
+          heroVideo.currentTime = heroVideo.duration;
+        }
+        heroVideo.pause();
+      } catch (_) {}
+    };
+    /* readyState >= 1 = HAVE_METADATA. */
+    if (heroVideo.readyState >= 1) {
+      seek();
+    } else {
+      heroVideo.addEventListener('loadedmetadata', seek, { once: true });
+    }
   };
 
   const unlockPage = () => {

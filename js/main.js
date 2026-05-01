@@ -217,26 +217,41 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
 });
 
 /* — Local-mastery interactive map diagram: three magazine-style tabs
-     (Area / Permits / Climate). On tab click, the map cross-fades to
-     the matching frame and the text panel below cross-fades to the
-     matching heading + body. */
+     (Area / Permits / Climate). On tab click, the map + caption +
+     right-column lede all cross-fade to the matching state. Hovering
+     an inactive tab cross-fades the map partway toward that state
+     (preview affordance) and snaps back on un-hover. */
 (function initLocalMasteryDiagram() {
   const root = document.querySelector('.local-mastery-diagram');
   if (!root) return;
-  const tabs   = root.querySelectorAll('.local-mastery-diagram__tab');
-  const maps   = root.querySelectorAll('.local-mastery-diagram__map');
-  const copies = root.querySelectorAll('.local-mastery-diagram__copy');
+  const ledeRoot = document.querySelector('.cascais__lede');
+  const tabs     = root.querySelectorAll('.local-mastery-diagram__tab');
+  const maps     = root.querySelectorAll('.local-mastery-diagram__map');
+  const captions = root.querySelectorAll('.local-mastery-diagram__caption');
+  const ledes    = ledeRoot ? ledeRoot.querySelectorAll('.cascais__lede-text') : [];
+
+  function setActive(target) {
+    tabs.forEach((t) => {
+      const active = t.dataset.target === target;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    maps.forEach((m) => m.classList.toggle('is-active', m.dataset.state === target));
+    captions.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
+    ledes.forEach((l) => l.classList.toggle('is-active', l.dataset.state === target));
+    root.dataset.active = target;
+    if (ledeRoot) ledeRoot.dataset.active = target;
+  }
+
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.target;
-      tabs.forEach((t) => {
-        const active = t === tab;
-        t.classList.toggle('is-active', active);
-        t.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      maps.forEach((m) => m.classList.toggle('is-active', m.dataset.state === target));
-      copies.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
-      root.dataset.active = target;
+    tab.addEventListener('click', () => setActive(tab.dataset.target));
+    tab.addEventListener('mouseenter', () => {
+      if (!tab.classList.contains('is-active')) {
+        root.dataset.hover = tab.dataset.target;
+      }
+    });
+    tab.addEventListener('mouseleave', () => {
+      delete root.dataset.hover;
     });
   });
 })();
