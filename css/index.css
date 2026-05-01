@@ -240,7 +240,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* =========================================================
-   CINEMATIC INTRO — typographic build, no video
+   CINEMATIC INTRO — doors-opening video + composed typography
    ========================================================= */
 .intro {
   position: relative;
@@ -253,6 +253,19 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Video plays once on entry, freezes on its final frame.
+   That frozen frame becomes the persistent hero background
+   beneath the composed typography. */
+.intro__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .intro__brand {

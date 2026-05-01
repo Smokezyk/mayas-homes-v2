@@ -28,12 +28,21 @@ const shouldAutoSkip = true;
 if (!introEl) {
   // No intro markup — nothing to do.
 } else {
-  /* Settled-on-arrival: the hero lands directly on the composed
-     final-frame state from the first paint. No build animation
-     plays on entry. The .intro--settled CSS rules force every
-     animated element visible; the section reads as 'finished'
-     immediately. */
+  /* Settled-on-arrival: the typography lands directly on its composed
+     state from the first paint. The doors-opening hero video plays
+     beneath via its native `autoplay`. When the video ends, it
+     freezes on its last decoded frame — that frozen frame becomes
+     the persistent hero background under the typography. */
   introEl.classList.add('intro--settled');
+
+  /* Belt-and-braces: explicit pause on ended in case any browser
+     quirk would otherwise rewind / loop the video. */
+  const heroVideo = document.querySelector('[data-hero-master]');
+  if (heroVideo) {
+    heroVideo.addEventListener('ended', () => {
+      try { heroVideo.pause(); } catch (_) {}
+    });
+  }
 
   root.classList.add('is-intro');
   window.dispatchEvent(new CustomEvent('intro:start'));
