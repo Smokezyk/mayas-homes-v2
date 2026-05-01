@@ -216,19 +216,18 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
   });
 });
 
-/* — Local-mastery interactive map diagram: three magazine-style tabs
-     (Area / Permits / Climate). On tab click, the map + caption +
-     right-column lede all cross-fade to the matching state. Hovering
-     an inactive tab cross-fades the map partway toward that state
-     (preview affordance) and snaps back on un-hover. */
-(function initLocalMasteryDiagram() {
-  const root = document.querySelector('.local-mastery-diagram');
+/* — Local Mastery: three magazine-style tabs (Area / Permits / Climate).
+     One tab click swaps four things together — map, caption, lede,
+     and pull quote — via 400 ms opacity cross-fades driven by .is-active.
+     The whole section is one centred editorial column. */
+(function initLocalMastery() {
+  const root = document.querySelector('.local-mastery');
   if (!root) return;
-  const ledeRoot = document.querySelector('.cascais__lede');
-  const tabs     = root.querySelectorAll('.local-mastery-diagram__tab');
-  const maps     = root.querySelectorAll('.local-mastery-diagram__map');
-  const captions = root.querySelectorAll('.local-mastery-diagram__caption');
-  const ledes    = ledeRoot ? ledeRoot.querySelectorAll('.cascais__lede-text') : [];
+  const tabs     = root.querySelectorAll('.local-mastery__tab');
+  const maps     = root.querySelectorAll('.local-mastery__map');
+  const captions = root.querySelectorAll('.local-mastery__caption');
+  const ledes    = root.querySelectorAll('.local-mastery__lede-text');
+  const quotes   = root.querySelectorAll('.local-mastery__quote-text');
 
   function setActive(target) {
     tabs.forEach((t) => {
@@ -236,23 +235,15 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
       t.classList.toggle('is-active', active);
       t.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    maps.forEach((m) => m.classList.toggle('is-active', m.dataset.state === target));
+    maps.forEach((m)     => m.classList.toggle('is-active', m.dataset.state === target));
     captions.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
-    ledes.forEach((l) => l.classList.toggle('is-active', l.dataset.state === target));
+    ledes.forEach((l)    => l.classList.toggle('is-active', l.dataset.state === target));
+    quotes.forEach((q)   => q.classList.toggle('is-active', q.dataset.state === target));
     root.dataset.active = target;
-    if (ledeRoot) ledeRoot.dataset.active = target;
   }
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => setActive(tab.dataset.target));
-    tab.addEventListener('mouseenter', () => {
-      if (!tab.classList.contains('is-active')) {
-        root.dataset.hover = tab.dataset.target;
-      }
-    });
-    tab.addEventListener('mouseleave', () => {
-      delete root.dataset.hover;
-    });
   });
 })();
 

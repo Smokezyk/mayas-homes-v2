@@ -1887,48 +1887,46 @@ html.is-intro body {
 }
 .cascais__head .display { max-width: 22ch; }
 
-/* Two-column editorial spread: diagram (left) + per-state lede (right). */
-.cascais__main {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 88px);
-  align-items: start;
-}
-
-/* Diagram — tabs + map + caption-bar. No outer wrapping border. */
-.local-mastery-diagram {
+/* Local Mastery — single centered editorial column.
+   Each tab click cross-fades four things together: the map, the
+   caption beneath it, the lede paragraph, and the closing pull
+   quote. The whole block reads as one magazine spread. */
+.local-mastery {
+  max-width: 920px;
+  margin: clamp(40px, 6vw, 80px) auto 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: clamp(28px, 3.4vw, 44px);
 }
-.local-mastery-diagram__tabs {
+
+/* Tabs — number above label, italic serif label, generous padding. */
+.local-mastery__tabs {
   display: flex;
   gap: 0;
+  border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
-.local-mastery-diagram__tab {
+.local-mastery__tab {
   flex: 1 1 0;
   background: transparent;
   border: 0;
-  padding: 22px 24px 20px;
+  padding: clamp(22px, 2.6vw, 32px) clamp(18px, 2vw, 28px);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   text-align: left;
   position: relative;
   color: var(--mid);
   transition: color 240ms ease;
 }
-.local-mastery-diagram__tab + .local-mastery-diagram__tab {
+.local-mastery__tab + .local-mastery__tab {
   border-left: 1px solid var(--hairline);
 }
-.local-mastery-diagram__tab:hover { color: var(--ink-2); }
-.local-mastery-diagram__tab.is-active { color: var(--ink); }
-.local-mastery-diagram__tab.is-active::after {
+.local-mastery__tab:hover { color: var(--ink-2); }
+.local-mastery__tab.is-active { color: var(--ink); }
+.local-mastery__tab.is-active::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1937,148 +1935,162 @@ html.is-intro body {
   height: 2px;
   background: var(--ink);
 }
-.local-mastery-diagram__tab-num {
+.local-mastery__tab-num {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: inherit;
-  opacity: 0.7;
+  opacity: 0.65;
 }
-.local-mastery-diagram__tab-label {
+.local-mastery__tab-label {
   font-family: var(--serif);
-  font-size: 22px;
+  font-style: italic;
+  font-size: clamp(20px, 2vw, 24px);
   font-weight: 400;
   letter-spacing: -0.005em;
   line-height: 1.1;
   color: inherit;
 }
 
-.local-mastery-diagram__frame {
+/* Map frame — show full image, never crop. */
+.local-mastery__frame {
   position: relative;
   margin: 0;
   background: var(--paper);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
-.local-mastery-diagram__map {
+.local-mastery__map {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   opacity: 0;
   transition: opacity 400ms ease;
 }
-.local-mastery-diagram__map.is-active { opacity: 1; }
+.local-mastery__map.is-active { opacity: 1; }
 
-/* Hover preview: hovering an inactive tab fades that map in at 50 %
-   over the active map; un-hover returns to the active state. */
-.local-mastery-diagram[data-hover="permits"] .local-mastery-diagram__map[data-state="permits"],
-.local-mastery-diagram[data-hover="climate"] .local-mastery-diagram__map[data-state="climate"],
-.local-mastery-diagram[data-hover="area"]    .local-mastery-diagram__map[data-state="area"] {
-  opacity: 0.5;
-}
-
-/* Caption bar below the map — '01 — 03' progress mark + per-state
-   italic caption. */
-.local-mastery-diagram__caption-bar {
+/* Caption bar — '01 — 03' progress + per-state italic caption. */
+.local-mastery__caption-bar {
   display: flex;
   align-items: baseline;
   gap: 24px;
-  padding: 16px 4px 0;
+  padding-top: 16px;
   border-top: 1px solid var(--hairline);
-  margin-top: 16px;
 }
-.local-mastery-diagram__progress {
+.local-mastery__progress {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--mid);
   flex-shrink: 0;
 }
-.local-mastery-diagram__caption {
+.local-mastery__caption {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.45;
   color: var(--ink-2);
   display: none;
 }
-.local-mastery-diagram__caption.is-active { display: inline; }
+.local-mastery__caption.is-active { display: inline; }
 
-/* Right column: per-state lede paragraph — cross-fades with tabs. */
-.cascais__lede {
+/* Lede — per-state paragraph, cross-fades with tabs. */
+.local-mastery__lede {
   position: relative;
-  min-height: 240px;
+  min-height: 8.5em;
 }
-.cascais__lede-text {
+.local-mastery__lede-text {
   position: absolute;
   inset: 0;
   font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.65;
   color: var(--ink);
   letter-spacing: -0.01em;
   opacity: 0;
   transition: opacity 400ms ease;
   margin: 0;
 }
-.cascais__lede-text.is-active { opacity: 1; }
+.local-mastery__lede-text.is-active { opacity: 1; }
 
-/* Closing pull-quote, full width and centered. */
-.cascais__pullquote {
-  max-width: 720px;
-  margin: clamp(40px, 6vw, 88px) auto 0;
-  padding: 0;
+/* Pull quote — italic serif, centered, attributed to Maja. */
+.local-mastery__quote {
+  position: relative;
+  margin: clamp(8px, 1.4vw, 20px) auto 0;
+  padding: clamp(28px, 3.4vw, 44px) 0 0;
   border: 0;
+  border-top: 1px solid var(--hairline);
   text-align: center;
+  max-width: 760px;
 }
-.cascais__pullquote p {
+.local-mastery__quote-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(28px, 3.4vw, 44px);
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(20px, 2.4vw, 26px);
+  font-size: clamp(20px, 2.2vw, 26px);
   line-height: 1.45;
   color: var(--ink);
-  margin: 0 0 16px;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
 }
-.cascais__pullquote cite {
+.local-mastery__quote-text.is-active { opacity: 1; }
+/* Spacer: a hidden copy of the longest quote keeps the block height
+   stable while only opacity changes carry the swap. */
+.local-mastery__quote::before {
+  content: "“Cascais wants the drawings a certain way; Sintra wants every original detail catalogued before you touch it; Lisbon’s Pombaline office cares about the timber. After seven years, I know what each of them will say before they say it.”";
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  visibility: hidden;
+  margin: 0;
+}
+.local-mastery__quote cite {
+  display: block;
+  margin-top: clamp(18px, 2vw, 26px);
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   font-style: normal;
   color: var(--ink-2);
 }
 
-@media (max-width: 960px) {
-  .cascais__main {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .cascais__lede { min-height: 0; }
-  .cascais__lede-text {
-    position: relative;
-    inset: auto;
-  }
-  .cascais__lede-text:not(.is-active) { display: none; }
-}
-
 @media (max-width: 720px) {
-  .local-mastery-diagram__tabs { flex-direction: column; }
-  .local-mastery-diagram__tab + .local-mastery-diagram__tab {
+  .local-mastery__tabs { flex-direction: column; }
+  .local-mastery__tab + .local-mastery__tab {
     border-left: 0;
     border-top: 1px solid var(--hairline);
   }
-  .local-mastery-diagram__tab.is-active::after { display: none; }
-  .local-mastery-diagram__tab.is-active { background: var(--paper); }
-  .local-mastery-diagram__frame { aspect-ratio: 4 / 3; }
-  .local-mastery-diagram__caption-bar {
+  .local-mastery__tab.is-active::after { display: none; }
+  .local-mastery__tab.is-active { background: var(--paper); }
+  .local-mastery__frame { aspect-ratio: 4 / 3; }
+  .local-mastery__caption-bar {
     flex-direction: column;
     gap: 8px;
   }
+  .local-mastery__lede { min-height: 0; }
+  .local-mastery__lede-text {
+    position: relative;
+    inset: auto;
+  }
+  .local-mastery__lede-text:not(.is-active) { display: none; }
+  .local-mastery__quote-text {
+    position: relative;
+    top: auto;
+  }
+  .local-mastery__quote-text:not(.is-active) { display: none; }
+  .local-mastery__quote::before { display: none; }
 }
 /* Pillars — full-width alternating media + copy rows. */
 .cascais-pillars {
