@@ -17,17 +17,24 @@ const buildLines = document.querySelectorAll('[data-build-line]');
 const cue        = document.querySelector('[data-cue]');
 const skipBtn    = document.querySelector('[data-intro-skip]');
 
-let introAlreadySeenThisSession = false;
-try {
-  introAlreadySeenThisSession = sessionStorage.getItem('mh_intro_seen') === '1';
-} catch (_) {}
+/* The hero now settles on arrival for every visit — no build animation
+   plays. shouldAutoSkip is always true; sessionStorage / hash-anchor
+   logic kept around as no-ops for parity with the prior intro state
+   machine. */
 const hasHashAnchor =
   window.location.hash && window.location.hash.length > 1;
-const shouldAutoSkip = introAlreadySeenThisSession || hasHashAnchor;
+const shouldAutoSkip = true;
 
 if (!introEl) {
   // No intro markup — nothing to do.
 } else {
+  /* Settled-on-arrival: the hero lands directly on the composed
+     final-frame state from the first paint. No build animation
+     plays on entry. The .intro--settled CSS rules force every
+     animated element visible; the section reads as 'finished'
+     immediately. */
+  introEl.classList.add('intro--settled');
+
   root.classList.add('is-intro');
   window.dispatchEvent(new CustomEvent('intro:start'));
 
