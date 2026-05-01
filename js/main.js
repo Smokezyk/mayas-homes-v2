@@ -256,6 +256,44 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
   });
 })();
 
+/* — Nav CTA: mouse-tracked radial shine + 3D tilt. The CSS reads
+     four custom properties (--shine-x, --shine-y, --rotate-x,
+     --rotate-y) that this handler updates on mousemove. rAF-throttled
+     so rapid cursor movement doesn't jank. Mouseleave resets all four
+     so the pill returns to its flat resting state. */
+(function initNavCtaShine() {
+  const cta = document.querySelector('.nav__cta');
+  if (!cta) return;
+  let frame = null;
+
+  const updateShine = (e) => {
+    const rect = cta.getBoundingClientRect();
+    const xPct = ((e.clientX - rect.left) / rect.width) * 100;
+    const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+    const xRatio = (e.clientX - rect.left) / rect.width;
+    const yRatio = (e.clientY - rect.top) / rect.height;
+    const rotateY = (xRatio - 0.5) * 8;   /* ±4° */
+    const rotateX = (0.5 - yRatio) * 6;   /* ±3° */
+    cta.style.setProperty('--shine-x', `${xPct}%`);
+    cta.style.setProperty('--shine-y', `${yPct}%`);
+    cta.style.setProperty('--rotate-x', `${rotateX}deg`);
+    cta.style.setProperty('--rotate-y', `${rotateY}deg`);
+  };
+
+  cta.addEventListener('mousemove', (e) => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => updateShine(e));
+  });
+
+  cta.addEventListener('mouseleave', () => {
+    if (frame) cancelAnimationFrame(frame);
+    cta.style.removeProperty('--shine-x');
+    cta.style.removeProperty('--shine-y');
+    cta.style.removeProperty('--rotate-x');
+    cta.style.removeProperty('--rotate-y');
+  });
+})();
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();

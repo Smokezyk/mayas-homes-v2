@@ -47,6 +47,15 @@ if (nav) {
     setVisible(true);
   });
 
+  // Catch-up: on a seen-refresh, scroll-scrub.js dispatches 'intro:end'
+  // SYNCHRONOUSLY while it evaluates — before nav.js has a chance to
+  // attach the listener above. Check the current state on init and
+  // surface the nav immediately if the intro has already completed.
+  if (!document.documentElement.classList.contains('is-intro')) {
+    introDone = true;
+    setVisible(true);
+  }
+
   const onScroll = () => {
     const y = window.scrollY;
     const dy = y - lastY;

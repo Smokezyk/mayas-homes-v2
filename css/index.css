@@ -222,9 +222,10 @@ a { color: inherit; text-decoration: none; }
 .nav__links a:hover { color: var(--ink); }
 .nav__links a:hover::after { right: 0; }
 
-/* CTA — pill with a dark-silver / warm-gunmetal metallic finish.
-   Layered: a static horizontal polish line + an animated diagonal
-   glimmer that sweeps on hover. Premium-restrained, not chrome. */
+/* CTA — dark-silver pill with a mouse-tracked radial shine + subtle
+   3D tilt that follows the cursor. ::before is the cursor-tracked
+   highlight (driven by --shine-x/-y custom properties from JS);
+   ::after is the always-on horizontal polish line. */
 .nav__cta {
   position: relative;
   display: inline-flex;
@@ -233,7 +234,7 @@ a { color: inherit; text-decoration: none; }
   gap: 10px;
   padding: 14px 28px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--sans);
   font-size: 12px;
   font-weight: 500;
@@ -243,32 +244,59 @@ a { color: inherit; text-decoration: none; }
   text-decoration: none;
   color: rgba(255, 255, 255, 0.96);
   white-space: nowrap;
+  /* Never undercut the label's natural width — pill cannot truncate
+     to 'Begin' or 'Pro' even if the parent grid squeezes it. */
+  min-width: max-content;
+  flex-shrink: 0;
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
+  transform-style: preserve-3d;
   background:
     linear-gradient(
       180deg,
-      #5e5953 0%,
-      #4a4540 35%,
+      #6a655e 0%,
+      #4f4a44 35%,
       #3a3530 65%,
       #2c2722 100%
     );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.20),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
     inset 0 0 22px rgba(0, 0, 0, 0.18),
     0 6px 18px rgba(0, 0, 0, 0.18),
     0 1px 2px rgba(0, 0, 0, 0.12);
+  transform:
+    perspective(600px)
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg));
   transition:
-    background 320ms ease,
-    transform 320ms ease,
-    box-shadow 320ms ease,
-    letter-spacing 320ms ease,
-    border-color 320ms ease;
+    background 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease,
+    transform 220ms ease,
+    letter-spacing 280ms ease;
 }
 
-/* Static polish line — subtle horizontal sheen across the middle. */
+/* Mouse-tracked shine — radial highlight follows the cursor. */
+.nav__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.18) 25%,
+    transparent 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  z-index: 1;
+}
+
+/* Static polish line — always present horizontal sheen. */
 .nav__cta::after {
   content: "";
   position: absolute;
@@ -287,27 +315,6 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.7;
 }
 
-/* Animated glimmer — bright diagonal sweep on hover. */
-.nav__cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -130%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    transparent 30%,
-    rgba(255, 255, 255, 0.32) 50%,
-    transparent 70%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 2;
-  transition: left 900ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
 /* Lift label + arrow above both sheen layers. */
 .nav__cta > * {
   position: relative;
@@ -318,29 +325,27 @@ a { color: inherit; text-decoration: none; }
   background:
     linear-gradient(
       180deg,
-      #6e6963 0%,
-      #5a5550 35%,
+      #7a756e 0%,
+      #5e5953 35%,
       #4a4540 65%,
       #3a3530 100%
     );
-  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.2);
   letter-spacing: 0.22em;
-  border-color: rgba(255, 255, 255, 0.18);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.26),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
     inset 0 0 26px rgba(0, 0, 0, 0.14),
     0 8px 22px rgba(0, 0, 0, 0.22),
     0 2px 5px rgba(0, 0, 0, 0.14);
 }
-.nav__cta:hover::before { left: 130%; }
+.nav__cta:hover::before { opacity: 1; }
 .nav__cta:active {
-  transform: translateY(0);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.10),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
-    inset 0 0 18px rgba(0, 0, 0, 0.20),
-    0 2px 8px rgba(0, 0, 0, 0.18);
+  transform:
+    perspective(600px)
+    rotateX(0deg)
+    rotateY(0deg)
+    translateY(1px);
 }
 .nav__cta svg {
   width: 14px;
@@ -349,6 +354,12 @@ a { color: inherit; text-decoration: none; }
   transition: transform 320ms var(--ease-out);
 }
 .nav__cta:hover svg { transform: translateX(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__cta {
+    transform: none !important;
+  }
+}
 
 @media (max-width: 960px) {
   /* Allow the nav row to scroll horizontally rather than wrap when
@@ -409,6 +420,12 @@ a { color: inherit; text-decoration: none; }
   padding: 0 var(--pad-x);
   max-width: 1280px;
   position: relative;
+  /* Lift the whole cluster up so the bottom eyebrow line sits at
+     ~50 % viewport instead of mid-lower. Mobile scales the lift. */
+  transform: translateY(-15vh);
+}
+@media (max-width: 720px) {
+  .intro__brand-inner { transform: translateY(-10vh); }
 }
 
 /* The wordmark — sits at the top of the cluster. Letter-by-letter
@@ -422,7 +439,8 @@ a { color: inherit; text-decoration: none; }
   text-indent: 0.15em;
   color: var(--ink);
   line-height: 1;
-  margin: 0 0 clamp(56px, 8vh, 88px);
+  /* Tightened from clamp(56, 8vh, 88) — about half the previous breath. */
+  margin: 0 0 clamp(20px, 3vh, 36px);
 }
 .intro__name .build-letter {
   display: inline-block;
@@ -447,7 +465,8 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.05;
   letter-spacing: -0.012em;
   color: var(--ink);
-  margin: 0 auto clamp(28px, 4vh, 44px);
+  /* Tightened from clamp(28, 4vh, 44). */
+  margin: 0 auto clamp(20px, 3vh, 32px);
   max-width: 22ch;
 }
 .intro__hook em { font-style: italic; }
@@ -462,7 +481,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-2);
   opacity: 0.86;
   line-height: 1;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 .intro__guarantee:last-of-type {
   margin-bottom: 0;
