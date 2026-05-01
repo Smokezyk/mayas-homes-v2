@@ -219,33 +219,41 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
 });
 
 /* — Local Mastery: three magazine-style tabs (Area / Permits / Climate).
-     One tab click swaps four things together — map, caption, lede,
-     and pull quote — via 400 ms opacity cross-fades driven by .is-active.
-     The whole section is one centred editorial column. */
+     One tab click swaps the map + caption + lede + quote together,
+     with caption immediate, lede +200ms, quote +400ms (transition-delay
+     does the staggering — JS just toggles classes). Clicking the active
+     tab a second time returns to the overview state. */
 (function initLocalMastery() {
   const root = document.querySelector('.local-mastery');
   if (!root) return;
-  const tabs     = root.querySelectorAll('.local-mastery__tab');
-  const maps     = root.querySelectorAll('.local-mastery__map');
-  const captions = root.querySelectorAll('.local-mastery__caption');
-  const ledes    = root.querySelectorAll('.local-mastery__lede-text');
-  const quotes   = root.querySelectorAll('.local-mastery__quote-text');
+
+  const tabs         = root.querySelectorAll('.local-mastery__tab');
+  const maps         = root.querySelectorAll('.local-mastery__map');
+  const captions     = root.querySelectorAll('.local-mastery__caption');
+  const ledes        = root.querySelectorAll('.local-mastery__lede-text');
+  const quotes       = root.querySelectorAll('.local-mastery__quote-text');
+  const progressNums = root.querySelectorAll('.local-mastery__progress-num');
 
   function setActive(target) {
+    root.dataset.active = target;
     tabs.forEach((t) => {
       const active = t.dataset.target === target;
       t.classList.toggle('is-active', active);
       t.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    maps.forEach((m)     => m.classList.toggle('is-active', m.dataset.state === target));
-    captions.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
-    ledes.forEach((l)    => l.classList.toggle('is-active', l.dataset.state === target));
-    quotes.forEach((q)   => q.classList.toggle('is-active', q.dataset.state === target));
-    root.dataset.active = target;
+    maps.forEach((m)         => m.classList.toggle('is-active', m.dataset.state === target));
+    captions.forEach((c)     => c.classList.toggle('is-active', c.dataset.state === target));
+    ledes.forEach((l)        => l.classList.toggle('is-active', l.dataset.state === target));
+    quotes.forEach((q)       => q.classList.toggle('is-active', q.dataset.state === target));
+    progressNums.forEach((p) => p.classList.toggle('is-active', p.dataset.step === target));
   }
 
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => setActive(tab.dataset.target));
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      // Click the active tab again → return to overview.
+      setActive(root.dataset.active === target ? 'overview' : target);
+    });
   });
 })();
 
