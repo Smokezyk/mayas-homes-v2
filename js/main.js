@@ -17,6 +17,8 @@ if (Lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     wheelMultiplier: 1.0,
     touchMultiplier: 1.4,
   });
+  /* Expose so nav.js can drive scrollTo for the brand-link return. */
+  window.__lenis = lenis;
 
   if (gsap && ScrollTrigger) {
     lenis.on('scroll', ScrollTrigger.update);

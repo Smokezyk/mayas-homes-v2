@@ -202,6 +202,30 @@ if (nav) {
     window.addEventListener('intro:end', () => {
       requestAnimationFrame(() => ScrollTrigger.refresh());
     });
+
+    /* Click the wordmark in the header to fly back to the hero.
+       Override the generic [href^="#"] handler in main.js so we can
+       (a) scroll to absolute Y=0 (no element/offset ambiguity) and
+       (b) force the scrub timeline to its start once the page
+           settles, so the wordmark reliably reverse-flies into the
+           hero centre instead of getting stuck in the header. */
+    if (navBrandLink) {
+      navBrandLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const lenis = window.__lenis;
+        const settle = () => {
+          ScrollTrigger.update();
+          tl.scrollTrigger && tl.scrollTrigger.refresh();
+        };
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          lenis.scrollTo(0, { duration: 1.0, force: true, lock: true, onComplete: settle });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(settle, 1100);
+        }
+      }, true);
+    }
   }
 }
 

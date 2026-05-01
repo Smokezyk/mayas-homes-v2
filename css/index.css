@@ -420,12 +420,13 @@ a { color: inherit; text-decoration: none; }
   padding: 0 var(--pad-x);
   max-width: 1280px;
   position: relative;
-  /* Lift the whole cluster up so the bottom eyebrow line sits at
-     ~50 % viewport instead of mid-lower. Mobile scales the lift. */
-  transform: translateY(-15vh);
+  /* Lifted toward the upper half of the hero, but ~7-8 vh lower than
+     the previous tuning so the cluster doesn't crowd the top edge.
+     Internal spacing between wordmark / hook / guarantees unchanged. */
+  transform: translateY(-7vh);
 }
 @media (max-width: 720px) {
-  .intro__brand-inner { transform: translateY(-10vh); }
+  .intro__brand-inner { transform: translateY(-3vh); }
 }
 
 /* The wordmark — sits at the top of the cluster. Letter-by-letter
