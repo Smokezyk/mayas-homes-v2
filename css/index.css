@@ -533,18 +533,28 @@ html.is-intro body {
   transition: opacity 800ms ease 200ms;
 }
 
-/* — Intro gate: glass Enter button + italic 'or skip the intro'
-     text link, stacked vertically. Fades out on click. — */
+/* — Intro gate: anchored to the bottom third of the hero so the
+     'Enter' gesture aligns with the door area of the freeze frame
+     rather than floating mid-sky. Frosted-glass primary + italic
+     skip link beneath. — */
 .intro__gate {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 22px;
+  justify-content: flex-end;
+  padding-bottom: clamp(80px, 18vh, 200px);
+  gap: 18px;
   z-index: 10;
   transition: opacity 400ms ease;
+  /* Let clicks pass through the empty padding zone so hero content
+     beneath isn't blocked; the buttons themselves opt back in below. */
+  pointer-events: none;
+}
+.intro__gate-enter,
+.intro__gate-skip {
+  pointer-events: auto;
 }
 .intro[data-intro-state="playing"] .intro__gate,
 .intro[data-intro-state="revealed"] .intro__gate {
@@ -552,9 +562,9 @@ html.is-intro body {
   pointer-events: none;
 }
 
-/* Polished-silver primary pill — sterling / platinum register.
-   Visible against any hero background (marble, photograph, frozen
-   final frame). Dark text inside for readability. */
+/* Frosted-glass primary pill — semi-transparent so the bougainvillea
+   / tile texture stays subtly visible through it. Hotel signage
+   register, not chrome. */
 .intro__gate-enter {
   position: relative;
   font-family: var(--sans);
@@ -562,81 +572,53 @@ html.is-intro body {
   letter-spacing: 0.36em;
   text-transform: uppercase;
   font-weight: 500;
-  padding: 20px 56px;
-  color: #1a1a1a;
+  padding: 18px 56px;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  background:
-    linear-gradient(
-      180deg,
-      #faf6f0 0%,
-      #e6e0d6 28%,
-      #cdc4b6 52%,
-      #b3a99a 78%,
-      #a89e8e 100%
-    );
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
-    inset 0 0 24px rgba(255, 255, 255, 0.15),
-    0 6px 20px rgba(0, 0, 0, 0.18),
-    0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  overflow: hidden;
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    0 4px 22px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
   transition:
     background 280ms ease,
+    border-color 280ms ease,
     transform 280ms ease,
-    box-shadow 280ms ease,
-    letter-spacing 280ms ease;
+    letter-spacing 280ms ease,
+    box-shadow 280ms ease;
 }
-/* Subtle horizontal sheen — the polish stripe across the middle. */
-.intro__gate-enter::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.35) 48%,
-    rgba(255, 255, 255, 0.18) 50%,
-    transparent 52%,
-    transparent 100%
-  );
-  pointer-events: none;
-  opacity: 0.7;
+
+/* Backdrop-filter fallback for browsers without support. */
+@supports not (backdrop-filter: blur(1px)) {
+  .intro__gate-enter {
+    background: rgba(255, 255, 255, 0.32);
+  }
 }
+
 .intro__gate-enter:hover {
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #ede7dc 28%,
-      #d6cdbe 52%,
-      #bdb3a3 78%,
-      #b1a797 100%
-    );
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.7);
   transform: translateY(-1px);
   letter-spacing: 0.42em;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 28px rgba(255, 255, 255, 0.2),
-    0 8px 24px rgba(0, 0, 0, 0.22),
-    0 2px 6px rgba(0, 0, 0, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06),
+    0 6px 28px rgba(0, 0, 0, 0.16),
+    0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .intro__gate-enter:active {
   transform: translateY(0);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 18px rgba(255, 255, 255, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.16);
 }
 
-/* Tertiary skip link — italic, thin underline, no button chrome.
-   Slightly lifted opacity + soft text-shadow for readability
-   against bright backgrounds. */
+/* Tertiary skip link — italic, thin underline, soft text-shadow for
+   readability against bright backgrounds. */
 .intro__gate-skip {
   font-family: var(--sans);
   font-size: 12px;
