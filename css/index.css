@@ -1852,7 +1852,7 @@ html.is-intro body {
   color: var(--ink-2);
   letter-spacing: -0.005em;
   margin: 0 auto;
-  max-width: 32ch;
+  max-width: 38ch;
   text-align: center;
 }
 
