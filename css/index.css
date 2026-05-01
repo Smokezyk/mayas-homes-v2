@@ -400,14 +400,16 @@ html.is-intro body {
   transition: opacity 800ms ease 200ms;
 }
 
-/* — Intro gate: centred Enter / Skip pair, fades out on click. — */
+/* — Intro gate: glass Enter button + italic 'or skip the intro'
+     text link, stacked vertically. Fades out on click. — */
 .intro__gate {
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 22px;
   z-index: 10;
   transition: opacity 400ms ease;
 }
@@ -416,28 +418,65 @@ html.is-intro body {
   opacity: 0;
   pointer-events: none;
 }
-.intro__gate-btn {
+
+/* Glass primary button */
+.intro__gate-enter {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
-  padding: 16px 32px;
-  border: 1px solid var(--ink);
-  background: transparent;
-  color: var(--ink);
+  padding: 20px 52px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  color: rgba(255, 255, 255, 0.95);
   cursor: pointer;
-  transition: background 200ms ease, color 200ms ease;
+  border-radius: 2px;
+  box-shadow:
+    0 6px 28px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition:
+    background 260ms ease,
+    border-color 260ms ease,
+    transform 260ms ease,
+    letter-spacing 260ms ease;
 }
-.intro__gate-btn--enter {
-  background: var(--ink);
-  color: var(--paper);
+.intro__gate-enter:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+  letter-spacing: 0.42em;
 }
-.intro__gate-btn--enter:hover {
-  background: var(--ink-2);
+.intro__gate-enter:active {
+  transform: translateY(0);
 }
-.intro__gate-btn--skip:hover {
-  background: var(--ink);
-  color: var(--paper);
+
+/* Fallback for browsers without backdrop-filter (Firefox <103). */
+@supports not (backdrop-filter: blur(1px)) {
+  .intro__gate-enter {
+    background: rgba(255, 255, 255, 0.28);
+  }
+}
+
+/* Tertiary skip link — italic, thin underline, no button chrome. */
+.intro__gate-skip {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  padding: 6px 10px;
+  transition: color 200ms ease;
+}
+.intro__gate-skip:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
 /* =========================================================
