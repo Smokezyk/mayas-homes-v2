@@ -1887,80 +1887,91 @@ html.is-intro body {
 }
 .cascais__head .display { max-width: 22ch; }
 
-/* Local Mastery — single centered editorial column.
-   Each tab click cross-fades four things together: the map, the
-   caption beneath it, the lede paragraph, and the closing pull
-   quote. The whole block reads as one magazine spread. */
+/* Local Mastery — one centred editorial column. Tabs / map / caption /
+   lede / pull quote stack vertically and centre. A tab click cross-fades
+   four things together (map, caption, lede, quote) on .is-active. */
 .local-mastery {
   max-width: 920px;
   margin: clamp(40px, 6vw, 80px) auto 0;
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 3.4vw, 44px);
+  align-items: stretch;
+  text-align: center;
 }
 
-/* Tabs — number above label, italic serif label, generous padding. */
+/* TABS — editorial, centred row, generous breath. */
 .local-mastery__tabs {
   display: flex;
+  justify-content: center;
   gap: 0;
-  border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
+  margin-bottom: clamp(28px, 4vw, 48px);
 }
+
 .local-mastery__tab {
-  flex: 1 1 0;
+  flex: 0 1 auto;
   background: transparent;
   border: 0;
-  padding: clamp(22px, 2.6vw, 32px) clamp(18px, 2vw, 28px);
+  padding: 18px clamp(28px, 5vw, 56px) 16px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
-  text-align: left;
   position: relative;
   color: var(--mid);
   transition: color 240ms ease;
+  text-align: center;
 }
-.local-mastery__tab + .local-mastery__tab {
-  border-left: 1px solid var(--hairline);
+
+.local-mastery__tab:hover {
+  color: var(--ink-2);
 }
-.local-mastery__tab:hover { color: var(--ink-2); }
-.local-mastery__tab.is-active { color: var(--ink); }
+
+.local-mastery__tab.is-active {
+  color: var(--ink);
+}
+
 .local-mastery__tab.is-active::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 20%;
+  right: 20%;
   bottom: -1px;
-  height: 2px;
+  height: 1.5px;
   background: var(--ink);
 }
+
 .local-mastery__tab-num {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: inherit;
-  opacity: 0.65;
+  opacity: 0.7;
 }
+
 .local-mastery__tab-label {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(20px, 2vw, 24px);
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.005em;
   line-height: 1.1;
   color: inherit;
+  white-space: nowrap;
 }
 
-/* Map frame — show full image, never crop. */
+/* MAP FRAME — natural aspect ratio, no cropping. */
 .local-mastery__frame {
   position: relative;
-  margin: 0;
-  background: var(--paper);
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  background: transparent;
+  aspect-ratio: 4 / 3;
+  overflow: visible;
 }
+
 .local-mastery__map {
   position: absolute;
   inset: 0;
@@ -1971,126 +1982,140 @@ html.is-intro body {
   opacity: 0;
   transition: opacity 400ms ease;
 }
-.local-mastery__map.is-active { opacity: 1; }
 
-/* Caption bar — '01 — 03' progress + per-state italic caption. */
+.local-mastery__map.is-active {
+  opacity: 1;
+}
+
+/* CAPTION BAR — slim, centred, beneath the map. */
 .local-mastery__caption-bar {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 24px;
-  padding-top: 16px;
+  padding: 14px 0 0;
+  margin-top: clamp(20px, 3vw, 32px);
   border-top: 1px solid var(--hairline);
 }
+
 .local-mastery__progress {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--mid);
-  flex-shrink: 0;
 }
+
 .local-mastery__caption {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(15px, 1.3vw, 17px);
-  line-height: 1.45;
+  font-size: 15px;
+  line-height: 1.4;
   color: var(--ink-2);
   display: none;
 }
-.local-mastery__caption.is-active { display: inline; }
 
-/* Lede — per-state paragraph, cross-fades with tabs. */
+.local-mastery__caption.is-active {
+  display: inline;
+}
+
+/* LEDE — centred paragraph below the caption bar. */
 .local-mastery__lede {
   position: relative;
-  min-height: 8.5em;
+  margin: clamp(24px, 4vw, 40px) auto 0;
+  max-width: 62ch;
+  min-height: 110px;
 }
+
 .local-mastery__lede-text {
   position: absolute;
   inset: 0;
   font-family: var(--sans);
-  font-size: clamp(16px, 1.3vw, 18px);
+  font-size: 16px;
   line-height: 1.65;
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  margin: 0;
+  text-align: center;
   opacity: 0;
   transition: opacity 400ms ease;
-  margin: 0;
 }
-.local-mastery__lede-text.is-active { opacity: 1; }
 
-/* Pull quote — italic serif, centered, attributed to Maja. */
+.local-mastery__lede-text.is-active {
+  opacity: 1;
+}
+
+/* QUOTE — centred closing line, swaps per state. */
 .local-mastery__quote {
   position: relative;
-  margin: clamp(8px, 1.4vw, 20px) auto 0;
-  padding: clamp(28px, 3.4vw, 44px) 0 0;
+  margin: clamp(40px, 6vw, 80px) auto 0;
+  max-width: 720px;
+  padding: 0;
   border: 0;
-  border-top: 1px solid var(--hairline);
   text-align: center;
-  max-width: 760px;
+  min-height: 140px;
 }
+
 .local-mastery__quote-text {
   position: absolute;
   left: 0;
   right: 0;
-  top: clamp(28px, 3.4vw, 44px);
+  top: 0;
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(20px, 2.2vw, 26px);
+  font-size: clamp(20px, 2.4vw, 26px);
   line-height: 1.45;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 18px;
   opacity: 0;
   transition: opacity 400ms ease;
 }
-.local-mastery__quote-text.is-active { opacity: 1; }
-/* Spacer: a hidden copy of the longest quote keeps the block height
-   stable while only opacity changes carry the swap. */
-.local-mastery__quote::before {
-  content: "“Cascais wants the drawings a certain way; Sintra wants every original detail catalogued before you touch it; Lisbon’s Pombaline office cares about the timber. After seven years, I know what each of them will say before they say it.”";
-  display: block;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(20px, 2.2vw, 26px);
-  line-height: 1.45;
-  visibility: hidden;
-  margin: 0;
+
+.local-mastery__quote-text.is-active {
+  opacity: 1;
+  position: relative;
 }
+
 .local-mastery__quote cite {
   display: block;
-  margin-top: clamp(18px, 2vw, 26px);
+  margin-top: 18px;
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   font-style: normal;
   color: var(--ink-2);
 }
 
 @media (max-width: 720px) {
-  .local-mastery__tabs { flex-direction: column; }
-  .local-mastery__tab + .local-mastery__tab {
-    border-left: 0;
-    border-top: 1px solid var(--hairline);
+  .local-mastery__tabs {
+    flex-direction: column;
+    border-bottom: 0;
   }
-  .local-mastery__tab.is-active::after { display: none; }
-  .local-mastery__tab.is-active { background: var(--paper); }
-  .local-mastery__frame { aspect-ratio: 4 / 3; }
+  .local-mastery__tab {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .local-mastery__tab.is-active::after {
+    display: none;
+  }
   .local-mastery__caption-bar {
     flex-direction: column;
     gap: 8px;
   }
-  .local-mastery__lede { min-height: 0; }
-  .local-mastery__lede-text {
+  .local-mastery__lede,
+  .local-mastery__quote {
+    min-height: 0;
+  }
+  .local-mastery__lede-text,
+  .local-mastery__quote-text {
     position: relative;
     inset: auto;
   }
-  .local-mastery__lede-text:not(.is-active) { display: none; }
-  .local-mastery__quote-text {
-    position: relative;
-    top: auto;
+  .local-mastery__lede-text:not(.is-active),
+  .local-mastery__quote-text:not(.is-active) {
+    display: none;
   }
-  .local-mastery__quote-text:not(.is-active) { display: none; }
-  .local-mastery__quote::before { display: none; }
 }
 /* Pillars — full-width alternating media + copy rows. */
 .cascais-pillars {
