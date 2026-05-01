@@ -1962,13 +1962,13 @@ html.is-intro body {
   white-space: nowrap;
 }
 
-/* MAP FRAME — natural aspect ratio, no cropping. */
+/* MAP FRAME — 16:9 to match the new Final-Maps source images. */
 .local-mastery__frame {
   position: relative;
   margin: 0 auto;
   width: 100%;
   background: transparent;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: visible;
 }
 
