@@ -2061,27 +2061,6 @@ html.is-intro body {
   border-bottom: 1px solid var(--hairline);
 }
 
-.local-mastery__progress {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-
-.local-mastery__progress-num {
-  transition: color 240ms ease;
-}
-
-.local-mastery__progress-num.is-active {
-  color: var(--ink);
-}
-
-.local-mastery__progress-sep { opacity: 0.5; }
-
 .local-mastery__caption {
   font-family: var(--serif);
   font-style: italic;
@@ -2117,14 +2096,14 @@ html.is-intro body {
   opacity: 1;
 }
 
-/* Quote */
+/* Quote — sits beneath the lede with no divider; the typography
+   does the separation. */
 .local-mastery__quote {
   position: relative;
   width: 100%;
   margin: 0;
   padding: clamp(20px, 2.5vw, 32px) 0 0;
   border: 0;
-  border-top: 1px solid var(--hairline);
 }
 
 .local-mastery__quote-text {

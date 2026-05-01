@@ -227,12 +227,11 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
   const root = document.querySelector('.local-mastery');
   if (!root) return;
 
-  const tabs         = root.querySelectorAll('.local-mastery__tab');
-  const maps         = root.querySelectorAll('.local-mastery__map');
-  const captions     = root.querySelectorAll('.local-mastery__caption');
-  const ledes        = root.querySelectorAll('.local-mastery__lede-text');
-  const quotes       = root.querySelectorAll('.local-mastery__quote-text');
-  const progressNums = root.querySelectorAll('.local-mastery__progress-num');
+  const tabs     = root.querySelectorAll('.local-mastery__tab');
+  const maps     = root.querySelectorAll('.local-mastery__map');
+  const captions = root.querySelectorAll('.local-mastery__caption');
+  const ledes    = root.querySelectorAll('.local-mastery__lede-text');
+  const quotes   = root.querySelectorAll('.local-mastery__quote-text');
 
   function setActive(target) {
     root.dataset.active = target;
@@ -241,11 +240,10 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
       t.classList.toggle('is-active', active);
       t.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    maps.forEach((m)         => m.classList.toggle('is-active', m.dataset.state === target));
-    captions.forEach((c)     => c.classList.toggle('is-active', c.dataset.state === target));
-    ledes.forEach((l)        => l.classList.toggle('is-active', l.dataset.state === target));
-    quotes.forEach((q)       => q.classList.toggle('is-active', q.dataset.state === target));
-    progressNums.forEach((p) => p.classList.toggle('is-active', p.dataset.step === target));
+    maps.forEach((m)     => m.classList.toggle('is-active', m.dataset.state === target));
+    captions.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
+    ledes.forEach((l)    => l.classList.toggle('is-active', l.dataset.state === target));
+    quotes.forEach((q)   => q.classList.toggle('is-active', q.dataset.state === target));
   }
 
   tabs.forEach((tab) => {
