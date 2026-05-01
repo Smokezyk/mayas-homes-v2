@@ -491,47 +491,91 @@ html.is-intro body {
   pointer-events: none;
 }
 
-/* Glass primary button */
+/* Polished-silver primary pill — sterling / platinum register.
+   Visible against any hero background (marble, photograph, frozen
+   final frame). Dark text inside for readability. */
 .intro__gate-enter {
+  position: relative;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  padding: 20px 52px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(22px) saturate(140%);
-  -webkit-backdrop-filter: blur(22px) saturate(140%);
-  color: rgba(255, 255, 255, 0.95);
-  cursor: pointer;
-  border-radius: 2px;
+  font-weight: 500;
+  padding: 20px 56px;
+  color: #1a1a1a;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background:
+    linear-gradient(
+      180deg,
+      #faf6f0 0%,
+      #e6e0d6 28%,
+      #cdc4b6 52%,
+      #b3a99a 78%,
+      #a89e8e 100%
+    );
   box-shadow:
-    0 6px 28px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    inset 0 0 24px rgba(255, 255, 255, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
   transition:
-    background 260ms ease,
-    border-color 260ms ease,
-    transform 260ms ease,
-    letter-spacing 260ms ease;
+    background 280ms ease,
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    letter-spacing 280ms ease;
+}
+/* Subtle horizontal sheen — the polish stripe across the middle. */
+.intro__gate-enter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 48%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 52%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0.7;
 }
 .intro__gate-enter:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #ede7dc 28%,
+      #d6cdbe 52%,
+      #bdb3a3 78%,
+      #b1a797 100%
+    );
   transform: translateY(-1px);
   letter-spacing: 0.42em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 28px rgba(255, 255, 255, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.22),
+    0 2px 6px rgba(0, 0, 0, 0.12);
 }
 .intro__gate-enter:active {
   transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 18px rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
-/* Fallback for browsers without backdrop-filter (Firefox <103). */
-@supports not (backdrop-filter: blur(1px)) {
-  .intro__gate-enter {
-    background: rgba(255, 255, 255, 0.28);
-  }
-}
-
-/* Tertiary skip link — italic, thin underline, no button chrome. */
+/* Tertiary skip link — italic, thin underline, no button chrome.
+   Slightly lifted opacity + soft text-shadow for readability
+   against bright backgrounds. */
 .intro__gate-skip {
   font-family: var(--sans);
   font-size: 12px;
@@ -539,16 +583,17 @@ html.is-intro body {
   letter-spacing: 0.04em;
   background: transparent;
   border: 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
   padding: 6px 10px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
   transition: color 200ms ease;
 }
 .intro__gate-skip:hover {
-  color: rgba(255, 255, 255, 1);
+  color: #ffffff;
 }
 
 /* =========================================================
