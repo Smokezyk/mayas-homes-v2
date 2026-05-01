@@ -2378,22 +2378,62 @@ html.is-intro body {
   max-width: 38ch;
   margin: 0;
 }
-.services__future {
-  max-width: 64ch;
-  margin: clamp(64px, 7vw, 110px) auto 0;
-  padding-top: clamp(28px, 3vw, 44px);
+/* Closing band beneath the 6-service grid — announces the sister
+   practice. Visually demoted from the cards above (no card frame,
+   hairline rules top and bottom). */
+.services__sister {
+  max-width: 640px;
+  margin: clamp(60px, 8vw, 120px) auto 0;
+  padding: clamp(40px, 5vw, 64px) 0;
   border-top: 1px solid var(--hairline);
-  font-family: var(--sans);
-  font-size: var(--fs-sm);
-  line-height: 1.7;
-  color: var(--mid);
-  text-align: center;
+  border-bottom: 1px solid var(--hairline);
+  text-align: left;
 }
-.services__future em {
+.services__sister-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 16px;
+}
+.services__sister-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 400;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+.services__sister-body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 24px;
+  max-width: 56ch;
+}
+.services__sister-status {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+  margin: 0;
+}
+.services__sister-status em {
   font-family: var(--serif);
   font-style: italic;
+  font-size: 16px;
   color: var(--ink);
-  margin-right: 4px;
+}
+.services__sister-link {
+  margin-left: 12px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 200ms ease;
+}
+.services__sister-link:hover {
+  color: var(--ink-2);
 }
 
 @media (max-width: 900px) {
