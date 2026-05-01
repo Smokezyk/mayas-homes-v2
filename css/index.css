@@ -294,6 +294,17 @@ a { color: inherit; text-decoration: none; }
   line-height: 1;
   margin: 0 0 clamp(8px, 1vw, 16px);
 }
+
+/* Pull the wordmark up so it sits directly above the V-shaped vein
+   in the marble video freeze frame (≈ 50–52 % of the viewport).
+   Negative margin-top tightens the cluster's existing gap above
+   the wordmark; the headline + eyebrows above it stay where they
+   are. Mobile wraps the marble differently and shouldn't be touched. */
+@media (min-width: 960px) {
+  .intro__name {
+    margin-top: clamp(-12vh, -10vh, -8vh);
+  }
+}
 .intro__name .build-letter {
   display: inline-block;
   opacity: 0;
