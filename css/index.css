@@ -1684,73 +1684,83 @@ html.is-intro body {
   display: block;
 }
 
-/* Interactive three-state map diagram — sits where the static SVG
-   used to live. Tabs above; cross-fade between three pre-rendered
-   hand-drawn map images below. */
+/* Interactive three-state map diagram. One unit: tabs → map → text
+   panel. Tabs are magazine-style (no boxed borders, hairline rule
+   below, ink underline on the active tab). The text panel below the
+   map cross-fades content per state. */
 .local-mastery-diagram {
   margin: clamp(40px, 6vw, 80px) 0;
   display: flex;
   flex-direction: column;
   gap: 0;
+  border: 1px solid var(--hairline-strong);
+  background: var(--paper);
 }
+
 .local-mastery-diagram__tabs {
   display: flex;
   gap: 0;
   border-bottom: 1px solid var(--hairline);
-  margin-bottom: -1px;
-  position: relative;
-  z-index: 2;
+  background: var(--bone);
 }
 .local-mastery-diagram__tab {
   flex: 1 1 0;
   background: transparent;
-  border: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-  border-right: 0;
-  padding: 18px 24px;
+  border: 0;
+  padding: 24px 28px 22px;
   cursor: pointer;
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  font-family: var(--sans);
-  color: var(--mid);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   text-align: left;
-  transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+  position: relative;
+  transition: color 240ms ease, background 240ms ease;
+  color: var(--mid);
 }
-.local-mastery-diagram__tab:last-child {
-  border-right: 1px solid var(--hairline);
+.local-mastery-diagram__tab + .local-mastery-diagram__tab {
+  border-left: 1px solid var(--hairline);
 }
 .local-mastery-diagram__tab:hover {
   color: var(--ink-2);
-  background: rgba(26, 26, 26, 0.02);
+  background: rgba(26, 26, 26, 0.015);
 }
 .local-mastery-diagram__tab.is-active {
   color: var(--ink);
-  border-color: var(--ink);
   background: var(--paper);
-  border-bottom-color: var(--paper);
-  z-index: 3;
+}
+.local-mastery-diagram__tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ink);
 }
 .local-mastery-diagram__tab-num {
+  font-family: var(--sans);
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: inherit;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 .local-mastery-diagram__tab-label {
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  font-weight: 500;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  color: inherit;
 }
+
 .local-mastery-diagram__frame {
   position: relative;
   margin: 0;
   background: var(--paper);
-  border: 1px solid var(--hairline-strong);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-top: 0;
 }
 .local-mastery-diagram__map {
   position: absolute;
@@ -1765,40 +1775,52 @@ html.is-intro body {
 .local-mastery-diagram__map.is-active {
   opacity: 1;
 }
-.local-mastery-diagram__caption {
-  position: absolute;
-  bottom: 16px;
-  left: 24px;
-  right: 24px;
-  margin: 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  color: var(--ink-2);
-  pointer-events: none;
+
+.local-mastery-diagram__panel {
+  position: relative;
+  padding: clamp(28px, 4vw, 48px) clamp(28px, 4vw, 56px);
+  border-top: 1px solid var(--hairline);
+  background: var(--bone);
+  min-height: 180px;
 }
-.local-mastery-diagram__caption-line {
+.local-mastery-diagram__copy {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: clamp(28px, 4vw, 48px) clamp(28px, 4vw, 56px);
+  margin: 0;
   opacity: 0;
   transition: opacity 400ms ease;
+  pointer-events: none;
 }
-.local-mastery-diagram__caption-line.is-active {
+.local-mastery-diagram__copy.is-active {
   opacity: 1;
-  position: relative;
+  pointer-events: auto;
+}
+.local-mastery-diagram__copy-heading {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.local-mastery-diagram__copy-body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 62ch;
 }
 
 @media (max-width: 720px) {
   .local-mastery-diagram__tabs { flex-direction: column; }
-  .local-mastery-diagram__tab { border-right: 1px solid var(--hairline); }
-  .local-mastery-diagram__tab:last-child { border-bottom: 1px solid var(--hairline); }
-  .local-mastery-diagram__tab.is-active { border-bottom-color: var(--ink); }
-  .local-mastery-diagram__frame {
-    aspect-ratio: 4 / 3;
-    border-top: 1px solid var(--hairline-strong);
+  .local-mastery-diagram__tab + .local-mastery-diagram__tab {
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
   }
+  .local-mastery-diagram__tab.is-active::after { display: none; }
+  .local-mastery-diagram__tab.is-active { background: var(--paper); }
+  .local-mastery-diagram__frame { aspect-ratio: 4 / 3; }
 }
 
 .cascais__copy { display: grid; gap: clamp(20px, 2vw, 28px); max-width: 56ch; }
