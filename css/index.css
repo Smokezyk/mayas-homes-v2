@@ -3006,8 +3006,9 @@ button:focus-visible,
   .nav.is-open .nav__links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 22px;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
     position: fixed;
     inset: 0;
     background: var(--bone);
@@ -3015,7 +3016,7 @@ button:focus-visible,
     z-index: 60;
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(28px, 6vw, 40px);
+    font-size: clamp(24px, 6vw, 32px);
     color: var(--ink);
   }
   .nav.is-open .nav__links a {
@@ -3026,5 +3027,19 @@ button:focus-visible,
   }
   .nav.is-open .nav__links a:hover {
     border-bottom-color: var(--ink);
+  }
+  /* Float the close (X) button above the drawer so it stays
+     reachable while the menu is open. */
+  .nav.is-open .nav__menu-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 70;
+  }
+  /* Hide the CTA pill while the drawer is open so it doesn't
+     bleed through visually. */
+  .nav.is-open .nav__cta,
+  .nav.is-open .nav__brand {
+    visibility: hidden;
   }
 }

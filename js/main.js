@@ -290,29 +290,36 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* =========================================================
    STATS COUNT-UP — fast, sharp, GSAP ScrollTrigger.
-   Each .stats__number has data-count="N" and a child
-   .stats__digit that we tween from 0 → N as the band enters
-   the viewport. snap: 1 keeps every visible value an integer.
+
+   Each .stats__digit ships its FINAL value in the markup so
+   slow-loading or fast-scrolling visitors always see correct
+   numbers (no momentary "6+ years, 2 experts" mid-tween).
+   When the band reaches the viewport, we reset the digits to
+   "0" and tween them up to the target. If GSAP never runs, or
+   the user scrolls past too fast, the markup values stand.
    ========================================================= */
 if (gsap && ScrollTrigger) {
-  document.querySelectorAll('.stats__number').forEach((el) => {
-    const target = parseInt(el.dataset.count, 10);
-    const digit = el.querySelector('.stats__digit');
-    if (!digit || isNaN(target) || target === 0) return;
+  ScrollTrigger.create({
+    trigger: '.stats',
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      document.querySelectorAll('.stats__number').forEach((el) => {
+        const target = parseInt(el.dataset.count, 10);
+        const digit = el.querySelector('.stats__digit');
+        if (!digit || isNaN(target) || target === 0) return;
 
-    const obj = { value: 0 };
-    gsap.to(obj, {
-      value: target,
-      duration: 0.9,
-      ease: 'power1.out',
-      snap: { value: 1 },
-      onUpdate: () => { digit.textContent = obj.value | 0; },
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        once: true,
-      },
-    });
+        digit.textContent = '0';
+        const obj = { value: 0 };
+        gsap.to(obj, {
+          value: target,
+          duration: 0.9,
+          ease: 'power1.out',
+          snap: { value: 1 },
+          onUpdate: () => { digit.textContent = obj.value | 0; },
+        });
+      });
+    },
   });
 }
 

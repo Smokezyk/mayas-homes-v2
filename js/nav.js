@@ -89,28 +89,27 @@ if (nav) {
 
   /* Mobile menu toggle. The hamburger only renders <768px via
      CSS; tapping it flips .is-open on .nav, which (in CSS) shows
-     a full-bleed cream drawer with the nav links. Tapping any
-     link inside the drawer closes it. */
+     a full-bleed cream drawer with the nav links. Body scroll is
+     locked while the drawer is open so the underlying page
+     doesn't move. Tapping any link, the X button, or pressing
+     ESC closes the drawer. */
   const menuToggle = nav.querySelector('.nav__menu-toggle');
   const navLinks = nav.querySelector('.nav__links');
   if (menuToggle && navLinks) {
-    const closeMenu = () => {
-      nav.classList.remove('is-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Open menu');
-    };
-    menuToggle.addEventListener('click', () => {
-      const open = !nav.classList.contains('is-open');
+    const setOpen = (open) => {
       nav.classList.toggle('is-open', open);
       menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    menuToggle.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('is-open'));
     });
     navLinks.addEventListener('click', (e) => {
-      if (e.target.closest('a')) closeMenu();
+      if (e.target.closest('a')) setOpen(false);
     });
-    /* ESC also closes the drawer for keyboard users. */
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) setOpen(false);
     });
   }
 }
