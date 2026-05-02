@@ -269,6 +269,36 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
   });
 })();
 
+/* — Contact form submit: same shine + tilt as the nav CTA.
+     The page's three primary actions (nav / form / footer outro)
+     share a single button vocabulary; the form submit gets the
+     full mouse-tracked treatment too. */
+(function initContactSubmitShine() {
+  const cta = document.querySelector('.contact__submit');
+  if (!cta) return;
+  let frame = null;
+  function update(e) {
+    const r = cta.getBoundingClientRect();
+    const xPct = ((e.clientX - r.left) / r.width)  * 100;
+    const yPct = ((e.clientY - r.top)  / r.height) * 100;
+    const xR = (e.clientX - r.left) / r.width;
+    const yR = (e.clientY - r.top)  / r.height;
+    cta.style.setProperty('--shine-x', `${xPct}%`);
+    cta.style.setProperty('--shine-y', `${yPct}%`);
+    cta.style.setProperty('--rotate-y', `${(xR - 0.5) * 8}deg`);
+    cta.style.setProperty('--rotate-x', `${(0.5 - yR) * 6}deg`);
+  }
+  cta.addEventListener('mousemove', (e) => {
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => update(e));
+  });
+  cta.addEventListener('mouseleave', () => {
+    if (frame) cancelAnimationFrame(frame);
+    ['--shine-x','--shine-y','--rotate-x','--rotate-y']
+      .forEach((p) => cta.style.removeProperty(p));
+  });
+})();
+
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
