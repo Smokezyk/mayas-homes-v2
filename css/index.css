@@ -2183,105 +2183,6 @@ html.is-intro body {
   transform: none !important;
   margin-top: 0 !important;
 }
-/* Pillars — full-width alternating media + copy rows. */
-.cascais-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(80px, 10vw, 140px);
-  margin: clamp(60px, 8vw, 120px) 0;
-}
-.cascais-pillar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: clamp(40px, 6vw, 96px);
-}
-.cascais-pillar--media-right { direction: rtl; }
-.cascais-pillar--media-right > * { direction: ltr; }
-
-.cascais-pillar__media {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border: 1px solid var(--hairline-strong);
-  background: var(--paper);
-  margin: 0;
-}
-/* CSS placeholder — warm gradient + quiet 'VIDEO' label. */
-.cascais-pillar__media::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--bone) 0%, var(--paper) 50%, var(--soft) 100%);
-  z-index: 0;
-}
-.cascais-pillar__media::after {
-  content: "VIDEO";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  color: var(--mid);
-  z-index: 1;
-}
-.cascais-pillar__media-link {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  display: block;
-}
-.cascais-pillar__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.cascais-pillar__hint {
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  padding: 8px 14px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  opacity: 0.92;
-  transition: opacity 200ms ease;
-  z-index: 3;
-}
-.cascais-pillar__media-link:hover .cascais-pillar__hint { opacity: 1; }
-
-.cascais-pillar__copy { max-width: 38ch; display: grid; gap: 10px; }
-.cascais-pillar__copy b {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(22px, 2vw, 30px);
-  letter-spacing: -0.012em;
-  color: var(--ink);
-  line-height: 1.2;
-}
-.cascais-pillar__copy span {
-  font-family: var(--sans);
-  font-size: var(--fs-base);
-  line-height: 1.6;
-  color: var(--mid);
-}
-
-
-/* 'Currently building in' line — small editorial note beneath the
-   pillars. Italic Cormorant so it reads as ongoing context, not a
-   marketing claim. */
 /* Closing band — full section width with hairlines top and
    bottom so the line reads as a deliberate close, not floating
    text. */
@@ -2319,15 +2220,6 @@ html.is-intro body {
 
 @media (max-width: 900px) {
   .cascais__grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 959px) {
-  .cascais-pillar,
-  .cascais-pillar--media-right {
-    grid-template-columns: 1fr;
-    direction: ltr;
-    gap: 32px;
-  }
-  .cascais-pillar__copy { max-width: 100%; }
 }
 
 /* =========================================================
@@ -2375,6 +2267,16 @@ html.is-intro body {
   place-items: center;
   text-align: center;
   padding: clamp(16px, 2vw, 28px);
+}
+/* Soft gradient stand-in until real photos arrive — replaces the
+   literal "[ Photo placeholder ]" text so the section reads as
+   intentional, not unfinished. */
+.services__shot[data-todo] .services__placeholder {
+  display: none;
+}
+.services__shot[data-todo] {
+  background:
+    linear-gradient(135deg, var(--bone) 0%, var(--paper) 50%, var(--soft) 100%);
 }
 .services__placeholder {
   font-family: var(--sans);
@@ -2714,6 +2616,31 @@ a.contact__direct-value:hover {
   transform: translateY(-1px);
 }
 
+/* Post-submit thank-you panel — replaces the form on ?sent=1. */
+.contact__sent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(40px, 5vw, 64px);
+  border: 1px solid var(--hairline-strong);
+  background: var(--paper);
+}
+.contact__sent[hidden] { display: none; }
+.contact__sent-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 400;
+  margin: 0;
+  color: var(--ink);
+}
+.contact__sent-body {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+
 /* Credentials — quiet centred affirmation beneath the section. */
 .contact__credentials {
   max-width: 1240px;
@@ -3016,5 +2943,88 @@ a.footer__contact-value:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   LAUNCH-PREP — disabled links, focus-visible, mobile nav
+   ========================================================= */
+
+/* Disable links to pages that don't exist yet. Visually softened,
+   keyboard-skipped, click-blocked. Drop the inline override when
+   the destination page lands. */
+a[data-todo="project-page"],
+a[data-todo="future-page"] {
+  pointer-events: none;
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* Focus-visible: a clear ink outline on all interactive elements
+   when reached via keyboard. Skip when reached by mouse. */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible,
+.contact__input:focus-visible,
+.contact__textarea:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Mobile nav — hide the inline link bar at narrow widths and
+   surface a hamburger that toggles a full-bleed drawer. */
+.nav__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0;
+}
+.nav__menu-toggle svg { width: 20px; height: 14px; }
+.nav__menu-toggle .is-bar-x { display: none; }
+.nav.is-open .nav__menu-toggle .is-bar-burger { display: none; }
+.nav.is-open .nav__menu-toggle .is-bar-x      { display: inline; }
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__cta {
+    padding: 12px 16px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+  .nav__menu-toggle {
+    display: inline-flex;
+  }
+  .nav.is-open .nav__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    position: fixed;
+    inset: 0;
+    background: var(--bone);
+    padding: clamp(80px, 18vh, 140px) clamp(28px, 6vw, 56px);
+    z-index: 60;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(28px, 6vw, 40px);
+    color: var(--ink);
+  }
+  .nav.is-open .nav__links a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease;
+  }
+  .nav.is-open .nav__links a:hover {
+    border-bottom-color: var(--ink);
   }
 }

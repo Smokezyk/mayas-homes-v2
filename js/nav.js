@@ -86,6 +86,33 @@ if (nav) {
       setVisible(true);
     }
   });
+
+  /* Mobile menu toggle. The hamburger only renders <768px via
+     CSS; tapping it flips .is-open on .nav, which (in CSS) shows
+     a full-bleed cream drawer with the nav links. Tapping any
+     link inside the drawer closes it. */
+  const menuToggle = nav.querySelector('.nav__menu-toggle');
+  const navLinks = nav.querySelector('.nav__links');
+  if (menuToggle && navLinks) {
+    const closeMenu = () => {
+      nav.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    };
+    menuToggle.addEventListener('click', () => {
+      const open = !nav.classList.contains('is-open');
+      nav.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeMenu();
+    });
+    /* ESC also closes the drawer for keyboard users. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+    });
+  }
 }
 
 /* =========================================================

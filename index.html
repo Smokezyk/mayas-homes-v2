@@ -8,12 +8,13 @@
   <title>Maya's Homes — Boutique Renovation in Cascais & Estoril</title>
   <meta name="description" content="Maja Milič and her in-house team craft full-home renovations across Cascais and Estoril. One designer, start to finish. 25+ years. Zero subcontractors." />
   <meta name="keywords" content="renovation Cascais, interior design Estoril, boutique renovation Portugal, Maja Milič, full home remodel" />
-  <link rel="canonical" href="https://mayashomes.com/" />
+  <!-- Canonical: switch to https://mayashomes.com/ when the .com domain goes live. -->
+  <link rel="canonical" href="https://smokezyk.github.io/mayas-homes-v2/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Maya's Homes — Boutique Renovation in Cascais" />
   <meta property="og:description" content="One designer, start to finish. Full-home renovations across Cascais and Estoril." />
-  <meta property="og:image" content="assets/images/rosario-hero.webp" />
+  <meta property="og:image" content="https://mayashomes.com/assets/images/rosario-hero.webp" />
   <meta property="og:locale" content="en_GB" />
 
   <link rel="icon" type="image/png" href="https://mayashomes.com/apple-touch-icon.png" />
@@ -22,10 +23,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="video" href="assets/videos/introvidfinal.mp4?v=170" />
-
-  <link rel="stylesheet" href="css/index.css?v=170" />
-  <link rel="stylesheet" href="css/animations.css?v=170" />
+  <!-- Hero video preload removed: the Enter/Skip gate gives 1-2s
+       of dwell, plenty for the optimised 6 MB clip to start streaming
+       on click via preload="metadata" + +faststart. -->
+  <link rel="stylesheet" href="css/index.css?v=171" />
+  <link rel="stylesheet" href="css/animations.css?v=171" />
 
   <script type="application/ld+json">
   {
@@ -69,6 +71,20 @@
         <span>Begin a Project</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
       </a>
+
+      <button class="nav__menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 20 14" fill="none" aria-hidden="true">
+          <g class="is-bar-burger">
+            <line x1="0" y1="2"  x2="20" y2="2"  stroke="currentColor" stroke-width="1.5"/>
+            <line x1="0" y1="7"  x2="20" y2="7"  stroke="currentColor" stroke-width="1.5"/>
+            <line x1="0" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.5"/>
+          </g>
+          <g class="is-bar-x">
+            <line x1="2" y1="2"  x2="18" y2="12" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="18" y1="2" x2="2"  y2="12" stroke="currentColor" stroke-width="1.5"/>
+          </g>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -79,7 +95,7 @@
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=170"
+        src="assets/videos/introvidfinal.mp4?v=171"
         muted
         playsinline
         preload="auto"
@@ -131,9 +147,9 @@
           <video
             class="manifesto__portrait-video"
             data-living-portrait
-            src="assets/videos/maja-animation.mp4?v=170"
-            poster="assets/images/maja-portrait-v2.webp?v=170"
-            muted loop playsinline preload="metadata"
+            src="assets/videos/maja-animation.mp4?v=171"
+            poster="assets/images/maja-portrait-v2.webp?v=171"
+            muted loop playsinline preload="metadata" loading="lazy"
             aria-label="Maja Milič — founder, designer, problem-solver"
           ></video>
           <figcaption>Maja Milič — Cascais</figcaption>
@@ -151,8 +167,8 @@
     <section class="stats" aria-label="At a glance">
       <video
         class="stats__bg"
-        src="assets/videos/stats-band-bg.mp4?v=170"
-        autoplay loop muted playsinline preload="metadata"
+        src="assets/videos/stats-band-bg.mp4?v=171"
+        autoplay loop muted playsinline preload="metadata" loading="lazy"
         aria-hidden="true"
         tabindex="-1"
       ></video>
@@ -220,9 +236,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rosario.mp4?v=170"
+                    src="assets/videos/transformation-rosario.mp4?v=171"
                     poster="assets/images/rosario-hero.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">The Rosário Residence</h3>
@@ -235,7 +251,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/rosario" data-todo="project-page" aria-label="View the full Rosário project">
+              <a class="tile__view" href="/projects/rosario" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Rosário project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -250,9 +266,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-alvide.mp4?v=170"
+                    src="assets/videos/transformation-alvide.mp4?v=171"
                     poster="assets/images/alvide-hero.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">Luminous Alvide</h3>
@@ -265,7 +281,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/alvide" data-todo="project-page" aria-label="View the full Alvide project">
+              <a class="tile__view" href="/projects/alvide" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Alvide project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -280,9 +296,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-riviera.mp4?v=170"
+                    src="assets/videos/transformation-riviera.mp4?v=171"
                     poster="assets/images/riviera-openplan.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">The Riviera Sanctuary</h3>
@@ -295,7 +311,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/riviera" data-todo="project-page" aria-label="View the full Riviera project">
+              <a class="tile__view" href="/projects/riviera" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Riviera project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -312,9 +328,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-figueiras.mp4?v=170"
+                    src="assets/videos/transformation-figueiras.mp4?v=171"
                     poster="assets/images/figueiras-open-plan.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">Figueiras Open Plan</h3>
@@ -327,7 +343,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/figueiras" data-todo="project-page" aria-label="View the full Figueiras project">
+              <a class="tile__view" href="/projects/figueiras" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Figueiras project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -342,9 +358,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rebelva.mp4?v=170"
+                    src="assets/videos/transformation-rebelva.mp4?v=171"
                     poster="assets/images/rebelva-sala.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">Rebelva Layered</h3>
@@ -357,7 +373,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/rebelva" data-todo="project-page" aria-label="View the full Rebelva project">
+              <a class="tile__view" href="/projects/rebelva" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Rebelva project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -372,9 +388,9 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-amoreira.mp4?v=170"
+                    src="assets/videos/transformation-amoreira.mp4?v=171"
                     poster="assets/images/amoreira-hero.webp"
-                    muted playsinline preload="metadata" tabindex="-1"
+                    muted playsinline preload="metadata" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
                     <h3 class="tile__hover-title">Amoreira Loft</h3>
@@ -387,7 +403,7 @@
                   </div>
                 </figure>
               </button>
-              <a class="tile__view" href="/projects/amoreira" data-todo="project-page" aria-label="View the full Amoreira project">
+              <a class="tile__view" href="/projects/amoreira" data-todo="project-page" aria-disabled="true" tabindex="-1" aria-label="View the full Amoreira project">
                 <span>View Project</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
               </a>
@@ -396,7 +412,7 @@
         </div>
       </div>
 
-      <a class="projects__cta" href="/projects" data-todo="project-page">
+      <a class="projects__cta" href="/projects" data-todo="project-page" aria-disabled="true" tabindex="-1">
         <span>View all transformations</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
       </a>
@@ -484,7 +500,7 @@
       <div class="craft__grid">
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-1.jpg?v=170" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-1.jpg?v=171" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">The hand that drew it is the hand that lays it.</h3>
           <p class="craft__copy">Every craftsperson on a Maya&rsquo;s Homes project has been with Maja for years. The team that builds your home is one she trusts with her own.</p>
@@ -492,7 +508,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-2.jpg?v=170" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-2.jpg?v=171" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">One number. The same names.</h3>
           <p class="craft__copy">When something needs to change, you call Maja. The person who shows up is the same person who built the room&nbsp;— chosen by her, kept by her, known to her by name for years.</p>
@@ -500,7 +516,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-3.jpg?v=170" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-3.jpg?v=171" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar">We never really leave.</h3>
           <p class="craft__copy">A bulb in year three. A hinge in year five. The people who built your home are the people who maintain it&nbsp;— and Maja walks back through the door with them.</p>
@@ -527,7 +543,7 @@
                   class="process__video"
                   data-step-video
                   src="assets/videos/anim-convert-1.mp4"
-                  muted playsinline preload="metadata"
+                  muted playsinline preload="metadata" loading="lazy"
                   tabindex="-1"
                 ></video>
                 <span class="process__hint" aria-hidden="true">
@@ -559,7 +575,7 @@
                   class="process__video"
                   data-step-video
                   src="assets/videos/anim-convert-2.mp4"
-                  muted playsinline preload="metadata"
+                  muted playsinline preload="metadata" loading="lazy"
                   tabindex="-1"
                 ></video>
                 <span class="process__hint" aria-hidden="true">
@@ -591,7 +607,7 @@
                   class="process__video"
                   data-step-video
                   src="assets/videos/anim-convert-3.mp4"
-                  muted playsinline preload="metadata"
+                  muted playsinline preload="metadata" loading="lazy"
                   tabindex="-1"
                 ></video>
                 <span class="process__hint" aria-hidden="true">
@@ -623,7 +639,7 @@
                   class="process__video"
                   data-step-video
                   src="assets/videos/anim-convert-4.mp4"
-                  muted playsinline preload="metadata"
+                  muted playsinline preload="metadata" loading="lazy"
                   tabindex="-1"
                 ></video>
                 <span class="process__hint" aria-hidden="true">
@@ -656,7 +672,7 @@
               class="process__result-video"
               data-step-video
               src="assets/videos/anim-convert-5.mp4"
-              muted playsinline preload="metadata"
+              muted playsinline preload="metadata" loading="lazy"
               tabindex="-1"
             ></video>
             <span class="process__hint" aria-hidden="true">
@@ -856,7 +872,9 @@
           </div>
         </div>
 
-        <form class="contact__form" action="mailto:maja.milic@mayashomes.com" method="post" enctype="text/plain" novalidate>
+        <!-- TODO before launch: replace YOUR_FORM_ID with the real
+             Formspree endpoint (https://formspree.io/forms/<id>). -->
+        <form class="contact__form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="contact__field">
             <label class="contact__label" for="contact-name">Your name</label>
             <input class="contact__input" type="text" id="contact-name" name="name" autocomplete="name" required>
@@ -877,11 +895,21 @@
             <textarea class="contact__textarea" id="contact-message" name="message" rows="5" required></textarea>
           </div>
 
+          <!-- Honeypot — bots fill it, humans don't see it. -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <!-- Redirect after success → triggers the thank-you banner via ?sent=1. -->
+          <input type="hidden" name="_next" value="https://mayashomes.com/?sent=1">
+
           <button type="submit" class="contact__submit">
             <span>Send to Maja</span>
             <span aria-hidden="true">&rarr;</span>
           </button>
         </form>
+
+        <div class="contact__sent" data-contact-sent hidden>
+          <p class="contact__sent-title">Message sent.</p>
+          <p class="contact__sent-body">Maja replies personally&nbsp;— usually within the week.</p>
+        </div>
 
       </div>
 
@@ -966,23 +994,22 @@
       </p>
       <p class="footer__credentials-line footer__credentials-line--right">
         IMPIC 97976&#8209;PAR &middot; AMI 18698 &middot;
-        <a href="/privacy" class="footer__credentials-link">Privacy</a> &middot;
-        <a href="/terms" class="footer__credentials-link">Terms</a>
+        <a href="/privacy" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Privacy</a> &middot;
+        <a href="/terms" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Terms</a>
       </p>
     </div>
 
   </footer>
 
 
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <!-- Lenis smooth scroll -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Self-hosted vendor libs (no CDN dependency, no SRI surface). -->
+  <script src="vendor/gsap.min.js?v=171"></script>
+  <script src="vendor/ScrollTrigger.min.js?v=171"></script>
+  <script src="vendor/lenis.min.js?v=171"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=170" type="module"></script>
-  <script src="js/scroll-scrub.js?v=170" type="module"></script>
-  <script src="js/nav.js?v=170" type="module"></script>
+  <script src="js/main.js?v=171" type="module"></script>
+  <script src="js/scroll-scrub.js?v=171" type="module"></script>
+  <script src="js/nav.js?v=171" type="module"></script>
 </body>
 </html>

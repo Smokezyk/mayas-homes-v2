@@ -193,30 +193,6 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
   });
 });
 
-/* — Cascais pillar tiles: click-to-play, mirrors the [data-step]
-     handler. Each tile's <video> ships with empty src as a CSS-
-     placeholder; this handler bails silently in that state, so
-     adding real videos later is just src='...' + preload='metadata'. */
-document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
-  const video = figure.querySelector('[data-cascais-video]');
-  const link  = figure.querySelector('.cascais-pillar__media-link');
-  if (!video || !link) return;
-
-  link.addEventListener('click', (e) => {
-    if (e) e.preventDefault();
-    if (!video.getAttribute('src')) return; /* placeholder, no video yet */
-    figure.classList.add('is-playing');
-    figure.classList.remove('is-revealed');
-    try { video.currentTime = 0; } catch (_) {}
-    const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
-  });
-
-  video.addEventListener('ended', () => {
-    figure.classList.remove('is-playing');
-    figure.classList.add('is-revealed');
-  });
-});
 
 /* — Local Mastery: three magazine-style tabs (Area / Permits / Climate).
      One tab click swaps the map + caption + lede + quote together,
@@ -296,6 +272,21 @@ document.querySelectorAll('[data-cascais-tile]').forEach((figure) => {
 /* — Footer year — */
 const yearEl = document.querySelector('[data-year]');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* — Contact form: post-submit thank-you banner.
+     Formspree redirects back to ?sent=1; swap the form for a
+     small "Message sent" panel so the user gets immediate
+     feedback without a separate confirmation page. */
+(function initContactSent() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') !== '1') return;
+  const form = document.querySelector('.contact__form');
+  const panel = document.querySelector('[data-contact-sent]');
+  if (form) form.hidden = true;
+  if (panel) panel.hidden = false;
+  const contact = document.getElementById('contact');
+  if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+})();
 
 /* =========================================================
    STATS COUNT-UP — fast, sharp, GSAP ScrollTrigger.
