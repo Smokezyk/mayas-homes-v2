@@ -231,71 +231,43 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
   });
 })();
 
-/* — Nav CTA: mouse-tracked radial shine + 3D tilt. The CSS reads
-     four custom properties (--shine-x, --shine-y, --rotate-x,
-     --rotate-y) that this handler updates on mousemove. rAF-throttled
-     so rapid cursor movement doesn't jank. Mouseleave resets all four
-     so the pill returns to its flat resting state. */
-(function initNavCtaShine() {
-  const cta = document.querySelector('.nav__cta');
-  if (!cta) return;
-  let frame = null;
+/* — Magnetic primary buttons: every silver pill (nav CTA, form
+     submit, any future .btn-silver / footer outro) gets the same
+     mouse-tracked radial shine + 3D tilt. Each handler is rAF-
+     throttled per-button so rapid cursor movement across multiple
+     buttons doesn't jank. Mouseleave resets the four CSS vars so
+     the pill returns to its flat resting state. */
+(function initMagneticButtons() {
+  const buttons = document.querySelectorAll(
+    '.nav__cta, .contact__submit, .footer__outro-cta, .btn-silver'
+  );
+  if (!buttons.length) return;
 
-  const updateShine = (e) => {
-    const rect = cta.getBoundingClientRect();
-    const xPct = ((e.clientX - rect.left) / rect.width) * 100;
-    const yPct = ((e.clientY - rect.top) / rect.height) * 100;
-    const xRatio = (e.clientX - rect.left) / rect.width;
-    const yRatio = (e.clientY - rect.top) / rect.height;
-    const rotateY = (xRatio - 0.5) * 8;   /* ±4° */
-    const rotateX = (0.5 - yRatio) * 6;   /* ±3° */
-    cta.style.setProperty('--shine-x', `${xPct}%`);
-    cta.style.setProperty('--shine-y', `${yPct}%`);
-    cta.style.setProperty('--rotate-x', `${rotateX}deg`);
-    cta.style.setProperty('--rotate-y', `${rotateY}deg`);
-  };
+  buttons.forEach((btn) => {
+    let frame = null;
 
-  cta.addEventListener('mousemove', (e) => {
-    if (frame) cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => updateShine(e));
-  });
+    function update(e) {
+      const r = btn.getBoundingClientRect();
+      const xPct = ((e.clientX - r.left) / r.width)  * 100;
+      const yPct = ((e.clientY - r.top)  / r.height) * 100;
+      const xR = (e.clientX - r.left) / r.width;
+      const yR = (e.clientY - r.top)  / r.height;
+      btn.style.setProperty('--shine-x', `${xPct}%`);
+      btn.style.setProperty('--shine-y', `${yPct}%`);
+      btn.style.setProperty('--rotate-y', `${(xR - 0.5) * 8}deg`);   /* ±4° */
+      btn.style.setProperty('--rotate-x', `${(0.5 - yR) * 6}deg`);   /* ±3° */
+    }
 
-  cta.addEventListener('mouseleave', () => {
-    if (frame) cancelAnimationFrame(frame);
-    cta.style.removeProperty('--shine-x');
-    cta.style.removeProperty('--shine-y');
-    cta.style.removeProperty('--rotate-x');
-    cta.style.removeProperty('--rotate-y');
-  });
-})();
+    btn.addEventListener('mousemove', (e) => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => update(e));
+    });
 
-/* — Contact form submit: same shine + tilt as the nav CTA.
-     The page's three primary actions (nav / form / footer outro)
-     share a single button vocabulary; the form submit gets the
-     full mouse-tracked treatment too. */
-(function initContactSubmitShine() {
-  const cta = document.querySelector('.contact__submit');
-  if (!cta) return;
-  let frame = null;
-  function update(e) {
-    const r = cta.getBoundingClientRect();
-    const xPct = ((e.clientX - r.left) / r.width)  * 100;
-    const yPct = ((e.clientY - r.top)  / r.height) * 100;
-    const xR = (e.clientX - r.left) / r.width;
-    const yR = (e.clientY - r.top)  / r.height;
-    cta.style.setProperty('--shine-x', `${xPct}%`);
-    cta.style.setProperty('--shine-y', `${yPct}%`);
-    cta.style.setProperty('--rotate-y', `${(xR - 0.5) * 8}deg`);
-    cta.style.setProperty('--rotate-x', `${(0.5 - yR) * 6}deg`);
-  }
-  cta.addEventListener('mousemove', (e) => {
-    if (frame) cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => update(e));
-  });
-  cta.addEventListener('mouseleave', () => {
-    if (frame) cancelAnimationFrame(frame);
-    ['--shine-x','--shine-y','--rotate-x','--rotate-y']
-      .forEach((p) => cta.style.removeProperty(p));
+    btn.addEventListener('mouseleave', () => {
+      if (frame) cancelAnimationFrame(frame);
+      ['--shine-x','--shine-y','--rotate-x','--rotate-y']
+        .forEach((p) => btn.style.removeProperty(p));
+    });
   });
 })();
 

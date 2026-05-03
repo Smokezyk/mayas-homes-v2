@@ -226,15 +226,25 @@ a { color: inherit; text-decoration: none; }
    3D tilt that follows the cursor. ::before is the cursor-tracked
    highlight (driven by --shine-x/-y custom properties from JS);
    ::after is the always-on horizontal polish line. */
-.nav__cta {
+/* =========================================================
+   Shared primary button — polished platinum / champagne silver.
+   One vocabulary across every primary CTA: nav, form submit,
+   any future .btn-silver. Gradient body, static sheen (::after),
+   mouse-tracked radial highlight (::before), magnetic 3D tilt
+   driven by --rotate-x / --rotate-y CSS vars from main.js.
+   ========================================================= */
+.btn-silver,
+.nav__cta,
+.contact__submit,
+.footer__outro-cta {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 28px;
+  gap: 12px;
+  padding: 18px 36px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   font-family: var(--sans);
   font-size: 12px;
   font-weight: 500;
@@ -242,34 +252,33 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.96);
-  white-space: nowrap;
-  /* Never undercut the label's natural width — pill cannot truncate
-     to 'Begin' or 'Pro' even if the parent grid squeezes it. */
-  min-width: max-content;
-  flex-shrink: 0;
+  color: #1a1a1a;
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
   transform-style: preserve-3d;
-  background:
-    linear-gradient(
-      180deg,
-      #6a655e 0%,
-      #4f4a44 35%,
-      #3a3530 65%,
-      #2c2722 100%
-    );
+
+  background: linear-gradient(
+    180deg,
+    #faf6f0 0%,
+    #e6e0d6 28%,
+    #cdc4b6 52%,
+    #b3a99a 78%,
+    #a89e8e 100%
+  );
+
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 22px rgba(0, 0, 0, 0.18),
-    0 6px 18px rgba(0, 0, 0, 0.18),
-    0 1px 2px rgba(0, 0, 0, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    inset 0 0 24px rgba(255, 255, 255, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.10);
+
   transform:
     perspective(600px)
     rotateX(var(--rotate-x, 0deg))
     rotateY(var(--rotate-y, 0deg));
+
   transition:
     background 280ms ease,
     box-shadow 280ms ease,
@@ -279,15 +288,18 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Mouse-tracked shine — radial highlight follows the cursor. */
-.nav__cta::before {
+.btn-silver::before,
+.nav__cta::before,
+.contact__submit::before,
+.footer__outro-cta::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
     circle at var(--shine-x, 50%) var(--shine-y, 50%),
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.18) 25%,
+    rgba(255, 255, 255, 0.60) 0%,
+    rgba(255, 255, 255, 0.25) 25%,
     transparent 60%
   );
   opacity: 0;
@@ -296,8 +308,11 @@ a { color: inherit; text-decoration: none; }
   z-index: 1;
 }
 
-/* Static polish line — always present horizontal sheen. */
-.nav__cta::after {
+/* Static horizontal sheen — always-on polish line. */
+.btn-silver::after,
+.nav__cta::after,
+.contact__submit::after,
+.footer__outro-cta::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -305,10 +320,9 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(
     180deg,
     transparent 0%,
-    transparent 47%,
-    rgba(255, 255, 255, 0.10) 50%,
-    rgba(255, 255, 255, 0.04) 53%,
-    transparent 100%
+    rgba(255, 255, 255, 0.30) 48%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 52%
   );
   pointer-events: none;
   z-index: 1;
@@ -316,36 +330,64 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Lift label + arrow above both sheen layers. */
-.nav__cta > * {
+.btn-silver > *,
+.nav__cta > *,
+.contact__submit > *,
+.footer__outro-cta > * {
   position: relative;
   z-index: 3;
 }
 
-.nav__cta:hover {
-  background:
-    linear-gradient(
-      180deg,
-      #7a756e 0%,
-      #5e5953 35%,
-      #4a4540 65%,
-      #3a3530 100%
-    );
-  border-color: rgba(255, 255, 255, 0.2);
+.btn-silver:hover,
+.nav__cta:hover,
+.contact__submit:hover,
+.footer__outro-cta:hover {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ede7dc 28%,
+    #d6cdbe 52%,
+    #bdb3a3 78%,
+    #b1a797 100%
+  );
+  border-color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.22em;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 26px rgba(0, 0, 0, 0.14),
-    0 8px 22px rgba(0, 0, 0, 0.22),
-    0 2px 5px rgba(0, 0, 0, 0.14);
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    inset 0 0 28px rgba(255, 255, 255, 0.20),
+    0 8px 24px rgba(0, 0, 0, 0.22),
+    0 2px 6px rgba(0, 0, 0, 0.12);
 }
-.nav__cta:hover::before { opacity: 1; }
-.nav__cta:active {
+
+.btn-silver:hover::before,
+.nav__cta:hover::before,
+.contact__submit:hover::before,
+.footer__outro-cta:hover::before {
+  opacity: 1;
+}
+
+.btn-silver:active,
+.nav__cta:active,
+.contact__submit:active,
+.footer__outro-cta:active {
   transform:
     perspective(600px)
     rotateX(0deg)
     rotateY(0deg)
     translateY(1px);
+}
+
+/* Nav-specific overrides: tighter padding so it sits in the
+   header without dominating, and label-protection rules so the
+   wordmark "Begin a Project" never gets squeezed by the parent
+   flex. */
+.nav__cta {
+  gap: 10px;
+  padding: 14px 28px;
+  white-space: nowrap;
+  min-width: max-content;
+  flex-shrink: 0;
 }
 .nav__cta svg {
   width: 14px;
@@ -356,7 +398,10 @@ a { color: inherit; text-decoration: none; }
 .nav__cta:hover svg { transform: translateX(3px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav__cta {
+  .btn-silver,
+  .nav__cta,
+  .contact__submit,
+  .footer__outro-cta {
     transform: none !important;
   }
 }
@@ -2571,111 +2616,13 @@ a.contact__direct-value:hover {
   opacity: 1;
 }
 
-/* Submit — full nav-CTA vocabulary: gradient body, polish line
-   (::after), mouse-tracked radial shine (::before), 3D tilt via
-   --rotate-x/--rotate-y CSS vars updated by JS. */
+/* Form-submit specific overrides: keep the shared light-silver
+   visuals (defined in the shared block near .nav__cta) but add
+   form-flow tweaks — top spacing, left alignment in the column. */
 .contact__submit {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
   margin-top: clamp(8px, 1.5vw, 16px);
-  padding: 18px 36px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.96);
-  cursor: pointer;
-  overflow: hidden;
-  isolation: isolate;
   align-self: flex-start;
-  transform-style: preserve-3d;
-
-  background: linear-gradient(180deg,
-    #6a655e 0%,
-    #4f4a44 35%,
-    #3a3530 65%,
-    #2c2722 100%);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 22px rgba(0, 0, 0, 0.18),
-    0 6px 18px rgba(0, 0, 0, 0.18),
-    0 1px 2px rgba(0, 0, 0, 0.12);
-
-  transform:
-    perspective(600px)
-    rotateX(var(--rotate-x, 0deg))
-    rotateY(var(--rotate-y, 0deg));
-
-  transition:
-    background 280ms ease,
-    box-shadow 280ms ease,
-    border-color 280ms ease,
-    transform 220ms ease,
-    letter-spacing 280ms ease;
 }
-
-.contact__submit::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at var(--shine-x, 50%) var(--shine-y, 50%),
-    rgba(255, 255, 255, 0.40) 0%,
-    rgba(255, 255, 255, 0.18) 25%,
-    transparent 60%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease;
-  z-index: 1;
-}
-
-.contact__submit::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg,
-    transparent 0%,
-    transparent 47%,
-    rgba(255, 255, 255, 0.10) 50%,
-    rgba(255, 255, 255, 0.04) 53%,
-    transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.7;
-}
-
-.contact__submit > * {
-  position: relative;
-  z-index: 3;
-}
-
-.contact__submit:hover {
-  background: linear-gradient(180deg,
-    #7a756e 0%,
-    #5e5953 35%,
-    #4a4540 65%,
-    #3a3530 100%);
-  border-color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.22em;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 26px rgba(0, 0, 0, 0.14),
-    0 8px 22px rgba(0, 0, 0, 0.22),
-    0 2px 5px rgba(0, 0, 0, 0.14);
-}
-
-.contact__submit:hover::before { opacity: 1; }
 
 /* Post-submit thank-you panel — replaces the form on ?sent=1. */
 .contact__sent {
