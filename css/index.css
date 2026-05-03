@@ -2385,16 +2385,20 @@ html.is-intro body {
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(48px, 6vw, 96px);
   align-items: start;
 }
 
-/* LEFT — intro + direct contact */
+/* LEFT — intro + direct contact. Sticky so the headline anchors
+   the page as the user scrolls down through the form. */
 .contact__intro {
   display: flex;
   flex-direction: column;
-  gap: clamp(24px, 3vw, 36px);
+  gap: 0;
+  position: sticky;
+  top: clamp(80px, 10vw, 140px);
+  align-self: start;
 }
 
 .contact__eyebrow {
@@ -2403,33 +2407,47 @@ html.is-intro body {
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--ink-2);
+  margin: 0 0 clamp(20px, 2.5vw, 32px);
+}
+
+/* Contact title is now the page's closing typographic moment —
+   sized to match the previous footer outro. */
+.contact__title {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
   margin: 0;
 }
 
-.contact__title {
+.contact__title em {
+  font-style: italic;
+}
+
+.contact__subtitle {
   font-family: var(--serif);
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin: 0;
-  max-width: 12ch;
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.3;
+  color: var(--ink-2);
+  margin: clamp(16px, 2vw, 24px) 0 clamp(32px, 4vw, 48px);
 }
 
 .contact__lede {
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--ink);
   letter-spacing: -0.005em;
-  margin: 0;
+  margin: 0 0 clamp(40px, 5vw, 64px);
   max-width: 38ch;
 }
 
 .contact__direct {
-  margin-top: clamp(24px, 3vw, 40px);
-  padding-top: clamp(24px, 3vw, 40px);
+  margin: 0;
+  padding-top: clamp(32px, 4vw, 48px);
   border-top: 1px solid var(--hairline);
 }
 
@@ -2485,7 +2503,7 @@ a.contact__direct-value:hover {
 .contact__form {
   display: flex;
   flex-direction: column;
-  gap: clamp(24px, 3vw, 32px);
+  gap: clamp(20px, 2.5vw, 28px);
 }
 
 .contact__field {
@@ -2527,9 +2545,9 @@ a.contact__direct-value:hover {
 
 .contact__textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 180px;
   border: 1px solid var(--hairline-strong);
-  padding: 16px 18px;
+  padding: 18px 20px;
 }
 
 .contact__input:focus,
@@ -2674,46 +2692,14 @@ a.contact__direct-value:hover {
   margin: 0;
 }
 
-/* Credentials — quiet centred affirmation beneath the form, with
-   the first line tracked slightly wider so it reads as title and
-   the IMPIC/AMI line as fine print. */
-.contact__credentials {
-  max-width: 1240px;
-  margin: clamp(80px, 10vw, 140px) auto 0;
-  padding: clamp(40px, 5vw, 64px) clamp(24px, 4vw, 64px) 0;
-  border-top: 1px solid var(--hairline);
-}
-
-.contact__credentials-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  text-align: center;
-}
-
-.contact__credentials-line {
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
-  color: var(--mid);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.contact__credentials-line:first-child {
-  color: var(--ink-2);
-  letter-spacing: 0.42em;
-}
-
 @media (max-width: 960px) {
   .contact__inner {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .contact__title {
-    max-width: none;
+  .contact__intro {
+    position: static;
+    top: auto;
   }
   .contact__direct-list li {
     grid-template-columns: 80px 1fr;
@@ -2743,103 +2729,9 @@ a.contact__direct-value:hover {
   border-top: 1px solid var(--hairline);
 }
 
-/* ZONE 1 — Outro statement: oversized typographic moment + a real
-   silver pill button (matching the nav CTA + form submit). */
-.footer__outro {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: clamp(120px, 14vw, 200px) clamp(24px, 4vw, 64px);
-  text-align: center;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.footer__outro-title {
-  font-family: var(--serif);
-  font-size: clamp(64px, 12vw, 180px);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin: 0 0 clamp(40px, 5vw, 64px);
-}
-
-.footer__outro-title em {
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-
-.footer__outro-cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 20px 44px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.96);
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  isolation: isolate;
-
-  background: linear-gradient(180deg,
-    #6a655e 0%,
-    #4f4a44 35%,
-    #3a3530 65%,
-    #2c2722 100%);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 22px rgba(0, 0, 0, 0.18),
-    0 6px 18px rgba(0, 0, 0, 0.18);
-
-  transition:
-    background 280ms ease,
-    transform 280ms ease,
-    letter-spacing 280ms ease,
-    box-shadow 280ms ease;
-}
-
-.footer__outro-cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg,
-    transparent 47%,
-    rgba(255, 255, 255, 0.10) 50%,
-    rgba(255, 255, 255, 0.04) 53%,
-    transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.footer__outro-cta > * {
-  position: relative;
-  z-index: 2;
-}
-
-.footer__outro-cta:hover {
-  background: linear-gradient(180deg,
-    #7a756e 0%,
-    #5e5953 35%,
-    #4a4540 65%,
-    #3a3530 100%);
-  letter-spacing: 0.28em;
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.30),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
-    0 8px 22px rgba(0, 0, 0, 0.22);
-}
+/* (The previous .footer__outro section was deleted: the contact
+   section's headline is now the page's closing typographic
+   moment, so a duplicate footer outro was pure repetition.) */
 
 /* ZONE 2 — Details band */
 .footer__details {
@@ -2972,20 +2864,21 @@ a.footer__contact-value:hover {
   border-bottom-color: var(--ink);
 }
 
-/* ZONE 3a — oversized wordmark band, magazine-masthead style.
-   Decorative; aria-hidden in markup. Italic serif, letter-spaced
-   with a slight horizontal scale so the wordmark feels deliberate
-   rather than computed. */
+/* Oversized wordmark band — magazine-masthead style. Decorative;
+   aria-hidden in markup. Italic serif, letterspaced. Box padding
+   plus max-width: 100% on the inner line keeps the letters from
+   ever bleeding past the viewport edges. */
 .footer__wordmark-band {
   width: 100%;
-  padding: clamp(40px, 5vw, 80px) 0 clamp(20px, 3vw, 40px);
+  padding: clamp(40px, 5vw, 80px) clamp(24px, 4vw, 64px);
   border-top: 1px solid var(--hairline);
   overflow: hidden;
+  text-align: center;
 }
 .footer__big-wordmark {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(48px, 18vw, 280px);
+  font-size: clamp(40px, 14vw, 200px);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: 0.04em;
@@ -2993,11 +2886,13 @@ a.footer__contact-value:hover {
   margin: 0;
   text-align: center;
   white-space: nowrap;
-  transform: scaleX(1.02);
+  overflow: hidden;
+  text-overflow: clip;
+  max-width: 100%;
 }
 @media (max-width: 720px) {
   .footer__big-wordmark {
-    font-size: clamp(36px, 14vw, 80px);
+    font-size: clamp(32px, 12vw, 64px);
     letter-spacing: 0.06em;
   }
 }
@@ -3025,7 +2920,7 @@ a.footer__contact-value:hover {
 .footer__credentials-line em {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0;
   color: var(--ink);
 }
