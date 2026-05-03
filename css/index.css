@@ -2679,39 +2679,43 @@ a.contact__direct-value:hover {
    ZONE 2: details band — brand / nav / contact in three cols.
    ZONE 3: credentials strip — © · sister site · legal.
    ========================================================= */
+/* Footer sits one tone darker than the page above (paper, not
+   bone) so the footer reads as a distinct zone — same warm
+   family, visibly different surface. */
 .footer {
-  background: var(--bone);
+  background: var(--paper);
   color: var(--ink);
   padding: 0;
-  border-top: 1px solid var(--hairline);
+  border-top: 1px solid var(--hairline-strong);
 }
 
 /* (The previous .footer__outro section was deleted: the contact
    section's headline is now the page's closing typographic
    moment, so a duplicate footer outro was pure repetition.) */
 
-/* ZONE 2 — Details band */
+/* Details band — three balanced columns with generous gap. */
 .footer__details {
   max-width: 1240px;
   margin: 0 auto;
   padding: clamp(80px, 10vw, 120px) clamp(24px, 4vw, 64px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: clamp(48px, 6vw, 96px);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(56px, 7vw, 112px);
   border-bottom: 1px solid var(--hairline);
 }
 
 .footer__brand {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  align-self: start;
 }
 
 .footer__wordmark {
   font-family: var(--serif);
-  font-size: clamp(22px, 2vw, 28px);
+  font-size: clamp(28px, 2.4vw, 36px);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.005em;
   color: var(--ink);
   margin: 0;
@@ -2720,7 +2724,7 @@ a.contact__direct-value:hover {
 .footer__tagline {
   font-family: var(--sans);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--ink-2);
   margin: 0;
   max-width: 28ch;
@@ -2732,7 +2736,7 @@ a.contact__direct-value:hover {
   margin: 16px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer__social a {
@@ -2744,6 +2748,7 @@ a.contact__direct-value:hover {
   text-decoration: none;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
+  width: max-content;
   transition: color 200ms ease, border-color 200ms ease;
 }
 
@@ -2822,12 +2827,11 @@ a.footer__contact-value:hover {
 }
 
 /* Oversized wordmark band — magazine-masthead style. Decorative;
-   aria-hidden in markup. Italic serif, letterspaced. Box padding
-   plus max-width: 100% on the inner line keeps the letters from
-   ever bleeding past the viewport edges. */
+   aria-hidden in markup. Capped at 140px so the full wordmark
+   fits a 1440px viewport without letters cut off at the edges. */
 .footer__wordmark-band {
   width: 100%;
-  padding: clamp(40px, 5vw, 80px) clamp(24px, 4vw, 64px);
+  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 64px) clamp(24px, 3vw, 40px);
   border-top: 1px solid var(--hairline);
   overflow: hidden;
   text-align: center;
@@ -2835,22 +2839,18 @@ a.footer__contact-value:hover {
 .footer__big-wordmark {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(40px, 14vw, 200px);
+  font-size: clamp(36px, 11vw, 140px);
   font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: 0.04em;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
   color: var(--ink);
   margin: 0;
-  text-align: center;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
   max-width: 100%;
 }
 @media (max-width: 720px) {
   .footer__big-wordmark {
-    font-size: clamp(32px, 12vw, 64px);
-    letter-spacing: 0.06em;
+    font-size: clamp(32px, 10vw, 60px);
   }
 }
 
