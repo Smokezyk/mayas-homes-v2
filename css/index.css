@@ -2268,9 +2268,19 @@ html.is-intro body {
   text-align: center;
   padding: clamp(16px, 2vw, 28px);
 }
-/* Soft gradient stand-in until real photos arrive — replaces the
-   literal "[ Photo placeholder ]" text so the section reads as
-   intentional, not unfinished. */
+/* Real photo fills the shot edge-to-edge, overriding the
+   placeholder's centred-text padding and grid centring. */
+.services__shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Legacy gradient stand-in for any card still missing a photo. */
 .services__shot[data-todo] .services__placeholder {
   display: none;
 }
