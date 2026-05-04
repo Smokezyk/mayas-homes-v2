@@ -2243,11 +2243,16 @@ html.is-intro body {
   transform: none !important;
   margin-top: 0 !important;
 }
-/* Closing italic note — sits as a simple line, no bordered band
-   above or below. */
-.cascais__active {
+/* Closing italic note — sits as a simple line, tight to the body
+   above and zeroed against the section closer below so the three
+   transition cues (line + hairline + closer link) read as one
+   continuous breath instead of stacked margins. */
+.cascais__active,
+.local-mastery__active,
+.local-mastery p:last-of-type {
   max-width: none;
-  margin: clamp(48px, 6vw, 80px) auto 0;
+  margin: clamp(20px, 2.5vw, 32px) auto 0;
+  margin-bottom: 0;
   padding: 0 clamp(24px, 4vw, 64px);
   border: 0;
   font-family: var(--serif);
@@ -3859,22 +3864,28 @@ select.contact__input {
  * Use Tier 3 for in-prose cross-references.
  * ───────────────────────────────────────────────────────────── */
 
-/* TIER 2 — Section closer */
+/* TIER 2 — Section closer.
+   Reads as a quiet hairline pause between sections, NOT as its
+   own room. Tight margin top + bottom (so the next section's
+   own padding doesn't stack on top), reduced top padding above
+   the rule, eyebrow + link laid out as a single inline row
+   (left/right) instead of a centred column block. */
 .section-closer {
   width: 100%;
-  max-width: 720px;
+  max-width: var(--wrap, 1200px);
   display: flex;
   justify-content: center;
-  margin: clamp(40px, 6vw, 80px) auto 0;
-  padding: clamp(32px, 4vw, 48px) clamp(24px, 4vw, 64px) 0;
+  margin: clamp(48px, 5vw, 64px) auto;
+  padding: clamp(20px, 2.5vw, 28px) clamp(24px, 4vw, 64px) 0;
   border-top: 1px solid var(--hairline);
 }
 .section-closer__inner {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(12px, 1.5vw, 18px);
-  text-align: center;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
 }
 .section-closer__eyebrow {
   font-family: var(--sans);
@@ -3917,6 +3928,16 @@ select.contact__input {
 }
 .section-closer__link:hover .section-closer__arrow {
   transform: translateX(6px);
+}
+
+/* When a section follows a closer, suppress its own top margin and
+   let the closer's bottom margin do all the work. The padding-top
+   keeps a comfortable interior breathing space without re-stacking
+   margins. */
+.section-closer + section,
+.section-closer + .section {
+  margin-top: 0;
+  padding-top: clamp(48px, 6vw, 80px);
 }
 
 /* TIER 3 — Inline cross-link within body copy */
