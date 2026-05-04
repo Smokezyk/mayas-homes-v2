@@ -227,54 +227,55 @@ a { color: inherit; text-decoration: none; }
    highlight (driven by --shine-x/-y custom properties from JS);
    ::after is the always-on horizontal polish line. */
 /* =========================================================
-   Apple-style glassmorphic primary button.
-   One vocabulary across every CTA: nav, form submit, footer
-   outro, .btn-glass. Frosted base via backdrop-filter + a
-   specular top-edge gleam (::after) + a mouse-tracked surface
-   reflection (::before). Magnetic translate + 3D tilt driven by
-   --translate-x/y, --rotate-x/y from initMagneticButtons in
-   main.js (cursor within ~80 px buffer activates the pull).
+   Unified glass button — one treatment for every primary CTA
+   (nav, contact submit, footer outro, .btn-glass). Reads as a
+   curved piece of polished glass on the page: gradient body for
+   curvature, warm white rim, brightened backdrop-filter for
+   refraction, top-edge specular highlight (::before), cursor-
+   tracked inner bloom (::after) lit from within. Magnetic
+   translate + 3D tilt driven by --translate-x/y, --rotate-x/y
+   from initMagneticButtons in main.js.
    ========================================================= */
 .nav__cta,
 .contact__submit,
 .footer__outro-cta,
 .btn-glass {
   position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 18px 38px;
+  padding: 14px 28px;
   border-radius: 999px;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
   color: var(--ink);
   cursor: pointer;
   overflow: hidden;
-  isolation: isolate;
-  transform-style: preserve-3d;
+  border: 1px solid rgba(255, 255, 255, 0.65);
 
-  /* Pushed glass: lower base opacity, stronger blur, brighter rim. */
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(32px) saturate(220%);
-  -webkit-backdrop-filter: blur(32px) saturate(220%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.10) 45%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  backdrop-filter: blur(40px) saturate(240%) brightness(108%);
+  -webkit-backdrop-filter: blur(40px) saturate(240%) brightness(108%);
 
   box-shadow:
-    /* Top specular gleam (white inner rim) */
-    inset 0 1.5px 1px rgba(255, 255, 255, 1),
-    /* Bottom edge dark line — simulates the glass edge */
-    inset 0 -1.5px 1px rgba(0, 0, 0, 0.18),
-    /* Inner ambient glow — brighter */
-    inset 0 0 28px rgba(255, 255, 255, 0.32),
-    /* Soft outer drop — slightly larger */
-    0 6px 18px rgba(0, 0, 0, 0.10),
-    0 14px 36px rgba(0, 0, 0, 0.07);
+    inset 0  1.5px 0.5px rgba(255, 255, 255, 1),
+    inset 0 -1.5px 1px   rgba(0, 0, 0, 0.22),
+    inset 0  0    32px   rgba(255, 255, 255, 0.38),
+    0  1px  2px  rgba(0, 0, 0, 0.04),
+    0  8px  22px rgba(0, 0, 0, 0.10),
+    0 18px  42px rgba(0, 0, 0, 0.08);
 
   transform:
     perspective(800px)
@@ -283,59 +284,55 @@ a { color: inherit; text-decoration: none; }
     rotateY(var(--rotate-y, 0deg));
 
   transition:
-    background 360ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 360ms ease,
-    box-shadow 360ms ease,
-    transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
-    letter-spacing 360ms ease;
+    box-shadow  0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform   0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.4s ease;
+
+  will-change: transform;
 }
 
-/* Specular top-edge gleam — the brighter Apple-style gleam that
-   reads as actual glass refraction. Wider span (12% inset),
-   taller (50%), brighter (70% white at the top). */
-.nav__cta::after,
-.contact__submit::after,
-.footer__outro-cta::after,
-.btn-glass::after {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 12%;
-  right: 12%;
-  height: 50%;
-  border-radius: 999px 999px 50% 50%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.70) 0%,
-    rgba(255, 255, 255, 0.25) 45%,
-    rgba(255, 255, 255, 0.05) 75%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.95;
-}
-
-/* Mouse-tracked radial reflection — follows the cursor across
-   the surface; reveals on hover. */
+/* Top-edge specular highlight — the bright sliver of light along
+   the upper rim. Sits 1 px inset so the rim border still reads. */
 .nav__cta::before,
 .contact__submit::before,
 .footer__outro-cta::before,
 .btn-glass::before {
   content: "";
   position: absolute;
+  inset: 1px 1px auto 1px;
+  height: 50%;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.10) 60%,
+    rgba(255, 255, 255, 0)    100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Cursor-tracked inner bloom — the lit-from-within Vision Pro
+   glow. Driven by --shine-x / --shine-y from initMagneticButtons. */
+.nav__cta::after,
+.contact__submit::after,
+.footer__outro-cta::after,
+.btn-glass::after {
+  content: "";
+  position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    circle at var(--shine-x, 50%) var(--shine-y, 50%),
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(255, 255, 255, 0.20) 25%,
-    transparent 60%
+    140px circle at var(--shine-x, 50%) var(--shine-y, 0%),
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0) 60%
   );
-  opacity: 0;
   pointer-events: none;
-  z-index: 2;
-  transition: opacity 360ms ease;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
 }
 
 .nav__cta > *,
@@ -343,30 +340,28 @@ a { color: inherit; text-decoration: none; }
 .footer__outro-cta > *,
 .btn-glass > * {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
-/* Hover — gains glassy definition: brighter rim, deeper shadows,
-   wider tracking, refractive inner glow strengthens. */
+/* Hover — lift, brighten the rim, fire the inner bloom. */
 .nav__cta:hover,
 .contact__submit:hover,
 .footer__outro-cta:hover,
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.26em;
+  border-color: rgba(255, 255, 255, 0.85);
   box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 1),
-    inset 0 -1.5px 1px rgba(0, 0, 0, 0.22),
-    inset 0 0 36px rgba(255, 255, 255, 0.42),
-    0 8px 22px rgba(0, 0, 0, 0.13),
-    0 18px 44px rgba(0, 0, 0, 0.09);
+    inset 0  1.5px 0.5px rgba(255, 255, 255, 1),
+    inset 0 -1.5px 1px   rgba(0, 0, 0, 0.20),
+    inset 0  0    44px   rgba(255, 255, 255, 0.55),
+    0  2px  4px  rgba(0, 0, 0, 0.05),
+    0 14px  32px rgba(0, 0, 0, 0.14),
+    0 28px  60px rgba(0, 0, 0, 0.10);
 }
 
-.nav__cta:hover::before,
-.contact__submit:hover::before,
-.footer__outro-cta:hover::before,
-.btn-glass:hover::before {
+.nav__cta:hover::after,
+.contact__submit:hover::after,
+.footer__outro-cta:hover::after,
+.btn-glass:hover::after {
   opacity: 1;
 }
 
@@ -376,15 +371,10 @@ a { color: inherit; text-decoration: none; }
 .btn-glass:active {
   transform:
     perspective(800px)
-    translate3d(0, 1px, 0)
-    rotateX(0deg)
-    rotateY(0deg);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow:
-    inset 0 1.5px 1px rgba(255, 255, 255, 0.85),
-    inset 0 -1.5px 2px rgba(0, 0, 0, 0.25),
-    inset 0 0 18px rgba(255, 255, 255, 0.20),
-    0 2px 8px rgba(0, 0, 0, 0.12);
+    translate3d(var(--translate-x, 0), var(--translate-y, 0), 0)
+    rotateX(var(--rotate-x, 0deg))
+    rotateY(var(--rotate-y, 0deg))
+    scale(0.985);
 }
 
 /* Backdrop-filter fallback — keep button readable in old browsers. */
@@ -397,9 +387,10 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+/* Nav-only safety: the wordmark "Begin a Project" must never get
+   clipped by the parent flex grid. Visual treatment is fully
+   inherited from the unified block above. */
 .nav__cta {
-  gap: 10px;
-  padding: 14px 28px;
   white-space: nowrap;
   min-width: max-content;
   flex-shrink: 0;

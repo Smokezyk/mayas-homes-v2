@@ -250,10 +250,10 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
 
   let frame = null;
   let lastEvent = null;
-  const MAGNET_RADIUS = 80;     /* px buffer beyond button edges */
-  const PULL_STRENGTH = 0.18;   /* 0–1, how much the button drifts */
+  const MAGNET_RADIUS = 90;     /* px buffer beyond button edges */
+  const PULL_STRENGTH = 0.22;   /* 0–1, how much the button drifts */
   const MAX_TILT_X = 6;         /* degrees */
-  const MAX_TILT_Y = 8;
+  const MAX_TILT_Y = 6;
   const VARS = [
     '--shine-x','--shine-y','--rotate-x','--rotate-y',
     '--translate-x','--translate-y',
