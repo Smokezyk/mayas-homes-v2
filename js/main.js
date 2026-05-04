@@ -232,14 +232,14 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
 })();
 
 /* — Magnetic primary buttons: every silver pill (nav CTA, form
-     submit, any future .btn-silver / footer outro) gets the same
+     submit, any future .btn-glass / footer outro) gets the same
      mouse-tracked radial shine + 3D tilt. Each handler is rAF-
      throttled per-button so rapid cursor movement across multiple
      buttons doesn't jank. Mouseleave resets the four CSS vars so
      the pill returns to its flat resting state. */
 (function initMagneticButtons() {
   const buttons = document.querySelectorAll(
-    '.nav__cta, .contact__submit, .footer__outro-cta, .btn-silver'
+    '.nav__cta, .contact__submit, .footer__outro-cta, .btn-glass'
   );
   if (!buttons.length) return;
 
