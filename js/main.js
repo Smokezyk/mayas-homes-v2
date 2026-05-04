@@ -231,44 +231,88 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
   });
 })();
 
-/* — Magnetic primary buttons: every silver pill (nav CTA, form
-     submit, any future .btn-glass / footer outro) gets the same
-     mouse-tracked radial shine + 3D tilt. Each handler is rAF-
-     throttled per-button so rapid cursor movement across multiple
-     buttons doesn't jank. Mouseleave resets the four CSS vars so
-     the pill returns to its flat resting state. */
+/* — Magnetic primary buttons. Listens at the document level so
+     buttons drift toward the cursor when it enters an 80 px buffer
+     around them — the classic "magnetic pull". Once near, the
+     button gets:
+       --translate-x/y → magnetic drift toward cursor
+       --rotate-x/y    → 3D tilt (±6° / ±8°)
+       --shine-x/y     → radial reflection follows the pointer
+     When the cursor leaves the buffer, all six custom properties
+     are removed and the button springs back to rest. rAF-coalesced
+     so a single mousemove update covers every button per frame. */
 (function initMagneticButtons() {
-  const buttons = document.querySelectorAll(
+  const buttons = Array.from(document.querySelectorAll(
     '.nav__cta, .contact__submit, .footer__outro-cta, .btn-glass'
-  );
+  ));
   if (!buttons.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  buttons.forEach((btn) => {
-    let frame = null;
+  let frame = null;
+  let lastEvent = null;
+  const MAGNET_RADIUS = 80;     /* px buffer beyond button edges */
+  const PULL_STRENGTH = 0.18;   /* 0–1, how much the button drifts */
+  const MAX_TILT_X = 6;         /* degrees */
+  const MAX_TILT_Y = 8;
+  const VARS = [
+    '--shine-x','--shine-y','--rotate-x','--rotate-y',
+    '--translate-x','--translate-y',
+  ];
 
-    function update(e) {
+  function updateAll() {
+    frame = null;
+    if (!lastEvent) return;
+    const e = lastEvent;
+
+    buttons.forEach((btn) => {
       const r = btn.getBoundingClientRect();
-      const xPct = ((e.clientX - r.left) / r.width)  * 100;
-      const yPct = ((e.clientY - r.top)  / r.height) * 100;
-      const xR = (e.clientX - r.left) / r.width;
-      const yR = (e.clientY - r.top)  / r.height;
-      btn.style.setProperty('--shine-x', `${xPct}%`);
-      btn.style.setProperty('--shine-y', `${yPct}%`);
-      btn.style.setProperty('--rotate-y', `${(xR - 0.5) * 8}deg`);   /* ±4° */
-      btn.style.setProperty('--rotate-x', `${(0.5 - yR) * 6}deg`);   /* ±3° */
-    }
+      if (!r.width || !r.height) return;
 
-    btn.addEventListener('mousemove', (e) => {
-      if (frame) cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => update(e));
-    });
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+      const halfW = r.width / 2;
+      const halfH = r.height / 2;
 
-    btn.addEventListener('mouseleave', () => {
-      if (frame) cancelAnimationFrame(frame);
-      ['--shine-x','--shine-y','--rotate-x','--rotate-y']
-        .forEach((p) => btn.style.removeProperty(p));
+      const isNear =
+        Math.abs(dx) < halfW + MAGNET_RADIUS &&
+        Math.abs(dy) < halfH + MAGNET_RADIUS;
+
+      if (!isNear) {
+        VARS.forEach((p) => btn.style.removeProperty(p));
+        return;
+      }
+
+      /* Magnetic pull — translate toward cursor centre. */
+      const tx = dx * PULL_STRENGTH;
+      const ty = dy * PULL_STRENGTH;
+
+      /* Mouse position relative to button (for shine + tilt). Clamped
+         so values stay reasonable when the cursor is in the buffer
+         but outside the visible button. */
+      const xRatio = (e.clientX - r.left) / r.width;
+      const yRatio = (e.clientY - r.top)  / r.height;
+      const shineX = Math.max(0, Math.min(100, xRatio * 100));
+      const shineY = Math.max(0, Math.min(100, yRatio * 100));
+      const tiltY = Math.max(-MAX_TILT_Y, Math.min(MAX_TILT_Y,
+                              (xRatio - 0.5) * MAX_TILT_Y * 2));
+      const tiltX = Math.max(-MAX_TILT_X, Math.min(MAX_TILT_X,
+                              (0.5 - yRatio) * MAX_TILT_X * 2));
+
+      btn.style.setProperty('--shine-x',     `${shineX}%`);
+      btn.style.setProperty('--shine-y',     `${shineY}%`);
+      btn.style.setProperty('--rotate-x',    `${tiltX}deg`);
+      btn.style.setProperty('--rotate-y',    `${tiltY}deg`);
+      btn.style.setProperty('--translate-x', `${tx}px`);
+      btn.style.setProperty('--translate-y', `${ty}px`);
     });
-  });
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    lastEvent = e;
+    if (!frame) frame = requestAnimationFrame(updateAll);
+  }, { passive: true });
 })();
 
 /* — Footer year — */
