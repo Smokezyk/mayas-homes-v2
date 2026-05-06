@@ -1345,8 +1345,8 @@ html.is-intro body {
     0  6px  14px rgba(60, 50, 35, 0.07),
     0 14px  32px rgba(60, 50, 35, 0.06);
 
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 360ms var(--ease-out);
 }
 .tile__view svg {
@@ -1357,8 +1357,8 @@ html.is-intro body {
 
 .tile:hover .tile__view,
 .tile:focus-within .tile__view {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .tile:hover .tile__view svg,
@@ -1368,8 +1368,8 @@ html.is-intro body {
 
 @media (hover: none) {
   .tile.is-revealed .tile__view {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
@@ -3897,8 +3897,8 @@ select.contact__input {
 .section-closer,
 .section-closer--minimal {
   border-top: 0;
-  padding-top: clamp(20px, 3vw, 40px);
-  padding-bottom: clamp(36px, 5vw, 60px);
+  padding-top: clamp(16px, 2.5vw, 32px);
+  padding-bottom: 0;
   background: transparent;
 }
 .section-closer {
@@ -3935,9 +3935,13 @@ select.contact__input {
 .section-closer__link:hover,
 .section-closer--minimal .section-closer__link:hover {
   color: var(--ink);
+  text-decoration: none;
+  gap: 18px;
+}
+.section-closer__link:hover > span:not(.section-closer__arrow),
+.section-closer--minimal .section-closer__link:hover > span:not(.section-closer__arrow) {
   text-decoration: underline;
   text-underline-offset: 4px;
-  gap: 18px;
 }
 .section-closer__link:hover .section-closer__arrow,
 .section-closer--minimal .section-closer__link:hover .section-closer__arrow {
