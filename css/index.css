@@ -2110,10 +2110,11 @@ html.is-intro body {
 
 .local-mastery__tabs {
   display: flex;
-  justify-content: flex-start;
+  align-self: center;
+  justify-content: center;
   gap: clamp(8px, 1.5vw, 24px);
   border-bottom: 1px solid var(--hairline);
-  padding-left: clamp(0px, 1vw, 16px);
+  padding-left: 0;
 }
 
 .local-mastery__tab {
