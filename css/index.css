@@ -2824,8 +2824,9 @@ a.contact__direct-value:hover {
   padding: 0;
   margin: 16px 0 0;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: clamp(20px, 2.5vw, 36px);
 }
 
 .footer__social a {
@@ -2848,9 +2849,11 @@ a.contact__direct-value:hover {
 
 .footer__nav-label,
 .footer__contact-label {
-  font-family: var(--sans);
+  font-family: var(--mono);
+  font-style: normal;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mid);
   margin: 0 0 20px;
@@ -2915,32 +2918,33 @@ a.footer__contact-value:hover {
   border-bottom-color: var(--ink);
 }
 
-/* Oversized wordmark band — magazine-masthead style. Decorative;
-   aria-hidden in markup. Capped at 140px so the full wordmark
-   fits a 1440px viewport without letters cut off at the edges. */
-.footer__wordmark-band {
+/* Maja signature line — italic Cormorant mantra above the
+   credentials. Quiet centred band closing the practice voice
+   before the legal text. */
+.footer__signature {
   width: 100%;
-  padding: clamp(80px, 10vw, 140px) clamp(24px, 4vw, 64px) clamp(60px, 8vw, 100px);
-  border-top: 1px solid var(--hairline);
-  overflow: hidden;
+  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 64px) clamp(40px, 5vw, 64px);
   text-align: center;
+  border-top: 1px solid var(--hairline);
 }
-.footer__big-wordmark {
+.footer__signature-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(36px, 11vw, 140px);
   font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: 0.02em;
+  font-size: clamp(22px, 2vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -0.008em;
   color: var(--ink);
-  margin: 0;
-  white-space: nowrap;
-  max-width: 100%;
+  margin: 0 0 12px 0;
 }
-@media (max-width: 720px) {
-  .footer__big-wordmark {
-    font-size: clamp(32px, 10vw, 60px);
-  }
+.footer__signature-cite {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin: 0;
 }
 
 /* ZONE 3b — Credentials strip */
