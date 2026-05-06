@@ -2201,7 +2201,7 @@ html.is-intro body {
   display: flex;
   flex-direction: column;
   gap: clamp(14px, 1.6vw, 22px);
-  padding-top: clamp(40px, 5vw, 80px);
+  padding-top: clamp(120px, 12vw, 180px);
 }
 
 /* Eyebrow row — positioning context. Captions stack absolutely
