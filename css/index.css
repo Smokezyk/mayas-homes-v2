@@ -2450,7 +2450,7 @@ html.is-intro body {
    hairline rules top and bottom). */
 .services__sister {
   max-width: 640px;
-  margin: clamp(60px, 8vw, 120px) auto 0;
+  margin: clamp(48px, 6vw, 80px) auto 0;
   padding: clamp(40px, 5vw, 64px) 0;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
