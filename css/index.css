@@ -747,7 +747,7 @@ html.is-intro body {
      room above the pillars — avoids a gaping gap below "Seven
      languages" before the next section. */
   padding: var(--pad-section) var(--pad-x) clamp(40px, 5vw, 96px);
-  background: var(--paper);
+  background: var(--bone);
 }
 .manifesto__intro {
   max-width: var(--container);
@@ -857,8 +857,7 @@ html.is-intro body {
    ========================================================= */
 .method {
   padding: var(--pad-section) var(--pad-x);
-  background: var(--paper);
-  border-bottom: 1px solid var(--hairline);
+  background: var(--bone);
 }
 .method__grid {
   max-width: var(--container);
@@ -960,9 +959,7 @@ html.is-intro body {
    ========================================================= */
 .stats {
   position: relative;
-  background: var(--paper);
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
+  background: var(--bone);
   padding: clamp(28px, 3vw, 48px) var(--pad-x);
   overflow: hidden;
   isolation: isolate;
@@ -1219,13 +1216,13 @@ html.is-intro body {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 .tile__hover-meta {
-  font-family: var(--mono);
-  font-size: clamp(10px, 0.85vw, 12px);
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.78);
-  margin: 0 0 32px 0;
+  margin: 0 0 24px 0;
 }
 .tile__hover-hint {
   font-family: var(--sans);
@@ -1249,7 +1246,7 @@ html.is-intro body {
   align-items: center;
   justify-content: center;
   padding: clamp(18px, 5%, 36px);
-  padding-bottom: clamp(96px, 18%, 120px);
+  padding-bottom: clamp(110px, 20%, 140px);
   z-index: 3;
   opacity: 0;
   transform: translateY(8px);
@@ -1264,24 +1261,26 @@ html.is-intro body {
 }
 .tile__solved-text {
   font-family: var(--serif);
-  font-weight: 200;
-  font-size: clamp(15px, 1.3vw, 22px);
-  line-height: 1.32;
-  letter-spacing: 0.18em;
+  font-weight: 300;
+  font-size: clamp(16px, 1.4vw, 24px);
+  line-height: 1.4;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(244, 239, 230, 0.96);
-  max-width: 22ch;
+  max-width: 28ch;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
-  margin: 0 0 12px 0;
+  margin: 0 0 28px 0;
 }
 .tile__solved-detail {
   font-family: var(--sans);
-  font-size: clamp(10px, 0.8vw, 12px);
-  letter-spacing: 0.18em;
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.78);
+  color: rgba(244, 239, 230, 0.72);
+  max-width: 36ch;
   margin: 0;
-  max-width: 30ch;
 }
 /* The ONLY trigger for the solved overlay — post-morph reveal. */
 .tile.is-revealed .tile__solved {
@@ -1423,8 +1422,7 @@ html.is-intro body {
    ========================================================= */
 .testimonials {
   padding: var(--pad-section) var(--pad-x);
-  background: var(--paper);
-  border-top: 1px solid var(--hairline);
+  background: var(--bone);
 }
 .testimonials__head {
   max-width: var(--container);
@@ -1576,8 +1574,7 @@ html.is-intro body {
    ========================================================= */
 .craft {
   padding: var(--pad-section) var(--pad-x);
-  background: var(--paper);
-  border-top: 1px solid var(--hairline);
+  background: var(--bone);
 }
 .craft__head {
   max-width: var(--container);
@@ -1694,7 +1691,6 @@ html.is-intro body {
 .process {
   padding: var(--pad-section) var(--pad-x);
   background: var(--bone);
-  border-top: 1px solid var(--hairline);
 }
 
 .process__head {
@@ -2364,7 +2360,6 @@ html.is-intro body {
 .services {
   padding: var(--pad-section) var(--pad-x);
   background: var(--bone);
-  border-top: 1px solid var(--hairline);
 }
 .services__head {
   max-width: var(--container);
@@ -3975,9 +3970,10 @@ select.contact__input {
   transform: translateX(4px);
 }
 
-/* Minimal variant — top-level (home-page) closers without an eyebrow.
-   Right-aligned inside a body-column max-width; the shared rules
-   above carry the typography and hover. */
+/* Minimal variant — top-level (home-page) closers as glass pill
+   buttons matching the brand's CTA vocabulary (.btn-glass / nav
+   CTA gradient, border, shadow). Sized smaller than the page-
+   hero CTA so they don't compete with display headlines. */
 .section-closer--minimal {
   max-width: var(--container, 1240px);
   margin: 0 auto;
@@ -3989,17 +3985,63 @@ select.contact__input {
 }
 
 .section-closer--minimal .section-closer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 28px;
+  font-family: var(--sans);
   font-style: normal;
-  font-weight: 400;
-  font-size: clamp(24px, 2vw, 30px);
-  line-height: 1.15;
-  letter-spacing: -0.012em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 247, 0.95) 0%,
+    rgba(248, 243, 232, 0.88) 55%,
+    rgba(240, 234, 220, 0.85) 100%
+  );
+  border: 1px solid rgba(255, 252, 244, 0.85);
+  border-radius: 999px;
+  box-shadow:
+    inset 0  1px 0   rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0   rgba(120, 105,  80, 0.10),
+    0  1px  1px rgba(60, 50, 35, 0.04),
+    0  6px  14px rgba(60, 50, 35, 0.07);
+  transition:
+    gap 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.section-closer--minimal .section-closer__link:hover {
   gap: 18px;
+  text-decoration: none;
+  box-shadow:
+    inset 0  1px 0   rgba(255, 255, 255, 0.98),
+    inset 0 -1px 0   rgba(120, 105,  80, 0.12),
+    0  2px  3px rgba(60, 50, 35, 0.06),
+    0 10px  22px rgba(60, 50, 35, 0.10);
+  transform: translateY(-1px);
+}
+
+/* Neutralize the shared underline-on-hover for the pill variant —
+   the pill itself signals the click target, no underline needed. */
+.section-closer--minimal .section-closer__link:hover > span:not(.section-closer__arrow) {
+  text-decoration: none;
 }
 
 .section-closer--minimal .section-closer__arrow {
   display: inline-block;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-size: 14px;
+  transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.section-closer--minimal .section-closer__link:hover .section-closer__arrow {
+  transform: translateX(3px);
 }
 
 @media (max-width: 700px) {
@@ -5271,4 +5313,20 @@ select.contact__input {
   .contact-page__form-grid { grid-template-columns: 1fr; gap: 48px; }
   .contact-page__details-grid { grid-template-columns: 1fr; gap: 32px; }
   .contact-page__details-list { grid-template-columns: 1fr; }
+}
+
+/* Home-page section flow — uniform bone background, tightened
+   bottom-padding so the gap between a section's closer and the
+   next section's header collapses by ~half. Closer's own
+   padding-top still provides space above it; next section's full
+   --pad-section top still provides space above its header. */
+.manifesto,
+.method,
+.projects,
+.testimonials,
+.craft,
+.process,
+.cascais,
+.services {
+  padding-bottom: clamp(48px, 6vw, 96px);
 }
