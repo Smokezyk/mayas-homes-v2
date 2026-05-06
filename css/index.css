@@ -1182,13 +1182,13 @@ html.is-intro body {
      Visible on hover/focus on desktop; persistently visible on mobile
      (where hover doesn't exist) but with the click hint hidden. — */
 .tile__hover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: clamp(16px, 4%, 32px) clamp(16px, 4%, 32px) clamp(32px, 6%, 56px);
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: clamp(16px, 4%, 32px) !important;
   z-index: 2;
   opacity: 0;
   pointer-events: none;
@@ -1345,8 +1345,8 @@ html.is-intro body {
     0  6px  14px rgba(60, 50, 35, 0.07),
     0 14px  32px rgba(60, 50, 35, 0.06);
 
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0 !important;
+  pointer-events: none !important;
   transition: opacity 360ms var(--ease-out);
 }
 .tile__view svg {
@@ -1360,8 +1360,8 @@ html.is-intro body {
    user is hovering the now-revealed result. */
 .tile.is-revealed:hover .tile__view,
 .tile.is-revealed:focus-within .tile__view {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .tile.is-revealed:hover .tile__view svg,
@@ -1371,8 +1371,8 @@ html.is-intro body {
 
 @media (hover: none) {
   .tile.is-revealed .tile__view {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 }
 
