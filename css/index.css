@@ -2834,25 +2834,28 @@ a.contact__direct-value:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: clamp(20px, 2.5vw, 36px);
+  gap: clamp(14px, 1.6vw, 22px);
 }
 
 .footer__social a {
-  font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   color: var(--mid);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  width: max-content;
-  transition: color 200ms ease, border-color 200ms ease;
+  border: 0;
+  padding: 0;
+  border-radius: 999px;
+  transition: color 200ms ease, background 200ms ease;
 }
 
-.footer__social a:hover {
+.footer__social a:hover,
+.footer__social a:focus-visible {
   color: var(--ink);
-  border-bottom-color: var(--ink);
+  background: rgba(60, 50, 35, 0.04);
+  outline: none;
 }
 
 .footer__nav-label,
@@ -2926,33 +2929,21 @@ a.footer__contact-value:hover {
   border-bottom-color: var(--ink);
 }
 
-/* Maja signature line — italic Cormorant mantra above the
-   credentials. Quiet centred band closing the practice voice
-   before the legal text. */
-.footer__signature {
-  width: 100%;
-  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 64px) clamp(40px, 5vw, 64px);
-  text-align: center;
-  border-top: 1px solid var(--hairline);
+/* Nav + footer logo — img element replacement for the legacy
+   .brand-mark span. Both reference /logo/mayas-homes-mark.png. */
+.nav__logo {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  vertical-align: middle;
 }
-.footer__signature-text {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(22px, 2vw, 32px);
-  line-height: 1.3;
-  letter-spacing: -0.008em;
-  color: var(--ink);
-  margin: 0 0 12px 0;
-}
-.footer__signature-cite {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin: 0;
+.footer__logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 4px;
 }
 
 /* ZONE 3b — Credentials strip */
