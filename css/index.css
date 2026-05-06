@@ -5335,3 +5335,38 @@ select.contact__input {
 .services {
   padding-bottom: clamp(48px, 6vw, 96px);
 }
+
+/* /thank-you/ — Netlify Forms post-submit landing. */
+.thank-you {
+  background: var(--bone);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thank-you__inner {
+  max-width: 600px;
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 4vw, 64px);
+  text-align: center;
+}
+.thank-you__lede {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  color: var(--mid);
+  line-height: 1.6;
+  margin: 24px 0 48px;
+}
+.thank-you__back {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline-strong);
+  padding-bottom: 2px;
+  transition: border-color 220ms ease;
+}
+.thank-you__back:hover {
+  border-bottom-color: var(--ink);
+}
