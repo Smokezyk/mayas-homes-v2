@@ -2543,9 +2543,11 @@ html.is-intro body {
 }
 
 .contact__eyebrow {
-  font-family: var(--sans);
+  font-family: var(--mono);
+  font-style: normal;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
   margin: 0 0 clamp(20px, 2.5vw, 32px);
@@ -2596,9 +2598,11 @@ html.is-intro body {
 }
 
 .contact__direct-label {
-  font-family: var(--sans);
+  font-family: var(--mono);
+  font-style: normal;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
   margin: 0 0 20px;
@@ -2621,9 +2625,11 @@ html.is-intro body {
 }
 
 .contact__direct-key {
-  font-family: var(--sans);
+  font-family: var(--mono);
+  font-style: normal;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mid);
 }
@@ -2657,9 +2663,11 @@ a.contact__direct-value:hover {
 }
 
 .contact__label {
-  font-family: var(--sans);
+  font-family: var(--mono);
+  font-style: normal;
   font-size: 11px;
-  letter-spacing: 0.32em;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
 }
