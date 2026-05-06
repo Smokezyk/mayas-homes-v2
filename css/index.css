@@ -5370,3 +5370,25 @@ select.contact__input {
 .thank-you__back:hover {
   border-bottom-color: var(--ink);
 }
+
+/* Custom inline form errors — replaces browser native validation
+   tooltip. Italic Cormorant in muted ink, fades in when populated.
+   .contact__field--invalid is set by js/main.js on the field
+   wrapper and tints the input bottom-border to var(--ink). */
+.contact__error {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.4;
+  color: var(--mid);
+  margin-top: 10px;
+  min-height: 1.4em;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+.contact__error:not(:empty) { opacity: 1; }
+.contact__field--invalid .contact__input,
+.contact__field--invalid .contact__textarea {
+  border-bottom-color: var(--ink);
+}

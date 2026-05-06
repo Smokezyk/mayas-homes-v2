@@ -419,3 +419,74 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
     tile.classList.add('is-revealed');
   });
 });
+
+
+// =====================================================================
+// Contact form — custom inline validation. Replaces the browser-native
+// "Please fill out this field" tooltip with editorial-styled error
+// lines. <form novalidate> suppresses the default UI; required attrs
+// still drive the per-field check.
+// =====================================================================
+(() => {
+  const form = document.querySelector('.contact__form');
+  if (!form) return;
+
+  const messages = {
+    'contact-name': {
+      empty: 'Please add your name.',
+    },
+    'contact-email': {
+      empty: 'Please add your email.',
+      invalid: 'Please check the email format.',
+    },
+    'contact-message': {
+      empty: 'Please tell us about the project.',
+    },
+  };
+
+  const validateField = (field) => {
+    const errorEl = form.querySelector(`[data-error-for="${field.id}"]`);
+    if (!errorEl) return true;
+    const config = messages[field.id];
+    if (!config) return true;
+
+    field.parentElement.classList.remove('contact__field--invalid');
+    errorEl.textContent = '';
+
+    if (!field.value.trim()) {
+      errorEl.textContent = config.empty;
+      field.parentElement.classList.add('contact__field--invalid');
+      return false;
+    }
+    if (field.type === 'email' && !field.checkValidity()) {
+      errorEl.textContent = config.invalid;
+      field.parentElement.classList.add('contact__field--invalid');
+      return false;
+    }
+    return true;
+  };
+
+  form.addEventListener('submit', (e) => {
+    let allValid = true;
+    form.querySelectorAll('[required]').forEach((field) => {
+      if (!validateField(field)) allValid = false;
+    });
+    if (!allValid) {
+      e.preventDefault();
+      const firstInvalid = form.querySelector('.contact__field--invalid input, .contact__field--invalid textarea');
+      if (firstInvalid) firstInvalid.focus();
+    }
+  });
+
+  form.querySelectorAll('[required]').forEach((field) => {
+    field.addEventListener('blur', () => {
+      if (field.value.trim()) validateField(field);
+    });
+    field.addEventListener('input', () => {
+      const errorEl = form.querySelector(`[data-error-for="${field.id}"]`);
+      if (errorEl && errorEl.textContent && field.value.trim()) {
+        validateField(field);
+      }
+    });
+  });
+})();
