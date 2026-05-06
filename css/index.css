@@ -748,7 +748,6 @@ html.is-intro body {
      languages" before the next section. */
   padding: var(--pad-section) var(--pad-x) clamp(40px, 5vw, 96px);
   background: var(--paper);
-  border-bottom: 1px solid var(--hairline);
 }
 .manifesto__intro {
   max-width: var(--container);
@@ -1575,7 +1574,6 @@ html.is-intro body {
   padding: var(--pad-section) var(--pad-x);
   background: var(--paper);
   border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
 }
 .craft__head {
   max-width: var(--container);
@@ -1693,7 +1691,6 @@ html.is-intro body {
   padding: var(--pad-section) var(--pad-x);
   background: var(--bone);
   border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
 }
 
 .process__head {
@@ -1748,7 +1745,7 @@ html.is-intro body {
   margin: 0;
   overflow: hidden;
   background: var(--bone-2);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
 }
 .process__visual img,
 .process__visual video {
@@ -1953,7 +1950,7 @@ html.is-intro body {
 .process__result-visual {
   margin: 0;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--bone-2);
 }
@@ -2092,7 +2089,7 @@ html.is-intro body {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: clamp(40px, 5vw, 72px);
-  align-items: start;
+  align-items: center;
 }
 
 .local-mastery__map-column {
@@ -2191,9 +2188,7 @@ html.is-intro body {
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 2.5vw, 32px);
-  /* Push the right column down so its caption aligns with the
-     top of the map, not the top of the tab strip above the map. */
-  padding-top: clamp(60px, 8vw, 96px);
+  padding-top: 0;
 }
 
 /* Eyebrow row — wrapper for the dek caption (top-bordered itself). */
@@ -2213,8 +2208,8 @@ html.is-intro body {
   color: var(--ink-2);
   display: none;
   margin: 0;
-  padding-top: 16px;
-  border-top: 1px solid var(--hairline);
+  padding-top: 0;
+  border-top: 0;
 }
 
 .local-mastery__caption.is-active { display: block; }
@@ -2343,7 +2338,6 @@ html.is-intro body {
   padding: var(--pad-section) var(--pad-x);
   background: var(--bone);
   border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
 }
 .services__head {
   max-width: var(--container);
@@ -2414,11 +2408,12 @@ html.is-intro body {
 .services__title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(20px, 1.7vw, 26px);
+  font-size: clamp(26px, 2.4vw, 36px);
   letter-spacing: -0.012em;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 8px 0;
   line-height: 1.2;
+  text-wrap: balance;
 }
 .services__copy {
   font-family: var(--sans);
@@ -3902,8 +3897,8 @@ select.contact__input {
 .section-closer,
 .section-closer--minimal {
   border-top: 0;
-  padding-top: clamp(40px, 6vw, 64px);
-  padding-bottom: clamp(48px, 7vw, 80px);
+  padding-top: clamp(20px, 3vw, 40px);
+  padding-bottom: clamp(36px, 5vw, 60px);
   background: transparent;
 }
 .section-closer {
@@ -4429,15 +4424,16 @@ select.contact__input {
   padding: clamp(120px, 14vw, 200px) 0 clamp(48px, 6vw, 80px);
   background: var(--bone);
 }
-.services__title {
+.services__hero .services__title {
   font-family: var(--serif);
   font-size: clamp(56px, 8vw, 120px);
   line-height: 1.02;
   font-weight: 400;
   color: var(--ink);
   margin: 16px 0 24px;
+  letter-spacing: -0.012em;
 }
-.services__title em { font-style: italic; }
+.services__hero .services__title em { font-style: italic; }
 .services__lede {
   font-family: var(--serif);
   font-style: italic;
