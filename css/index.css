@@ -2192,14 +2192,15 @@ html.is-intro body {
 
 .local-mastery__map.is-active { opacity: 1; }
 
-/* Right column content — anchored to the upper third of the map.
-   The map establishes the place; the copy starts after that
-   register lands, never at the column's top edge. */
+/* Right column content — anchored near the upper third of the map.
+   Padding-top + internal gap tuned so the longest toggle copy
+   (Atlantic Climate, Local Permits) fits within the map's
+   vertical extent. */
 .local-mastery__content {
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 2.5vw, 32px);
-  padding-top: clamp(140px, 16vw, 220px);
+  gap: clamp(14px, 1.6vw, 22px);
+  padding-top: clamp(40px, 5vw, 80px);
 }
 
 /* Eyebrow row — positioning context. Captions stack absolutely
@@ -2254,7 +2255,7 @@ html.is-intro body {
   color: var(--ink-2);
   letter-spacing: 0;
   text-align: left;
-  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  margin: 0 0 clamp(8px, 1vw, 14px);
   display: none;
   opacity: 0;
   transition: opacity 400ms ease 150ms;
@@ -2271,7 +2272,7 @@ html.is-intro body {
   position: relative;
   width: 100%;
   margin: 0;
-  padding: clamp(8px, 1vw, 16px) 0 0;
+  padding: 0;
   border: 0;
 }
 
