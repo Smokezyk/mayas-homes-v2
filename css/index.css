@@ -1303,9 +1303,9 @@ html.is-intro body {
    handles position + reveal only. */
 .tile__view {
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: clamp(20px, 5%, 36px);
-  transform: translateX(-50%) translateY(8px);
+  transform: translate3d(-50%, -40%, 0) scale(0.96);
   z-index: 4;
   display: inline-flex;
   align-items: center;
@@ -1336,20 +1336,27 @@ html.is-intro body {
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 520ms 240ms var(--ease-out),
-              transform 520ms 240ms var(--ease-out),
-              border-color 280ms var(--ease-out),
-              box-shadow 280ms var(--ease-out);
+  transition:
+    opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s,
+    border-color 280ms var(--ease-out),
+    box-shadow 280ms var(--ease-out);
 }
 .tile__view svg {
   width: 12px;
   height: 12px;
   transition: transform 320ms var(--ease-out);
 }
+.tile:hover .tile__view,
+.tile:focus-within .tile__view,
 .tile.is-revealed .tile__view {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translate3d(-50%, -50%, 0) scale(1);
   pointer-events: auto;
+}
+@media (hover: none) {
+  .tile:hover .tile__view { opacity: 0; transform: translate3d(-50%, -40%, 0) scale(0.96); pointer-events: none; }
+  .tile.is-revealed .tile__view { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1); pointer-events: auto; }
 }
 .tile__view:hover {
   border-color: rgba(255, 254, 250, 1);
@@ -3097,37 +3104,17 @@ button:focus-visible,
 }
 
 /* =========================================================
-   BRAND MARK — square logo placeholder. Swap to
-   background-image: url('assets/images/logo-mark.svg') when
-   the real mark lands; layout stays identical.
+   BRAND MARK — Maya's Homes mark, served from /logo/.
    ========================================================= */
 .brand-mark {
   display: inline-block;
   width: 36px;
   height: 36px;
-  background: var(--ink);
-  color: var(--paper);
-  border-radius: 4px;
-  position: relative;
+  background: url('/logo/mayas-homes-mark.png') center / contain no-repeat;
   flex-shrink: 0;
 }
-.brand-mark::before {
-  content: "M";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
-  color: var(--paper);
-  line-height: 1;
-}
 .brand-mark--small  { width: 28px; height: 28px; }
-.brand-mark--small::before  { font-size: 18px; }
-.brand-mark--large  { width: 56px; height: 56px; border-radius: 6px; }
-.brand-mark--large::before  { font-size: 32px; }
+.brand-mark--large  { width: 56px; height: 56px; }
 
 .footer__brand-row {
   display: flex;
@@ -3913,79 +3900,60 @@ select.contact__input {
  * ───────────────────────────────────────────────────────────── */
 
 /* TIER 2 — Section closer.
-   Reads as a quiet hairline pause between sections, NOT as its
-   own room. Tight margin top + bottom (so the next section's
-   own padding doesn't stack on top), reduced top padding above
-   the rule, eyebrow + link laid out as a single inline row
-   (left/right) instead of a centred column block. */
+   Discrete inline transition. Sits inside the previous section's
+   wrap, shares its background, no max-width, no own padding. */
 .section-closer {
-  width: 100%;
-  max-width: var(--wrap, 1200px);
-  display: flex;
-  justify-content: center;
-  margin: clamp(48px, 5vw, 64px) auto;
-  padding: clamp(20px, 2.5vw, 28px) clamp(24px, 4vw, 64px) 0;
-  border-top: 1px solid var(--hairline);
-}
-.section-closer__inner {
-  width: 100%;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 24px;
-  text-align: left;
+  padding: clamp(20px, 2vw, 28px) 0 0;
+  margin: clamp(48px, 5vw, 72px) 0 0;
+  border-top: 1px solid var(--hairline);
+  background: transparent;
 }
 .section-closer__eyebrow {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mid);
   margin: 0;
 }
 .section-closer__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(20px, 2.2vw, 28px);
-  font-weight: 400;
-  line-height: 1.2;
+  font-size: clamp(17px, 1.4vw, 21px);
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.005em;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 4px;
-  transition:
-    gap 320ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 320ms ease,
-    color 320ms ease;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  transition: gap 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .section-closer__arrow {
   display: inline-block;
-  font-family: var(--sans);
-  font-style: normal;
-  font-size: 0.65em;
-  letter-spacing: 0;
-  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.section-closer__link:hover {
-  gap: 22px;
-  border-bottom-color: var(--ink);
-}
-.section-closer__link:hover .section-closer__arrow {
-  transform: translateX(6px);
+.section-closer__link:hover { gap: 18px; }
+.section-closer__link:hover .section-closer__arrow { transform: translateX(4px); }
+
+/* Minimal variant — top-level (home-page) closers without an eyebrow.
+   Carries its own max-width + horizontal padding so the hairline
+   stays inside the body column instead of running edge-to-edge. */
+.section-closer--minimal {
+  max-width: var(--container, 1240px);
+  margin: clamp(40px, 4vw, 56px) auto 0;
+  padding: clamp(16px, 1.6vw, 24px) clamp(24px, 4vw, 64px) 0;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--hairline);
+  background: transparent;
+  gap: 0;
 }
 
-/* When a section follows a closer, suppress its own top margin and
-   let the closer's bottom margin do all the work. The padding-top
-   keeps a comfortable interior breathing space without re-stacking
-   margins. */
-.section-closer + section,
-.section-closer + .section {
-  margin-top: 0;
-  padding-top: clamp(48px, 6vw, 80px);
+@media (max-width: 700px) {
+  .section-closer { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 /* TIER 3 — Inline cross-link within body copy */
