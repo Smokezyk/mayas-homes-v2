@@ -7212,3 +7212,12 @@ body.nav-locked { overflow: hidden; }
     letter-spacing: 0.16em;
   }
 }
+
+/* === Defensive override — fade-in must always render visible ===
+   If JS doesn't fire (ScrollTrigger error, script load failure, etc.),
+   sections must still be readable. Animation is sacrificed for visibility. */
+.fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
