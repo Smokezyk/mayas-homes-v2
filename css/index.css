@@ -515,7 +515,7 @@ figcaption {
 .intro__name {
   font-family: var(--serif);
   font-weight: 200;
-  font-size: clamp(40px, 7vw, 96px);
+  font-size: clamp(30px, 5.25vw, 72px);
   letter-spacing: 0.15em;
   text-indent: 0.15em;
   text-transform: uppercase;
@@ -543,7 +543,7 @@ figcaption {
 .intro__hook {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(22px, 3.4vw, 48px);
+  font-size: clamp(16.5px, 2.55vw, 36px);
   line-height: 1.05;
   letter-spacing: -0.012em;
   color: var(--ink);
@@ -4242,33 +4242,6 @@ select.contact__input {
   color: var(--mid);
 }
 
-/* Three-up + four-up grids. */
-.three-up {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 3vw, 48px);
-}
-.three-up__item h3 {
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.25;
-  color: var(--ink);
-  font-weight: 400;
-  margin: 20px 0 10px;
-}
-.three-up__item p {
-  font-family: var(--serif);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink-2);
-  margin: 0;
-}
-
-.four-up {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(20px, 2.5vw, 36px);
-}
 
 /* Placeholder image blocks — used until photography ships. */
 .ph-block {
@@ -4297,141 +4270,636 @@ select.contact__input {
 /* =========================================================
    /studio/ page
    ========================================================= */
+/* === Studio hero — magazine title page (Cereal profile opener register) === */
 .studio__hero {
-  padding: clamp(120px, 14vw, 200px) 0 clamp(60px, 8vw, 100px);
-  background: var(--bone);
+  padding-top: clamp(140px, 18vh, 220px);
+  padding-bottom: clamp(100px, 12vh, 160px);
+  border-bottom: 1px solid var(--hairline);
+}
+.studio__hero-inner {
+  display: flex;
+  flex-direction: column;
+}
+.studio__hero-stamp {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--mid);
+  margin: 0 0 clamp(48px, 6vw, 80px);
+}
+.studio__hero .eyebrow {
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
 }
 .studio__name {
   font-family: var(--serif);
-  font-size: clamp(64px, 9vw, 132px);
-  line-height: 1;
+  font-style: normal;
   font-weight: 400;
+  font-size: clamp(56px, 10vw, 128px);
+  line-height: 0.95;
+  letter-spacing: -0.015em;
   color: var(--ink);
-  margin: 16px 0 12px;
+  margin: 0;
 }
-.studio__name em { font-style: italic; }
 .studio__role {
   font-family: var(--sans);
   font-size: 12px;
-  letter-spacing: 0.18em;
+  font-weight: 400;
   text-transform: uppercase;
-  color: var(--mid);
-  margin: 0 0 clamp(24px, 3vw, 40px);
+  letter-spacing: 0.2em;
+  color: var(--ink-2);
+  margin: clamp(24px, 2.6vw, 36px) 0 0;
 }
 .studio__lede {
   font-family: var(--serif);
-  font-size: clamp(20px, 1.6vw, 26px);
-  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.55;
   color: var(--ink-2);
-  max-width: 720px;
-  font-style: italic;
-  margin: 0;
+  max-width: 60ch;
+  margin: clamp(28px, 3.2vw, 44px) 0 0;
+}
+@media (max-width: 760px) {
+  .studio__hero {
+    padding-top: clamp(100px, 14vh, 140px);
+    padding-bottom: clamp(72px, 10vh, 100px);
+  }
+  .studio__name {
+    font-size: clamp(44px, 12vw, 68px);
+    letter-spacing: -0.01em;
+  }
+  .studio__hero-stamp,
+  .studio__hero .eyebrow,
+  .studio__role {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+  }
+  .studio__lede {
+    font-size: clamp(17px, 2vw, 20px);
+  }
 }
 
-.studio__intro { padding: clamp(60px, 8vw, 120px) 0; background: var(--bone); }
+/* === Studio §02 — A practice in Cascais ===
+   Two-column meet-the-founder layout. Portrait sticks at desktop so the
+   reader keeps Maja in view through the biography. Italic budget for §02
+   stays at three: H2 "Still here.", ¶3 voice line, figcaption "Alcabideche". */
+.studio__intro {
+  padding: clamp(100px, 12vw, 160px) 0;
+}
 .studio__intro-grid {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: clamp(40px, 6vw, 96px);
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(48px, 6vw, 96px);
   align-items: start;
 }
-.studio__portrait { margin: 0; }
-.studio__portrait figcaption {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  color: var(--mid);
-  margin-top: 12px;
-  text-align: left;
+.studio__portrait {
+  margin: 0;
+  position: sticky;
+  top: clamp(96px, 12vh, 140px);
 }
-.studio__intro-text p {
+.studio__portrait .ph-block--portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+}
+.studio__portrait figcaption {
   font-family: var(--serif);
-  font-size: 17px;
-  line-height: 1.75;
+  font-style: italic;
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.4;
+  color: var(--mid);
+  margin: 14px 0 0;
+}
+.studio__intro-text {
+  display: flex;
+  flex-direction: column;
+}
+.studio__intro-text .eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
   color: var(--ink-2);
-  margin: 0 0 20px;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
 }
 .studio__h2 {
   font-family: var(--serif);
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: 1.1;
-  color: var(--ink);
   font-weight: 400;
-  margin: 14px 0 28px;
+  font-style: normal;
+  font-size: clamp(36px, 4.2vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 clamp(36px, 4vw, 56px);
 }
 .studio__h2--centered { text-align: center; }
 .studio__h2 em { font-style: italic; }
-
-.studio__quote-band { padding: clamp(80px, 10vw, 140px) 0; background: var(--paper); }
-
-.studio__practice { padding: clamp(80px, 10vw, 140px) 0; background: var(--bone); }
-.three-up--studio { margin-top: clamp(40px, 5vw, 64px); }
-
-.studio__people { padding: clamp(80px, 10vw, 140px) 0; background: var(--paper); }
-.four-up { margin-top: clamp(40px, 5vw, 64px); }
-.four-up__item h3 {
+.studio__intro-text p {
   font-family: var(--serif);
-  font-size: 22px;
-  color: var(--ink);
   font-weight: 400;
-  margin: 16px 0 4px;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 56ch;
+  margin: 0 0 clamp(22px, 2.4vw, 32px);
 }
-.four-up__role {
+.studio__intro-text p:last-child {
+  margin-bottom: 0;
+}
+.studio__intro-text p em {
+  font-style: italic;
+  color: var(--ink);
+}
+@media (max-width: 900px) {
+  .studio__intro-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(40px, 5vw, 56px);
+  }
+  .studio__portrait {
+    position: static;
+    max-width: 480px;
+  }
+}
+@media (max-width: 600px) {
+  .studio__intro {
+    padding: clamp(72px, 10vw, 100px) 0;
+  }
+  .studio__h2 {
+    font-size: clamp(30px, 7vw, 40px);
+  }
+  .studio__intro-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* === Studio §03 — Spine quote band ===
+   Tonal lift to var(--paper) marks this as the page's spine. Display-scale
+   italic Cormorant on a hairline left rule (Cereal pull-quote pattern); cite
+   in Plex Mono caps as a quiet ground line beneath the voice. Studio-scoped
+   so the base .maja-quote component (used elsewhere) stays unchanged. */
+.studio__quote-band {
+  padding: clamp(120px, 16vw, 220px) 0;
+  background: var(--paper);
+}
+.studio__quote-band .wrap {
+  max-width: 1080px;
+}
+.studio__quote-band .studio__quote {
+  margin: 0 auto;
+  padding: 0 0 0 clamp(24px, 3vw, 48px);
+  border-left: 1px solid var(--hairline-strong);
+  max-width: 880px;
+}
+.studio__quote-band .studio__quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 44px);
+  line-height: 1.32;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  margin: 0;
+}
+.studio__quote-band .studio__quote cite {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--mid);
+  margin-top: clamp(32px, 3.6vw, 52px);
+}
+@media (max-width: 760px) {
+  .studio__quote-band {
+    padding: clamp(80px, 12vw, 120px) 0;
+  }
+  .studio__quote-band .studio__quote {
+    padding-left: 20px;
+  }
+  .studio__quote-band .studio__quote p {
+    font-size: clamp(20px, 5vw, 28px);
+    line-height: 1.35;
+  }
+  .studio__quote-band .studio__quote cite {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+  }
+}
+
+/* === Studio §04 — The practice (three pillars) ===
+   Three identical-geometry tiles. aspect-ratio: 4/3 on every photo locks
+   the columns to the same height — same fix as the home page How We Work
+   pillar alignment. No italics in §04 by design (italic budget is spent
+   on §02 voice line, §03 spine quote, §07 letter). */
+.studio__practice {
+  padding: clamp(120px, 14vw, 180px) 0;
+  background: var(--bone);
+}
+.studio__practice .eyebrow--centered {
+  text-align: center;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+}
+.studio__practice .studio__h2--centered {
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(36px, 4.2vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 auto clamp(56px, 7vw, 96px);
+  max-width: 18ch;
+}
+.studio__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+}
+.studio__pillar {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.studio__pillar .ph-block {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0 0 clamp(24px, 2.8vw, 36px);
+}
+.studio__pillar-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 clamp(12px, 1.4vw, 18px);
+}
+.studio__pillar-body {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 36ch;
+}
+@media (max-width: 900px) {
+  .studio__pillars {
+    grid-template-columns: 1fr;
+    gap: clamp(40px, 5vw, 56px);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 600px) {
+  .studio__practice {
+    padding: clamp(80px, 12vw, 120px) 0;
+  }
+  .studio__practice .studio__h2--centered {
+    font-size: clamp(28px, 6.5vw, 36px);
+  }
+  .studio__pillar-title {
+    font-size: clamp(20px, 5vw, 24px);
+  }
+}
+
+/* === Studio §05 — Nine-person studio grid (Loro Piana atelier sheet).
+   Maja in the lead cell, then the bench by tenure. 4:5 portrait aspect
+   ratio locks row baselines across all nine cells. Background returns to
+   var(--bone) so §03's --paper stays the only spine moment in the page. */
+.studio__people {
+  padding: clamp(120px, 14vw, 180px) 0;
+  background: var(--bone);
+}
+.studio__people .eyebrow--centered {
+  text-align: center;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+}
+.studio__people .studio__h2--centered {
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(36px, 4.2vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 auto;
+  max-width: 18ch;
+}
+.studio__people .studio__h2--centered em {
+  font-style: italic;
+}
+.studio__people-lede {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-align: center;
+  margin: clamp(20px, 2.4vw, 32px) auto 0;
+  max-width: 56ch;
+}
+.studio__people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(40px, 5vw, 72px);
+  align-items: start;
+  margin-top: clamp(56px, 7vw, 96px);
+}
+.studio__person {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+.studio__person .ph-block {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0;
+}
+.studio__person h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(22px, 1.8vw, 28px);
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+  margin: 4px 0 0;
+}
+.studio__person-role {
   font-family: var(--sans);
   font-size: 11px;
-  letter-spacing: 0.16em;
+  font-weight: 400;
   text-transform: uppercase;
-  color: var(--mid);
-  margin: 0 0 6px;
-}
-.four-up__detail {
-  font-family: var(--serif);
-  font-size: 14px;
+  letter-spacing: 0.16em;
   color: var(--ink-2);
+  margin: 0;
+}
+.studio__person-detail {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.45;
+  color: var(--mid);
   margin: 0;
 }
 .studio__people-note {
   font-family: var(--serif);
-  font-size: 18px;
-  color: var(--ink-2);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.55;
+  color: var(--mid);
   text-align: center;
-  margin-top: clamp(40px, 5vw, 64px);
+  margin: clamp(48px, 6vw, 80px) auto 0;
+  max-width: 60ch;
+}
+.studio__people-note em {
   font-style: italic;
+  color: var(--ink-2);
+}
+@media (max-width: 1023px) {
+  .studio__people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(32px, 4vw, 48px);
+  }
+}
+@media (max-width: 600px) {
+  .studio__people {
+    padding: clamp(80px, 12vw, 120px) 0;
+  }
+  .studio__people-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .studio__people .studio__h2--centered {
+    font-size: clamp(28px, 6.5vw, 36px);
+  }
 }
 
+/* === Studio §06 — Schools, licenses, languages ===
+   Quiet data interlude. Plex Mono on every body line — schools, license
+   codes, language abbreviations — so the section reads as one calm field
+   of facts. Single hairline above the grid marks the data block. Padding
+   smaller than §04/§05 so the section reads as a brief pause before §07. */
 .studio__credentials {
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(80px, 10vw, 120px) 0;
   background: var(--bone);
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
 }
 .studio__credentials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+  padding-top: clamp(40px, 5vw, 56px);
+  border-top: 1px solid var(--hairline);
+}
+.studio__credentials-col {
+  display: flex;
+  flex-direction: column;
+}
+.studio__credentials-col .eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+  margin: 0 0 clamp(20px, 2.4vw, 28px);
 }
 .studio__cred-line {
-  font-family: var(--serif);
-  font-size: 16px;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(13px, 1.1vw, 15px);
   line-height: 1.7;
-  color: var(--ink-2);
-  margin: 0 0 4px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.studio__cred-line:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 760px) {
+  .studio__credentials {
+    padding: clamp(64px, 9vw, 88px) 0;
+  }
+  .studio__credentials-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 5vw, 48px);
+    padding-top: clamp(32px, 4.5vw, 40px);
+  }
+  .studio__cred-line {
+    font-size: 13px;
+  }
 }
 
-.studio__letter { padding: clamp(80px, 10vw, 140px) 0; background: var(--bone); }
+/* === Studio §07 — A note from Maja + section closer ===
+   Italic Cormorant body — entire letter wrapped in <em> in the markup;
+   font-style: italic on the rule reinforces. Block-centered (max-width
+   720px on the wrap), text inside flows left-aligned — letter format,
+   not poem format. Signature uses normal-weight em-dash + italic name,
+   mirroring how a typewritten letter would actually be signed. Section
+   closer is scoped so it only restyles the closer when nested inside
+   .studio__letter — base .section-closer component stays unchanged. */
+.studio__letter {
+  padding: clamp(120px, 16vw, 200px) 0 clamp(80px, 10vw, 120px);
+  background: var(--bone);
+}
+.studio__letter .wrap--narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.studio__letter .eyebrow--centered {
+  display: block;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  margin: 0 0 clamp(48px, 6vw, 72px);
+}
+.studio__letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 3.4vw, 44px);
+}
 .studio__letter-body p {
   font-family: var(--serif);
-  font-size: clamp(20px, 1.8vw, 26px);
-  line-height: 1.6;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.55;
+  letter-spacing: -0.003em;
   color: var(--ink);
-  margin: 0 0 24px;
-  text-align: center;
+  margin: 0;
 }
 .studio__letter-sign {
   font-family: var(--serif);
-  font-size: 18px;
+  font-style: normal;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.55;
   color: var(--ink-2);
-  margin-top: 24px;
+  margin: clamp(12px, 1.4vw, 20px) 0 0;
+}
+.studio__letter-sign em {
+  font-style: italic;
+  color: var(--ink);
+}
+.studio__letter .section-closer {
+  margin-top: clamp(80px, 10vw, 120px);
+  padding-top: clamp(48px, 6vw, 72px);
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+}
+.studio__letter .section-closer__eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  margin: 0 0 clamp(16px, 2vw, 24px);
+}
+.studio__letter .section-closer__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  transition: gap 0.35s ease;
+}
+.studio__letter .section-closer__link:hover,
+.studio__letter .section-closer__link:focus-visible {
+  gap: 22px;
+}
+.studio__letter .section-closer__link span:first-child {
+  position: relative;
+}
+.studio__letter .section-closer__link span:first-child::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+.studio__letter .section-closer__link:hover span:first-child::after,
+.studio__letter .section-closer__link:focus-visible span:first-child::after {
+  transform: scaleX(1);
+}
+.studio__letter .section-closer__arrow {
+  font-family: var(--serif);
+  font-style: normal;
+  color: var(--ink);
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+.studio__letter .section-closer__link:hover .section-closer__arrow,
+.studio__letter .section-closer__link:focus-visible .section-closer__arrow {
+  transform: translateX(4px);
+}
+@media (max-width: 760px) {
+  .studio__letter {
+    padding: clamp(80px, 12vw, 120px) 0 clamp(60px, 9vw, 80px);
+  }
+  .studio__letter-body {
+    gap: clamp(24px, 3.2vw, 32px);
+  }
+  .studio__letter-body p {
+    font-size: clamp(17px, 4.5vw, 22px);
+    line-height: 1.5;
+  }
+  .studio__letter-sign {
+    font-size: clamp(17px, 4.5vw, 22px);
+  }
+  .studio__letter .section-closer {
+    margin-top: clamp(56px, 9vw, 80px);
+    padding-top: clamp(36px, 5vw, 48px);
+  }
+  .studio__letter .section-closer__link {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
 }
 
 /* =========================================================
@@ -4597,11 +5065,6 @@ select.contact__input {
 }
 
 @media (max-width: 900px) {
-  .studio__intro-grid { grid-template-columns: 1fr; gap: 32px; }
-  .four-up { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-  .three-up { grid-template-columns: 1fr; gap: 32px; }
-  .studio__credentials-grid { grid-template-columns: 1fr; gap: 32px; }
-
   .portfolio__row-grid { grid-template-columns: 1fr; gap: 48px; }
   .portfolio__meta { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .portfolio__meta--inline { grid-template-columns: 1fr; }
@@ -6413,7 +6876,6 @@ html.is-intro .floating-nav {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 80px 32px 56px;
   max-width: 720px;
   margin: 0 auto;
@@ -6438,8 +6900,8 @@ html.is-intro .floating-nav {
 .nav-drawer__links {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  margin-top: 48px;
+  gap: 32px;
+  margin-top: 32px;
 }
 .nav-drawer__links a {
   position: relative;
@@ -6484,7 +6946,7 @@ html.is-intro .floating-nav {
 }
 
 .nav-drawer__footer {
-  margin-top: 48px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -6507,42 +6969,53 @@ html.is-intro .floating-nav {
 
 body.nav-locked { overflow: hidden; }
 
-/* Silver pill button — used in the drawer footer + home CTA bridge. */
+/* Silver pill button — glassy 3D feel. Used in the drawer footer and the
+   floating-nav CTA. Transform is intentionally NOT touched on :hover so the
+   magnetic translation handler can drive it without the rules fighting. */
 .btn-silver {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 28px;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
   font-family: var(--sans);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
+  text-transform: uppercase;
   letter-spacing: 0.16em;
   line-height: 1;
-  text-transform: uppercase;
-  text-decoration: none;
   color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
   background: linear-gradient(
     180deg,
-    rgba(255, 253, 247, 0.95) 0%,
-    rgba(248, 243, 232, 0.88) 55%,
-    rgba(240, 234, 220, 0.85) 100%
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(243, 240, 232, 0.88) 48%,
+    rgba(228, 222, 210, 0.95) 100%
   );
-  border: 1px solid rgba(255, 252, 244, 0.85);
-  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow:
-    inset 0  1px 0   rgba(255, 255, 255, 0.95),
-    inset 0 -1px 0   rgba(120, 105,  80, 0.10),
-    0  1px  1px rgba(60, 50, 35, 0.04),
-    0  6px  14px rgba(60, 50, 35, 0.07);
-  transition: box-shadow 0.4s ease, transform 0.3s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
-.btn-silver:hover {
-  transform: translateY(-1px);
+
+.btn-silver:hover,
+.btn-silver:focus-visible {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(248, 245, 238, 0.92) 48%,
+    rgba(232, 226, 215, 0.98) 100%
+  );
   box-shadow:
-    inset 0  1px 0   rgba(255, 255, 255, 0.98),
-    inset 0 -1px 0   rgba(120, 105,  80, 0.12),
-    0  2px  3px rgba(60, 50, 35, 0.06),
-    0 10px  22px rgba(60, 50, 35, 0.10);
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 8px 22px rgba(0, 0, 0, 0.08);
 }
 
 /* Mobile-specific tightening. */
@@ -6612,20 +7085,20 @@ body.nav-locked { overflow: hidden; }
 }
 @media (max-width: 1024px) {
   .intro__name {
-    font-size: clamp(56px, 11vw, 96px);
+    font-size: clamp(42px, 8.25vw, 72px);
     line-height: 1;
   }
 }
 @media (max-width: 760px) {
   .intro__name {
-    font-size: clamp(46px, 13vw, 72px);
+    font-size: clamp(34.5px, 9.75vw, 54px);
     letter-spacing: -0.008em;
     line-height: 1;
   }
 }
 @media (max-width: 390px) {
   .intro__name {
-    font-size: clamp(42px, 12.5vw, 56px);
+    font-size: clamp(31.5px, 9.375vw, 42px);
     letter-spacing: -0.012em;
   }
 }
@@ -6643,11 +7116,14 @@ body.nav-locked { overflow: hidden; }
 
 @media (min-width: 1024px) {
   .floating-nav {
-    top: 14px;
-    left: 18px;
-    right: 18px;
-    padding: 7px 14px 7px 18px;
-    gap: 20px;
+    top: 18px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100vw - 80px);
+    padding: 13px 22px 13px 26px;
+    gap: 32px;
     border-radius: 999px;
     background: rgba(248, 246, 240, 0.82);
     backdrop-filter: blur(22px);
@@ -6656,18 +7132,25 @@ body.nav-locked { overflow: hidden; }
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
   }
 
-  .nav-tools { display: none; }
+  .nav-tools {
+    display: none;
+  }
 
-  .nav-brand { gap: 12px; }
+  .nav-brand {
+    gap: 14px;
+  }
+
   .nav-brand .nav-mark {
-    width: 24px;
-    height: 24px;
-    flex: 0 0 24px;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
     border-radius: 0;
   }
+
   .nav-brand .nav-wordmark {
     font-family: var(--serif);
-    font-size: 15.5px;
+    font-size: 17px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.115em;
     line-height: 1;
@@ -6676,38 +7159,43 @@ body.nav-locked { overflow: hidden; }
 
   .nav-links {
     display: inline-flex;
-    flex: 1;
-    justify-content: center;
-    gap: clamp(22px, 2.6vw, 38px);
+    flex: 0 0 auto;
+    gap: 32px;
   }
+
   .nav-links a {
     position: relative;
-    font-family: var(--serif);
-    font-size: 15.5px;
+    font-family: var(--sans);
+    font-size: 11px;
     font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
     color: var(--ink-2);
     text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
     transition: color 0.3s ease;
   }
+
   .nav-links a::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -4px;
+    bottom: -5px;
     height: 1px;
     background: var(--ink);
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.35s ease;
   }
+
   .nav-links a:hover,
   .nav-links a:focus-visible,
   .nav-links a.is-current {
     color: var(--ink);
   }
+
   .nav-links a:hover::after,
   .nav-links a:focus-visible::after,
   .nav-links a.is-current::after {
@@ -6717,25 +7205,10 @@ body.nav-locked { overflow: hidden; }
   .nav-cta {
     display: inline-flex;
   }
+
   .nav-cta.btn-silver {
-    padding: 7px 14px;
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-  }
-}
-
-@media (min-width: 1280px) {
-  .floating-nav {
-    left: 24px;
-    right: 24px;
-    padding: 7px 16px 7px 20px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .floating-nav {
-    left: 32px;
-    right: 32px;
-    padding: 8px 18px 8px 22px;
+    padding: 11px 20px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
   }
 }
