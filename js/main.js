@@ -552,3 +552,69 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
     });
   });
 })();
+
+
+// =====================================================================
+// Process steps carousel -- mobile only via CSS gating. Desktop keeps
+// the four <li class="process__step"> stacked vertically; mobile fades
+// between them on prev/next click. The .process__result aside lives
+// outside the <ol data-phases> so it stays inline beneath the carousel.
+// =====================================================================
+(() => {
+  const container = document.querySelector('[data-phases]');
+  if (!container) return;
+  const items = Array.from(container.querySelectorAll('.process__step'));
+  const arrows = Array.from(document.querySelectorAll('[data-phases-nav] [data-direction]'));
+  const counter = document.querySelector('[data-phase-count]');
+  if (items.length < 2) return;
+  let idx = items.findIndex((el) => el.classList.contains('is-active'));
+  if (idx < 0) idx = 0;
+  if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+
+  const setActive = (next) => {
+    items[idx].classList.remove('is-active');
+    idx = (next + items.length) % items.length;
+    items[idx].classList.add('is-active');
+    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+  };
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', () => {
+      const dir = parseInt(arrow.dataset.direction, 10) || 1;
+      setActive(idx + dir);
+    });
+  });
+})();
+
+// =====================================================================
+// Cascais map tap-to-advance. Tap on the map (or the prev/next arrows
+// beneath it) advances to the next state by triggering a synthetic
+// click on the corresponding tab in the toggle bar -- so the existing
+// tab JS keeps running unchanged.
+// =====================================================================
+(() => {
+  const mapBtn = document.querySelector('[data-map-advance]');
+  const arrows = Array.from(document.querySelectorAll('[data-map-nav] [data-direction]'));
+  const tabs = Array.from(document.querySelectorAll('.local-mastery__tab'));
+  const counter = document.querySelector('[data-map-count]');
+  if (!mapBtn || tabs.length === 0) return;
+
+  const advance = (dir = 1) => {
+    const activeIdx = tabs.findIndex((t) => t.classList.contains('is-active'));
+    const nextIdx = ((activeIdx === -1 ? 0 : activeIdx) + dir + tabs.length) % tabs.length;
+    tabs[nextIdx].click();
+    if (counter) counter.textContent = `${nextIdx + 1} / ${tabs.length}`;
+  };
+
+  mapBtn.addEventListener('click', () => advance(1));
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dir = parseInt(arrow.dataset.direction, 10) || 1;
+      advance(dir);
+    });
+  });
+
+  const activeIdx = tabs.findIndex((t) => t.classList.contains('is-active'));
+  if (counter) counter.textContent = `${(activeIdx === -1 ? 0 : activeIdx) + 1} / ${tabs.length}`;
+})();

@@ -5914,3 +5914,176 @@ select.contact__input {
 @media (min-width: 761px) {
   .craft__nav { display: none; }
 }
+
+/* =========================================================
+   MOBILE — process steps carousel, map tap-to-advance, footer
+   contact label-above-value. iPhone 12 Pro / 390px and below.
+   ========================================================= */
+
+/* Process steps -> single-cell carousel on mobile. The four
+   <li class="process__step"> items stack on the same grid cell;
+   .is-active fades in. The .process__result aside lives outside
+   the <ol> so it stays inline beneath the carousel. */
+@media (max-width: 760px) {
+  .process__steps {
+    display: grid;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .process__steps > .process__step {
+    grid-area: 1 / 1;
+    grid-template-columns: 1fr !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 480ms ease;
+  }
+  .process__steps > .process__step.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+  }
+  .process__phases-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin: clamp(28px, 5vw, 48px) auto clamp(40px, 6vw, 72px);
+  }
+  .process__phase-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .process__phase-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    min-width: 50px;
+    text-align: center;
+  }
+}
+@media (min-width: 761px) {
+  .process__phases-nav { display: none; }
+}
+
+/* Cascais map -> tap-to-advance button + nav arrows. The button
+   wraps the existing figure; the tap hint sits in the bottom-right
+   on mobile. Desktop hides both the hint and the nav arrows --
+   the toggle bar above the map is the desktop interaction. */
+.local-mastery__frame-button {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+.local-mastery__tap-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(20, 17, 14, 0.55);
+  color: rgba(244, 239, 230, 0.95);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+@media (max-width: 760px) {
+  .local-mastery__tap-hint { opacity: 1; }
+  .local-mastery__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: clamp(20px, 4vw, 32px);
+  }
+  .local-mastery__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .local-mastery__map-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    min-width: 50px;
+    text-align: center;
+  }
+}
+@media (min-width: 761px) {
+  .local-mastery__nav { display: none; }
+  .local-mastery__tap-hint { display: none; }
+}
+
+/* Footer contact list -> label above value at mobile. Each row
+   stacks: small mono key on top, italic Cormorant value beneath.
+   Email no longer wraps mid-domain. */
+@media (max-width: 760px) {
+  .footer__contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 18px;
+  }
+  .footer__contact li { display: block; }
+  .footer__contact-key {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 4px;
+  }
+  .footer__contact-value {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .footer__nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .footer__nav a {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+}
