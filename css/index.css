@@ -1058,7 +1058,7 @@ html.is-intro body {
 .projects__head {
   max-width: var(--container);
   margin: 0 auto clamp(24px, 3vw, 40px);
-  padding: 0 var(--pad-x);
+  padding: 0;
   display: grid;
   gap: 12px;
 }
