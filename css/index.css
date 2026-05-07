@@ -6631,37 +6631,6 @@ body.nav-locked { overflow: hidden; }
 }
 
 /* =========================================================
-   HOME CTA BRIDGE — Begin a Project, sits after the manifesto
-   so the call-to-action lands at the editorial moment when the
-   visitor is leaning in. Italic line repeats the drawer footer
-   line so the brand voice closes the same way both places.
-   ========================================================= */
-.home-cta-bridge {
-  padding: clamp(64px, 10vw, 120px) 0;
-  background: var(--bone);
-  text-align: center;
-}
-.home-cta-bridge__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 26px;
-}
-.home-cta-bridge__line {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(22px, 3vw, 30px);
-  color: var(--ink-2);
-  letter-spacing: 0.005em;
-  line-height: 1.4;
-  margin: 0;
-  max-width: 38ch;
-}
-@media (max-width: 760px) {
-  .home-cta-bridge { padding: 64px 22px; }
-}
-
-/* =========================================================
    DESKTOP NAV — inline eyebrow links + Begin a Project pill
    at >=1024px. Mobile (<=1023px) keeps the brand + socials +
    hamburger pattern unchanged; the inline links and pill are
@@ -6674,11 +6643,11 @@ body.nav-locked { overflow: hidden; }
 
 @media (min-width: 1024px) {
   .floating-nav {
-    top: 18px;
-    left: 24px;
-    right: 24px;
-    padding: 9px 16px 9px 20px;
-    gap: 22px;
+    top: 14px;
+    left: 18px;
+    right: 18px;
+    padding: 7px 14px 7px 18px;
+    gap: 20px;
     border-radius: 999px;
     background: rgba(248, 246, 240, 0.82);
     backdrop-filter: blur(22px);
@@ -6689,18 +6658,19 @@ body.nav-locked { overflow: hidden; }
 
   .nav-tools { display: none; }
 
-  .nav-brand { gap: 10px; }
+  .nav-brand { gap: 12px; }
   .nav-brand .nav-mark {
-    width: 26px;
-    height: 26px;
-    flex: 0 0 26px;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    border-radius: 0;
   }
   .nav-brand .nav-wordmark {
     font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 15.5px;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.115em;
+    line-height: 1;
     color: var(--ink);
   }
 
@@ -6708,14 +6678,13 @@ body.nav-locked { overflow: hidden; }
     display: inline-flex;
     flex: 1;
     justify-content: center;
-    align-items: center;
-    gap: clamp(20px, 2.2vw, 36px);
+    gap: clamp(22px, 2.6vw, 38px);
   }
   .nav-links a {
     position: relative;
     font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 15.5px;
+    font-weight: 400;
     text-transform: none;
     letter-spacing: 0.005em;
     color: var(--ink-2);
@@ -6727,7 +6696,7 @@ body.nav-locked { overflow: hidden; }
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -5px;
+    bottom: -4px;
     height: 1px;
     background: var(--ink);
     transform: scaleX(0);
@@ -6736,12 +6705,18 @@ body.nav-locked { overflow: hidden; }
   }
   .nav-links a:hover,
   .nav-links a:focus-visible,
-  .nav-links a.is-current { color: var(--ink); }
+  .nav-links a.is-current {
+    color: var(--ink);
+  }
   .nav-links a:hover::after,
   .nav-links a:focus-visible::after,
-  .nav-links a.is-current::after { transform: scaleX(1); }
+  .nav-links a.is-current::after {
+    transform: scaleX(1);
+  }
 
-  .nav-cta { display: inline-flex; }
+  .nav-cta {
+    display: inline-flex;
+  }
   .nav-cta.btn-silver {
     padding: 7px 14px;
     font-size: 10.5px;
@@ -6751,8 +6726,16 @@ body.nav-locked { overflow: hidden; }
 
 @media (min-width: 1280px) {
   .floating-nav {
+    left: 24px;
+    right: 24px;
+    padding: 7px 16px 7px 20px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .floating-nav {
     left: 32px;
     right: 32px;
-    padding: 10px 18px 10px 22px;
+    padding: 8px 18px 8px 22px;
   }
 }
