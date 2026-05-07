@@ -6224,16 +6224,16 @@ html.is-intro .floating-nav {
   color: var(--ink);
 }
 .nav-brand .nav-mark {
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 0;
 }
 .nav-brand .nav-wordmark {
   font-family: var(--serif);
-  font-size: 16px;
-  letter-spacing: 0.03em;
+  font-size: 19px;
+  letter-spacing: 0.022em;
   line-height: 1;
   color: var(--ink);
   white-space: nowrap;
@@ -6470,11 +6470,15 @@ body.nav-locked { overflow: hidden; }
     gap: 10px;
   }
   .nav-brand .nav-mark {
-    width: 24px;
-    height: 24px;
-    flex: 0 0 24px;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    border-radius: 0;
   }
-  .nav-brand .nav-wordmark { font-size: 14px; }
+  .nav-brand .nav-wordmark {
+    font-size: 17px;
+    letter-spacing: 0.02em;
+  }
   .nav-tools { gap: 10px; }
   .nav-social { width: 26px; height: 26px; }
   .nav-social svg { width: 14px; height: 14px; }
@@ -6491,13 +6495,14 @@ body.nav-locked { overflow: hidden; }
   }
   .nav-brand { gap: 8px; }
   .nav-brand .nav-mark {
-    width: 22px;
-    height: 22px;
-    flex: 0 0 22px;
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    border-radius: 0;
   }
   .nav-brand .nav-wordmark {
-    font-size: 12.5px;
-    letter-spacing: 0.02em;
+    font-size: 15.5px;
+    letter-spacing: 0.018em;
     white-space: nowrap;
   }
   .nav-tools { gap: 8px; }
