@@ -490,3 +490,65 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
     });
   });
 })();
+
+
+// =====================================================================
+// Testimonials carousel — prev/next arrows + counter (no auto-advance).
+// =====================================================================
+(() => {
+  const list = document.querySelector('[data-testimonials]');
+  if (!list) return;
+  const items = Array.from(list.querySelectorAll('.testimonial'));
+  const arrows = Array.from(document.querySelectorAll('[data-testimonials-nav] [data-direction]'));
+  const counter = document.querySelector('[data-testimonials-count]');
+  if (items.length < 2) return;
+  let idx = items.findIndex((el) => el.classList.contains('is-active'));
+  if (idx < 0) idx = 0;
+  if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+
+  const setActive = (next) => {
+    items[idx].classList.remove('is-active');
+    idx = (next + items.length) % items.length;
+    items[idx].classList.add('is-active');
+    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+  };
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', () => {
+      const dir = parseInt(arrow.dataset.direction, 10) || 1;
+      setActive(idx + dir);
+    });
+  });
+})();
+
+// =====================================================================
+// Craft pillars carousel — mobile only (CSS gates the dot visibility).
+// On desktop the three pillars stay as a 3-column grid; the JS still
+// runs but the .craft__nav is display:none above 760px so users only
+// reach the carousel state at mobile widths.
+// =====================================================================
+(() => {
+  const grid = document.querySelector('[data-craft]');
+  if (!grid) return;
+  const items = Array.from(grid.querySelectorAll('.craft__cell'));
+  const arrows = Array.from(document.querySelectorAll('[data-craft-nav] [data-direction]'));
+  const counter = document.querySelector('[data-craft-count]');
+  if (items.length < 2) return;
+  let idx = items.findIndex((el) => el.classList.contains('is-active'));
+  if (idx < 0) idx = 0;
+  if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+
+  const setActive = (next) => {
+    items[idx].classList.remove('is-active');
+    idx = (next + items.length) % items.length;
+    items[idx].classList.add('is-active');
+    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+  };
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', () => {
+      const dir = parseInt(arrow.dataset.direction, 10) || 1;
+      setActive(idx + dir);
+    });
+  });
+})();

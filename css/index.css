@@ -1434,14 +1434,28 @@ html.is-intro body {
 }
 .testimonials__head .display { max-width: 22ch; }
 
+/* Carousel: testimonials stack on the same grid cell; fades between
+   are JS-driven via .is-active. The .testimonials__nav dots advance
+   the active state; clicking the card itself also advances. */
 .testimonials__grid {
-  max-width: var(--container);
+  max-width: 720px;
   margin: 0 auto;
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  position: relative;
+  min-height: 320px;
+}
+.testimonials__grid > .testimonial {
+  grid-area: 1 / 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 480ms ease;
+  cursor: pointer;
+}
+.testimonials__grid > .testimonial.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 .testimonial {
   position: relative;
@@ -1449,20 +1463,42 @@ html.is-intro body {
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 2.4vw, 36px);
+  text-align: center;
+  align-items: center;
 }
-/* Pin every citation block to the bottom of its card so the cite rows
-   line up across columns even when the quotes wrap to different lengths. */
 .testimonial__cite { margin-top: auto; }
-/* Hairline dividers between columns — drawn on the right edge of all
-   but the last cell so the band reads as one continuous block. */
-.testimonial + .testimonial::before {
-  content: '';
-  position: absolute;
-  top: 8%;
-  bottom: 8%;
-  left: 0;
-  width: 1px;
-  background: var(--hairline);
+
+.testimonials__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: clamp(32px, 4vw, 56px);
+}
+.testimonials__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 220ms ease, border-color 220ms ease;
+}
+.testimonials__arrow:hover {
+  background: rgba(60, 50, 35, 0.04);
+  border-color: var(--ink);
+}
+.testimonials__count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--mid);
+  min-width: 50px;
+  text-align: center;
 }
 /* Five-star rating row — small ochre stars at the top of each card. */
 .testimonial__stars {
@@ -1558,15 +1594,7 @@ html.is-intro body {
 }
 
 @media (max-width: 900px) {
-  .testimonials__grid { grid-template-columns: 1fr; max-width: 620px; }
-  .testimonial + .testimonial::before {
-    top: 0;
-    bottom: auto;
-    left: 8%;
-    right: 8%;
-    width: auto;
-    height: 1px;
-  }
+  .testimonials__grid { max-width: 620px; }
 }
 
 /* =========================================================
@@ -5626,4 +5654,263 @@ select.contact__input {
 }
 .project__nav-link:hover .project__nav-arrow {
   color: var(--ink-2);
+}
+
+/* =========================================================
+   ZENBOOK FOLD / FOLDABLE-LAPTOP RESPONSIVE PASS
+   The default 960px collapse-to-single-column breakpoint is
+   too eager for the 820-1024px range (Zenbook Fold etc).
+   Hold the two-column desktop layouts a little wider; restore
+   per-section spacing where the legacy collapse misfires.
+   ========================================================= */
+@media (min-width: 820px) and (max-width: 1024px) {
+  /* Method (Our Approach) — keep two-col headline / body split. */
+  .method__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(32px, 4vw, 56px);
+  }
+  .method__head { padding-right: 0; }
+
+  /* Craft images flush to the section's left edge. */
+  .craft__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.5vw, 32px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .craft__cell { padding-left: 0; }
+
+  /* Process phases — image + text two-col with min-width:0 so the
+     copy column can't be squeezed into a narrow strip by the image's
+     intrinsic size. */
+  .phase__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 4vw, 56px);
+  }
+  .phase__text { padding-right: 0; min-width: 0; }
+  .phase__image { min-width: 0; }
+
+  /* Footer — three-up at slightly tighter padding. */
+  .footer__details {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(40px, 5vw, 72px);
+    padding: clamp(60px, 8vw, 100px) clamp(32px, 5vw, 80px);
+  }
+}
+
+/* Cascais intro (atmosphere photo + bridge lede) — at <=1024 the
+   van photo dominates above the closer text. Reverse so the copy
+   sits on top. */
+@media (max-width: 1024px) {
+  .cascais__intro {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .cascais__intro-text  { order: -1; }
+  .cascais__atmosphere  { order: 0; }
+
+  /* Contact "Begin a project" — stack to single centred column. */
+  .contact__inner {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .contact__intro,
+  .contact__form { max-width: 100%; }
+}
+
+/* Footer breathing space below the foldable threshold. */
+@media (max-width: 819px) {
+  .footer__details {
+    gap: clamp(48px, 6vw, 72px);
+    padding-top: clamp(60px, 8vw, 100px);
+    padding-bottom: clamp(60px, 8vw, 100px);
+  }
+  .footer__brand,
+  .footer__nav,
+  .footer__contact { margin-bottom: 16px; }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE PASS — iPhone SE / 375px viewport.
+   Scoped to <=760px unless noted. A small set of rules also
+   reverse the cascais intro at <=1024 (handled in the prior
+   Zenbook block).
+   ========================================================= */
+
+/* Single-line nav CTA on mobile. */
+@media (max-width: 760px) {
+  .nav__cta {
+    white-space: nowrap;
+    padding: 10px 18px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+  .nav__cta span:not([aria-hidden]) { display: inline; }
+}
+
+/* Section closers — filled glass default at mobile (no hover state). */
+@media (max-width: 760px) {
+  .section-closer--minimal .section-closer__link {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 253, 247, 0.95) 0%,
+      rgba(248, 243, 232, 0.88) 55%,
+      rgba(240, 234, 220, 0.85) 100%
+    );
+    border-color: rgba(255, 252, 244, 0.85);
+    box-shadow:
+      inset 0  1px 0   rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0   rgba(120, 105,  80, 0.10),
+      0  1px  1px rgba(60, 50, 35, 0.04),
+      0  6px  14px rgba(60, 50, 35, 0.07);
+  }
+}
+
+/* Project tile reveal — looser breathing space at mobile. */
+@media (max-width: 760px) {
+  .tile__solved {
+    padding: clamp(20px, 6%, 36px) clamp(16px, 5%, 24px) clamp(80px, 18%, 100px);
+  }
+  .tile__solved-text {
+    font-size: clamp(15px, 3.6vw, 18px);
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    margin: 0 0 22px 0;
+    max-width: 100%;
+  }
+  .tile__solved-detail {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    line-height: 1.65;
+  }
+}
+
+/* Process phases — image on top, text below, on every phase. */
+@media (max-width: 760px) {
+  .phase__grid,
+  .phase--mirror .phase__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(24px, 4vw, 40px);
+  }
+  .phase__image,
+  .phase--mirror .phase__grid > .phase__image { order: 0; }
+  .phase__text,
+  .phase--mirror .phase__grid > .phase__text { order: 1; padding: 0; min-width: 0; }
+}
+
+/* Cascais — eyebrow no-wrap, sticky horizontal toggle bar. The
+   cascais__intro reversal lives in the <=1024 block above. */
+@media (max-width: 760px) {
+  .cascais__head .eyebrow { white-space: nowrap; }
+
+  .local-mastery__tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    padding: 12px clamp(16px, 4vw, 24px);
+    margin: 0 calc(-1 * clamp(16px, 4vw, 24px));
+    border-bottom: 1px solid var(--hairline);
+    position: sticky;
+    top: 64px;
+    z-index: 20;
+    background: var(--bone);
+    align-self: stretch;
+    justify-content: flex-start;
+  }
+  .local-mastery__tabs::-webkit-scrollbar { display: none; }
+  .local-mastery__tab {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    padding: 12px 18px;
+    white-space: nowrap;
+    flex-direction: row;
+    border-bottom: 0;
+  }
+  .local-mastery__tab.is-active {
+    border-bottom: 2px solid var(--ink);
+  }
+  .local-mastery__tab.is-active::after { display: none; }
+}
+
+/* Footer — 2-row layout: brand spans top, site + reach as 2 cols below. */
+@media (max-width: 760px) {
+  .footer__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "site contact";
+    gap: clamp(40px, 6vw, 56px) clamp(20px, 4vw, 32px);
+    padding: clamp(60px, 8vw, 96px) clamp(24px, 5vw, 32px);
+  }
+  .footer__brand   { grid-area: brand; }
+  .footer__nav     { grid-area: site; }
+  .footer__contact { grid-area: contact; }
+
+  .footer__nav ul,
+  .footer__contact ul { font-size: 14px; }
+  .footer__contact-value { font-size: 14px; word-break: break-word; }
+
+  .footer__credentials {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: clamp(32px, 5vw, 48px) clamp(24px, 5vw, 32px);
+  }
+  .footer__credentials-line { text-align: center !important; }
+}
+
+/* Craft carousel — mobile only. Desktop keeps the 3-column grid. */
+@media (max-width: 760px) {
+  .craft__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+  .craft__grid > .craft__cell {
+    grid-area: 1 / 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 480ms ease;
+  }
+  .craft__grid > .craft__cell.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .craft__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: clamp(28px, 4vw, 48px);
+  }
+  .craft__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .craft__count {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    min-width: 50px;
+    text-align: center;
+  }
+}
+@media (min-width: 761px) {
+  .craft__nav { display: none; }
 }
