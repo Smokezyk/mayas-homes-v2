@@ -6453,8 +6453,62 @@ body.nav-locked { overflow: hidden; }
   .nav-drawer__inner { padding: 72px 22px 44px; }
 }
 @media (max-width: 390px) {
-  .nav-brand .nav-wordmark { display: none; }
+  .floating-nav {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .nav-brand { gap: 8px; }
+  .nav-brand .nav-mark {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+  }
+  .nav-brand .nav-wordmark {
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
   .nav-tools { gap: 8px; }
+  .nav-social {
+    width: 24px;
+    height: 24px;
+  }
+  .nav-social svg {
+    width: 13px;
+    height: 13px;
+  }
+  .nav-menu-toggle {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* === Cinematic hero — single line at every viewport === */
+.intro__name {
+  white-space: nowrap;
+  letter-spacing: -0.005em;
+}
+@media (max-width: 1024px) {
+  .intro__name {
+    font-size: clamp(56px, 11vw, 96px);
+    line-height: 1;
+  }
+}
+@media (max-width: 760px) {
+  .intro__name {
+    font-size: clamp(46px, 13vw, 72px);
+    letter-spacing: -0.008em;
+    line-height: 1;
+  }
+}
+@media (max-width: 390px) {
+  .intro__name {
+    font-size: clamp(42px, 12.5vw, 56px);
+    letter-spacing: -0.012em;
+  }
 }
 
 /* =========================================================
