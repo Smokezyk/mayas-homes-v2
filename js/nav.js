@@ -87,31 +87,9 @@ if (nav) {
     }
   });
 
-  /* Mobile menu toggle. The hamburger only renders <768px via
-     CSS; tapping it flips .is-open on .nav, which (in CSS) shows
-     a full-bleed cream drawer with the nav links. Body scroll is
-     locked while the drawer is open so the underlying page
-     doesn't move. Tapping any link, the X button, or pressing
-     ESC closes the drawer. */
-  const menuToggle = nav.querySelector('.nav__menu-toggle');
-  const navLinks = nav.querySelector('.nav__links');
-  if (menuToggle && navLinks) {
-    const setOpen = (open) => {
-      nav.classList.toggle('is-open', open);
-      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      document.body.style.overflow = open ? 'hidden' : '';
-    };
-    menuToggle.addEventListener('click', () => {
-      setOpen(!nav.classList.contains('is-open'));
-    });
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.closest('a')) setOpen(false);
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) setOpen(false);
-    });
-  }
+  /* Mobile menu — handled by js/nav-drawer.js (separate file,
+     queries [data-menu-open] / [data-menu-close] / [data-drawer]).
+     The drawer is a sibling of <header data-nav>, not nested. */
 }
 
 /* =========================================================
@@ -128,7 +106,7 @@ if (nav) {
 {
   const heroBrand     = document.querySelector('.intro__name');
   const navBrand      = document.querySelector('[data-nav-brand]');
-  const navBrandLink  = document.querySelector('.nav__brand');
+  const navBrandLink  = document.querySelector('.nav-brand');
   const introSection  = document.querySelector('.intro');
   const navEl         = document.querySelector('[data-nav]');
   const gsap          = window.gsap;
