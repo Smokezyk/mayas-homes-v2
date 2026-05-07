@@ -1434,29 +1434,7 @@ html.is-intro body {
 }
 .testimonials__head .display { max-width: 22ch; }
 
-/* Carousel: testimonials stack on the same grid cell; fades between
-   are JS-driven via .is-active. The .testimonials__nav dots advance
-   the active state; clicking the card itself also advances. */
-.testimonials__grid {
-  max-width: 720px;
-  margin: 0 auto;
-  list-style: none;
-  padding: 0;
-  display: grid;
-  position: relative;
-  min-height: 320px;
-}
-.testimonials__grid > .testimonial {
-  grid-area: 1 / 1;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 480ms ease;
-  cursor: pointer;
-}
-.testimonials__grid > .testimonial.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
+/* Testimonials — typography shared by both viewports. */
 .testimonial {
   position: relative;
   padding: clamp(20px, 2.4vw, 44px) clamp(24px, 3vw, 56px);
@@ -1468,37 +1446,125 @@ html.is-intro body {
 }
 .testimonial__cite { margin-top: auto; }
 
-.testimonials__nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: clamp(32px, 4vw, 56px);
+/* Mobile (<=1023px): single-card carousel. Cards stack on the
+   same grid cell; .is-active fades in. JS toggles .is-active and
+   updates the count. Arrows + counter visible. */
+@media (max-width: 1023px) {
+  .testimonials__grid {
+    max-width: 720px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    position: relative;
+    min-height: 320px;
+  }
+  .testimonials__grid > .testimonial {
+    grid-area: 1 / 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 480ms ease;
+    cursor: pointer;
+  }
+  .testimonials__grid > .testimonial.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .testimonials__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: clamp(32px, 4vw, 56px);
+  }
+  .testimonials__arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline-strong);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 220ms ease, border-color 220ms ease;
+  }
+  .testimonials__arrow:hover {
+    background: rgba(60, 50, 35, 0.04);
+    border-color: var(--ink);
+  }
+  .testimonials__count {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+    min-width: 50px;
+    text-align: center;
+  }
 }
-.testimonials__arrow {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  border: 1px solid var(--hairline-strong);
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 220ms ease, border-color 220ms ease;
-}
-.testimonials__arrow:hover {
-  background: rgba(60, 50, 35, 0.04);
-  border-color: var(--ink);
-}
-.testimonials__count {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--mid);
-  min-width: 50px;
-  text-align: center;
+
+/* Desktop (>=1024px): 3-up horizontal row with scroll-snap.
+   Cards render side-by-side, no opacity carousel. Arrows + counter
+   hidden by default; .testimonials.has-overflow reveals the arrow
+   pair when the JS detects more than 3 testimonials. */
+@media (min-width: 1024px) {
+  .testimonials__grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    list-style: none;
+    padding: 4px 0 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    min-height: 0;
+  }
+  .testimonials__grid::-webkit-scrollbar { display: none; }
+  .testimonials__grid > .testimonial {
+    flex: 0 0 calc((100% - 64px) / 3);
+    scroll-snap-align: start;
+    grid-area: auto;
+    opacity: 1;
+    pointer-events: auto;
+    transition: none;
+    cursor: default;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .testimonials__nav {
+    display: none;
+    margin-top: 32px;
+    gap: 14px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .testimonials.has-overflow .testimonials__nav {
+    display: flex;
+  }
+  .testimonials__count { display: none; }
+  .testimonials__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 220ms ease, background 220ms ease;
+  }
+  .testimonials__arrow:hover,
+  .testimonials__arrow:focus-visible {
+    border-color: var(--ink);
+    background: var(--paper);
+  }
 }
 /* Five-star rating row — small ochre stars at the top of each card. */
 .testimonial__stars {

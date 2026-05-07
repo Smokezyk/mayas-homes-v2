@@ -493,30 +493,61 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
 
 
 // =====================================================================
-// Testimonials carousel — prev/next arrows + counter (no auto-advance).
+// Testimonials — viewport-aware. Mobile (<=1023): single-card carousel
+// with .is-active fade + counter. Desktop (>=1024): horizontal scroll-
+// snapped row of three cards; arrows revealed only when count > 3 via
+// .has-overflow class on the section root.
 // =====================================================================
 (() => {
+  const section = document.querySelector('[data-testimonials-section]');
   const list = document.querySelector('[data-testimonials]');
-  if (!list) return;
+  if (!section || !list) return;
   const items = Array.from(list.querySelectorAll('.testimonial'));
+  if (items.length < 1) return;
   const arrows = Array.from(document.querySelectorAll('[data-testimonials-nav] [data-direction]'));
   const counter = document.querySelector('[data-testimonials-count]');
-  if (items.length < 2) return;
+
+  // Mobile state
   let idx = items.findIndex((el) => el.classList.contains('is-active'));
-  if (idx < 0) idx = 0;
+  if (idx < 0) {
+    idx = 0;
+    items[0].classList.add('is-active');
+  }
   if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
 
-  const setActive = (next) => {
-    items[idx].classList.remove('is-active');
-    idx = (next + items.length) % items.length;
-    items[idx].classList.add('is-active');
-    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+  const desktopMQ = window.matchMedia('(min-width: 1024px)');
+
+  const updateOverflow = () => {
+    if (desktopMQ.matches && items.length > 3) {
+      section.classList.add('has-overflow');
+    } else {
+      section.classList.remove('has-overflow');
+    }
+  };
+  updateOverflow();
+  window.addEventListener('resize', updateOverflow);
+
+  const navigate = (dir) => {
+    if (desktopMQ.matches) {
+      // Desktop: scroll the snapped row by one card width.
+      const first = items[0];
+      const rect = first.getBoundingClientRect();
+      const gap = 32;
+      const step = rect.width + gap;
+      list.scrollBy({ left: dir * step, behavior: 'smooth' });
+    } else {
+      // Mobile: cycle .is-active.
+      items[idx].classList.remove('is-active');
+      idx = (idx + dir + items.length) % items.length;
+      items[idx].classList.add('is-active');
+      if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+    }
   };
 
   arrows.forEach((arrow) => {
     arrow.addEventListener('click', () => {
       const dir = parseInt(arrow.dataset.direction, 10) || 1;
-      setActive(idx + dir);
+      navigate(dir);
     });
   });
 })();
