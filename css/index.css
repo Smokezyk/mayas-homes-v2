@@ -6575,3 +6575,75 @@ body.nav-locked { overflow: hidden; }
 @media (max-width: 760px) {
   .home-cta-bridge { padding: 64px 22px; }
 }
+
+/* =========================================================
+   DESKTOP NAV — inline eyebrow links + Begin a Project pill
+   at >=1024px. Mobile (<=1023px) keeps the brand + socials +
+   hamburger pattern unchanged; the inline links and pill are
+   hidden by default and only revealed at desktop. The drawer
+   stays mobile-only because its toggle lives inside .nav-tools
+   which is hidden at desktop.
+   ========================================================= */
+.nav-links { display: none; }
+.nav-cta   { display: none; }
+
+@media (min-width: 1024px) {
+  .floating-nav {
+    padding: 12px 18px 12px 22px;
+    gap: 24px;
+  }
+
+  .nav-tools { display: none; }
+
+  .nav-links {
+    display: inline-flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(24px, 2.6vw, 40px);
+  }
+  .nav-links a {
+    position: relative;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.135em;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus-visible,
+  .nav-links a.is-current { color: var(--ink); }
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after,
+  .nav-links a.is-current::after { transform: scaleX(1); }
+
+  .nav-cta { display: inline-flex; }
+  .nav-cta.btn-silver {
+    padding: 9px 18px;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .floating-nav {
+    padding: 14px 20px 14px 24px;
+    gap: 32px;
+  }
+  .nav-links { gap: clamp(32px, 2.4vw, 44px); }
+}

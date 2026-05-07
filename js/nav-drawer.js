@@ -39,4 +39,13 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
   });
+
+  // Resize guard: if the user widens past the desktop breakpoint
+  // while the drawer is open, the toggle is now hidden -- close
+  // the drawer so it doesn't get stranded.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && drawer.classList.contains('is-open')) {
+      close();
+    }
+  });
 })();

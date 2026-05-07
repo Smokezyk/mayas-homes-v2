@@ -26,8 +26,8 @@
   <!-- Hero video preload removed: the Enter/Skip gate gives 1-2s
        of dwell, plenty for the optimised 6 MB clip to start streaming
        on click via preload="metadata" + +faststart. -->
-  <link rel="stylesheet" href="css/index.css?v=229" />
-  <link rel="stylesheet" href="css/animations.css?v=229" />
+  <link rel="stylesheet" href="css/index.css?v=230" />
+  <link rel="stylesheet" href="css/animations.css?v=230" />
 
   <script type="application/ld+json">
   {
@@ -53,11 +53,21 @@
   <!-- ============ FLOATING NAV ============ -->
   <header class="floating-nav" data-nav>
     <a class="nav-brand" href="/" aria-label="Maya's Homes — home">
-      <img src="/logo/mayas-homes-mark.png?v=229" alt="" class="nav-mark" />
+      <img src="/logo/mayas-homes-mark.png?v=230" alt="" class="nav-mark" />
       <span class="nav-wordmark" data-nav-brand>Maya&rsquo;s Homes</span>
     </a>
 
-    <div class="nav-tools">
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/studio/">Studio</a>
+      <a href="/projects/">Projects</a>
+      <a href="/services/">Services</a>
+      <a href="/process/">Process</a>
+      <a href="/local/">Cascais</a>
+      <a href="/journal/">Journal</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+  <div class="nav-tools">
       <a class="nav-social" href="https://facebook.com/mayashomes" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
       </a>
@@ -76,6 +86,7 @@
         </span>
       </button>
     </div>
+  <a class="nav-cta btn-silver" href="/contact/">Begin a Project</a>
   </header>
 
   <aside class="nav-drawer" data-drawer hidden>
@@ -108,7 +119,7 @@
       <video
         class="intro__video"
         data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=229"
+        src="assets/videos/introvidfinal.mp4?v=230"
         muted
         playsinline
         preload="auto"
@@ -160,8 +171,8 @@
           <video
             class="manifesto__portrait-video"
             data-living-portrait
-            src="assets/videos/maja-animation.mp4?v=229"
-            poster="assets/images/maja-portrait-v2.webp?v=229"
+            src="assets/videos/maja-animation.mp4?v=230"
+            poster="assets/images/maja-portrait-v2.webp?v=230"
             muted loop playsinline preload="metadata" loading="lazy"
             aria-label="Maja Milič — founder, designer, problem-solver"
           ></video>
@@ -196,7 +207,7 @@
     <section class="stats" aria-label="At a glance">
       <video
         class="stats__bg"
-        src="assets/videos/stats-band-bg.mp4?v=229"
+        src="assets/videos/stats-band-bg.mp4?v=230"
         autoplay loop muted playsinline preload="metadata" loading="lazy"
         aria-hidden="true"
         tabindex="-1"
@@ -265,8 +276,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rosario.mp4?v=229"
-                    poster="assets/images/rosario-before.jpg?v=229"
+                    src="assets/videos/transformation-rosario.mp4?v=230"
+                    poster="assets/images/rosario-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -295,8 +306,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-alvide.mp4?v=229"
-                    poster="assets/images/alvide-before.jpg?v=229"
+                    src="assets/videos/transformation-alvide.mp4?v=230"
+                    poster="assets/images/alvide-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -325,8 +336,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-riviera.mp4?v=229"
-                    poster="assets/images/riviera-before.jpg?v=229"
+                    src="assets/videos/transformation-riviera.mp4?v=230"
+                    poster="assets/images/riviera-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -357,8 +368,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-figueiras.mp4?v=229"
-                    poster="assets/images/figueiras-before.jpg?v=229"
+                    src="assets/videos/transformation-figueiras.mp4?v=230"
+                    poster="assets/images/figueiras-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -387,8 +398,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-rebelva.mp4?v=229"
-                    poster="assets/images/rebelva-before.jpg?v=229"
+                    src="assets/videos/transformation-rebelva.mp4?v=230"
+                    poster="assets/images/rebelva-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -417,8 +428,8 @@
                   <video
                     class="tile__video"
                     data-tile-video
-                    src="assets/videos/transformation-amoreira.mp4?v=229"
-                    poster="assets/images/amoreira-before.jpg?v=229"
+                    src="assets/videos/transformation-amoreira.mp4?v=230"
+                    poster="assets/images/amoreira-before.jpg?v=230"
                     muted playsinline preload="auto" loading="lazy" tabindex="-1"
                   ></video>
                   <div class="tile__hover" aria-hidden="true">
@@ -548,7 +559,7 @@
       <div class="craft__grid" data-craft>
         <article class="craft__cell is-active">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-1.jpg?v=229" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-1.jpg?v=230" alt="The hand that drew it is the hand that lays it — Maya's Homes craftspeople at work" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar"><em>Drawn and laid. One hand.</em></h3>
           <p class="craft__copy">Every craftsperson on a Maya&rsquo;s Homes project has been with Maja for years. The team that builds your home is one she trusts with her own.</p>
@@ -556,7 +567,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-2.jpg?v=229" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-2.jpg?v=230" alt="One number, the same team — Maja directing the in-house crew" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar"><em>One number. The same names.</em></h3>
           <p class="craft__copy">When something needs to change, you call Maja. The person who shows up is the same person who built the room&nbsp;— chosen by her, kept by her, known to her by name for years.</p>
@@ -564,7 +575,7 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-3.jpg?v=229" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-3.jpg?v=230" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
           </figure>
           <h3 class="craft__pillar"><em>We never really leave.</em></h3>
           <p class="craft__copy">A bulb in year three. A hinge in year five. The people who built your home are the people who maintain it&nbsp;— and Maja walks back through the door with them.</p>
@@ -1042,7 +1053,7 @@
 
       <div class="footer__brand">
         <div class="footer__brand-row">
-          <img class="footer__logo" src="/logo/mayas-homes-mark.png?v=229" alt="Maya&rsquo;s Homes" width="40" height="40" />
+          <img class="footer__logo" src="/logo/mayas-homes-mark.png?v=230" alt="Maya&rsquo;s Homes" width="40" height="40" />
           <p class="footer__wordmark">Maya&rsquo;s Homes</p>
         </div>
         <p class="footer__tagline">Boutique renovation in Cascais and Greater Lisbon.</p>
@@ -1145,14 +1156,14 @@
 
 
   <!-- Self-hosted vendor libs (no CDN dependency, no SRI surface). -->
-  <script src="vendor/gsap.min.js?v=229"></script>
-  <script src="vendor/ScrollTrigger.min.js?v=229"></script>
-  <script src="vendor/lenis.min.js?v=229"></script>
+  <script src="vendor/gsap.min.js?v=230"></script>
+  <script src="vendor/ScrollTrigger.min.js?v=230"></script>
+  <script src="vendor/lenis.min.js?v=230"></script>
 
   <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
-  <script src="js/main.js?v=229" type="module"></script>
-  <script src="js/scroll-scrub.js?v=229" type="module"></script>
-  <script src="js/nav.js?v=229" type="module"></script>
-  <script src="/js/nav-drawer.js?v=229" defer></script>
+  <script src="js/main.js?v=230" type="module"></script>
+  <script src="js/scroll-scrub.js?v=230" type="module"></script>
+  <script src="js/nav.js?v=230" type="module"></script>
+  <script src="/js/nav-drawer.js?v=230" defer></script>
 </body>
 </html>
