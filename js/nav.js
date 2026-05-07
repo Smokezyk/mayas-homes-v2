@@ -113,6 +113,13 @@ if (nav) {
 
   if (gsap && heroBrand && navBrand && navBrandLink && introSection) {
 
+    // Hide the nav wordmark immediately on the home page so the FLIP
+    // animation has an empty slot to fly into. Dedicated pages don't
+    // reach this code (no .intro element -> early return) so their
+    // wordmark stays visible from page load via CSS default.
+    navBrand.style.opacity = '0';
+    navBrand.style.transition = 'opacity 320ms ease';
+
     let fired = false;
 
     const measureNavRect = () => {
@@ -206,21 +213,36 @@ if (nav) {
       });
     };
 
+    const flyWordmarkBack = () => {
+      if (!fired) return;
+      fired = false;
+      // Reset the source hero and hide the nav wordmark again so the
+      // user sees the hero in its centred position. A reverse-FLIP
+      // clone tween here would be possible but the user is scrolling
+      // up at this point and a hard swap reads cleanly under fast
+      // upward scroll.
+      heroBrand.style.visibility = '';
+      navBrand.style.opacity = '0';
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
           flyWordmark();
-          observer.disconnect();
+        } else if (entry.isIntersecting && entry.boundingClientRect.top >= 0) {
+          flyWordmarkBack();
         }
       });
     }, { threshold: 0 });
     observer.observe(introSection);
 
     /* Click the wordmark in the header to scroll smoothly back to
-       the top of the page. The nav wordmark stays in place — once
-       it has flown into position, it does not reverse. Override the
-       generic [href^="#"] handler in main.js so the scroll target
-       is unambiguously absolute Y=0. */
+       the top of the page. The observer above handles the visual
+       hand-off — when the user reaches the top and the intro is
+       intersecting again, flyWordmarkBack hides the nav wordmark
+       and reveals the hero. Override the generic [href^="#"]
+       handler in main.js so the scroll target is unambiguously
+       absolute Y=0. */
     navBrandLink.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopImmediatePropagation();
