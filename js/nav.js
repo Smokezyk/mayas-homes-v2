@@ -117,141 +117,142 @@ if (nav) {
 /* =========================================================
    BRAND FLIGHT — MAYA'S HOMES from hero centre to header top-left.
 
-   Over the first 100px of scroll, a scrubbed GSAP timeline
-   shrinks/translates/fades-out the hero brand while fading in the
-   nav brand wordmark in the same window. The user perceives the
-   wordmark migrating from the centre of the hero to the top-left
-   of the page.
+   FLIP-style continuous motion. On first scroll past the intro
+   section: clone the hero brand as a fixed-position element,
+   hide the original hero brand and the nav brand, animate the
+   clone along a single tweened path (translate + scale) into the
+   nav slot, and on complete reveal the real nav brand and remove
+   the clone. The user sees one element traveling from centre to
+   corner — no fade, no dual-state crossfade. Fires once.
    ========================================================= */
 {
-  const heroBrand = document.querySelector('.intro__name');
-  const navBrand  = document.querySelector('[data-nav-brand]');
-  const gsap = window.gsap;
-  const ScrollTrigger = window.ScrollTrigger;
+  const heroBrand     = document.querySelector('.intro__name');
+  const navBrand      = document.querySelector('[data-nav-brand]');
+  const navBrandLink  = document.querySelector('.nav__brand');
+  const introSection  = document.querySelector('.intro');
+  const navEl         = document.querySelector('[data-nav]');
+  const gsap          = window.gsap;
 
-  if (gsap && ScrollTrigger && heroBrand && navBrand) {
-    gsap.registerPlugin(ScrollTrigger);
+  if (gsap && heroBrand && navBrand && navBrandLink && introSection) {
 
-    const navBrandLink = document.querySelector('.nav__brand');
+    let fired = false;
 
-    /* Smooth flight across the first 100 px of scroll. Reversal is
-       automatic via scrub — same 100 px window in reverse takes the
-       wordmark back into the hero centre. */
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: '+=100',
-        scrub: 0.3,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    /* Logo Transfer: the SAME element migrates from hero centre to
-       header. No crossfade, no second wordmark. After the migration
-       completes (scroll > 100px), ScrollTrigger pins the hero brand
-       at its final header position so it stays there as the page
-       continues to scroll. Reverse via scrub. */
-
-    const navEl = document.querySelector('[data-nav]');
-
-    const computeTarget = () => {
-      if (!heroBrand || !navBrand || !navBrandLink) return { x: 0, y: 0, scale: 0.3 };
-
-      const savedTransform = heroBrand.style.transform;
-      heroBrand.style.transform = '';
-
-      // Temporarily expand the nav wordmark slot AND force the nav
-      // into its `is-visible` state so getBoundingClientRect() returns
-      // the rect at the seated position — not 120 % above the viewport
-      // (where the pre-intro / tucked-away transform parks it). Without
-      // this, the brand flies to the tucked location on resize / refresh.
+    const measureNavRect = () => {
+      // Force the nav into its seated state and the brand slot to
+      // its final width so getBoundingClientRect() returns the
+      // resting target — not the tucked pre-intro position above
+      // the viewport.
       const savedMW = navBrandLink.style.maxWidth;
       const savedOp = navBrand.style.opacity;
+      const savedVis = navBrand.style.visibility;
       const navHadVisible = navEl ? navEl.classList.contains('is-visible') : true;
+
       navBrandLink.style.maxWidth = '16em';
       navBrand.style.opacity = '1';
+      navBrand.style.visibility = 'visible';
       if (navEl) navEl.classList.add('is-visible');
 
-      // Force a layout flush before reading geometry.
-      void navBrand.offsetHeight;
+      void navBrand.offsetHeight; // layout flush
 
-      const hero = heroBrand.getBoundingClientRect();
-      const nav  = navBrand.getBoundingClientRect();
+      const rect = navBrand.getBoundingClientRect();
 
-      heroBrand.style.transform = savedTransform;
       navBrandLink.style.maxWidth = savedMW;
       navBrand.style.opacity = savedOp;
+      navBrand.style.visibility = savedVis;
       if (navEl && !navHadVisible) navEl.classList.remove('is-visible');
 
-      const heroCx = hero.left + hero.width  / 2;
-      const heroCy = hero.top  + hero.height / 2;
-      const navCx  = nav.left  + nav.width   / 2;
-      const navCy  = nav.top   + nav.height  / 2;
-
-      return {
-        x: navCx - heroCx,
-        y: navCy - heroCy,
-        scale: hero.width > 0 ? Math.max(nav.width / hero.width, 0.15) : 0.3,
-      };
+      return rect;
     };
 
-    // Hero scales + translates to land precisely on the header slot.
-    tl.to(heroBrand, {
-      x:     () => computeTarget().x,
-      y:     () => computeTarget().y,
-      scale: () => computeTarget().scale,
-      ease:  'power2.in',
-    }, 0);
+    const flyWordmark = () => {
+      if (fired) return;
+      fired = true;
 
-    // Pill grows so the header has the right slot size by the time
-    // the brand arrives.
-    if (navBrandLink) {
-      tl.to(navBrandLink, {
-        maxWidth: '16em',
-        ease: 'power2.out',
-      }, 0);
-    }
+      const heroRect = heroBrand.getBoundingClientRect();
+      const navRect  = measureNavRect();
+      if (!heroRect.width || !navRect.width) {
+        // Geometry not ready — fall back to a hard swap.
+        heroBrand.style.visibility = 'hidden';
+        navBrand.style.opacity = '1';
+        return;
+      }
 
-    /* At the end of the migration the hero brand is sitting on top
-       of the (still-invisible) nav wordmark with the same letter-
-       spacing, the same scaled size. We swap them in the last 10%
-       of the timeline — invisible to the user — so from then on the
-       nav wordmark (which is fixed inside the floating nav pill)
-       carries the brand. The pill stays anchored regardless of
-       scroll, so MAYA'S HOMES truly stays in the header. */
-    tl.to(heroBrand, { opacity: 0, duration: 0.1, ease: 'none' }, 0.9);
-    tl.to(navBrand,  { opacity: 1, duration: 0.1, ease: 'none' }, 0.9);
+      const heroStyles = getComputedStyle(heroBrand);
+      const navStyles  = getComputedStyle(navBrand);
 
-    // Refresh after the intro lifts the scroll lock — the page can
-    // finally scroll, so ScrollTrigger needs to re-measure.
-    window.addEventListener('intro:end', () => {
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    });
+      // Clone the hero brand and lift it into the layout root.
+      const clone = heroBrand.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.top    = `${heroRect.top}px`;
+      clone.style.left   = `${heroRect.left}px`;
+      clone.style.width  = `${heroRect.width}px`;
+      clone.style.height = `${heroRect.height}px`;
+      clone.style.margin = '0';
+      clone.style.fontSize       = heroStyles.fontSize;
+      clone.style.fontFamily     = heroStyles.fontFamily;
+      clone.style.fontWeight     = heroStyles.fontWeight;
+      clone.style.letterSpacing  = heroStyles.letterSpacing;
+      clone.style.color          = heroStyles.color;
+      clone.style.lineHeight     = heroStyles.lineHeight;
+      clone.style.textAlign      = 'center';
+      clone.style.zIndex          = '50';
+      clone.style.pointerEvents   = 'none';
+      clone.style.transformOrigin = 'top left';
+      clone.style.willChange      = 'transform, font-size';
+      document.body.appendChild(clone);
 
-    /* Click the wordmark in the header to fly back to the hero.
-       Override the generic [href^="#"] handler in main.js so we can
-       (a) scroll to absolute Y=0 (no element/offset ambiguity) and
-       (b) force the scrub timeline to its start once the page
-           settles, so the wordmark reliably reverse-flies into the
-           hero centre instead of getting stuck in the header. */
-    if (navBrandLink) {
-      navBrandLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        const lenis = window.__lenis;
-        const settle = () => {
-          ScrollTrigger.update();
-          tl.scrollTrigger && tl.scrollTrigger.refresh();
-        };
-        if (lenis && typeof lenis.scrollTo === 'function') {
-          lenis.scrollTo(0, { duration: 1.0, force: true, lock: true, onComplete: settle });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          setTimeout(settle, 1100);
+      heroBrand.style.visibility = 'hidden';
+      navBrand.style.visibility  = 'hidden';
+
+      // Match the nav slot size at the same anchor. We translate the
+      // clone's top-left corner onto the nav brand's top-left and
+      // tween the font-size from hero to nav so glyph metrics agree
+      // when the swap fires.
+      const translateX = navRect.left - heroRect.left;
+      const translateY = navRect.top  - heroRect.top;
+      const scaleX     = navRect.width / heroRect.width;
+
+      gsap.to(clone, {
+        x: translateX,
+        y: translateY,
+        scale: scaleX,
+        fontSize: navStyles.fontSize,
+        letterSpacing: navStyles.letterSpacing,
+        duration: 1.0,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          navBrand.style.visibility = '';
+          navBrand.style.opacity    = '1';
+          clone.remove();
+        },
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          flyWordmark();
+          observer.disconnect();
         }
-      }, true);
-    }
+      });
+    }, { threshold: 0 });
+    observer.observe(introSection);
+
+    /* Click the wordmark in the header to scroll smoothly back to
+       the top of the page. The nav wordmark stays in place — once
+       it has flown into position, it does not reverse. Override the
+       generic [href^="#"] handler in main.js so the scroll target
+       is unambiguously absolute Y=0. */
+    navBrandLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const lenis = window.__lenis;
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        lenis.scrollTo(0, { duration: 1.0, force: true, lock: true });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, true);
   }
 }
 
