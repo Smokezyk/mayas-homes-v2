@@ -8639,9 +8639,11 @@ body.page-studio .wrap {
   margin-bottom: clamp(32px, 4vw, 48px);
   min-height: clamp(540px, 60vw, 760px);
 }
-/* Each card is a contained, deliberate object — visible frame, drop
-   shadow lift, hairline border, rounded corners. Active = visible,
-   non-active = behind it absolutely. Cross-fades on swap. */
+/* Each card is a contained editorial plate — sharp 4 px corners,
+   hairline border on the taupe section, layered ambient shadow
+   (close + soft) so the card sits in a softly lit room rather than
+   floating above the page. Active = visible, non-active = behind
+   it absolutely. Cross-fades on swap. */
 .studio__work-card {
   position: absolute;
   inset: 0 0 auto 0;
@@ -8650,13 +8652,12 @@ body.page-studio .wrap {
   transition: opacity 0.45s ease, visibility 0s ease 0.45s;
   pointer-events: none;
   background: var(--bone);
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
+  border: 1px solid rgba(45, 41, 38, 0.08);
+  border-radius: 4px;
   overflow: hidden;
   box-shadow:
-    0 24px 56px rgba(45, 41, 38, 0.10),
-    0 6px 16px rgba(45, 41, 38, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 1px 2px rgba(45, 41, 38, 0.04),
+    0 40px 80px rgba(45, 41, 38, 0.08);
 }
 .studio__work-card--active {
   position: relative;
@@ -8700,19 +8701,21 @@ body.page-studio .wrap {
 /* Stage wrapper — three-column grid that frames the contained card
    between the two glassy arrows. Stage is capped just wider than the
    card so the arrows sit close to the card's edges, not floating
-   in unrelated whitespace. */
+   in unrelated whitespace. Arrows align to the photo's vertical
+   midpoint (not the card's overall midpoint) via align-self: start
+   plus a margin-top tuned to the 3:2 photo aspect. */
 .studio__work-stage {
   position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: start;
   gap: clamp(16px, 2.5vw, 32px);
-  max-width: 1180px;
+  max-width: 1140px;
   margin: 0 auto clamp(40px, 5vw, 64px);
 }
 .studio__work-stage .studio__work-showcase {
   margin-bottom: 0;
-  max-width: 1000px;
+  max-width: min(960px, calc(100vw - 8rem));
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -8743,6 +8746,7 @@ body.page-studio .wrap {
   aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--bone-2);
+  border-bottom: 1px solid rgba(45, 41, 38, 0.10);
 }
 .studio__work-card-video {
   position: absolute;
@@ -8758,8 +8762,17 @@ body.page-studio .wrap {
 }
 .studio__work-card-meta {
   text-align: left;
-  padding: clamp(20px, 2.4vw, 32px) clamp(20px, 2.4vw, 32px) clamp(24px, 2.8vw, 36px);
+  padding: clamp(2rem, 3vw, 3.5rem);
   background: var(--bone);
+}
+.studio__work-card-meta .studio__work-card-title {
+  margin: 0 0 0.5rem;
+}
+.studio__work-card-meta .studio__work-card-location {
+  margin: 0 0 1.5rem;
+}
+.studio__work-card-meta .studio__work-card-description {
+  margin: 0;
 }
 
 /* Glassy chevron arrows — clearly clickable at 56px, same frosted
@@ -8789,6 +8802,13 @@ body.page-studio .wrap {
     inset 0 -1px 0 rgba(0, 0, 0, 0.03);
   opacity: 0.85;
   transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  /* Align arrow vertical center with the photo's vertical center.
+     The photo's height = card width / 1.5 (3:2 aspect). At desktop
+     max card width 960px, photo height = 640px, photo midpoint =
+     320px from card top. Arrow half-height = 28px. Margin-top
+     scales with the showcase width via clamp. */
+  align-self: start;
+  margin-top: clamp(150px, 21vw, 292px);
 }
 .studio__work-arrow:hover,
 .studio__work-arrow:focus-visible {
@@ -8853,7 +8873,8 @@ body.page-studio .wrap {
 
 @media (max-width: 768px) {
   /* Mobile: arrows reposition BELOW the card. Card spans full
-     content width; arrows sit centered on a row beneath. */
+     content width minus 3rem of horizontal margin. Arrows sit
+     centered on a row beneath. */
   .studio__work-stage {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -8863,12 +8884,14 @@ body.page-studio .wrap {
   .studio__work-stage .studio__work-showcase {
     grid-row: 1;
     grid-column: 1;
-    max-width: 100%;
+    max-width: calc(100% - 3rem);
   }
   .studio__work-arrow {
     grid-row: 2;
     width: 48px;
     height: 48px;
+    align-self: auto;
+    margin-top: 0;
   }
   .studio__work-arrow--prev {
     grid-column: 1;
@@ -8883,9 +8906,8 @@ body.page-studio .wrap {
   .studio__work-showcase {
     min-height: clamp(420px, 110vw, 600px);
   }
-  .studio__work-card-media {
-    aspect-ratio: 4 / 3;
-  }
+  /* Photo aspect-ratio stays 3:2 on mobile per editorial register;
+     the previous 4:3 override is intentionally removed. */
 }
 
 /* =========================================================
