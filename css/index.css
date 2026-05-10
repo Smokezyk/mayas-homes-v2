@@ -8764,7 +8764,9 @@ body.page-studio .wrap {
      photo column and the text column on landscape (≥769 px) layout. */
   border-right: 1px solid rgba(45, 41, 38, 0.10);
 }
-.studio__work-card-video {
+.studio__work-card-video,
+.studio__work-card-after,
+.studio__work-card-before {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -8772,9 +8774,25 @@ body.page-studio .wrap {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+/* Before-state image starts hidden. When the visitor clicks the
+   card, the .is-before-active class on .studio__work-card-media
+   cross-dissolves the before image in for ~1.6 s, holds, then
+   fades back out. If the before src is missing or empty, the
+   click is a no-op and the after image continues to display. */
+.studio__work-card-before {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.6s var(--ease-out);
+  z-index: 2;
+}
+.studio__work-card-media.is-before-active .studio__work-card-before {
+  opacity: 1;
+}
+.studio__work-card-after {
   transition: transform 0.8s var(--ease-out);
 }
-.studio__work-card-trigger:hover .studio__work-card-video {
+.studio__work-card-trigger:hover .studio__work-card-after {
   transform: scale(1.015);
 }
 .studio__work-card-meta {

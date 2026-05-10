@@ -2,18 +2,29 @@
    Studio §05 — Maja's Selection slideshow.
 
    Prev / next chevrons cycle the active card with wrap-around
-   (after #6 → #1, before #1 → #6). Each card holds a <video>
-   element that uses the project's hero image as its poster.
-   When a card becomes active, its video plays (autoplay, muted,
-   looped). When inactive, it pauses to save resources.
+   (after #6 → #1, before #1 → #6). Default state of each card
+   shows the AFTER image (the finished room).
 
-   Each <video> carries data-project-video which JS reads to set
-   src lazily. While the attribute is empty, the poster image
-   shows and never plays — clean fallback until the per-project
-   before/after files exist on disk.
+   Click the photo to play the develop-style before/after
+   reveal: the BEFORE image cross-dissolves over the AFTER for
+   ~1.6 s, holds for ~1 s, then fades back to the AFTER. The
+   reveal is one-shot per click.
 
-   The card-image button (data-project-trigger) is a no-op
-   placeholder for the future expanded before/after modal.
+   For the reveal to actually do something visible, each card's
+   <img class="studio__work-card-before"> must have its src
+   filled in (either directly in HTML or via the
+   data-project-before attribute). Until then the click toggles
+   the class but no second image renders — the AFTER stays in
+   view, no error logged. Drop the before-image files into
+   /assets/images/ named:
+     before-belle-riviere.webp
+     before-rosa.webp
+     before-vista.webp
+     before-the-tasca.webp
+     before-la-sala.webp
+     before-figueiras.webp
+   ...crop to 3:2 horizontal (e.g. 1500×1000), and the click
+   reveal will activate automatically.
    ========================================================= */
 (function () {
   'use strict';
@@ -27,55 +38,28 @@
 
   let activeIndex = 0;
 
-  function ensureVideoSrc(video) {
-    if (!video) return;
-    const src = video.dataset.projectVideo;
-    if (src && !video.src) {
-      video.src = src;
-      try { video.load(); } catch (_) {}
-    }
-  }
-
-  function playCardVideo(card) {
-    const video = card && card.querySelector('.studio__work-card-video');
-    if (!video) return;
-    ensureVideoSrc(video);
-    if (!video.src) return; // no source wired yet → poster stays
-    const playPromise = video.play();
-    if (playPromise && typeof playPromise.catch === 'function') {
-      playPromise.catch(() => {}); // autoplay blocked on some browsers — silent
-    }
-  }
-
-  function pauseCardVideo(card) {
-    const video = card && card.querySelector('.studio__work-card-video');
-    if (!video) return;
-    try {
-      video.pause();
-      video.currentTime = 0;
-    } catch (_) {}
+  // Lazy-set before-image src from data-project-before so empty
+  // attributes don't trigger 404s. When the data attribute is
+  // populated, the next click will pick it up.
+  function ensureBeforeSrc(img) {
+    if (!img) return;
+    const src = img.dataset.projectBefore;
+    if (src && !img.src) img.src = src;
   }
 
   function activateProject(index) {
     const total = cards.length;
     const nextIndex = ((index % total) + total) % total;
-
     cards.forEach((card, i) => {
-      const becomingActive = i === nextIndex;
-      card.classList.toggle('studio__work-card--active', becomingActive);
-      if (becomingActive) {
-        playCardVideo(card);
-      } else {
-        pauseCardVideo(card);
-      }
+      card.classList.toggle('studio__work-card--active', i === nextIndex);
+      // Always reset before-state when leaving a card so the next
+      // visit starts in the AFTER state.
+      const media = card.querySelector('.studio__work-card-media');
+      if (media) media.classList.remove('is-before-active');
     });
     showcase.dataset.activeProject = String(nextIndex);
     activeIndex = nextIndex;
   }
-
-  // Kick off the initial active card's video on first paint.
-  const initialActive = cards.find((c) => c.classList.contains('studio__work-card--active')) || cards[0];
-  if (initialActive) playCardVideo(initialActive);
 
   arrows.forEach((arrow) => {
     arrow.addEventListener('click', () => {
@@ -93,14 +77,26 @@
     });
   });
 
-  // Card-image trigger — placeholder for the future expanded
-  // before/after modal. data-project-href on the parent <article>
-  // tells the eventual handler which project to open.
+  // Click the photo → play before/after reveal once.
+  // Sequence: fade BEFORE in (1.6 s) → hold (1 s) → fade BEFORE out (1.6 s).
   triggers.forEach((trigger) => {
     trigger.addEventListener('click', () => {
       const card = trigger.closest('.studio__work-card');
-      const projectHref = card ? card.dataset.projectHref : '';
-      console.log('[studio-slideshow] card trigger fired —', projectHref || '(no href)');
+      const media = card && card.querySelector('.studio__work-card-media');
+      const beforeImg = card && card.querySelector('.studio__work-card-before');
+      if (!media || !beforeImg) return;
+      ensureBeforeSrc(beforeImg);
+      // Skip if no before src is wired up yet.
+      if (!beforeImg.getAttribute('src')) return;
+      // Don't restart mid-reveal.
+      if (media.classList.contains('is-before-active')) return;
+
+      media.classList.add('is-before-active');
+      // CSS transition is 1.6 s in, hold 1 s on the BEFORE state,
+      // then remove the class to let the 1.6 s transition out.
+      window.setTimeout(() => {
+        media.classList.remove('is-before-active');
+      }, 1600 + 1000);
     });
   });
 })();
