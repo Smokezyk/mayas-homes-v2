@@ -4452,7 +4452,7 @@ select.contact__input {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 4rem;
-  align-items: start;
+  align-items: center;
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 2rem;
@@ -4512,17 +4512,22 @@ select.contact__input {
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 2vw, 28px);
+  gap: 0;
+}
+.studio__intro-spread-text .eyebrow {
+  margin: 0 0 1rem;
 }
 /* §03 hospitality headline — visibly larger than §02's biographical
-   headline so the section reads as a different register. ~1.35× the
-   standard --fs-2xl scale, generous breathing room above so the
+   headline so the section reads as a different register. Sized so
+   the deterministic <br> in the markup breaks the line at the
+   grammatical point ("Welcome to" / "Maja's home.") with no
+   awkward third-line stagger. Generous breathing room above so the
    transition from §02 into this welcome moment feels deliberate. */
 .studio__intro-spread-text .studio__h2 {
-  font-size: clamp(3.75rem, 8vw, 7.5rem);
+  font-size: clamp(3.25rem, 6.5vw, 6rem);
   line-height: 1.05;
   letter-spacing: -0.022em;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
 }
 .studio__intro-spread-text p em {
   font-style: italic;
@@ -4559,7 +4564,7 @@ select.contact__input {
     align-self: stretch;
   }
   .studio__intro-spread-text .studio__h2 {
-    font-size: clamp(2.75rem, 10vw, 4.5rem);
+    font-size: clamp(2.5rem, 9vw, 4rem);
     letter-spacing: -0.018em;
   }
 }
