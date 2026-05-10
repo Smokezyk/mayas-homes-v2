@@ -17,13 +17,13 @@
   <meta property="og:image" content="https://mayashomes.com/assets/images/rosario-hero.webp" />
   <meta property="og:locale" content="en_GB" />
 
-  <link rel="icon" type="image/png" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="/logo/mayas-homes-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=248" />
-  <link rel="stylesheet" href="/css/animations.css?v=248" />
+  <link rel="stylesheet" href="/css/index.css?v=249" />
+  <link rel="stylesheet" href="/css/animations.css?v=249" />
 </head>
 <body class="page-contact">
 
@@ -313,16 +313,20 @@
     <div class="footer__credentials">
       <p class="footer__credentials-line footer__credentials-line--left">&copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Founded by Maja Mili&ccaron;</p>
       <p class="footer__credentials-line footer__credentials-line--center">Licensed renovation contractor &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698</p>
-      <p class="footer__credentials-line footer__credentials-line--right"><em>Maya&rsquo;s Care</em> opening soon <a href="/contact/" class="footer__credentials-link">→</a> &middot; <a href="/privacy" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Privacy</a> &middot; <a href="/terms" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Terms</a></p>
+      <p class="footer__credentials-line footer__credentials-line--right">Maya&rsquo;s Care opening soon <a href="/contact/" class="footer__credentials-link">→</a> &middot; <a href="/privacy" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Privacy</a> &middot; <a href="/terms" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Terms</a></p>
     </div>
   </footer>
 
-  <script src="/vendor/gsap.min.js?v=236"></script>
-  <script src="/vendor/ScrollTrigger.min.js?v=236"></script>
-  <script src="/vendor/lenis.min.js?v=236"></script>
-  <script src="/js/main.js?v=236" type="module"></script>
-  <script src="/js/nav.js?v=236" type="module"></script>
-  <script src="/js/nav-drawer.js?v=236" defer></script>
-  <script src="js/magnetic.js?v=236"></script>
+  <!-- Order matters: main.js wires Lenis ↔ ScrollTrigger BEFORE scroll-scrub creates triggers. -->
+  <script src="/vendor/gsap.min.js?v=249"></script>
+  <script src="/vendor/ScrollTrigger.min.js?v=249"></script>
+  <script src="/vendor/lenis.min.js?v=249"></script>
+  <script src="/js/main.js?v=249" type="module"></script>
+  <script src="/js/scroll-scrub.js?v=249" type="module"></script>
+  <script src="/js/nav.js?v=249" type="module"></script>
+  <script src="/js/nav-drawer.js?v=249" defer></script>
+  <script src="/js/magnetic.js?v=249"></script>
+  <script src="/js/scroll-brand.js?v=249" defer></script>
+  <script src="/js/intro.js?v=249" defer></script>
 </body>
 </html>
