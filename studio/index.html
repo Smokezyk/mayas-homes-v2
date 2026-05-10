@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=249" />
-  <link rel="stylesheet" href="/css/animations.css?v=249" />
+  <link rel="stylesheet" href="/css/index.css?v=250" />
+  <link rel="stylesheet" href="/css/animations.css?v=250" />
 </head>
 <body class="page-studio">
 
@@ -137,7 +137,14 @@
 
         <figure class="studio__intro-photo">
           <div class="studio__intro-photo-frame">
-            <img src="/assets/images/studio-at-home.png" alt="Maja&rsquo;s enclosed balcony studio in Alcabideche &mdash; long table where drawings and samples are made, looking out through glass to trees and rooftops" />
+            <video
+              class="studio__intro-photo-video"
+              data-living-portrait
+              data-project-video=""
+              poster="/assets/images/studio-at-home.png"
+              muted loop playsinline preload="metadata" loading="lazy"
+              aria-label="Maja&rsquo;s enclosed balcony studio in Alcabideche &mdash; long table where drawings and samples are made, looking out through glass to trees and rooftops"
+            ></video>
           </div>
           <figcaption class="studio__intro-spread-caption">
             <span>Studio &middot; Alcabideche</span>
@@ -147,9 +154,17 @@
         <div class="studio__intro-spread-text">
           <p class="eyebrow">&mdash; The House</p>
           <h2 class="display studio__h2">Welcome to<br />Maja&rsquo;s home.</h2>
-          <p><em>Every project begins with a visit &mdash; to your space, or to hers.</em></p>
+          <p class="studio__intro-spread-lede">The studio is a house. Maja lives and works in the same T5 home in Alcabideche where every drawing begins, every sample is tested, every renovation finds its first room. Clients are received here, at the table where the work itself is made.</p>
+          <p class="studio__intro-spread-close"><em>Every project begins with a visit &mdash; to your space, or to hers.</em></p>
         </div>
 
+      </div>
+
+      <div class="section-closer section-closer--minimal">
+        <a href="/process/" class="section-closer__link">
+          <span>See how the visit unfolds</span>
+          <span class="section-closer__arrow" aria-hidden="true">&rarr;</span>
+        </a>
       </div>
 
     </section>
