@@ -4514,10 +4514,19 @@ select.contact__input {
   flex-direction: column;
   gap: clamp(20px, 2vw, 28px);
 }
+/* §03 hospitality headline — visibly larger than §02's biographical
+   headline so the section reads as a different register. ~1.35× the
+   standard --fs-2xl scale, generous breathing room above so the
+   transition from §02 into this welcome moment feels deliberate. */
 .studio__intro-spread-text .studio__h2 {
-  font-size: clamp(30px, 3.2vw, 40px);
-  line-height: 1.15;
-  margin: 0;
+  font-size: clamp(3.75rem, 8vw, 7.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  margin: 0 0 1.25rem;
+}
+.studio__intro-spread-text p em {
+  font-style: italic;
+  color: var(--ink-2);
 }
 .studio__intro-spread-text p {
   font-family: var(--sans);
@@ -4550,7 +4559,8 @@ select.contact__input {
     align-self: stretch;
   }
   .studio__intro-spread-text .studio__h2 {
-    font-size: clamp(26px, 5vw, 32px);
+    font-size: clamp(2.75rem, 10vw, 4.5rem);
+    letter-spacing: -0.018em;
   }
 }
 .studio__intro .wrap--narrow {
@@ -8415,14 +8425,14 @@ body.page-studio .wrap {
 }
 .studio__intro-spread {
   position: relative;
-  padding-top: clamp(96px, 12vw, 160px);
+  padding-top: clamp(160px, 18vw, 240px);
 }
 @media (max-width: 768px) {
   .studio__intro-bio {
     padding-bottom: clamp(64px, 10vw, 96px);
   }
   .studio__intro-spread {
-    padding-top: clamp(64px, 10vw, 96px);
+    padding-top: clamp(96px, 14vw, 144px);
   }
 }
 
