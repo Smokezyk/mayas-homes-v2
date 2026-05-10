@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=239" />
-  <link rel="stylesheet" href="/css/animations.css?v=239" />
+  <link rel="stylesheet" href="/css/index.css?v=240" />
+  <link rel="stylesheet" href="/css/animations.css?v=240" />
 </head>
 <body class="page-studio">
 
@@ -159,128 +159,113 @@
       </div>
     </section>
 
-    <!-- 05 — The recent work (cinematic slideshow + thumbnail strip) -->
-    <section class="studio__work fade-in" id="selected-work" aria-label="Selected work archive">
+    <!-- 05 — Maya's Selection: one-card slideshow with glassy prev/next chevrons -->
+    <section class="studio__work fade-in" id="selected-work" aria-label="Maya&rsquo;s Selection">
       <div class="wrap studio__work-inner">
 
         <header class="studio__work-header">
-          <p class="studio__mono-marker">&mdash; From the archive</p>
-          <h2 class="studio__h2 studio__h2--centered">The recent work.</h2>
+          <h2 class="studio__h2 studio__h2--centered">Maya&rsquo;s Selection.</h2>
         </header>
 
-        <div class="studio__work-showcase" data-active-project="0">
+        <div class="studio__work-stage">
+          <button type="button" class="studio__work-arrow studio__work-arrow--prev" data-direction="-1" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
 
-          <article class="studio__work-card studio__work-card--active" data-project-index="0">
-            <a href="/projects/belle-riviere/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-labelleriviera.webp" alt="Belle Rivi&egrave;re &mdash; Cascais villa renovation" loading="lazy" decoding="async" />
-              </figure>
+          <div class="studio__work-showcase" data-active-project="0">
+
+            <article class="studio__work-card studio__work-card--active" data-project-index="0" data-project-href="/projects/belle-riviere/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Belle Rivi&egrave;re before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-labelleriviera.webp" alt="Belle Rivi&egrave;re &mdash; Cascais villa renovation" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Belle Rivi&egrave;re</h3>
                 <p class="studio__work-card-location">Cascais</p>
                 <p class="studio__work-card-description"><em>Villa renovation. 244 m&sup2; plus 120 m&sup2; terrace, rescued from ruin.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
-          <article class="studio__work-card" data-project-index="1">
-            <a href="/projects/rosa/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-rosa.webp" alt="Rosa &mdash; Bairro Ros&aacute;rio renovation" loading="lazy" decoding="async" />
-              </figure>
+            <article class="studio__work-card" data-project-index="1" data-project-href="/projects/rosa/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Rosa before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-rosa.webp" alt="Rosa &mdash; Bairro Ros&aacute;rio renovation" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Rosa</h3>
                 <p class="studio__work-card-location">Bairro Ros&aacute;rio</p>
                 <p class="studio__work-card-description"><em>Full renovation. Granite, gold, and an outdoor build.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
-          <article class="studio__work-card" data-project-index="2">
-            <a href="/projects/vista/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-vista.jpg" alt="Vista &mdash; Alvide kitchen and bathroom" loading="lazy" decoding="async" />
-              </figure>
+            <article class="studio__work-card" data-project-index="2" data-project-href="/projects/vista/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Vista before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-vista.jpg" alt="Vista &mdash; Alvide kitchen and bathroom" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Vista</h3>
                 <p class="studio__work-card-location">Alvide</p>
                 <p class="studio__work-card-description"><em>Kitchen and bathroom. Top floor, lavender.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
-          <article class="studio__work-card" data-project-index="3">
-            <a href="/projects/the-tasca/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-thetasca.webp" alt="The Tasca &mdash; Amoreira loft conversion" loading="lazy" decoding="async" />
-              </figure>
+            <article class="studio__work-card" data-project-index="3" data-project-href="/projects/the-tasca/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play The Tasca before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-thetasca.webp" alt="The Tasca &mdash; Amoreira loft conversion" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">The Tasca</h3>
                 <p class="studio__work-card-location">Amoreira</p>
                 <p class="studio__work-card-description"><em>A neighborhood tasca, fully converted to a loft.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
-          <article class="studio__work-card" data-project-index="4">
-            <a href="/projects/la-sala/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-lasala.webp" alt="La Sala &mdash; Carcavelos renovation" loading="lazy" decoding="async" />
-              </figure>
+            <article class="studio__work-card" data-project-index="4" data-project-href="/projects/la-sala/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play La Sala before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-lasala.webp" alt="La Sala &mdash; Carcavelos renovation" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">La Sala</h3>
                 <p class="studio__work-card-location">Carcavelos</p>
                 <p class="studio__work-card-description"><em>Full renovation. Botanical, teal, deliberate.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
-          <article class="studio__work-card" data-project-index="5">
-            <a href="/projects/figueiras/" class="studio__work-card-link">
-              <figure class="studio__work-card-image">
-                <img src="/assets/images/hero-image-figueiras.webp" alt="Figueiras &mdash; Torre renovation" loading="lazy" decoding="async" />
-              </figure>
+            <article class="studio__work-card" data-project-index="5" data-project-href="/projects/figueiras/">
+              <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Figueiras before-and-after">
+                <figure class="studio__work-card-image">
+                  <img src="/assets/images/hero-image-figueiras.webp" alt="Figueiras &mdash; Torre renovation" loading="lazy" decoding="async" />
+                </figure>
+              </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Figueiras</h3>
                 <p class="studio__work-card-location">Torre</p>
                 <p class="studio__work-card-description"><em>Full renovation. Quartz waterfall. Mauve. Open plan.</em></p>
               </div>
-            </a>
-          </article>
+            </article>
 
+          </div>
+
+          <button type="button" class="studio__work-arrow studio__work-arrow--next" data-direction="1" aria-label="Next project">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
 
-        <nav class="studio__work-thumbs" aria-label="Project navigation">
-          <button type="button" class="studio__work-thumb studio__work-thumb--active" data-target-index="0" aria-label="Show Belle Rivi&egrave;re">
-            <img src="/assets/images/hero-image-labelleriviera.webp" alt="" loading="lazy" decoding="async" />
-          </button>
-          <button type="button" class="studio__work-thumb" data-target-index="1" aria-label="Show Rosa">
-            <img src="/assets/images/hero-image-rosa.webp" alt="" loading="lazy" decoding="async" />
-          </button>
-          <button type="button" class="studio__work-thumb" data-target-index="2" aria-label="Show Vista">
-            <img src="/assets/images/hero-image-vista.jpg" alt="" loading="lazy" decoding="async" />
-          </button>
-          <button type="button" class="studio__work-thumb" data-target-index="3" aria-label="Show The Tasca">
-            <img src="/assets/images/hero-image-thetasca.webp" alt="" loading="lazy" decoding="async" />
-          </button>
-          <button type="button" class="studio__work-thumb" data-target-index="4" aria-label="Show La Sala">
-            <img src="/assets/images/hero-image-lasala.webp" alt="" loading="lazy" decoding="async" />
-          </button>
-          <button type="button" class="studio__work-thumb" data-target-index="5" aria-label="Show Figueiras">
-            <img src="/assets/images/hero-image-figueiras.webp" alt="" loading="lazy" decoding="async" />
-          </button>
-        </nav>
-
-        <div class="studio__work-counter" aria-hidden="true">
-          <span class="studio__work-counter-current">01</span>
-          <span class="studio__work-counter-separator">/</span>
-          <span class="studio__work-counter-total">06</span>
-        </div>
-
-        <a href="/projects/" class="studio__work-cta">
-          <span>See every project</span>
-          <span class="studio__work-cta-arrow" aria-hidden="true">&rarr;</span>
-        </a>
+        <a href="/projects/" class="studio__work-cta-button">View All Projects</a>
       </div>
     </section>
 
