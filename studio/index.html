@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=241" />
-  <link rel="stylesheet" href="/css/animations.css?v=241" />
+  <link rel="stylesheet" href="/css/index.css?v=242" />
+  <link rel="stylesheet" href="/css/animations.css?v=242" />
 </head>
 <body class="page-studio">
 
@@ -159,17 +159,17 @@
       </div>
     </section>
 
-    <!-- 05 — Maya's Selection: one-card slideshow with glassy prev/next chevrons -->
-    <section class="studio__work fade-in" id="selected-work" aria-label="Maya&rsquo;s Selection">
+    <!-- 05 — Maja's Selection: contained-card slideshow with glassy nav arrows -->
+    <section class="studio__work fade-in" id="selected-work" aria-label="Maja&rsquo;s Selection">
       <div class="wrap studio__work-inner">
 
         <header class="studio__work-header">
-          <h2 class="studio__h2 studio__h2--centered">Maya&rsquo;s Selection.</h2>
+          <h2 class="studio__h2 studio__h2--centered">Maja&rsquo;s Selection.</h2>
         </header>
 
         <div class="studio__work-stage">
           <button type="button" class="studio__work-arrow studio__work-arrow--prev" data-direction="-1" aria-label="Previous project">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
@@ -179,9 +179,9 @@
 
             <article class="studio__work-card studio__work-card--active" data-project-index="0" data-project-href="/projects/belle-riviere/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Belle Rivi&egrave;re before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-labelleriviera.webp" alt="Belle Rivi&egrave;re &mdash; Cascais villa renovation" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-labelleriviera.webp" muted playsinline loop preload="none" aria-label="Belle Rivi&egrave;re project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Belle Rivi&egrave;re</h3>
@@ -192,9 +192,9 @@
 
             <article class="studio__work-card" data-project-index="1" data-project-href="/projects/rosa/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Rosa before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-rosa.webp" alt="Rosa &mdash; Bairro Ros&aacute;rio renovation" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-rosa.webp" muted playsinline loop preload="none" aria-label="Rosa project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Rosa</h3>
@@ -205,9 +205,9 @@
 
             <article class="studio__work-card" data-project-index="2" data-project-href="/projects/vista/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Vista before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-vista.jpg" alt="Vista &mdash; Alvide kitchen and bathroom" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-vista.jpg" muted playsinline loop preload="none" aria-label="Vista project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Vista</h3>
@@ -218,9 +218,9 @@
 
             <article class="studio__work-card" data-project-index="3" data-project-href="/projects/the-tasca/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play The Tasca before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-thetasca.webp" alt="The Tasca &mdash; Amoreira loft conversion" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-thetasca.webp" muted playsinline loop preload="none" aria-label="The Tasca project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">The Tasca</h3>
@@ -231,9 +231,9 @@
 
             <article class="studio__work-card" data-project-index="4" data-project-href="/projects/la-sala/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play La Sala before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-lasala.webp" alt="La Sala &mdash; Carcavelos renovation" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-lasala.webp" muted playsinline loop preload="none" aria-label="La Sala project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">La Sala</h3>
@@ -244,9 +244,9 @@
 
             <article class="studio__work-card" data-project-index="5" data-project-href="/projects/figueiras/">
               <button type="button" class="studio__work-card-trigger" data-project-trigger aria-label="Play Figueiras before-and-after">
-                <figure class="studio__work-card-image">
-                  <img src="/assets/images/hero-image-figueiras.webp" alt="Figueiras &mdash; Torre renovation" loading="lazy" decoding="async" />
-                </figure>
+                <div class="studio__work-card-media">
+                  <video class="studio__work-card-video" data-project-video="" poster="/assets/images/hero-image-figueiras.webp" muted playsinline loop preload="none" aria-label="Figueiras project preview"></video>
+                </div>
               </button>
               <div class="studio__work-card-meta">
                 <h3 class="studio__work-card-title">Figueiras</h3>
@@ -258,7 +258,7 @@
           </div>
 
           <button type="button" class="studio__work-arrow studio__work-arrow--next" data-direction="1" aria-label="Next project">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>

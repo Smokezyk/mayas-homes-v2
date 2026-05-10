@@ -1,10 +1,19 @@
 /* =========================================================
-   Studio §05 — Maya's Selection slideshow.
+   Studio §05 — Maja's Selection slideshow.
+
    Prev / next chevrons cycle the active card with wrap-around
-   (after #6 → #1, before #1 → #6). The card image is a
-   button that will trigger a before/after transformation
-   animation per project; until those videos exist, the
-   trigger is a no-op placeholder logging the project route.
+   (after #6 → #1, before #1 → #6). Each card holds a <video>
+   element that uses the project's hero image as its poster.
+   When a card becomes active, its video plays (autoplay, muted,
+   looped). When inactive, it pauses to save resources.
+
+   Each <video> carries data-project-video which JS reads to set
+   src lazily. While the attribute is empty, the poster image
+   shows and never plays — clean fallback until the per-project
+   before/after files exist on disk.
+
+   The card-image button (data-project-trigger) is a no-op
+   placeholder for the future expanded before/after modal.
    ========================================================= */
 (function () {
   'use strict';
@@ -18,41 +27,61 @@
 
   let activeIndex = 0;
 
+  function ensureVideoSrc(video) {
+    if (!video) return;
+    const src = video.dataset.projectVideo;
+    if (src && !video.src) {
+      video.src = src;
+      try { video.load(); } catch (_) {}
+    }
+  }
+
+  function playCardVideo(card) {
+    const video = card && card.querySelector('.studio__work-card-video');
+    if (!video) return;
+    ensureVideoSrc(video);
+    if (!video.src) return; // no source wired yet → poster stays
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {}); // autoplay blocked on some browsers — silent
+    }
+  }
+
+  function pauseCardVideo(card) {
+    const video = card && card.querySelector('.studio__work-card-video');
+    if (!video) return;
+    try {
+      video.pause();
+      video.currentTime = 0;
+    } catch (_) {}
+  }
+
   function activateProject(index) {
     const total = cards.length;
-    // Wrap-around in both directions.
     const nextIndex = ((index % total) + total) % total;
 
     cards.forEach((card, i) => {
-      card.classList.toggle('studio__work-card--active', i === nextIndex);
+      const becomingActive = i === nextIndex;
+      card.classList.toggle('studio__work-card--active', becomingActive);
+      if (becomingActive) {
+        playCardVideo(card);
+      } else {
+        pauseCardVideo(card);
+      }
     });
     showcase.dataset.activeProject = String(nextIndex);
     activeIndex = nextIndex;
   }
+
+  // Kick off the initial active card's video on first paint.
+  const initialActive = cards.find((c) => c.classList.contains('studio__work-card--active')) || cards[0];
+  if (initialActive) playCardVideo(initialActive);
 
   arrows.forEach((arrow) => {
     arrow.addEventListener('click', () => {
       const direction = parseInt(arrow.dataset.direction, 10) || 1;
       activateProject(activeIndex + direction);
     });
-  });
-
-  // Card-image trigger — placeholder for the future before/after
-  // transformation animation. Each card's parent <article> carries
-  // data-project-href so the eventual handler knows which project
-  // route to open / which video to play. For now, log and do nothing
-  // visible.
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const card = trigger.closest('.studio__work-card');
-      const projectHref = card ? card.dataset.projectHref : '';
-      // Future: open before/after modal scoped to projectHref.
-      console.log('[studio-slideshow] card trigger fired —', projectHref || '(no href)');
-    });
-  });
-
-  // Keyboard navigation: ←/→ when focus is on an arrow.
-  arrows.forEach((arrow) => {
     arrow.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') {
         e.preventDefault();
@@ -61,6 +90,17 @@
         e.preventDefault();
         activateProject(activeIndex - 1);
       }
+    });
+  });
+
+  // Card-image trigger — placeholder for the future expanded
+  // before/after modal. data-project-href on the parent <article>
+  // tells the eventual handler which project to open.
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const card = trigger.closest('.studio__work-card');
+      const projectHref = card ? card.dataset.projectHref : '';
+      console.log('[studio-slideshow] card trigger fired —', projectHref || '(no href)');
     });
   });
 })();

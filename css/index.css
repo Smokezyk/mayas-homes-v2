@@ -8622,21 +8622,32 @@ body.page-studio .wrap {
 .studio__work-showcase {
   position: relative;
   margin-bottom: clamp(32px, 4vw, 48px);
-  min-height: 600px;
+  min-height: clamp(540px, 60vw, 760px);
 }
+/* Each card is a contained, deliberate object — visible frame, drop
+   shadow lift, hairline border, rounded corners. Active = visible,
+   non-active = behind it absolutely. Cross-fades on swap. */
 .studio__work-card {
   position: absolute;
   inset: 0 0 auto 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0s ease 0.6s;
+  transition: opacity 0.45s ease, visibility 0s ease 0.45s;
   pointer-events: none;
+  background: var(--bone);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 56px rgba(45, 41, 38, 0.10),
+    0 6px 16px rgba(45, 41, 38, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 .studio__work-card--active {
   position: relative;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.6s ease, visibility 0s ease 0s;
+  transition: opacity 0.45s ease, visibility 0s ease 0s;
   pointer-events: auto;
 }
 .studio__work-card-link {
@@ -8644,26 +8655,9 @@ body.page-studio .wrap {
   text-decoration: none;
   color: inherit;
 }
-.studio__work-card-image {
-  margin: 0 0 clamp(20px, 2.5vw, 32px) 0;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-}
-.studio__work-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s var(--ease-out);
-}
-.studio__work-card-link:hover .studio__work-card-image img {
-  transform: scale(1.02);
-}
-.studio__work-card-meta {
-  text-align: left;
-  max-width: 720px;
-}
+/* Legacy .studio__work-card-image (img-based) — kept inert so older
+   markup wouldn't break; the active layout uses .studio__work-card-media. */
+.studio__work-card-image { display: none; }
 .studio__work-card-title {
   font-family: var(--serif);
   font-size: clamp(2rem, 3.5vw, 2.75rem);
@@ -8688,18 +8682,25 @@ body.page-studio .wrap {
   margin: 0;
 }
 
-/* Stage wrapper — positions the prev/next chevrons in the side margins
-   while the showcase remains the centered focal element. */
+/* Stage wrapper — three-column grid that frames the contained card
+   between the two glassy arrows. Stage is capped just wider than the
+   card so the arrows sit close to the card's edges, not floating
+   in unrelated whitespace. */
 .studio__work-stage {
   position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: clamp(16px, 2vw, 32px);
-  margin-bottom: clamp(40px, 5vw, 64px);
+  gap: clamp(16px, 2.5vw, 32px);
+  max-width: 1180px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
 }
 .studio__work-stage .studio__work-showcase {
   margin-bottom: 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* Card trigger — the figure becomes a clickable button without
@@ -8721,18 +8722,37 @@ body.page-studio .wrap {
   outline: 2px solid var(--ink);
   outline-offset: 4px;
 }
-.studio__work-card-trigger .studio__work-card-image img {
+.studio__work-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--bone-2);
+}
+.studio__work-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.8s var(--ease-out);
 }
-.studio__work-card-trigger:hover .studio__work-card-image img {
+.studio__work-card-trigger:hover .studio__work-card-video {
   transform: scale(1.015);
 }
+.studio__work-card-meta {
+  text-align: left;
+  padding: clamp(20px, 2.4vw, 32px) clamp(20px, 2.4vw, 32px) clamp(24px, 2.8vw, 36px);
+  background: var(--bone);
+}
 
-/* Glassy chevron arrows — same frosted treatment as the floating-nav
-   pill, miniaturised. Sit in the side margins of the stage. */
+/* Glassy chevron arrows — clearly clickable at 56px, same frosted
+   treatment as the floating-nav pill. Sit in the stage's outer
+   columns just outside the card's left/right edges. */
 .studio__work-arrow {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
@@ -8741,29 +8761,34 @@ body.page-studio .wrap {
   color: var(--ink);
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(255, 255, 255, 0.16) 100%
+    rgba(255, 255, 255, 0.36) 0%,
+    rgba(255, 255, 255, 0.18) 100%
   );
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px) saturate(1.25);
+  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.48);
   box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.06),
-    0 1px 3px rgba(0, 0, 0, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.02);
-  opacity: 0.7;
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  opacity: 0.85;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 .studio__work-arrow:hover,
 .studio__work-arrow:focus-visible {
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.10),
+    0 3px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.04);
   outline: none;
 }
 .studio__work-arrow svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 
 /* Glassy "View All Projects" CTA — mirrors the floating-nav pill exactly. */
@@ -8812,17 +8837,38 @@ body.page-studio .wrap {
 }
 
 @media (max-width: 768px) {
-  .studio__work-showcase {
-    min-height: 480px;
-  }
+  /* Mobile: arrows reposition BELOW the card. Card spans full
+     content width; arrows sit centered on a row beneath. */
   .studio__work-stage {
-    gap: 8px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: clamp(20px, 3vw, 28px);
+    justify-items: center;
+  }
+  .studio__work-stage .studio__work-showcase {
+    grid-row: 1;
+    grid-column: 1;
+    max-width: 100%;
   }
   .studio__work-arrow {
-    width: 36px;
-    height: 36px;
+    grid-row: 2;
+    width: 48px;
+    height: 48px;
   }
-  .studio__work-card-image {
+  .studio__work-arrow--prev {
+    grid-column: 1;
+    justify-self: end;
+    margin-right: 8px;
+  }
+  .studio__work-arrow--next {
+    grid-column: 1;
+    justify-self: start;
+    margin-left: 8px;
+  }
+  .studio__work-showcase {
+    min-height: clamp(420px, 110vw, 600px);
+  }
+  .studio__work-card-media {
     aspect-ratio: 4 / 3;
   }
 }
