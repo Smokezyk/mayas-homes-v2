@@ -8637,13 +8637,13 @@ body.page-studio .wrap {
 .studio__work-showcase {
   position: relative;
   margin-bottom: clamp(32px, 4vw, 48px);
-  min-height: clamp(540px, 60vw, 760px);
 }
-/* Each card is a contained editorial plate — sharp 4 px corners,
-   hairline border on the taupe section, layered ambient shadow
-   (close + soft) so the card sits in a softly lit room rather than
-   floating above the page. Active = visible, non-active = behind
-   it absolutely. Cross-fades on swap. */
+/* Each card is a contained editorial plate, now landscape: photo
+   left (60 %), text right (40 %) — magazine-spread shape. Sharp 4 px
+   corners, hairline border on the taupe section, layered ambient
+   shadow (close + soft) so the card sits in a softly lit room
+   rather than floating above the page. Active = visible,
+   non-active = behind it absolutely. Cross-fades on swap. */
 .studio__work-card {
   position: absolute;
   inset: 0 0 auto 0;
@@ -8651,6 +8651,9 @@ body.page-studio .wrap {
   visibility: hidden;
   transition: opacity 0.45s ease, visibility 0s ease 0.45s;
   pointer-events: none;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  align-items: stretch;
   background: var(--bone);
   border: 1px solid rgba(45, 41, 38, 0.08);
   border-radius: 4px;
@@ -8708,17 +8711,24 @@ body.page-studio .wrap {
   position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: start;
+  align-items: center;
   gap: clamp(16px, 2.5vw, 32px);
-  max-width: 1140px;
+  max-width: 1280px;
   margin: 0 auto clamp(40px, 5vw, 64px);
 }
 .studio__work-stage .studio__work-showcase {
   margin-bottom: 0;
-  max-width: min(960px, calc(100vw - 8rem));
+  max-width: min(1100px, calc(100vw - 8rem));
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+/* Landscape card height = (card width × 0.6) / 1.5 = card width × 0.4.
+   At 1100 px max card → 440 px tall. Showcase needs to reserve at least
+   that vertical space so the absolutely-positioned non-active cards
+   don't collapse the layout. */
+.studio__work-showcase {
+  min-height: clamp(280px, 30vw, 440px);
 }
 
 /* Card trigger — the figure becomes a clickable button without
@@ -8740,13 +8750,19 @@ body.page-studio .wrap {
   outline: 2px solid var(--ink);
   outline-offset: 4px;
 }
+.studio__work-card-trigger {
+  height: 100%;
+}
 .studio__work-card-media {
   position: relative;
   width: 100%;
+  height: 100%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   background: var(--bone-2);
-  border-bottom: 1px solid rgba(45, 41, 38, 0.10);
+  /* Vertical hairline divider — magazine spread rule between the
+     photo column and the text column on landscape (≥769 px) layout. */
+  border-right: 1px solid rgba(45, 41, 38, 0.10);
 }
 .studio__work-card-video {
   position: absolute;
@@ -8754,6 +8770,7 @@ body.page-studio .wrap {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.8s var(--ease-out);
 }
@@ -8764,6 +8781,9 @@ body.page-studio .wrap {
   text-align: left;
   padding: clamp(2rem, 3vw, 3.5rem);
   background: var(--bone);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .studio__work-card-meta .studio__work-card-title {
   margin: 0 0 0.5rem;
@@ -8802,13 +8822,10 @@ body.page-studio .wrap {
     inset 0 -1px 0 rgba(0, 0, 0, 0.03);
   opacity: 0.85;
   transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  /* Align arrow vertical center with the photo's vertical center.
-     The photo's height = card width / 1.5 (3:2 aspect). At desktop
-     max card width 960px, photo height = 640px, photo midpoint =
-     320px from card top. Arrow half-height = 28px. Margin-top
-     scales with the showcase width via clamp. */
-  align-self: start;
-  margin-top: clamp(150px, 21vw, 292px);
+  /* Landscape card: photo and text columns share the same height,
+     so the card's vertical midpoint == the photo's vertical midpoint.
+     Stage's align-items: center handles arrow alignment cleanly. */
+  align-self: center;
 }
 .studio__work-arrow:hover,
 .studio__work-arrow:focus-visible {
@@ -8872,9 +8889,17 @@ body.page-studio .wrap {
 }
 
 @media (max-width: 768px) {
-  /* Mobile: arrows reposition BELOW the card. Card spans full
-     content width minus 3rem of horizontal margin. Arrows sit
-     centered on a row beneath. */
+  /* Mobile: card collapses from landscape spread back to vertical
+     stack — photo on top, text below, hairline divider rotates back
+     to horizontal. Arrows reposition below the card. */
+  .studio__work-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .studio__work-card-media {
+    border-right: 0;
+    border-bottom: 1px solid rgba(45, 41, 38, 0.10);
+  }
   .studio__work-stage {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -8891,7 +8916,6 @@ body.page-studio .wrap {
     width: 48px;
     height: 48px;
     align-self: auto;
-    margin-top: 0;
   }
   .studio__work-arrow--prev {
     grid-column: 1;
@@ -8904,10 +8928,8 @@ body.page-studio .wrap {
     margin-left: 8px;
   }
   .studio__work-showcase {
-    min-height: clamp(420px, 110vw, 600px);
+    min-height: clamp(540px, 130vw, 760px);
   }
-  /* Photo aspect-ratio stays 3:2 on mobile per editorial register;
-     the previous 4:3 override is intentionally removed. */
 }
 
 /* =========================================================
