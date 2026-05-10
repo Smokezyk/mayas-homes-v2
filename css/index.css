@@ -7657,6 +7657,12 @@ body.nav-locked { overflow: hidden; }
   display: block;
   margin: 0;
 }
+/* Per-portrait crop modifiers — move the focal point of the source
+   image down a fraction so the head doesn't sit pinned to the top
+   of the 4:5 frame. Replaces the inline style="object-position…"
+   attributes that previously lived on each <img>. */
+.studio__person-photo--top { object-position: 50% 18%; }
+.studio__person-photo--top-right { object-position: 58% 18%; }
 .studio__intro-portrait-image {
   width: 100%;
   aspect-ratio: 4 / 5;
