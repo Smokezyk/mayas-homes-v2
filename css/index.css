@@ -7,15 +7,26 @@
   /* — Colour: warm, restrained, photographic — */
   --bone: #F4EFE6;
   --bone-2: #ECE5D8;
-  --paper: #FAF7F2;
-  --ink: #14110E;
-  --ink-2: #2A2622;
+  --paper: #F8F6EE;
+  --ink: #2D2926;
+  --ink-2: #4A4540;
   --mid: #6B5F52;
   --soft: #9A8E7E;
-  --hairline: rgba(20, 17, 14, 0.12);
-  --hairline-strong: rgba(20, 17, 14, 0.28);
+  --hairline: rgba(45, 41, 38, 0.14);
+  --hairline-strong: rgba(45, 41, 38, 0.30);
   --tobacco: #8B6F47;
   --ochre: #B98A4A;
+
+  /* — Tonal rhythm: olive (spine), chestnut (bookends), cream typography — */
+  --shadow: #4A4E2E;
+  --chestnut: #6B4530;
+  --bone-on-shadow: #F4EFE6;
+  --mid-on-shadow: #CCC0AB;
+  --bone-on-chestnut: #F4EFE6;
+  --mid-on-chestnut: #D4C5B5;
+
+  /* — Calm rest state: warm putty-cream backdrop for closing sections — */
+  --taupe: #FAF5EC;
 
   /* — Type — */
   --serif: 'Cormorant Garamond', 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -36,6 +47,13 @@
   --pad-x: clamp(24px, 5vw, 96px);
   --gutter: clamp(16px, 1.5vw, 28px);
   --container: 1480px;
+  /* Section-content envelopes (used inside the page-margin .wrap utility).
+     --container-max is the default width for editorial sections; the
+     two narrower tokens are reserved for moments where tighter framing
+     is the design intent (spine quote, letter, prose-only columns). */
+  --container-max: 1480px;
+  --container-narrow: 900px;
+  --container-prose: 720px;
 
   /* — Motion — */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -52,7 +70,12 @@
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
 html, body { height: 100%; }
 body {
-  background: var(--bone);
+  background-color: var(--bone);
+  background-image: url('/assets/images/background-v3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--sans);
   font-size: var(--fs-base);
@@ -60,6 +83,19 @@ body {
   line-height: 1.55;
   letter-spacing: 0.005em;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Body-level subtle noise — barely perceptible, makes the limestone feel physical. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
 }
 img, video, svg { display: block; max-width: 100%; }
 img { height: auto; }
@@ -2893,7 +2929,8 @@ a.contact__direct-value:hover {
    bone) so the footer reads as a distinct zone — same warm
    family, visibly different surface. */
 .footer {
-  background: var(--paper);
+  background-color: transparent;
+  background-image: none;
   color: var(--ink);
   padding: 0;
   border-top: 1px solid var(--hairline-strong);
@@ -4270,41 +4307,50 @@ select.contact__input {
 /* =========================================================
    /studio/ page
    ========================================================= */
-/* === Studio hero — magazine title page (Cereal profile opener register) === */
+/* === Studio §01 — Magazine title page (typographic, centered) ===
+   Transparent — body marble backsplash shows through. Plain typography on
+   marble, no pills, no panels. The headline carries the section. */
 .studio__hero {
-  padding-top: clamp(140px, 18vh, 220px);
-  padding-bottom: clamp(100px, 12vh, 160px);
-  border-bottom: 1px solid var(--hairline);
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(140px, 18vh, 240px) 0 clamp(40px, 5vh, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+.studio__hero > * {
+  position: relative;
+  z-index: 2;
 }
 .studio__hero-inner {
   display: flex;
   flex-direction: column;
-}
-.studio__hero-stamp {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--mid);
-  margin: 0 0 clamp(48px, 6vw, 80px);
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px);
 }
 .studio__hero .eyebrow {
-  margin: 0 0 clamp(20px, 2.4vw, 32px);
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--ink-2);
+  color: rgba(45, 41, 38, 0.85);
+  margin: 0 0 clamp(28px, 3.2vw, 44px);
 }
 .studio__name {
   font-family: var(--serif);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(56px, 10vw, 128px);
-  line-height: 0.95;
-  letter-spacing: -0.015em;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
 }
@@ -4313,37 +4359,35 @@ select.contact__input {
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-2);
-  margin: clamp(24px, 2.6vw, 36px) 0 0;
+  letter-spacing: 0.22em;
+  color: rgba(45, 41, 38, 0.85);
+  margin: clamp(32px, 3.6vw, 48px) 0 0;
 }
 .studio__lede {
   font-family: var(--serif);
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(20px, 1.8vw, 26px);
+  font-size: clamp(18px, 1.5vw, 22px);
   line-height: 1.55;
-  color: var(--ink-2);
-  max-width: 60ch;
-  margin: clamp(28px, 3.2vw, 44px) 0 0;
+  color: var(--ink);
+  max-width: 56ch;
+  margin: clamp(36px, 4vw, 56px) auto 0;
 }
 @media (max-width: 760px) {
   .studio__hero {
-    padding-top: clamp(100px, 14vh, 140px);
-    padding-bottom: clamp(72px, 10vh, 100px);
+    padding: clamp(100px, 14vh, 140px) 0 clamp(56px, 8vh, 80px);
   }
   .studio__name {
-    font-size: clamp(44px, 12vw, 68px);
-    letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    letter-spacing: -0.012em;
   }
-  .studio__hero-stamp,
   .studio__hero .eyebrow,
   .studio__role {
     font-size: 10.5px;
     letter-spacing: 0.18em;
   }
   .studio__lede {
-    font-size: clamp(17px, 2vw, 20px);
+    font-size: clamp(16px, 2.2vw, 19px);
   }
 }
 
@@ -4352,32 +4396,245 @@ select.contact__input {
    reader keeps Maja in view through the biography. Italic budget for §02
    stays at three: H2 "Still here.", ¶3 voice line, figcaption "Alcabideche". */
 .studio__intro {
-  padding: clamp(100px, 12vw, 160px) 0;
+  padding: clamp(80px, 10vw, 140px) 0 clamp(100px, 12vw, 160px);
+  background-color: transparent;
+  background-image: none;
 }
-.studio__intro-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: clamp(48px, 6vw, 96px);
-  align-items: start;
-}
-.studio__portrait {
-  margin: 0;
-  position: sticky;
-  top: clamp(96px, 12vh, 140px);
-}
-.studio__portrait .ph-block--portrait {
+.studio__intro-photo {
+  margin: 0 auto;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  max-width: 1400px;
+  padding: 0 clamp(32px, 5vw, 96px);
+  box-sizing: border-box;
+}
+.studio__intro-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.studio__intro-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Caption block beneath the photo — Plex Mono metadata left, italic title +
+   explanatory paragraph right. Cereal magazine image-with-credits register. */
+/* === Scene break / bridge between §02 biography and §03 spread === */
+.scene-break {
+  max-width: 540px;
+  margin: 7rem auto;
+  text-align: center;
+}
+.scene-break p {
+  font-style: italic;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(45, 41, 38, 0.75);
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+@media (max-width: 768px) {
+  .scene-break {
+    margin: 5rem auto;
+  }
+  .scene-break p {
+    font-size: 1.125rem;
+  }
+}
+
+/* === §03 side-by-side: image LEFT (dominant) + text RIGHT.
+       1.4fr / 1fr — inverse of §02's 1.4fr / 1fr text-dominant
+       ratio, so the photo carries the visual weight here while
+       §02 carries it via the longer biographical text. === */
+.studio__intro-spread {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.studio__intro-spread .studio__intro-photo {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  background: var(--bone-2);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+}
+.studio__intro-spread .studio__intro-spread-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 16px 20px;
+  border-top: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: linear-gradient(180deg, rgba(20, 17, 14, 0) 0%, rgba(20, 17, 14, 0.55) 100%);
+}
+.studio__intro-spread .studio__intro-spread-caption span {
+  font-family: var(--sans);
+  color: var(--bone);
+  letter-spacing: 0.22em;
+  font-size: var(--fs-xs);
+  line-height: 1;
+}
+.studio__intro-spread-caption {
+  display: block;
+  margin-top: 1rem;
+}
+.studio__intro-spread-text .studio__intro-subtitle {
+  margin-bottom: 0;
+}
+.studio__intro-spread-caption span {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(45, 41, 38, 0.7);
+  line-height: 1.6;
+}
+.studio__intro-spread-text {
+  align-self: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2vw, 28px);
+}
+.studio__intro-spread-text .studio__h2 {
+  font-size: clamp(30px, 3.2vw, 40px);
+  line-height: 1.15;
   margin: 0;
 }
-.studio__portrait figcaption {
+.studio__intro-spread-text p {
+  font-family: var(--sans);
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  margin: 0 0 1.5rem;
+}
+.studio__intro-spread-text p:last-child {
+  margin-bottom: 0;
+}
+.studio__intro-close {
+  font-style: italic;
+  margin-top: clamp(8px, 1vw, 16px) !important;
+}
+@media (max-width: 900px) {
+  .studio__intro-spread {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+    max-width: 540px;
+  }
+  .studio__intro-spread .studio__intro-photo {
+    position: static;
+    top: auto;
+    align-self: stretch;
+  }
+  .studio__intro-spread-text {
+    align-self: stretch;
+  }
+  .studio__intro-spread-text .studio__h2 {
+    font-size: clamp(26px, 5vw, 32px);
+  }
+}
+.studio__intro .wrap--narrow {
+  margin-bottom: clamp(72px, 9vw, 120px);
+}
+/* === §02 — biographical text + Maja portrait companion ===
+   2-column grid: text left (1.4fr), sticky portrait right (1fr).
+   The italic line "An Italian birth, a Northern eye." sits as
+   a subtitle directly under the .studio__h2 inside the text
+   column. Mobile collapses to a single column with the portrait
+   stacked beneath the text and capped at 360px. */
+.studio__intro-subtitle {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(13px, 1.1vw, 15px);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   line-height: 1.4;
-  color: var(--mid);
-  margin: 14px 0 0;
+  color: rgba(45, 41, 38, 0.75);
+  font-weight: 400;
+  margin: -0.75rem 0 1.75rem 0;
 }
+@media (max-width: 900px) {
+  .studio__intro-subtitle {
+    font-size: 1.125rem;
+    margin: -0.5rem 0 1.25rem 0;
+  }
+}
+.studio__intro-bio {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px);
+}
+.studio__intro-columns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: clamp(28px, 3vw, 40px);
+}
+.studio__intro-portrait {
+  margin: 0;
+  position: sticky;
+  top: 8rem;
+  background: var(--bone-2);
+  border: 1px solid var(--hairline);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+.studio__intro-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+.studio__intro-portrait figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px 20px;
+  margin-top: 0;
+  border-top: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: linear-gradient(180deg, rgba(20, 17, 14, 0) 0%, rgba(20, 17, 14, 0.55) 100%);
+}
+@media (max-width: 900px) {
+  .studio__intro-columns {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .studio__intro-portrait {
+    position: static;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
 .studio__intro-text {
   display: flex;
   flex-direction: column;
@@ -4395,22 +4652,23 @@ select.contact__input {
   font-family: var(--serif);
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(36px, 4.2vw, 56px);
-  line-height: 1.12;
-  letter-spacing: -0.005em;
+  font-size: var(--fs-2xl);
+  line-height: 1.1;
+  letter-spacing: -0.022em;
   color: var(--ink);
   margin: 0 0 clamp(36px, 4vw, 56px);
 }
 .studio__h2--centered { text-align: center; }
 .studio__h2 em { font-style: italic; }
 .studio__intro-text p {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(17px, 1.4vw, 20px);
-  line-height: 1.65;
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  letter-spacing: 0;
   color: var(--ink-2);
   max-width: 56ch;
-  margin: 0 0 clamp(22px, 2.4vw, 32px);
+  margin: 0 0 1.5rem;
 }
 .studio__intro-text p:last-child {
   margin-bottom: 0;
@@ -4419,165 +4677,18 @@ select.contact__input {
   font-style: italic;
   color: var(--ink);
 }
-@media (max-width: 900px) {
-  .studio__intro-grid {
-    grid-template-columns: 1fr;
-    gap: clamp(40px, 5vw, 56px);
+@media (max-width: 760px) {
+  .studio__intro {
+    padding: clamp(56px, 8vw, 80px) 0 clamp(72px, 10vw, 100px);
   }
-  .studio__portrait {
-    position: static;
-    max-width: 480px;
+  .studio__intro .wrap--narrow {
+    margin-bottom: clamp(48px, 8vw, 80px);
   }
 }
 @media (max-width: 600px) {
-  .studio__intro {
-    padding: clamp(72px, 10vw, 100px) 0;
-  }
-  .studio__h2 {
-    font-size: clamp(30px, 7vw, 40px);
-  }
   .studio__intro-text p {
     font-size: 16px;
     line-height: 1.6;
-  }
-}
-
-/* === Studio §03 — Spine quote band ===
-   Tonal lift to var(--paper) marks this as the page's spine. Display-scale
-   italic Cormorant on a hairline left rule (Cereal pull-quote pattern); cite
-   in Plex Mono caps as a quiet ground line beneath the voice. Studio-scoped
-   so the base .maja-quote component (used elsewhere) stays unchanged. */
-.studio__quote-band {
-  padding: clamp(120px, 16vw, 220px) 0;
-  background: var(--paper);
-}
-.studio__quote-band .wrap {
-  max-width: 1080px;
-}
-.studio__quote-band .studio__quote {
-  margin: 0 auto;
-  padding: 0 0 0 clamp(24px, 3vw, 48px);
-  border-left: 1px solid var(--hairline-strong);
-  max-width: 880px;
-}
-.studio__quote-band .studio__quote p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(26px, 3.4vw, 44px);
-  line-height: 1.32;
-  letter-spacing: -0.003em;
-  color: var(--ink);
-  margin: 0;
-}
-.studio__quote-band .studio__quote cite {
-  display: block;
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--mid);
-  margin-top: clamp(32px, 3.6vw, 52px);
-}
-@media (max-width: 760px) {
-  .studio__quote-band {
-    padding: clamp(80px, 12vw, 120px) 0;
-  }
-  .studio__quote-band .studio__quote {
-    padding-left: 20px;
-  }
-  .studio__quote-band .studio__quote p {
-    font-size: clamp(20px, 5vw, 28px);
-    line-height: 1.35;
-  }
-  .studio__quote-band .studio__quote cite {
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
-  }
-}
-
-/* === Studio §04 — The practice (three pillars) ===
-   Three identical-geometry tiles. aspect-ratio: 4/3 on every photo locks
-   the columns to the same height — same fix as the home page How We Work
-   pillar alignment. No italics in §04 by design (italic budget is spent
-   on §02 voice line, §03 spine quote, §07 letter). */
-.studio__practice {
-  padding: clamp(120px, 14vw, 180px) 0;
-  background: var(--bone);
-}
-.studio__practice .eyebrow--centered {
-  text-align: center;
-  margin: 0 0 clamp(20px, 2.4vw, 32px);
-}
-.studio__practice .studio__h2--centered {
-  text-align: center;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(36px, 4.2vw, 56px);
-  line-height: 1.12;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  margin: 0 auto clamp(56px, 7vw, 96px);
-  max-width: 18ch;
-}
-.studio__pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(40px, 5vw, 72px);
-  align-items: start;
-}
-.studio__pillar {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-.studio__pillar .ph-block {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  margin: 0 0 clamp(24px, 2.8vw, 36px);
-}
-.studio__pillar-title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(22px, 2vw, 28px);
-  line-height: 1.2;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-  margin: 0 0 clamp(12px, 1.4vw, 18px);
-}
-.studio__pillar-body {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(16px, 1.3vw, 18px);
-  line-height: 1.6;
-  color: var(--ink-2);
-  margin: 0;
-  max-width: 36ch;
-}
-@media (max-width: 900px) {
-  .studio__pillars {
-    grid-template-columns: 1fr;
-    gap: clamp(40px, 5vw, 56px);
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (max-width: 600px) {
-  .studio__practice {
-    padding: clamp(80px, 12vw, 120px) 0;
-  }
-  .studio__practice .studio__h2--centered {
-    font-size: clamp(28px, 6.5vw, 36px);
-  }
-  .studio__pillar-title {
-    font-size: clamp(20px, 5vw, 24px);
   }
 }
 
@@ -4587,7 +4698,8 @@ select.contact__input {
    var(--bone) so §03's --paper stays the only spine moment in the page. */
 .studio__people {
   padding: clamp(120px, 14vw, 180px) 0;
-  background: var(--bone);
+  background-color: transparent;
+  background-image: none;
 }
 .studio__people .eyebrow--centered {
   text-align: center;
@@ -4618,54 +4730,6 @@ select.contact__input {
   margin: clamp(20px, 2.4vw, 32px) auto 0;
   max-width: 56ch;
 }
-.studio__people-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(40px, 5vw, 72px);
-  align-items: start;
-  margin-top: clamp(56px, 7vw, 96px);
-}
-.studio__person {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-}
-.studio__person .ph-block {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  margin: 0;
-}
-.studio__person h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(22px, 1.8vw, 28px);
-  line-height: 1.1;
-  letter-spacing: 0.005em;
-  color: var(--ink);
-  margin: 4px 0 0;
-}
-.studio__person-role {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--ink-2);
-  margin: 0;
-}
-.studio__person-detail {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(14px, 1.1vw, 16px);
-  line-height: 1.45;
-  color: var(--mid);
-  margin: 0;
-}
 .studio__people-note {
   font-family: var(--serif);
   font-weight: 400;
@@ -4681,22 +4745,9 @@ select.contact__input {
   font-style: italic;
   color: var(--ink-2);
 }
-@media (max-width: 1023px) {
-  .studio__people-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(32px, 4vw, 48px);
-  }
-}
 @media (max-width: 600px) {
   .studio__people {
     padding: clamp(80px, 12vw, 120px) 0;
-  }
-  .studio__people-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
   }
   .studio__people .studio__h2--centered {
     font-size: clamp(28px, 6.5vw, 36px);
@@ -4710,7 +4761,9 @@ select.contact__input {
    smaller than §04/§05 so the section reads as a brief pause before §07. */
 .studio__credentials {
   padding: clamp(80px, 10vw, 120px) 0;
-  background: var(--bone);
+  background-color: var(--taupe);
+  background-image: none;
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
 }
 .studio__credentials-grid {
   display: grid;
@@ -4769,11 +4822,20 @@ select.contact__input {
    closer is scoped so it only restyles the closer when nested inside
    .studio__letter — base .section-closer component stays unchanged. */
 .studio__letter {
+  position: relative;
   padding: clamp(120px, 16vw, 200px) 0 clamp(80px, 10vw, 120px);
-  background: var(--bone);
+  background-color: var(--taupe);
+  background-image: none;
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+  box-shadow: none;
+  color: var(--ink);
+}
+.studio__letter > * {
+  position: relative;
+  z-index: 2;
 }
 .studio__letter .wrap--narrow {
-  max-width: 720px;
+  max-width: var(--container-narrow);
   margin: 0 auto;
 }
 .studio__letter .eyebrow--centered {
@@ -4784,7 +4846,7 @@ select.contact__input {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--ink-2);
+  color: rgba(45, 41, 38, 0.85);
   margin: 0 0 clamp(48px, 6vw, 72px);
 }
 .studio__letter-body {
@@ -4802,12 +4864,15 @@ select.contact__input {
   color: var(--ink);
   margin: 0;
 }
+.studio__letter-body p em {
+  color: var(--ink);
+}
 .studio__letter-sign {
   font-family: var(--serif);
   font-style: normal;
   font-size: clamp(20px, 2vw, 28px);
   line-height: 1.55;
-  color: var(--ink-2);
+  color: rgba(45, 41, 38, 0.85);
   margin: clamp(12px, 1.4vw, 20px) 0 0;
 }
 .studio__letter-sign em {
@@ -4826,7 +4891,7 @@ select.contact__input {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--ink-2);
+  color: rgba(45, 41, 38, 0.85);
   margin: 0 0 clamp(16px, 2vw, 24px);
 }
 .studio__letter .section-closer__link {
@@ -5912,6 +5977,342 @@ select.contact__input {
   padding-bottom: clamp(48px, 6vw, 96px);
 }
 
+/* =========================================================
+   PAGE-HOME — three-act background structure
+   Marble at hero (act 1) → taupe body (act 2) → marble at footer (act 3).
+   Scoped to body.page-home so studio and other pages are unaffected.
+   ========================================================= */
+body.page-home {
+  background-color: var(--taupe);
+  background-image: none;
+}
+body.page-home .intro {
+  background-color: var(--bone);
+  background-image: url('/assets/images/background-v3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body.page-home .footer {
+  background-color: var(--bone);
+  background-image: url('/assets/images/background-v3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+}
+body.page-home .intro + section {
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+}
+@media (max-width: 768px) {
+  body.page-home .intro,
+  body.page-home .footer {
+    background-attachment: scroll;
+  }
+}
+
+/* =========================================================
+   PAGE-HOME — hero composition + scroll handover to nav
+   The wordmark, headline, and guarantee lines stack as one vertically-
+   centered cluster. The .intro section already flex-centers; we just
+   neutralise the legacy upward lift on .intro__brand-inner and let the
+   stack sit true-center. As the visitor scrolls past the hero, the
+   wordmark fades + scales down, and the nav-bar wordmark fades in.
+   Wired via js/scroll-brand.js (IntersectionObserver on .intro).
+   ========================================================= */
+body.page-home .intro__brand-inner {
+  transform: none;
+  gap: clamp(16px, 1.8vh, 22px);
+}
+body.page-home .intro__guarantee {
+  line-height: 1.7;
+}
+body.page-home .intro__name {
+  position: static;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.04em;
+  will-change: opacity, transform;
+  /* opacity + transform driven inline by js/scroll-brand.js per
+     scroll frame; no CSS transition so the animation tracks the
+     scroll position exactly without lag. */
+}
+@media (max-width: 768px) {
+  body.page-home .intro__brand-inner {
+    gap: clamp(12px, 1.4vh, 16px);
+  }
+  body.page-home .intro__name {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+}
+
+/* =========================================================
+   Force glassy nav — wins the cascade over any earlier or
+   ad-hoc beige/paper background. Stronger blur + saturate so
+   the marble + vein read clearly through the bar.
+   ========================================================= */
+.floating-nav {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.16) 100%
+  ) !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(28px) saturate(1.25) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03) !important;
+  border-radius: 9999px !important;
+}
+.floating-nav .nav-cta {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.22) 100%
+  ) !important;
+  backdrop-filter: blur(20px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+/* =========================================================
+   UNIVERSAL PALETTE — marble bookends + taupe body
+   Applies to every page-{name} body EXCEPT page-studio.
+   Studio retains its own rhythm (marble dominant + olive at §04
+   + taupe at §08/§09) and is intentionally excluded from these
+   selectors. Marble image kept in sync with the body fallback
+   (background-v3.png is the project's current marble plate).
+   ========================================================= */
+body.page-projects,
+body.page-services,
+body.page-process,
+body.page-local,
+body.page-journal,
+body.page-contact {
+  background-color: var(--taupe);
+  background-image: none;
+  color: var(--ink);
+}
+
+/* Hero — first <section> in main on each non-studio, non-home page.
+   Home is handled by the existing body.page-home .intro rule above. */
+body.page-projects main > section:first-of-type,
+body.page-services main > section:first-of-type,
+body.page-process main > section:first-of-type,
+body.page-local main > section:first-of-type,
+body.page-journal main > section:first-of-type,
+body.page-contact main > section:first-of-type {
+  background-color: var(--bone);
+  background-image: url('/assets/images/background-v3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Footer — uniform .footer class across the site. Marble + vein on
+   every non-studio page. (Studio's footer continues to inherit the
+   site-wide body marble through .footer { background: transparent }.) */
+body.page-projects .footer,
+body.page-services .footer,
+body.page-process .footer,
+body.page-local .footer,
+body.page-journal .footer,
+body.page-contact .footer {
+  background-color: var(--bone);
+  background-image: url('/assets/images/background-v3.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: relative;
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+}
+
+@media (max-width: 768px) {
+  body.page-home,
+  body.page-projects,
+  body.page-services,
+  body.page-process,
+  body.page-local,
+  body.page-journal,
+  body.page-contact,
+  body.page-projects main > section:first-of-type,
+  body.page-services main > section:first-of-type,
+  body.page-process main > section:first-of-type,
+  body.page-local main > section:first-of-type,
+  body.page-journal main > section:first-of-type,
+  body.page-contact main > section:first-of-type {
+    background-attachment: scroll;
+  }
+}
+
+/* =========================================================
+   OLIVE ACCENT — punctuation panel + button utility
+   Used sparingly: at most one moment per page. Apply .accent-olive
+   to a contained card / panel / quote block; .btn-olive to a primary
+   CTA. Olive on a taupe body reads as the brand's exclamation point.
+   ========================================================= */
+.accent-olive {
+  background-color: var(--shadow);
+  color: var(--bone);
+  padding: 2.5rem 2rem;
+  border-radius: 4px;
+}
+.accent-olive h2,
+.accent-olive h3,
+.accent-olive h4 {
+  color: var(--bone);
+}
+.accent-olive p {
+  color: rgba(244, 239, 230, 0.88);
+}
+.accent-olive a {
+  color: var(--bone);
+  border-bottom: 1px solid rgba(244, 239, 230, 0.4);
+  text-decoration: none;
+}
+.accent-olive a:hover {
+  border-bottom-color: var(--bone);
+}
+
+.btn-olive {
+  background-color: var(--shadow);
+  color: var(--bone);
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn-olive:hover {
+  background-color: #5A5E3A;
+}
+
+/* Nav wordmark — hidden until the visitor scrolls past the hero, then
+   settles in next to the logo mark. */
+body.page-home .nav-brand .nav-wordmark {
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+  /* opacity + transform + pointer-events driven inline by
+     js/scroll-brand.js per scroll frame. */
+}
+
+/* =========================================================
+   INTRO OVERLAY — bathroom transformation video, plays once per session,
+   contained in a centered framed window that floats over the marble.
+   The hero (.intro__brand) sits dimmed behind it during play and fades
+   back to full opacity as the overlay exits. Wired via js/intro.js +
+   sessionStorage('mayasHomesIntroSeen').
+   ========================================================= */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  transition: opacity 1.2s ease;
+  will-change: opacity;
+}
+.intro-overlay.is-fading {
+  opacity: 0;
+  pointer-events: none;
+}
+.intro-overlay.is-hidden {
+  display: none;
+}
+.intro-video-wrapper {
+  position: relative;
+  width: min(72vw, 900px);
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.18),
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.intro-skip {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--ink);
+  padding: 0.6rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.6s ease 2s, background 0.25s ease, border-color 0.25s ease;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.intro-overlay.is-loaded .intro-skip {
+  opacity: 1;
+}
+.intro-skip:hover,
+.intro-skip:focus-visible {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+@media (max-width: 768px) {
+  .intro-video-wrapper {
+    width: 90vw;
+    border-radius: 8px;
+  }
+  .intro-skip {
+    bottom: 2rem;
+    font-size: 0.65rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+body.intro-active {
+  overflow: hidden;
+}
+/* Hero content visible-but-dimmed behind the framed video, then fades
+   up to full opacity as the overlay exits. The 0.4s delay on the
+   default rule lets the overlay start dissolving before the hero brightens. */
+body.page-home .intro__brand {
+  transition: opacity 1.2s ease 0.4s;
+}
+body.intro-active.page-home .intro__brand {
+  opacity: 0.25;
+  transition: opacity 1.2s ease;
+}
+
 /* /thank-you/ — Netlify Forms post-submit landing. */
 .thank-you {
   background: var(--bone);
@@ -6747,11 +7148,19 @@ select.contact__input {
   gap: 16px;
   padding: 11px 18px;
   border-radius: 999px;
-  background: rgba(248, 246, 240, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 6px 32px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
@@ -7221,3 +7630,1158 @@ body.nav-locked { overflow: hidden; }
   transform: none !important;
   visibility: visible !important;
 }
+
+/* === Studio portrait imgs — slot into the placeholder geometry ===
+   Same dimensions and crop behavior as the .ph-block placeholders they
+   replace, so the surrounding layout doesn't shift when real photos land. */
+.studio__person-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0;
+}
+.studio__intro-portrait-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0;
+}
+
+/* === Studio §05 — Selected work (project teaser) === */
+.studio__work {
+  padding: clamp(120px, 14vw, 180px) 0;
+  background-color: transparent;
+  background-image: none;
+}
+.studio__work .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.studio__work .eyebrow--centered {
+  text-align: center;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+}
+.studio__work .studio__h2--centered {
+  text-align: center;
+  margin: 0 auto clamp(56px, 7vw, 80px);
+  max-width: 16ch;
+}
+.studio__work-tile {
+  margin: 0;
+}
+.studio__work-link-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+.studio__work-tile .ph-block {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
+.studio__work-link-tile:hover .ph-block,
+.studio__work-link-tile:focus-visible .ph-block {
+  transform: scale(1.01);
+}
+.studio__work-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 26px);
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 8px 0 0;
+}
+.studio__work-location {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+  margin: 0;
+}
+.studio__work-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: clamp(56px, 7vw, 80px) auto 0;
+  align-self: center;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 26px);
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  width: fit-content;
+  padding: 4px 0;
+}
+.studio__work-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+.studio__work-cta:hover::after,
+.studio__work-cta:focus-visible::after {
+  transform: scaleX(1);
+}
+.studio__work-cta-arrow {
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+.studio__work-cta:hover .studio__work-cta-arrow,
+.studio__work-cta:focus-visible .studio__work-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* === Studio §07 — Studio details (workspace) === */
+.studio__details {
+  padding: clamp(100px, 12vw, 160px) 0;
+  background-color: transparent;
+  background-image: none;
+}
+.studio__details .eyebrow--centered {
+  text-align: center;
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+}
+.studio__details .studio__h2--centered {
+  text-align: center;
+  margin: 0 auto clamp(56px, 7vw, 80px);
+  max-width: 16ch;
+}
+
+/* === Studio §08 — Credentials grid extended to four columns === */
+.studio__credentials-grid--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px) {
+  .studio__credentials-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(40px, 5vw, 56px);
+  }
+}
+@media (max-width: 600px) {
+  .studio__credentials-grid--four {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 5vw, 48px);
+  }
+}
+
+/* === Studio section markers — varied registers per section ===
+   Italic Cormorant lead-in (§02, §06, §09): voice register, sets a tone.
+   Plex Mono utility marker (§04, §07): technical-metadata register,
+   numbered chapter or place dispatch. Together with no-marker sections
+   (§03, §05) and the §01 stamp+eyebrow opener, the page presents six
+   different opening shapes across nine sections. */
+
+/* Italic Cormorant lead-in — used in §02, §06, §09 */
+.studio__lead-in {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+  color: var(--mid);
+  margin: 0 0 clamp(20px, 2.4vw, 32px);
+}
+.studio__lead-in--centered {
+  text-align: center;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.studio__lead-in em {
+  font-style: italic;
+}
+
+/* Plex Mono utility marker — §04 (numbered chapter) and §07 (place dispatch) */
+.studio__mono-marker {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mid);
+  margin: 0 0 clamp(24px, 2.8vw, 36px);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .studio__lead-in {
+    font-size: clamp(15px, 4vw, 18px);
+  }
+  .studio__mono-marker {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Studio page — magazine-spread restructure.
+   Five compositional moves: marginalia timeline (§02), full-bleed display
+   quote (§03), feature + grid (§05), asymmetric founder + bench (§06),
+   horizontal marquee (§07). Each section attacks the linearity differently.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* === Studio §03 — full-bleed display-scale spine quote === */
+.studio__quote-band {
+  position: relative;
+  padding: clamp(140px, 16vw, 220px) 0;
+  /* Layer 1: directional light. Layer 2: olive color overlay (0.78 — tile shows
+     through more than before). Layer 3: tile texture. */
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.08) 100%),
+    linear-gradient(rgba(74, 78, 46, 0.78), rgba(74, 78, 46, 0.78)),
+    url('/assets/textures/olive-tile.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow:
+    inset 0 60px 80px -40px rgba(0, 0, 0, 0.25),
+    inset 0 -60px 80px -40px rgba(0, 0, 0, 0.30),
+    inset 80px 0 80px -40px rgba(0, 0, 0, 0.15),
+    inset -80px 0 80px -40px rgba(0, 0, 0, 0.15),
+    0 -2px 20px rgba(0, 0, 0, 0.18),
+    0 2px 20px rgba(0, 0, 0, 0.18);
+  color: var(--bone-on-shadow);
+}
+.studio__quote-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+.studio__quote-band > * {
+  position: relative;
+  z-index: 2;
+}
+.studio__quote-spread {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(32px, 5vw, 96px);
+}
+.studio__quote-display {
+  margin: 0;
+  padding: 0;
+}
+.studio__quote-display p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+  color: var(--bone-on-shadow);
+  margin: 0 auto;
+  max-width: none;
+}
+.studio__quote-display cite {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mid-on-shadow);
+  margin-top: clamp(40px, 5vw, 64px);
+  text-align: right;
+}
+@media (max-width: 760px) {
+  .studio__quote-display p {
+    font-size: clamp(26px, 7vw, 40px);
+  }
+}
+
+/* === Studio §05 — feature + grid === */
+.studio__work-feature {
+  margin: 0 0 clamp(48px, 6vw, 80px);
+}
+.studio__work-feature .studio__work-link-tile {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+  text-decoration: none;
+  color: inherit;
+}
+.studio__work-feature .ph-block {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
+.studio__work-feature .studio__work-link-tile:hover .ph-block {
+  transform: scale(1.005);
+}
+.studio__work-feature-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.studio__work-feature-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+}
+.studio__work-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.5;
+  color: var(--mid);
+  margin: 0;
+}
+.studio__work-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(20px, 2.6vw, 36px);
+  align-items: start;
+}
+.studio__work-grid .ph-block {
+  aspect-ratio: 4 / 3;
+}
+.studio__work-grid .studio__work-name {
+  font-size: clamp(15px, 1.2vw, 18px);
+  margin: 6px 0 0;
+}
+@media (max-width: 1024px) {
+  .studio__work-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .studio__work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === Studio §05 — eight-person bench grid (uniform 4×2 at desktop) === */
+.studio__people-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+  margin-top: clamp(56px, 7vw, 96px);
+}
+.studio__person {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+.studio__person .ph-block,
+.studio__person .studio__person-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin: 0;
+}
+.studio__person h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.4vw, 22px);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+  margin: 4px 0 0;
+}
+.studio__person-role {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-2);
+  margin: 0;
+}
+.studio__person-detail {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.45;
+  color: var(--mid);
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .studio__people-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(28px, 4vw, 36px);
+  }
+}
+@media (max-width: 600px) {
+  .studio__people-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === Studio §07 — horizontal marquee === */
+.studio__details-marquee {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 0 clamp(32px, 5vw, 96px);
+  margin-top: clamp(56px, 7vw, 80px);
+}
+.studio__details-marquee::-webkit-scrollbar {
+  display: none;
+}
+.studio__details-track {
+  display: flex;
+  gap: clamp(20px, 3vw, 48px);
+  width: max-content;
+}
+.studio__detail {
+  flex: 0 0 clamp(280px, 32vw, 440px);
+  scroll-snap-align: start;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.studio__detail .ph-block {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+}
+.studio__detail figcaption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(13px, 1.05vw, 15px);
+  line-height: 1.45;
+  color: var(--mid);
+  margin: 0;
+}
+
+/* === Studio §04 (was §05) — recent work tile notes ===
+   Small italic editorial note beneath each smaller tile's location. The
+   feature tile (Belle Rivière) uses .studio__work-note at a larger scale;
+   this rule handles the five smaller tiles' archive-register notes. */
+.studio__work-tile-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.4;
+  color: var(--mid);
+  margin: 6px 0 0;
+}
+
+/* === Studio §04 — recent work hero images ===
+   Slot into the placeholder geometry the .ph-block elements held: 21:9 wide
+   landscape for the Belle Rivière feature, 4:3 for the five smaller tiles.
+   Same hover scale as the original placeholder transition. */
+.studio__work-feature-image {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
+.studio__work-link-tile:hover .studio__work-feature-image,
+.studio__work-link-tile:focus-visible .studio__work-feature-image {
+  transform: scale(1.005);
+}
+.studio__work-tile-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
+.studio__work-link-tile:hover .studio__work-tile-image,
+.studio__work-link-tile:focus-visible .studio__work-tile-image {
+  transform: scale(1.01);
+}
+
+/* === Studio §06 marquee — detail image (slots into ph-block geometry) ===
+   The .ph-block placeholders in the marquee are 4:3 landscape; this matches. */
+.studio__detail-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+/* === Studio §01.5 — Publication stamp band ===
+   Small horizontal editorial stripe between the title page and the practice
+   intro — Maya's Homes mark + Plex Mono dispatch + italic tagline, framed by
+   hairlines above and below. Aman section break + Cereal publication mark
+   register. */
+.studio__stamp {
+  padding: clamp(40px, 5vw, 56px) 0 clamp(56px, 7vw, 80px);
+  background-color: transparent;
+  background-image: none;
+}
+@media (max-width: 768px) {
+  .studio__stamp {
+    padding: 2rem 0 2.5rem;
+  }
+}
+
+/* === Studio §01 + §01.5 — combined opening composition.
+   The wrapper fills 100vh and vertically centers the hero
+   (name, role, lede) plus the publication stamp band as one
+   magazine-cover-style title page. Inner sections drop their
+   own min-height / vertical padding so the void between them
+   collapses to a deliberate gap. */
+.studio__opening {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 0 4rem;
+  gap: 5rem;
+}
+.studio__opening .studio__hero {
+  min-height: auto;
+  padding: 0;
+}
+.studio__opening .studio__stamp {
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .studio__opening {
+    padding: 6rem 0 3rem;
+    gap: 3rem;
+  }
+}
+.studio__stamp-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2vw, 24px);
+  text-align: center;
+}
+.studio__stamp-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.studio__stamp-mark img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+.studio__stamp-caption {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--mid);
+  margin: 0;
+}
+.studio__stamp-caption-left {
+  justify-self: end;
+  padding-right: 0.4em;
+  text-align: right;
+}
+.studio__stamp-caption-right {
+  justify-self: start;
+  padding-left: 0.4em;
+  text-align: left;
+}
+.studio__stamp-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.45;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 36ch;
+}
+@media (max-width: 760px) {
+  .studio__stamp {
+    padding: clamp(40px, 6vw, 60px) 0;
+  }
+  .studio__stamp-mark img {
+    width: 64px;
+    height: 64px;
+  }
+  .studio__stamp-tagline {
+    font-size: clamp(14px, 4vw, 16px);
+  }
+}
+@media (max-width: 480px) {
+  /* Stamp caption stacks vertically on phones — three lines, all centered. */
+  .studio__stamp-caption {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.2em;
+  }
+  .studio__stamp-caption-left,
+  .studio__stamp-caption-right {
+    justify-self: center;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+/* === Mobile fallback — parallax (background-attachment: fixed) breaks on iOS
+   Safari; force scroll on small viewports so the body backsplash and section
+   panels still render. === */
+@media (max-width: 768px) {
+  body,
+  .studio__hero,
+  .studio__quote-band,
+  .studio__letter {
+    background-attachment: scroll;
+  }
+}
+
+/* === Print — strip all textures and depth effects, render flat for paper === */
+@media print {
+  body {
+    background-image: none;
+    background-color: var(--bone);
+  }
+  body::before {
+    display: none;
+  }
+  .studio__hero,
+  .studio__quote-band,
+  .studio__letter {
+    background: var(--bone);
+    color: var(--ink);
+    box-shadow: none;
+  }
+  .studio__quote-band::before {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE PROCESS STEP FIX
+   - Force every step to stack as a flex column on mobile
+   - Force text (.process__copy) above image (.process__visual-stack)
+     on every step regardless of DOM order or the --reverse modifier
+   - Desktop layout (display: grid; 1fr 1fr; --reverse alternation)
+     is untouched
+   The parent .process__steps remains a grid carousel on mobile;
+   each step's internal layout is what we override here.
+   ========================================================= */
+@media (max-width: 768px) {
+  .process__step,
+  .process__step--reverse {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.75rem;
+  }
+  .process__step .process__copy,
+  .process__step--reverse .process__copy {
+    order: 1 !important;
+  }
+  .process__step .process__visual-stack,
+  .process__step--reverse .process__visual-stack {
+    order: 2 !important;
+  }
+}
+
+/* =========================================================
+   MOBILE-ONLY — process section breathing room + CTA padding
+   - Adds ~10rem total clearance between .process and .cascais
+   - Pads the "See the full process, week by week" link so the
+     text + arrow don't feel pinched
+   Desktop unchanged.
+   ========================================================= */
+@media (max-width: 768px) {
+  .process {
+    padding-bottom: 5rem;
+  }
+  .cascais {
+    padding-top: 5rem;
+  }
+  .process .section-closer__link,
+  .process .section-closer--minimal .section-closer__link {
+    padding: 1.125rem 2rem;
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   Hero — tighten the headline → subtitle seam, then nudge the
+   whole subtitle slightly higher in the composition.
+   Affects only .intro__guarantee (the "ONE TEAM…/ TWENTY-FIVE
+   YEARS." subtitle), not the wordmark→headline gap and not the
+   internal line-height between the two subtitle lines.
+   ========================================================= */
+body.page-home .intro__guarantee {
+  margin-top: -1rem !important;
+  position: relative;
+  top: -0.5rem;
+}
+@media (max-width: 768px) {
+  body.page-home .intro__guarantee {
+    margin-top: -0.6rem !important;
+    top: -0.3rem;
+  }
+}
+
+/* =========================================================
+   STUDIO PAGE — substance-arc taupe sections (§05–§07)
+   §01–§03 stay on marble (body backsplash), §04 stays olive,
+   §05–§07 join §08 and §09 in a continuous taupe arc through
+   to the marble footer. §08 (.studio__credentials) and §09
+   (.studio__letter) already paint taupe + hairline-top from
+   the earlier task; this block adds the same treatment to
+   §05–§07 plus the marble→taupe seam hairline at §05's top.
+   ========================================================= */
+body.page-studio .studio__work,
+body.page-studio .studio__people,
+body.page-studio .studio__details {
+  background-color: var(--taupe);
+  background-image: none;
+}
+body.page-studio .studio__work {
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+}
+
+/* =========================================================
+   STUDIO PAGE — extend taupe back to §02 + §03.
+   .studio__intro contains both the "Cascais ever since"
+   biography and the "studio is a house" spread (with the
+   scene break between them) as sub-blocks of a single
+   <section>. Painting .studio__intro taupe covers both at
+   once. Hairline at its top marks the §01.5 marble → §02
+   taupe transition. The scene-break div inside is
+   transparent by default so the parent taupe shows through.
+   ========================================================= */
+body.page-studio .studio__intro {
+  background-color: var(--taupe);
+  background-image: none;
+  border-top: 1px solid rgba(45, 41, 38, 0.08);
+}
+
+/* Align studio inner .wrap containers to the home page's actual
+   --container width (1480px). Earlier .wrap default is 1240px,
+   which made the studio sections read narrower than home. The
+   .studio__letter .wrap--narrow override and the §04
+   .studio__quote-spread (--container-narrow) keep their tighter
+   widths because their specificity is higher. */
+body.page-studio .wrap {
+  max-width: var(--container);
+}
+
+/* §02 → §03 separator: with the pull quote removed, push the gap
+   open with generous padding so the section change registers as
+   a deliberate break (~2× the inter-paragraph rhythm). */
+.studio__intro-bio {
+  padding-bottom: clamp(96px, 12vw, 160px);
+}
+.studio__intro-spread {
+  position: relative;
+  padding-top: clamp(96px, 12vw, 160px);
+}
+@media (max-width: 768px) {
+  .studio__intro-bio {
+    padding-bottom: clamp(64px, 10vw, 96px);
+  }
+  .studio__intro-spread {
+    padding-top: clamp(64px, 10vw, 96px);
+  }
+}
+
+/* === Studio pull quote — mirrors the home page .craft__quote treatment.
+       Italic Cormorant body type, ochre 2px left border, blur-crystallise
+       reveal on scroll-in via [data-studio-quote] (wired in js/main.js). === */
+.studio__pullquote {
+  margin: clamp(48px, 6vw, 88px) 0;
+  padding: 4px 0 4px 18px;
+  border-left: 2px solid var(--ochre);
+  max-width: 56ch;
+  text-align: left;
+  filter: blur(10px);
+  opacity: 0;
+  transition: filter 1.2s var(--ease-out), opacity 1.2s var(--ease-out);
+  will-change: filter, opacity;
+}
+.studio__pullquote.is-in {
+  filter: blur(0);
+  opacity: 1;
+}
+.studio__pullquote-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 1.55;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 6px 0;
+}
+.studio__pullquote-cite {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+@media (max-width: 900px) {
+  .studio__pullquote {
+    margin: clamp(40px, 6vw, 64px) 0;
+  }
+}
+
+/* === §02 marginalia — editor's-note fact block below the portrait.
+       Hairline-separated rows: Plex Mono small caps label on the
+       left, italic Cormorant value on the right. === */
+.studio__intro-marginalia {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.marginalia-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(45, 41, 38, 0.12);
+}
+.marginalia-item:last-child {
+  border-bottom: 1px solid rgba(45, 41, 38, 0.12);
+}
+.marginalia-item__label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(45, 41, 38, 0.7);
+}
+.marginalia-item__value {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-align: right;
+}
+@media (max-width: 900px) {
+  .studio__intro-marginalia {
+    margin-top: 2rem;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* === Refined image caption — applies only to the §03 spread caption now;
+       the §02 portrait caption is overlaid on the image (mirrors the home
+       page .manifesto__portrait pattern) so it has its own rule above. === */
+.studio__intro-spread-caption {
+  margin-top: 1.25rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(45, 41, 38, 0.2);
+}
+
+/* === Pull quote — hanging quotation marks. The opening curly quote
+       absolutely positions to hang into the left margin so the first
+       letter of "The" sits flush against the column edge — print-grade
+       typographic detail. === */
+.pull-quote p {
+  position: relative;
+}
+.pull-quote__open-mark,
+.pull-quote__close-mark {
+  display: inline-block;
+  color: rgba(45, 41, 38, 0.5);
+  font-style: italic;
+}
+.pull-quote__open-mark {
+  position: absolute;
+  left: -0.6em;
+  top: 0;
+}
+.pull-quote__close-mark {
+  margin-left: 0.05em;
+}
+@media (max-width: 768px) {
+  .pull-quote__open-mark {
+    left: -0.4em;
+  }
+}
+
+/* === Section ornament — em-dash · § · em-dash decorative divider
+       between sections that lack other transitions. Antique magazine
+       convention, faded ink so it reads as quiet typographic
+       punctuation rather than visual noise. === */
+.section-ornament {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(45, 41, 38, 0.4);
+  letter-spacing: 0.4em;
+  margin: 5rem auto;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .section-ornament {
+    font-size: 1rem;
+    margin: 3.5rem auto;
+    letter-spacing: 0.3em;
+  }
+}
+
+/* === Section folios — small Plex Mono publication markers
+       in the top-right corner of every major section. === */
+.studio__opening,
+.studio__intro,
+.studio__intro-spread,
+.studio__quote-band,
+.studio__work,
+.studio__people,
+.studio__details,
+.studio__credentials,
+.studio__letter {
+  position: relative;
+}
+.section-folio {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: rgba(45, 41, 38, 0.45);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 5;
+}
+@media (max-width: 768px) {
+  .section-folio {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* =========================================================
+   STUDIO §05 — Cinematic project slideshow.
+   One large active card visible at a time; thumbnail strip
+   below for direct navigation; position counter; CTA to the
+   full archive at the bottom. JS in js/projects-slideshow.js
+   toggles .studio__work-card--active and .studio__work-thumb--active.
+   ========================================================= */
+.studio__work-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.studio__work-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.studio__work-showcase {
+  position: relative;
+  margin-bottom: clamp(32px, 4vw, 48px);
+  min-height: 600px;
+}
+.studio__work-card {
+  position: absolute;
+  inset: 0 0 auto 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0s ease 0.6s;
+  pointer-events: none;
+}
+.studio__work-card--active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0s ease 0s;
+  pointer-events: auto;
+}
+.studio__work-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.studio__work-card-image {
+  margin: 0 0 clamp(20px, 2.5vw, 32px) 0;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.studio__work-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s var(--ease-out);
+}
+.studio__work-card-link:hover .studio__work-card-image img {
+  transform: scale(1.02);
+}
+.studio__work-card-meta {
+  text-align: left;
+  max-width: 720px;
+}
+.studio__work-card-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.15;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 0.5rem 0;
+}
+.studio__work-card-location {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(45, 41, 38, 0.7);
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+.studio__work-card-description {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(45, 41, 38, 0.85);
+  margin: 0;
+}
+
+/* Thumbnail strip — direct navigation between the six projects. */
+.studio__work-thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.studio__work-thumb {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  aspect-ratio: 1;
+  overflow: hidden;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.studio__work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.studio__work-thumb:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+.studio__work-thumb--active {
+  opacity: 1;
+}
+.studio__work-thumb--active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ink);
+  pointer-events: none;
+}
+
+/* Position counter. */
+.studio__work-counter {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: clamp(40px, 5vw, 64px);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: rgba(45, 41, 38, 0.7);
+}
+
+@media (max-width: 768px) {
+  .studio__work-showcase {
+    min-height: 480px;
+  }
+  .studio__work-thumbs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .studio__work-card-image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* =========================================================
+   FORCE SECTIONS TRANSPARENT — let body linen show through.
+   The home / projects / services / process / local / journal /
+   contact pages have section-level rules that paint solid
+   var(--bone) (e.g. .manifesto, .method, .craft, .process,
+   .cascais, .contact, .services, .services__feature, etc.) —
+   those rules cover the body linen entirely. This override
+   nukes every non-hero, non-footer section on those pages so
+   the linen shows. Studio is intentionally excluded so its
+   own rhythm stays intact. The hero (first <section> in main)
+   keeps its marble override; the footer keeps its marble too.
+   ========================================================= */
+body.page-home main > section:not(.intro),
+body.page-projects main > section:not(:first-of-type),
+body.page-services main > section:not(:first-of-type),
+body.page-process main > section:not(:first-of-type),
+body.page-local main > section:not(:first-of-type),
+body.page-journal main > section:not(:first-of-type),
+body.page-contact main > section:not(:first-of-type) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Nested-section sub-rules on the services page (children of
+   the page hero's sibling sections) also paint var(--paper) /
+   var(--bone). Force those transparent too. */
+body.page-services .services__feature,
+body.page-services .services__advice,
+body.page-services .services__pricing {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+

@@ -26,8 +26,8 @@
   <!-- Hero video preload removed: the Enter/Skip gate gives 1-2s
        of dwell, plenty for the optimised 6 MB clip to start streaming
        on click via preload="metadata" + +faststart. -->
-  <link rel="stylesheet" href="css/index.css?v=236" />
-  <link rel="stylesheet" href="css/animations.css?v=236" />
+  <link rel="stylesheet" href="css/index.css?v=237" />
+  <link rel="stylesheet" href="css/animations.css?v=237" />
 
   <script type="application/ld+json">
   {
@@ -49,7 +49,23 @@
   }
   </script>
 </head>
-<body>
+<body class="page-home">
+  <!-- ============ INTRO OVERLAY: bathroom transformation video, once per session ============ -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-video-wrapper">
+      <video
+        class="intro-video"
+        id="introVideo"
+        src="/assets/videos/background of main page .mp4"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
+    <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">SKIP</button>
+  </div>
+
   <!-- ============ FLOATING NAV ============ -->
   <header class="floating-nav" data-nav>
     <a class="nav-brand" href="/" aria-label="Maya's Homes — home">
@@ -107,46 +123,22 @@
       </nav>
 
       <div class="nav-drawer__footer">
-        <p class="nav-drawer__invite">Whatever you dream,<br>we bring it to life.</p>
+        <p class="nav-drawer__invite">All of your dreams<br>brought to life.</p>
         <a class="btn-silver" href="/contact/">Begin a Project</a>
       </div>
     </div>
   </aside>
 
   <main id="top">
-    <!-- ============ CINEMATIC INTRO: TWO-STAGE VIDEO + BRAND REVEAL ============ -->
-    <section class="intro" data-intro data-intro-state="gate" aria-label="Maya's Homes — introduction">
-
-      <video
-        class="intro__video"
-        data-hero-master
-        src="assets/videos/introvidfinal.mp4?v=236"
-        muted
-        playsinline
-        preload="auto"
-        tabindex="-1"
-      ></video>
+    <!-- ============ HERO — marble + wordmark + headline + guarantees ============ -->
+    <section class="intro" aria-label="Maya's Homes — hero">
 
       <div class="intro__brand intro__brand--build" data-brand>
         <div class="intro__brand-inner">
-          <h1 class="intro__name" data-build-text data-wordmark-source>MAYA&rsquo;S HOMES</h1>
-          <p class="intro__hook" data-build-line>Whatever you dream,<br />we bring it to life.</p>
-          <p class="intro__guarantee" data-build-line>One Team. Zero Subcontractors.</p>
-          <p class="intro__guarantee" data-build-line>Twenty-five Years.</p>
+          <h1 class="intro__name" data-wordmark-source>MAYA&rsquo;S HOMES</h1>
+          <p class="intro__hook" data-build-line>All of your dreams<br />brought to life.</p>
+          <p class="intro__guarantee" data-build-line>One Team. Zero Subcontractors.<br />Twenty-five Years.</p>
         </div>
-      </div>
-
-      <div class="intro__gate" data-intro-gate>
-        <button type="button" class="intro__gate-enter" data-intro-action="enter">
-          Enter
-        </button>
-        <button type="button" class="intro__gate-skip" data-intro-action="skip">
-          or skip the intro
-        </button>
-      </div>
-
-      <div class="intro__cue" data-cue aria-hidden="true">
-        <span>Scroll to Explore</span>
       </div>
 
     </section>
@@ -155,7 +147,7 @@
     <section class="manifesto" id="manifesto">
       <div class="manifesto__intro">
         <div class="manifesto__copy">
-          <p class="eyebrow">— Our Standard</p>
+          <p class="eyebrow">— The Standard</p>
           <h2 class="display">
             Twenty-five years.<br />
             Ten people. One signature.
@@ -164,7 +156,7 @@
             Maja signs every drawing. She walks the apartment with you. She specs the stone, the joinery, the fittings. She is on site every day until the keys turn.
           </p>
           <p class="manifesto__lede" style="margin-top: 1.5rem;">
-            We don&rsquo;t hire subcontractors. Every trade is on our payroll. The person who draws the plans is the person on the floor when the tile is laid. The home isn&rsquo;t assembled. It&rsquo;s considered.
+            Maya&rsquo;s Homes doesn&rsquo;t hire subcontractors. Every trade is on the studio&rsquo;s payroll. The person who draws the plans is the person on the floor when the tile is laid. The home isn&rsquo;t assembled. It&rsquo;s considered.
           </p>
         </div>
 
@@ -230,7 +222,7 @@
     <section class="method" id="method">
       <div class="method__grid">
         <div class="method__head">
-          <p class="eyebrow">— Our Approach</p>
+          <p class="eyebrow">— The Approach</p>
           <h2 class="display">
             One hand.<br />
             One eye.<br />
@@ -255,8 +247,8 @@
     <section class="projects" id="projects">
       <header class="projects__head">
         <p class="eyebrow">— The transformations</p>
-        <h2 class="display">Six homes I want to show you.</h2>
-        <p class="projects__lede">Each one I drew. Each one I was on, every day. Each one looks nothing like the room I walked into.</p>
+        <h2 class="display">Six homes Maja wants to show you.</h2>
+        <p class="projects__lede">Each one Maja drew. Each one she was on, every day. Each one looks nothing like the room she walked into.</p>
       </header>
 
       <div class="projects__grid">
@@ -568,9 +560,9 @@
 
         <article class="craft__cell">
           <figure class="craft__shot">
-            <img src="assets/images/pillar-3.jpg?v=236" alt="We never really leave — long-term care from the same team" loading="lazy" decoding="async" />
+            <img src="assets/images/pillar-3.jpg?v=236" alt="Maya&rsquo;s Homes never really leaves — long-term care from the same team" loading="lazy" decoding="async" />
           </figure>
-          <h3 class="craft__pillar"><em>We never really leave.</em></h3>
+          <h3 class="craft__pillar"><em>Maya&rsquo;s Homes never really leaves.</em></h3>
           <p class="craft__copy">A bulb in year three. A hinge in year five. The people who built your home are the people who maintain it&nbsp;— and Maja walks back through the door with them.</p>
         </article>
       </div>
@@ -594,7 +586,7 @@
     <!-- ============ PROCESS TIMELINE — How we work, four steps ============ -->
     <section class="process" id="process">
       <header class="process__head">
-        <p class="eyebrow">— How we work</p>
+        <p class="eyebrow">— How Maya&rsquo;s Homes works</p>
         <h2 class="display">Four steps. One signature.</h2>
         <p class="process__lede">Every renovation runs the same way: a conversation, a drawing, a build, and a key.</p>
       </header>
@@ -619,7 +611,7 @@
                 </span>
               </button>
             </figure>
-            <p class="process__caption">Inspection. We walk the property with you and note what stays, what changes.</p>
+            <p class="process__caption">Inspection. Maja walks the property with you and notes what stays, what changes.</p>
           </div>
           <div class="process__copy">
             <span class="process__num">01</span>
@@ -689,7 +681,7 @@
             <span class="process__num">03</span>
             <p class="process__when">Weeks 4–12</p>
             <h3 class="process__title">The Build</h3>
-            <p class="process__body">Our craftspeople. One site. One foreman. We move in. Nobody else does. Weekly walk-throughs in your language. WhatsApp updates if you&rsquo;re abroad. The render becomes a room.</p>
+            <p class="process__body">The studio&rsquo;s craftspeople. One site. One foreman. Maya&rsquo;s Homes moves in. Nobody else does. Weekly walk-throughs in your language. WhatsApp updates if you&rsquo;re abroad. The render becomes a room.</p>
             <blockquote class="process__quote">
               <p>&ldquo;You can change a wall at any time. The build doesn&rsquo;t close the design&nbsp;— it keeps the conversation going.&rdquo;</p>
               <cite>— Maja Milič</cite>
@@ -794,8 +786,8 @@
           />
         </figure>
         <div class="cascais__intro-text">
-          <h3 class="cascais__intro-title">Where we work.</h3>
-          <p class="cascais__lede-bridge">Maya&rsquo;s Homes is based in Cascais, but our work runs the corridor&nbsp;— from the Atlantic cliffs through Sintra and Estoril to the historic quarters of Lisbon. Below: where we work. Click through to see how we know it.</p>
+          <h3 class="cascais__intro-title">Where Maya&rsquo;s Homes works.</h3>
+          <p class="cascais__lede-bridge">Maya&rsquo;s Homes is based in Cascais, but the studio&rsquo;s work runs the corridor&nbsp;— from the Atlantic cliffs through Sintra and Estoril to the historic quarters of Lisbon. Below: where the studio works. Click through to see how Maja knows it.</p>
         </div>
       </div>
 
@@ -861,9 +853,9 @@
 
             <div class="local-mastery__lede">
               <p class="local-mastery__lede-text is-active" data-state="overview">Every Portuguese city builds differently. Cascais is not Sintra. Sintra is not Lisbon. The right renovation depends on where the house sits&nbsp;&mdash; what the law allows, what the climate demands, what the neighbours expect. Knowing the difference takes years.</p>
-              <p class="local-mastery__lede-text" data-state="area">Every project we take on sits inside this line. Cascais. Sintra. Lisbon. The towns between. Crews on site daily. Materials sourced locally. Maja in person on every brief.</p>
-              <p class="local-mastery__lede-text" data-state="permits">Cascais. Sintra. Lisbon. Every C&acirc;mara Municipal has its own rules, its own rhythms, its own list of what it cares about. For someone who doesn&rsquo;t know them, permitting is months of stress. We&rsquo;ve submitted in all of them.</p>
-              <p class="local-mastery__lede-text" data-state="climate">Heating works best when the house holds it. We design renovations that do&nbsp;&mdash; properly insulated walls, no infiltrations, no surprises years down the line. The bills stay low. The comfort stays high. Good insulation is rare. Water leaks are common, ignored until they can&rsquo;t be. We trace every infiltration, seal every wall, target a high energy rating. Through every Portuguese rain, our houses have stayed dry inside.</p>
+              <p class="local-mastery__lede-text" data-state="area">Every project Maya&rsquo;s Homes takes on sits inside this line. Cascais. Sintra. Lisbon. The towns between. Crews on site daily. Materials sourced locally. Maja in person on every brief.</p>
+              <p class="local-mastery__lede-text" data-state="permits">Cascais. Sintra. Lisbon. Every C&acirc;mara Municipal has its own rules, its own rhythms, its own list of what it cares about. For someone who doesn&rsquo;t know them, permitting is months of stress. Maya&rsquo;s Homes has submitted in all of them.</p>
+              <p class="local-mastery__lede-text" data-state="climate">Heating works best when the house holds it. The studio designs renovations that do&nbsp;&mdash; properly insulated walls, no infiltrations, no surprises years down the line. The bills stay low. The comfort stays high. Good insulation is rare. Water leaks are common, ignored until they can&rsquo;t be. The studio traces every infiltration, seals every wall, targets a high energy rating. Through every Portuguese rain, Maya&rsquo;s Homes&rsquo; houses have stayed dry inside.</p>
             </div>
 
             <blockquote class="local-mastery__quote">
@@ -890,10 +882,10 @@
     <!-- ============ SERVICES — what we offer ============ -->
     <section class="services" id="services">
       <header class="services__head">
-        <p class="eyebrow">— What we offer</p>
+        <p class="eyebrow">— What Maya&rsquo;s Homes offers</p>
         <h2 class="display">The design is yours. The standard is ours.</h2>
         <p class="services__lede">
-          Every renovation is shaped by the client&nbsp;— your taste, your way of living, the home you want. The build is shaped by us. We use only our own materials and our own trusted suppliers, because that&rsquo;s the only way to guarantee how the work performs in year ten.
+          Every renovation is shaped by the client&nbsp;— your taste, your way of living, the home you want. The build is shaped by Maya&rsquo;s Homes. The studio uses only its own materials and trusted suppliers, because that&rsquo;s the only way to guarantee how the work performs in year ten.
         </p>
       </header>
 
@@ -904,7 +896,7 @@
             <img src="assets/images/offer-1.jpg" alt="Full home renovation by Maya's Homes — finished interior" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Full home renovations</h3>
-          <p class="services__copy">Apartments, lofts, villas, restaurant-to-residence conversions. Every wall, every fitting, every finish drawn first, costed second, built third&nbsp;— by one team, with our own materials and trades.</p>
+          <p class="services__copy">Apartments, lofts, villas, restaurant-to-residence conversions. Every wall, every fitting, every finish drawn first, costed second, built third&nbsp;— by one team, with the studio&rsquo;s own materials and trades.</p>
         </article>
 
         <article class="services__card">
@@ -928,7 +920,7 @@
             <img src="assets/images/offer-4.jpg" alt="Turnkey property handover — keys to a finished Cascais home" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Turnkey relocation</h3>
-          <p class="services__copy">For clients buying in Cascais from abroad. We find the property, manage the purchase, then renovate, furnish, and inspect&nbsp;— so the keys we hand you open a home that&rsquo;s already ready to live in.</p>
+          <p class="services__copy">For clients buying in Cascais from abroad. Maya&rsquo;s Homes finds the property, manages the purchase, then renovates, furnishes, and inspects&nbsp;— so the keys you receive open a home that&rsquo;s already ready to live in.</p>
         </article>
 
         <article class="services__card">
@@ -944,7 +936,7 @@
             <img src="assets/images/offer-6.jpg" alt="Emerging finish or imported material specified for a project" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Innovative materials &amp; imports</h3>
-          <p class="services__copy">Sourcing beyond the local market when the project calls for it. Emerging finishes, imports of high-quality materials from abroad, technologies not yet widely available in Portugal&nbsp;— all vetted through our own trades before any project sees them.</p>
+          <p class="services__copy">Sourcing beyond the local market when the project calls for it. Emerging finishes, imports of high-quality materials from abroad, technologies not yet widely available in Portugal&nbsp;— all vetted through the studio&rsquo;s trades before any project sees them.</p>
         </article>
 
       </div>
@@ -960,8 +952,8 @@
       <aside class="services__sister" aria-label="Maya's Care announcement">
         <p class="services__sister-eyebrow">— Beyond renovation</p>
         <h3 class="services__sister-title">Maya&rsquo;s Care.</h3>
-        <p class="services__sister-body">For property care that runs after the build is done&nbsp;— condominium repairs and façade restoration, short-let preparation between guests, ongoing oversight for owners abroad&nbsp;— we work through our sister practice.</p>
-        <p class="services__sister-status">Maya&rsquo;s Care&nbsp;— opening soon. <a href="#contact" class="services__sister-link" data-notify-trigger>Tell us when it&rsquo;s live →</a></p>
+        <p class="services__sister-body">For property care that runs after the build is done&nbsp;— condominium repairs and façade restoration, short-let preparation between guests, ongoing oversight for owners abroad&nbsp;— managed through Maya&rsquo;s Homes&rsquo; sister practice.</p>
+        <p class="services__sister-status">Maya&rsquo;s Care&nbsp;— opening soon. <a href="#contact" class="services__sister-link" data-notify-trigger>Tell Maja when it&rsquo;s live →</a></p>
       </aside>
     </section>
 
@@ -1018,7 +1010,7 @@
           </div>
 
           <div class="contact__field">
-            <label class="contact__label" for="contact-message">Tell us about the project</label>
+            <label class="contact__label" for="contact-message">Tell Maja about the project</label>
             <textarea class="contact__textarea" id="contact-message" name="message" rows="5" required></textarea>
             <span class="contact__error" data-error-for="contact-message" aria-live="polite"></span>
           </div>
@@ -1159,6 +1151,7 @@
   <script src="js/nav.js?v=236" type="module"></script>
   <script src="/js/nav-drawer.js?v=236" defer></script>
   <script src="js/magnetic.js?v=236"></script>
-  <script src="js/wordmark-scroll.js?v=236"></script>
+  <script src="js/scroll-brand.js" defer></script>
+  <script src="js/intro.js" defer></script>
 </body>
 </html>
