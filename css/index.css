@@ -7759,7 +7759,10 @@ body.page-home .intro__name {
     gap: clamp(12px, 1.4vh, 16px);
   }
   body.page-home .intro__name {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    /* Larger on entry so the wordmark reads immediately. Tracking
+       tightened from 0.04em so it can grow while staying one line. */
+    font-size: clamp(2.375rem, 11vw, 3.375rem);
+    letter-spacing: 0.005em;
   }
 }
 
@@ -10402,60 +10405,15 @@ body.page-the-tasca .project__during .project__pair-frame figcaption {
    contact label-above-value. iPhone 12 Pro / 390px and below.
    ========================================================= */
 
-/* Process steps -> single-cell carousel on mobile. The four
-   <li class="process__step"> items stack on the same grid cell;
-   .is-active fades in. The .process__result aside lives outside
-   the <ol> so it stays inline beneath the carousel. */
+/* Process steps stack vertically on mobile too — the four
+   <li class="process__step"> flow in order (Conversation → Drawing →
+   Build → Key), same as desktop. No carousel, no counter, no arrows;
+   the visitor just scrolls through them. Each step's internal
+   copy/visual stacking is handled by the max-width:768px block below. */
 @media (max-width: 760px) {
   .process__steps {
-    display: grid;
-    position: relative;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    gap: clamp(56px, 12vw, 96px);
   }
-  .process__steps > .process__step {
-    grid-area: 1 / 1;
-    grid-template-columns: 1fr !important;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 480ms ease;
-  }
-  .process__steps > .process__step.is-active {
-    opacity: 1;
-    pointer-events: auto;
-    position: relative;
-  }
-  .process__phases-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    margin: clamp(28px, 5vw, 48px) auto clamp(40px, 6vw, 72px);
-  }
-  .process__phase-arrow {
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    border: 1px solid var(--hairline-strong);
-    background: transparent;
-    color: var(--ink);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .process__phase-count {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--mid);
-    min-width: 50px;
-    text-align: center;
-  }
-}
-@media (min-width: 761px) {
-  .process__phases-nav { display: none; }
 }
 
 /* (Removed: .local-mastery__frame-button / __tap-hint / __nav /
@@ -10907,11 +10865,22 @@ body.nav-locked { overflow: hidden; }
     letter-spacing: -0.008em;
     line-height: 1;
   }
+  /* Tagline floored too low before (16.5px) — this was the small one.
+     Bump so it's comfortably readable the moment the page loads.
+     (No body.page-home override exists for the hook, so this wins.) */
+  .intro__hook {
+    font-size: clamp(20px, 5.2vw, 30px);
+    line-height: 1.15;
+    max-width: 18ch;
+  }
 }
 @media (max-width: 390px) {
   .intro__name {
     font-size: clamp(31.5px, 9.375vw, 42px);
     letter-spacing: -0.012em;
+  }
+  .intro__hook {
+    font-size: clamp(19px, 5.4vw, 24px);
   }
 }
 

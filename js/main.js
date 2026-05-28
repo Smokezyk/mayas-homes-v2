@@ -412,12 +412,19 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   // Pre-decode frame 0 once metadata arrives, so the user always
   // sees the actual first frame ("before") rather than the poster
   // or a blank canvas while the browser is deciding what to show.
+  // ONLY on pointer-fine (desktop) devices: on touch devices —
+  // iOS Safari especially — seeking currentTime before a user gesture
+  // drops the <video> poster and exposes a blank/gray surface (the
+  // browser won't buffer a frame without a tap). There we leave the
+  // poster in place and only touch the video on tap (play()).
   const lockFrameZero = () => {
     try { video.currentTime = 0; } catch (_) {}
     try { video.pause(); } catch (_) {}
   };
-  if (video.readyState >= 1) lockFrameZero();
-  else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
+  if (window.matchMedia('(pointer: fine)').matches) {
+    if (video.readyState >= 1) lockFrameZero();
+    else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
+  }
 
   // Click-to-reveal / click-to-restart — the magic.
   // If the tile is already revealed (animation finished, overlay
@@ -616,36 +623,10 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
 
 
 // =====================================================================
-// Process steps carousel -- mobile only via CSS gating. Desktop keeps
-// the four <li class="process__step"> stacked vertically; mobile fades
-// between them on prev/next click. The .process__result aside lives
-// outside the <ol data-phases> so it stays inline beneath the carousel.
+// (Removed: the process-steps mobile carousel. The four
+// <li class="process__step"> now stack vertically at every viewport;
+// the 1/4 counter + prev/next arrows were dropped from the markup.)
 // =====================================================================
-(() => {
-  const container = document.querySelector('[data-phases]');
-  if (!container) return;
-  const items = Array.from(container.querySelectorAll('.process__step'));
-  const arrows = Array.from(document.querySelectorAll('[data-phases-nav] [data-direction]'));
-  const counter = document.querySelector('[data-phase-count]');
-  if (items.length < 2) return;
-  let idx = items.findIndex((el) => el.classList.contains('is-active'));
-  if (idx < 0) idx = 0;
-  if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
-
-  const setActive = (next) => {
-    items[idx].classList.remove('is-active');
-    idx = (next + items.length) % items.length;
-    items[idx].classList.add('is-active');
-    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
-  };
-
-  arrows.forEach((arrow) => {
-    arrow.addEventListener('click', () => {
-      const dir = parseInt(arrow.dataset.direction, 10) || 1;
-      setActive(idx + dir);
-    });
-  });
-})();
 
 // =====================================================================
 // (Removed: the Cascais map tap-to-advance + arrow nav handler.

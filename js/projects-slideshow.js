@@ -36,12 +36,17 @@
     video.muted = true;
     video.playsInline = true;
     video.setAttribute('webkit-playsinline', '');
+    // Pointer-fine (desktop) only: on touch devices, seeking before a
+    // user gesture drops the <video> poster and shows a gray surface.
+    // Leave the poster in place there; the video is only touched on tap.
     const lockFrameZero = () => {
       try { video.currentTime = 0; } catch (_) {}
       try { video.pause(); } catch (_) {}
     };
-    if (video.readyState >= 1) lockFrameZero();
-    else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
+    if (window.matchMedia('(pointer: fine)').matches) {
+      if (video.readyState >= 1) lockFrameZero();
+      else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
+    }
 
     // When the morph completes, mark the card revealed so the
     // hint pill swaps from "Click to animate" → "Play again",

@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=364" />
+  <link rel="stylesheet" href="/css/index.css?v=367" />
   <link rel="stylesheet" href="/css/animations.css?v=338" />
 
   <script type="application/ld+json">
@@ -128,7 +128,6 @@
         <a href="/pt/contact/">Contacto</a>
       </nav>
 
-
       <div class="nav-drawer__lang">
         <a href="/services/">EN</a>
         <span aria-hidden="true">/</span>
@@ -232,34 +231,176 @@
 
     <div class="section-ornament" aria-hidden="true">&mdash; &sect; &mdash;</div>
 
-    <!-- The hidden work. Structural & permits — the spine. Photo
-         slot rotates through a 7-photo sequence from the Monte Estoril
-         project showing a wall come down, get framed, get wired, and
-         get rebuilt. Chapter swapped to default split (text-left,
-         photo-right) so the page alternates cleanly with Kitchens
-         (image-left) above. Copy refocused on legality + by-the-books
-         rigor per user direction. CTA at the bottom links visitors to
-         the Monte Estoril project page since the photos are from there. -->
-    <section class="services__chapter services__chapter--split fade-in" id="structural">
-      <div class="services__chapter-inner">
-        <div class="services__chapter-text">
-          <p class="eyebrow">&mdash; O trabalho invisível</p>
-          <h2 class="display services__chapter-title">Paredes movidas ou removidas.<br />Vigas acrescentadas.</h2>
-          <p class="services__chapter-lede">A Maya&rsquo;s Homes trabalha apenas dentro do que a lei permite. Cada projeto é autorizado junto da câmara antes de começar &mdash; IMPIC, AMI, e licenças de preservação de Cascais, Sintra e Lisboa tratadas internamente, na sua língua. Cada artesão em obra está plenamente declarado, garantindo que uma <em>fiscalização</em> nunca interrompe as obras de remodelação a meio. A mecânica seca que torna a remodelação possível.</p>
-        </div>
-        <div>
-          <figure class="services__chapter-photo services__chapter-photo--sequence">
-            <img src="/assets/images/service-work-1.webp" alt="Monte Estoril &mdash; parede original, antes do início da obra" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-2.webp" alt="Monte Estoril &mdash; parede aberta, demolição em curso" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-3.webp" alt="Monte Estoril &mdash; estrutura a ser montada" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-4.webp" alt="Monte Estoril &mdash; eletricidade e canalização a passar pela estrutura" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-5.webp" alt="Monte Estoril &mdash; gesso cartonado a fechar a estrutura" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-6.webp" alt="Monte Estoril &mdash; reboco e estuque, quase pronto" loading="lazy" decoding="async" />
-            <img src="/assets/images/service-work-7.webp" alt="Monte Estoril &mdash; a nova parede, acabada" loading="lazy" decoding="async" />
-            <figcaption><em>De Monte Estoril &mdash; o nosso próximo projeto, atualmente em obra.</em></figcaption>
-          </figure>
-          <p class="services__chapter-cta services__chapter-cta--centered"><a class="btn-silver" href="/pt/projects/monte-estoril-apartment/" data-magnetic>Ver Monte Estoril em progresso &rarr;</a></p>
-        </div>
+    <!-- ============ PROCESS TIMELINE — How we work, four steps ============ -->
+    <section class="process" id="process">
+      <header class="process__head">
+        <p class="eyebrow">— Como a Maya&rsquo;s Homes trabalha</p>
+        <h2 class="display">Quatro passos. Uma só assinatura.</h2>
+        <p class="process__lede">Cada remodelação corre da mesma forma: uma conversa, um desenho, uma obra, e uma chave.</p>
+      </header>
+
+      <ol class="process__steps" data-phases>
+
+        <!-- STEP 01 — The Conversation (photo left, copy right) -->
+        <li class="process__step is-active">
+          <div class="process__visual-stack">
+            <figure class="process__visual" data-step>
+              <button class="process__step-link" type="button" aria-label="Reproduzir a animação do Passo 01">
+                <video
+                  class="process__video"
+                  data-step-video
+                  src="/assets/videos/anim-convert-1.mp4" poster="/assets/videos/anim-convert-1-poster.jpg"
+                  muted playsinline preload="metadata" loading="lazy"
+                  tabindex="-1"
+                ></video>
+                <span class="process__hint" aria-hidden="true">
+                  <span class="process__hint-label process__hint-label--initial">Clique para revelar</span>
+                  <span class="process__hint-label process__hint-label--replay">Reproduzir de novo</span>
+                </span>
+              </button>
+            </figure>
+            <p class="process__caption">Inspeção. Maja percorre o imóvel consigo e anota o que fica, o que muda.</p>
+          </div>
+          <div class="process__copy">
+            <span class="process__num">01</span>
+            <p class="process__when">Semana 0</p>
+            <h3 class="process__title">A Conversa</h3>
+            <p class="process__body">Um primeiro encontro&nbsp;— sem pranchetas, sem orçamento. A Maja percorre o apartamento consigo, na sua língua, e escuta. Cada desenho começa aqui.</p>
+            <blockquote class="process__quote">
+              <p>&ldquo;Quero saber como vive antes de desenhar uma linha. Continuamos a desenhar até à chave.&rdquo;</p>
+              <cite>— Maja Milič</cite>
+            </blockquote>
+          </div>
+        </li>
+
+        <!-- STEP 02 — The Drawing (video right, copy left) -->
+        <li class="process__step process__step--reverse">
+          <div class="process__visual-stack">
+            <figure class="process__visual" data-step>
+              <button class="process__step-link" type="button" aria-label="Reproduzir a animação do Passo 02">
+                <video
+                  class="process__video"
+                  data-step-video
+                  src="/assets/videos/anim-convert-2.mp4" poster="/assets/videos/anim-convert-2-poster.jpg"
+                  muted playsinline preload="metadata" loading="lazy"
+                  tabindex="-1"
+                ></video>
+                <span class="process__hint" aria-hidden="true">
+                  <span class="process__hint-label process__hint-label--initial">Clique para revelar</span>
+                  <span class="process__hint-label process__hint-label--replay">Reproduzir de novo</span>
+                </span>
+              </button>
+            </figure>
+            <p class="process__caption">Projeto. Cada planta é desenhada e renderizada em 3D antes de cair uma parede.</p>
+          </div>
+          <div class="process__copy">
+            <span class="process__num">02</span>
+            <p class="process__when">Semanas 1–3</p>
+            <h3 class="process__title">O Desenho e Licenciamentos</h3>
+            <p class="process__body">Cada parede, cada acabamento&nbsp;— desenhado, renderizado em 3D e aprovado pela câmara antes de se pegar numa ferramenta. IMPIC, AMI e licenças de preservação de Cascais tratadas internamente. O que vê no ecrã é aquilo em que vai entrar.</p>
+            <blockquote class="process__quote">
+              <p>&ldquo;Desenhamos exactamente como vai ser. Não uma visão&nbsp;— uma especificação. Cada linha dela é sua.&rdquo;</p>
+              <cite>— Maja Milič</cite>
+            </blockquote>
+          </div>
+        </li>
+
+        <!-- STEP 03 — The Build (photo left, copy right) -->
+        <li class="process__step">
+          <div class="process__visual-stack">
+            <figure class="process__visual" data-step>
+              <button class="process__step-link" type="button" aria-label="Reproduzir a animação do Passo 03">
+                <video
+                  class="process__video"
+                  data-step-video
+                  src="/assets/videos/anim-convert-3.mp4" poster="/assets/videos/anim-convert-3-poster.jpg"
+                  muted playsinline preload="metadata" loading="lazy"
+                  tabindex="-1"
+                ></video>
+                <span class="process__hint" aria-hidden="true">
+                  <span class="process__hint-label process__hint-label--initial">Clique para revelar</span>
+                  <span class="process__hint-label process__hint-label--replay">Reproduzir de novo</span>
+                </span>
+              </button>
+            </figure>
+            <p class="process__caption">A obra. Primeiro a demolição, depois de volta ao núcleo acabado.</p>
+          </div>
+          <div class="process__copy">
+            <span class="process__num">03</span>
+            <p class="process__when">Semanas 4–12</p>
+            <h3 class="process__title">A Obra</h3>
+            <p class="process__body">Paredes movidas ou removidas. Vigas acrescentadas. Os artesãos do atelier entram. Cada trabalhador é plenamente declarado, garantindo que uma <em>fiscalização</em> nunca interrompe a obra a meio. Visitas semanais, ou atualizações por WhatsApp se estiver no estrangeiro.</p>
+            <blockquote class="process__quote">
+              <p>&ldquo;Pode mudar uma parede a qualquer momento. A obra não fecha o desenho&nbsp;— mantém a conversa em curso.&rdquo;</p>
+              <cite>— Maja Milič</cite>
+            </blockquote>
+          </div>
+        </li>
+
+        <!-- STEP 04 — The Handover (photo right, copy left) -->
+        <li class="process__step process__step--reverse">
+          <div class="process__visual-stack">
+            <figure class="process__visual" data-step>
+              <button class="process__step-link" type="button" aria-label="Reproduzir a animação do Passo 04">
+                <video
+                  class="process__video"
+                  data-step-video
+                  src="/assets/videos/anim-convert-4.mp4" poster="/assets/videos/anim-convert-4-poster.jpg"
+                  muted playsinline preload="metadata" loading="lazy"
+                  tabindex="-1"
+                ></video>
+                <span class="process__hint" aria-hidden="true">
+                  <span class="process__hint-label process__hint-label--initial">Clique para revelar</span>
+                  <span class="process__hint-label process__hint-label--replay">Reproduzir de novo</span>
+                </span>
+              </button>
+            </figure>
+            <p class="process__caption">Entrega. Inspeção completa, acertos finais resolvidos, chaves de uma casa pronta.</p>
+          </div>
+          <div class="process__copy">
+            <span class="process__num">04</span>
+            <p class="process__when">Última semana</p>
+            <h3 class="process__title">A Entrega</h3>
+            <p class="process__body">Uma chave numa bancada polida. O apartamento é seu, pronto a habitar. Chave-na-mão opcional: mobiliário, iluminação e decoração incluídos.</p>
+            <blockquote class="process__quote">
+              <p>&ldquo;E continuamos ao alcance da chamada. Uma lâmpada no ano três continua a ser problema nosso.&rdquo;</p>
+              <cite>— Maja Milič</cite>
+            </blockquote>
+          </div>
+        </li>
+
+      </ol>
+
+      <aside class="process__result">
+        <span class="process__result-eyebrow">— O resultado.</span>
+        <figure class="process__result-visual" data-step>
+          <button class="process__step-link" type="button" aria-label="Reproduzir a animação do resultado">
+            <video
+              class="process__result-video"
+              data-step-video
+              src="/assets/videos/anim-convert-5.mp4" poster="/assets/videos/anim-convert-5-poster.jpg"
+              muted playsinline preload="metadata" loading="lazy"
+              tabindex="-1"
+            ></video>
+            <span class="process__hint" aria-hidden="true">
+              <span class="process__hint-label process__hint-label--initial">Clique para revelar</span>
+              <span class="process__hint-label process__hint-label--replay">Reproduzir de novo</span>
+            </span>
+          </button>
+        </figure>
+        <p class="process__caption">Mesma Maja. Mesma divisão.</p>
+      </aside>
+
+      <!-- TIER 2 — section closer pulling toward /services/. Was
+           previously routing to /process/; the dedicated /process/
+           page was deleted (2026-05-24) and its substance is now on
+           /services/ (Hidden Work chapter shows the actual build
+           sequence via the 7-photo Monte Estoril morph). -->
+      <div class="section-closer section-closer--minimal">
+        <a href="/pt/services/" class="section-closer__link">
+          <span>Ver como o trabalho acontece</span>
+          <span class="section-closer__arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
@@ -396,7 +537,7 @@
   <script src="/vendor/gsap.min.js?v=250"></script>
   <script src="/vendor/ScrollTrigger.min.js?v=250"></script>
   <script src="/vendor/lenis.min.js?v=250"></script>
-  <script src="/js/main.js?v=250" type="module"></script>
+  <script src="/js/main.js?v=305" type="module"></script>
   <script src="/js/scroll-scrub.js?v=250" type="module"></script>
   <script src="/js/nav.js?v=250" type="module"></script>
   <script src="/js/nav-drawer.js?v=250" defer></script>
