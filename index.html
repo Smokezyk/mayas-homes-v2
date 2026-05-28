@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F4EFE6" />
+  <!-- Cookie consent + consent-gated GA4 (G-0W5WYQL10G). GA4 loads only after the visitor clicks Accept. See js/consent.js. -->
+  <script src="/js/consent.js?v=1" defer></script>
 
   <title>Maya's Homes — Boutique Renovation in Cascais & Estoril</title>
-  <meta name="description" content="Maja Milič and her in-house team craft full-home renovations across Cascais and Estoril. One designer, start to finish. 25+ years. Zero subcontractors." />
+  <meta name="description" content="Maya's Homes is a boutique interior design studio in Cascais. Maja Milič and her in-house team craft full-home renovations across Cascais and Estoril. One designer, start to finish. 25+ years. Zero subcontractors." />
   <meta name="keywords" content="renovation Cascais, interior design Estoril, boutique renovation Portugal, Maja Milič, full home remodel" />
   <!-- Canonical: switch to https://mayashomes.com/ when the .com domain goes live. -->
   <link rel="canonical" href="https://smokezyk.github.io/mayas-homes-v2/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Maya's Homes — Boutique Renovation in Cascais" />
-  <meta property="og:description" content="One designer, start to finish. Full-home renovations across Cascais and Estoril." />
+  <meta property="og:description" content="An interior design studio in Cascais. One designer, start to finish. Full-home renovations across Cascais and Estoril." />
   <meta property="og:image" content="https://mayashomes.com/assets/images/rosario-hero.webp" />
   <meta property="og:locale" content="en_GB" />
 
@@ -26,45 +28,130 @@
   <!-- Hero video preload removed: the Enter/Skip gate gives 1-2s
        of dwell, plenty for the optimised 6 MB clip to start streaming
        on click via preload="metadata" + +faststart. -->
-  <link rel="stylesheet" href="css/index.css?v=250" />
-  <link rel="stylesheet" href="css/animations.css?v=250" />
+  <link rel="stylesheet" href="/css/index.css?v=364" />
+  <link rel="stylesheet" href="/css/animations.css?v=338" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "GeneralContractor",
+    "@type": ["GeneralContractor", "HomeAndConstructionBusiness", "LocalBusiness"],
+    "@id": "https://mayashomes.com/#organization",
     "name": "Maya's Homes",
-    "founder": "Maja Milič",
+    "alternateName": "Maja's Homes Unipessoal Lda",
+    "description": "Boutique interior design and home renovation studio in Cascais, Portugal. Turnkey delivery for full-home renovations, kitchens, bathrooms, and structural work — drawn, scheduled, and built in-house.",
+    "founder": {
+      "@type": "Person",
+      "name": "Maja Milič",
+      "url": "https://mayashomes.com/profile/"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Rua de Pádua 143",
       "postalCode": "2645-643",
       "addressLocality": "Alcabideche",
+      "addressRegion": "Cascais",
       "addressCountry": "PT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.7281,
+      "longitude": -9.4042
     },
     "telephone": "+351 913 037 527",
     "email": "maja.milic@mayashomes.com",
-    "areaServed": ["Cascais", "Estoril"],
-    "url": "https://mayashomes.com/"
+    "areaServed": [
+      { "@type": "City", "name": "Cascais" },
+      { "@type": "City", "name": "Estoril" },
+      { "@type": "City", "name": "Lisbon" },
+      { "@type": "AdministrativeArea", "name": "Greater Lisbon" }
+    ],
+    "url": "https://mayashomes.com/",
+    "logo": "https://mayashomes.com/logo/mayas-homes-mark.png",
+    "image": "https://mayashomes.com/assets/images/maja-founder.webp",
+    "priceRange": "€€€",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Licença de Empreiteiro (Construction Contractor Licence)",
+        "name": "IMPIC 97976-PAR",
+        "recognizedBy": {
+          "@type": "GovernmentOrganization",
+          "name": "Instituto dos Mercados Públicos, do Imobiliário e da Construção (IMPIC)"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Licença AMI (Real-Estate Mediation Licence)",
+        "name": "AMI 18698",
+        "recognizedBy": {
+          "@type": "GovernmentOrganization",
+          "name": "Instituto dos Mercados Públicos, do Imobiliário e da Construção (IMPIC)"
+        }
+      }
+    ],
+    "knowsLanguage": ["en", "pt", "it", "fr", "es", "de", "sl"],
+    "sameAs": [
+      "https://www.instagram.com/mayas.homes/",
+      "https://facebook.com/mayashomes",
+      "https://www.linkedin.com/company/mayas-homes/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Renovation services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Turnkey Renovations",
+            "url": "https://mayashomes.com/services/#turnkey",
+            "description": "End-to-end delivery for clients buying in Cascais from abroad — property search, purchase management, renovation, and furnishing, handed back fully lived-in."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Signature Renovations",
+            "url": "https://mayashomes.com/services/#full-home",
+            "description": "Full-home commissions — apartments, lofts, villas, restaurant-to-residence conversions — drawn, costed, and built under one hand."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Kitchens & Bathrooms",
+            "url": "https://mayashomes.com/services/#kitchens",
+            "description": "Refresh of the two rooms that change the whole vibe of the house — custom joinery, hand-laid stone, properly waterproofed."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Structural Works & Permits",
+            "url": "https://mayashomes.com/services/#structural",
+            "description": "Walls moved or removed, beams added — IMPIC, AMI, Cascais, Sintra, and Lisbon preservation permits filed in-house."
+          }
+        }
+      ]
+    }
   }
   </script>
+  <link rel="alternate" hreflang="en" href="https://mayashomes.com/" />
+  <link rel="alternate" hreflang="pt-PT" href="https://mayashomes.com/pt/" />
+  <link rel="alternate" hreflang="x-default" href="https://mayashomes.com/" />
 </head>
 <body class="page-home">
-  <!-- ============ INTRO OVERLAY: bathroom transformation video, once per session ============ -->
-  <div class="intro-overlay" id="introOverlay">
-    <div class="intro-video-wrapper">
-      <video
-        class="intro-video"
-        id="introVideo"
-        src="/assets/videos/background of main page .mp4"
-        autoplay
-        muted
-        playsinline
-        preload="auto"
-      ></video>
-    </div>
-    <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">SKIP</button>
-  </div>
 
   <!-- ============ FLOATING NAV ============ -->
   <header class="floating-nav" data-nav>
@@ -74,16 +161,19 @@
     </a>
 
     <nav class="nav-links" aria-label="Primary">
-      <a href="/studio/">Studio</a>
+      <a href="/profile/">Profile</a>
       <a href="/projects/">Projects</a>
       <a href="/services/">Services</a>
-      <a href="/process/">Process</a>
-      <a href="/local/">Local</a>
       <a href="/journal/">Journal</a>
       <a href="/contact/">Contact</a>
     </nav>
 
   <div class="nav-tools">
+    <div class="nav-lang-toggle">
+      <a href="/" class="is-active">EN</a>
+      <span aria-hidden="true">/</span>
+      <a href="/pt/">PT</a>
+    </div>
       <a class="nav-social" href="https://facebook.com/mayashomes" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
       </a>
@@ -113,17 +203,20 @@
 
       <nav class="nav-drawer__links" aria-label="Primary">
         <a href="/" class="is-current">Home</a>
-        <a href="/studio/">Studio</a>
+        <a href="/profile/">Profile</a>
         <a href="/projects/">Projects</a>
         <a href="/services/">Services</a>
-        <a href="/process/">Process</a>
-        <a href="/local/">Local</a>
         <a href="/journal/">Journal</a>
         <a href="/contact/">Contact</a>
       </nav>
 
+      
+      <div class="nav-drawer__lang">
+        <a href="/" class="is-active">EN</a>
+        <span aria-hidden="true">/</span>
+        <a href="/pt/">PT</a>
+      </div>
       <div class="nav-drawer__footer">
-        <p class="nav-drawer__invite">All of your dreams<br>brought to life.</p>
         <a class="btn-silver" href="/contact/">Begin a Project</a>
       </div>
     </div>
@@ -156,7 +249,7 @@
             Maja signs every drawing. She walks the apartment with you. She specs the stone, the joinery, the fittings. She is on site every day until the keys turn.
           </p>
           <p class="manifesto__lede" style="margin-top: 1.5rem;">
-            Maya&rsquo;s Homes doesn&rsquo;t hire subcontractors. Every trade is on the studio&rsquo;s payroll. The person who draws the plans is the person on the floor when the tile is laid. The home isn&rsquo;t assembled. It&rsquo;s considered.
+            Maya&rsquo;s Homes is an interior design studio that doesn&rsquo;t hire subcontractors. Every trade is on the studio&rsquo;s payroll. The person who draws the plans is the person on the floor when the tile is laid. The home isn&rsquo;t assembled. It&rsquo;s considered.
           </p>
         </div>
 
@@ -179,14 +272,18 @@
         <li><b>Seven languages</b><span>EN · PT · IT · FR · ES · DE · SL. No translators. Every word from Maja, in yours.</span></li>
       </ul>
 
-      <!-- TIER 2 — section closer pulling toward /studio/ -->
+      <!-- TIER 2 — section closer pulling toward /profile/ -->
       <div class="section-closer section-closer--minimal">
-        <a href="/studio/" class="section-closer__link">
+        <a href="/profile/" class="section-closer__link">
           <span>Meet the practice behind the work</span>
           <span class="section-closer__arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </section>
+
+    <!-- (Section-ornament between manifesto and stats removed — the
+         "Meet the practice behind the work →" section-closer above
+         already acts as the visual handoff.) -->
 
     <!-- ============ STATS BAND — editorial figures, count-up on view ============ -->
     <section class="stats" aria-label="At a glance">
@@ -218,6 +315,10 @@
       <p class="stats__legal">IMPIC Licensed &middot; Alvará 97976&#8209;PAR &middot; AMI 18698</p>
     </section>
 
+    <!-- (Section-ornament between stats and method removed — the
+         stats band's video background + content provides enough
+         visual transition on its own.) -->
+
     <!-- ============ THE METHOD — sticky lock-up ============ -->
     <section class="method" id="method">
       <div class="method__grid">
@@ -242,6 +343,7 @@
     </section>
 
 
+    <div class="section-ornament" aria-hidden="true">&mdash; &sect; &mdash;</div>
 
     <!-- ============ PROJECT TEASERS — six curated transformations ============ -->
     <section class="projects" id="projects">
@@ -249,12 +351,13 @@
         <p class="eyebrow">— The transformations</p>
         <h2 class="display">Six homes Maja wants to show you.</h2>
         <p class="projects__lede">Each one Maja drew. Each one she was on, every day. Each one looks nothing like the room she walked into.</p>
+        <p class="projects__mobile-hint">&mdash; Tap image to play</p>
       </header>
 
-      <div class="projects__grid">
+      <div class="projects__grid" data-transformations-carousel>
         <div class="projects__row">
           <!-- POSITION 01 — Rosa (square) -->
-          <article class="tile tile--square" data-tile>
+          <article class="tile tile--square is-active" data-tile>
             <div class="tile__frame">
               <button class="tile__link" type="button" aria-label="Reveal the Rosário transformation">
                 <figure class="tile__media">
@@ -271,8 +374,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From cramped corridors<br />to a single, breathing space.</p>
-                    <p class="tile__solved-detail">Load-bearing wall removed. Open plan, structurally engineered.</p>
+                    <p class="tile__solved-text">Inside, the walls came down.<br />Outside, the patio came up to meet them.</p>
                   </div>
                 </figure>
               </button>
@@ -301,8 +403,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From a closed kitchen<br />to an ocean-facing canvas.</p>
-                    <p class="tile__solved-detail">South-facing wall opened. Atlantic drawn into the living room.</p>
+                    <p class="tile__solved-text">The view was already there.<br />We rebuilt the apartment around it.</p>
                   </div>
                 </figure>
               </button>
@@ -331,8 +432,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From a dated villa<br />to a contemporary retreat.</p>
-                    <p class="tile__solved-detail">Full structural and finish remodel.</p>
+                    <p class="tile__solved-text">Another studio walked away.<br />We finished it.</p>
                   </div>
                 </figure>
               </button>
@@ -363,8 +463,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From three small rooms<br />to one open plan, anchored by an island.</p>
-                    <p class="tile__solved-detail">Two walls removed. New circulation around an oak island.</p>
+                    <p class="tile__solved-text">Mauve, walnut, herringbone oak.<br />Nothing more.</p>
                   </div>
                 </figure>
               </button>
@@ -393,8 +492,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From builder-grade walls<br />to a layered, lived-in living room.</p>
-                    <p class="tile__solved-detail">Bespoke joinery and feature wallpaper throughout.</p>
+                    <p class="tile__solved-text">Heated underfloor, sage-tile kitchen,<br />botanical wallpaper. Quiet by design.</p>
                   </div>
                 </figure>
               </button>
@@ -423,8 +521,7 @@
                     <span class="tile__hover-hint">Click to reveal</span>
                   </div>
                   <div class="tile__solved" aria-hidden="true">
-                    <p class="tile__solved-text">From a restaurant floor<br />to a residence.</p>
-                    <p class="tile__solved-detail">Commercial-to-residential conversion. Industrial lines kept; warmth added.</p>
+                    <p class="tile__solved-text">A tavern, taken back to its bones.<br />The address is what&rsquo;s left.</p>
                   </div>
                 </figure>
               </button>
@@ -435,6 +532,26 @@
             </div>
           </article>
         </div>
+      </div>
+
+      <!-- Carousel controls (mobile) — one tile at a time, prev/next
+           arrows pinned to left/right edges, "n / 6" counter centred. -->
+      <div class="projects__controls">
+        <button type="button" class="projects__arrow projects__arrow--prev" data-transformations-prev aria-label="Previous transformation">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <p class="projects__counter">
+          <span data-transformations-current>1</span> &nbsp;/&nbsp; <span data-transformations-total>6</span>
+        </p>
+        <button type="button" class="projects__arrow projects__arrow--next" data-transformations-next aria-label="Next transformation">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
       </div>
 
       <!-- TIER 2 — section closer pulling toward /projects/ -->
@@ -526,6 +643,8 @@
       </div>
     </section>
 
+    <div class="section-ornament" aria-hidden="true">&mdash; &sect; &mdash;</div>
+
     <!-- ============ 100% IN-HOUSE TRUST BLOCK ============ -->
     <section class="craft" id="craft">
       <header class="craft__head">
@@ -581,7 +700,20 @@
           </svg>
         </button>
       </div>
+
+      <!-- TIER 2 — section closer pulling toward /profile/ (the in-house
+           team angle). Distinct from the manifesto's /profile/ link
+           which frames the practice abstractly; this one names the
+           trades specifically, in keeping with the section's thesis. -->
+      <div class="section-closer section-closer--minimal">
+        <a href="/profile/" class="section-closer__link">
+          <span>Meet the ten trades on payroll</span>
+          <span class="section-closer__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </section>
+
+    <div class="section-ornament" aria-hidden="true">&mdash; &sect; &mdash;</div>
 
     <!-- ============ PROCESS TIMELINE — How we work, four steps ============ -->
     <section class="process" id="process">
@@ -759,14 +891,20 @@
         <p class="process__caption">Same Maja. Same room.</p>
       </aside>
 
-      <!-- TIER 2 — section closer pulling toward /process/ -->
+      <!-- TIER 2 — section closer pulling toward /services/. Was
+           previously routing to /process/; the dedicated /process/
+           page was deleted (2026-05-24) and its substance is now on
+           /services/ (Hidden Work chapter shows the actual build
+           sequence via the 7-photo Monte Estoril morph). -->
       <div class="section-closer section-closer--minimal">
-        <a href="/process/" class="section-closer__link">
-          <span>See the full process, week by week</span>
+        <a href="/services/" class="section-closer__link">
+          <span>See how the work happens</span>
           <span class="section-closer__arrow" aria-hidden="true">→</span>
         </a>
       </div>
     </section>
+
+    <div class="section-ornament" aria-hidden="true">&mdash; &sect; &mdash;</div>
 
     <!-- ============ LOCAL MASTERY — Cascais commitment ============ -->
     <section class="cascais" id="cascais">
@@ -776,93 +914,36 @@
         <h2 class="display">A Cascais practice.</h2>
       </header>
 
-      <div class="cascais__intro">
-        <figure class="cascais__atmosphere">
-          <img
-            src="assets/images/van-foto-cascais.jpg"
-            alt="The Maya's Homes van on the Cascais waterfront — Portuguese calçada pavement, palm trees, heritage azulejo facades, the harbour visible in the distance"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
-        <div class="cascais__intro-text">
-          <h3 class="cascais__intro-title">Where Maya&rsquo;s Homes works.</h3>
-          <p class="cascais__lede-bridge">Maya&rsquo;s Homes is based in Cascais, but the studio&rsquo;s work runs the corridor&nbsp;— from the Atlantic cliffs through Sintra and Estoril to the historic quarters of Lisbon. Below: where the studio works. Click through to see how Maja knows it.</p>
-        </div>
-      </div>
+      <!-- (Cascais intro block removed — with the van photo gone, the
+           "One stretch of coast." title + Maja-knows paragraph were
+           orphaned above the map. The local-mastery right column
+           already carries the section's editorial voice.) -->
 
-      <div class="local-mastery" data-active="overview">
+      <!-- Local Mastery — collapsed from the previous four-tab widget to
+           a single static map + caption + lede + pull quote. Kept the
+           climate state (final-map-3.jpg with the wind-current + water-
+           droplet detail) because it's the only one of the four that
+           said "we KNOW Cascais" rather than just "we work in Cascais". -->
+      <div class="local-mastery">
 
         <div class="local-mastery__map-column">
-
-          <div class="local-mastery__tabs" role="tablist" aria-label="Local mastery views">
-            <button type="button" class="local-mastery__tab is-active" data-target="overview" role="tab" aria-selected="true">
-              <span class="local-mastery__tab-num">00</span>
-              <span class="local-mastery__tab-label">Overview</span>
-            </button>
-            <button type="button" class="local-mastery__tab" data-target="area" role="tab" aria-selected="false">
-              <span class="local-mastery__tab-num">01</span>
-              <span class="local-mastery__tab-label">Area of Service</span>
-            </button>
-            <button type="button" class="local-mastery__tab" data-target="permits" role="tab" aria-selected="false">
-              <span class="local-mastery__tab-num">02</span>
-              <span class="local-mastery__tab-label">Local Permits</span>
-            </button>
-            <button type="button" class="local-mastery__tab" data-target="climate" role="tab" aria-selected="false">
-              <span class="local-mastery__tab-num">03</span>
-              <span class="local-mastery__tab-label">Climate &amp; Comfort</span>
-            </button>
-          </div>
-
-          <button type="button" class="local-mastery__frame-button" data-map-advance aria-label="Tap to see the next view">
-            <figure class="local-mastery__frame">
-              <img class="local-mastery__map is-active" data-state="overview" src="assets/images/final-map-4.jpg" alt="The wider Greater Lisbon region with the cities and towns where Maya's Homes works." loading="lazy" decoding="async" />
-              <img class="local-mastery__map" data-state="area" src="assets/images/final-map-1.jpg" alt="The Greater Lisbon region encircled, marking the territory Maya's Homes serves." loading="lazy" decoding="async" />
-              <img class="local-mastery__map" data-state="permits" src="assets/images/final-map-2.jpg" alt="Three heritage jurisdictions across the region — Cascais, Sintra, and Lisbon." loading="lazy" decoding="async" />
-              <img class="local-mastery__map" data-state="climate" src="assets/images/final-map-3.jpg" alt="Prevailing wind and Atlantic coastal weather across the Cascais peninsula." loading="lazy" decoding="async" />
-            </figure>
-            <span class="local-mastery__tap-hint" aria-hidden="true">Tap map &rarr;</span>
-          </button>
-
-          <div class="local-mastery__nav" data-map-nav>
-            <button type="button" class="local-mastery__arrow" data-direction="-1" aria-label="Previous map">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-            </button>
-            <span class="local-mastery__map-count" data-map-count>1 / 4</span>
-            <button type="button" class="local-mastery__arrow" data-direction="1" aria-label="Next map">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-
+          <figure class="local-mastery__frame">
+            <img class="local-mastery__map is-active" src="assets/images/final-map-3.jpg" alt="Prevailing wind and Atlantic coastal weather across the Cascais peninsula." loading="lazy" decoding="async" />
+          </figure>
         </div>
 
         <div class="local-mastery__content">
 
             <div class="local-mastery__eyebrow">
-              <span class="local-mastery__caption is-active" data-state="overview">Many cities. Many ways to build.</span>
-              <span class="local-mastery__caption" data-state="area">From Cascais to Sintra to Lisbon.</span>
-              <span class="local-mastery__caption" data-state="permits">Every C&acirc;mara, by name.</span>
-              <span class="local-mastery__caption" data-state="climate">The Portuguese house, made comfortable.</span>
+              <span class="local-mastery__caption is-active">The Portuguese house, made comfortable.</span>
             </div>
 
             <div class="local-mastery__lede">
-              <p class="local-mastery__lede-text is-active" data-state="overview">Every Portuguese city builds differently. Cascais is not Sintra. Sintra is not Lisbon. The right renovation depends on where the house sits&nbsp;&mdash; what the law allows, what the climate demands, what the neighbours expect. Knowing the difference takes years.</p>
-              <p class="local-mastery__lede-text" data-state="area">Every project Maya&rsquo;s Homes takes on sits inside this line. Cascais. Sintra. Lisbon. The towns between. Crews on site daily. Materials sourced locally. Maja in person on every brief.</p>
-              <p class="local-mastery__lede-text" data-state="permits">Cascais. Sintra. Lisbon. Every C&acirc;mara Municipal has its own rules, its own rhythms, its own list of what it cares about. For someone who doesn&rsquo;t know them, permitting is months of stress. Maya&rsquo;s Homes has submitted in all of them.</p>
-              <p class="local-mastery__lede-text" data-state="climate">Heating works best when the house holds it. The studio designs renovations that do&nbsp;&mdash; properly insulated walls, no infiltrations, no surprises years down the line. The bills stay low. The comfort stays high. Good insulation is rare. Water leaks are common, ignored until they can&rsquo;t be. The studio traces every infiltration, seals every wall, targets a high energy rating. Through every Portuguese rain, Maya&rsquo;s Homes&rsquo; houses have stayed dry inside.</p>
+              <p class="local-mastery__lede-text is-active">Heating works best when the house holds it. Maya&rsquo;s Homes designs renovations that do&nbsp;&mdash; properly insulated walls, no infiltrations, no surprises years down the line. The bills stay low. The comfort stays high. Good insulation is rare. Water leaks are common, ignored until they can&rsquo;t be. The studio traces every infiltration, seals every wall, targets a high energy rating. Through every Portuguese rain, Maya&rsquo;s Homes&rsquo; houses have stayed dry inside.</p>
             </div>
 
             <blockquote class="local-mastery__quote">
-              <p class="local-mastery__quote-text is-active" data-state="overview">&ldquo;Cascais is not Sintra. Sintra is not Lisbon. The work that holds in one will fail in another.&rdquo;</p>
-              <p class="local-mastery__quote-text" data-state="area">&ldquo;Twenty years on this coast. I work nowhere else.&rdquo;</p>
-              <p class="local-mastery__quote-text" data-state="permits">&ldquo;I&rsquo;ve worked all across Lisbon. There is not one C&acirc;mara I don&rsquo;t know how to work with.&rdquo;</p>
-              <p class="local-mastery__quote-text" data-state="climate">&ldquo;In winter, my clients are in short sleeves. That&rsquo;s the standard I build to.&rdquo;</p>
+              <p class="local-mastery__quote-text is-active">&ldquo;In winter, my clients are in short sleeves. That&rsquo;s the standard I build to.&rdquo;</p>
               <cite>— Maja Milič</cite>
             </blockquote>
 
@@ -872,7 +953,7 @@
 
       <!-- TIER 2 — section closer pulling toward /studio/ -->
       <div class="section-closer section-closer--minimal">
-        <a href="/studio/" class="section-closer__link">
+        <a href="/profile/" class="section-closer__link">
           <span>Read the studio&rsquo;s story</span>
           <span class="section-closer__arrow" aria-hidden="true">→</span>
         </a>
@@ -883,61 +964,43 @@
     <section class="services" id="services">
       <header class="services__head">
         <p class="eyebrow">— What Maya&rsquo;s Homes offers</p>
-        <h2 class="display">The design is yours. The standard is ours.</h2>
-        <p class="services__lede">
-          Every renovation is shaped by the client&nbsp;— your taste, your way of living, the home you want. The build is shaped by Maya&rsquo;s Homes. The studio uses only its own materials and trusted suppliers, because that&rsquo;s the only way to guarantee how the work performs in year ten.
-        </p>
+        <h2 class="display">A single point of contact.<br />A single standard of craft.</h2>
+        <p class="services__lede services__lede--solo">We don&rsquo;t act as a middleman between you and a contractor. We <em>are</em> the team. From the first sketch of the floorplan to the final coat of plaster, every decision runs through one studio. We draw it, we cost it, we build it.</p>
       </header>
 
       <div class="services__grid">
 
-        <article class="services__card">
+        <a class="services__card" href="/services/#full-home">
           <figure class="services__shot">
             <img src="assets/images/offer-1.jpg" alt="Full home renovation by Maya's Homes — finished interior" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Full home renovations</h3>
-          <p class="services__copy">Apartments, lofts, villas, restaurant-to-residence conversions. Every wall, every fitting, every finish drawn first, costed second, built third&nbsp;— by one team, with the studio&rsquo;s own materials and trades.</p>
-        </article>
+          <p class="services__copy">Comprehensive interventions for apartments and villas. Designed with restraint, built with precision, and managed entirely in-house from the first sketch to the final handover.</p>
+        </a>
 
-        <article class="services__card">
+        <a class="services__card" href="/services/#kitchens">
           <figure class="services__shot">
             <img src="assets/images/offer-2.jpg" alt="Custom kitchen and bathroom detail by Maya's Homes" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Kitchens &amp; bathrooms</h3>
-          <p class="services__copy">The two rooms that decide whether a home feels considered. Custom joinery, hand-laid stone, fittings selected for salt-air longevity. Often commissioned alone, often the start of a fuller renovation.</p>
-        </article>
+          <p class="services__copy">The spaces that anchor a home. We focus on custom joinery, natural materials, and exacting technical standards to create rooms that endure.</p>
+        </a>
 
-        <article class="services__card">
-          <figure class="services__shot">
-            <img src="assets/images/offer-3.jpg" alt="Structural intervention and permitted works in progress" loading="lazy" decoding="async" />
-          </figure>
-          <h3 class="services__title">Structural &amp; permits</h3>
-          <p class="services__copy">Walls moved. Beams added. Engineering signed and stamped. IMPIC, AMI, Cascais and Sintra preservation permits handled in-house, in your language.</p>
-        </article>
-
-        <article class="services__card">
+        <a class="services__card" href="/services/#turnkey">
           <figure class="services__shot">
             <img src="assets/images/offer-4.jpg" alt="Turnkey property handover — keys to a finished Cascais home" loading="lazy" decoding="async" />
           </figure>
           <h3 class="services__title">Turnkey relocation</h3>
-          <p class="services__copy">For clients buying in Cascais from abroad. Maya&rsquo;s Homes finds the property, manages the purchase, then renovates, furnishes, and inspects&nbsp;— so the keys you receive open a home that&rsquo;s already ready to live in.</p>
-        </article>
+          <p class="services__copy">A quiet landing in Cascais. From property sourcing to the final piece of furniture, we deliver a completed home before you even arrive.</p>
+        </a>
 
-        <article class="services__card">
+        <a class="services__card" href="/services/#structural">
           <figure class="services__shot">
-            <img src="assets/images/offer-5.jpg" alt="Pet-friendly detail integrated into a finished home" loading="lazy" decoding="async" />
+            <img src="assets/images/offer-3.jpg" alt="Structural intervention and permitted works in progress" loading="lazy" decoding="async" />
           </figure>
-          <h3 class="services__title">Pet-friendly homes</h3>
-          <p class="services__copy">Homes designed with the whole household in mind, including the pets. Durable finishes, integrated nooks, materials that won&rsquo;t show daily wear&nbsp;— all woven into the design, not added on.</p>
-        </article>
-
-        <article class="services__card">
-          <figure class="services__shot">
-            <img src="assets/images/offer-6.jpg" alt="Emerging finish or imported material specified for a project" loading="lazy" decoding="async" />
-          </figure>
-          <h3 class="services__title">Innovative materials &amp; imports</h3>
-          <p class="services__copy">Sourcing beyond the local market when the project calls for it. Emerging finishes, imports of high-quality materials from abroad, technologies not yet widely available in Portugal&nbsp;— all vetted through the studio&rsquo;s trades before any project sees them.</p>
-        </article>
+          <h3 class="services__title">Structural &amp; permits</h3>
+          <p class="services__copy">The invisible work. We handle complex structural alterations, heritage preservation requirements, and all municipal licensing natively within the studio.</p>
+        </a>
 
       </div>
 
@@ -949,85 +1012,73 @@
         </a>
       </div>
 
-      <aside class="services__sister" aria-label="Maya's Care announcement">
-        <p class="services__sister-eyebrow">— Beyond renovation</p>
-        <h3 class="services__sister-title">Maya&rsquo;s Care.</h3>
-        <p class="services__sister-body">For property care that runs after the build is done&nbsp;— condominium repairs and façade restoration, short-let preparation between guests, ongoing oversight for owners abroad&nbsp;— managed through Maya&rsquo;s Homes&rsquo; sister practice.</p>
-        <p class="services__sister-status">Maya&rsquo;s Care&nbsp;— opening soon. <a href="#contact" class="services__sister-link" data-notify-trigger>Tell Maja when it&rsquo;s live →</a></p>
-      </aside>
     </section>
 
-    <!-- ============ FINAL INVITATION — contact form ============ -->
-    <section class="contact" id="contact">
+    <!-- ============ FINAL INVITATION — contact form ============
+         Mirrors /contact/ form-section markup exactly (aside + form).
+         Only difference is the background (cream here, marble on /contact/). -->
+    <section class="contact-page__form-section fade-in" id="contact">
+      <div class="wrap contact-page__form-grid">
 
-      <div class="contact__inner">
-
-        <div class="contact__intro">
-          <p class="contact__eyebrow">— Begin a project</p>
-          <h2 class="contact__title">Begin a project.</h2>
-          <p class="contact__subtitle">Tell Maja your vision.</p>
-          <p class="contact__lede">A conversation, before a quotation. Maja replies personally&nbsp;— usually within the week.</p>
-
-          <div class="contact__direct">
-            <p class="contact__direct-label">Or reach her directly</p>
-            <ul class="contact__direct-list">
-              <li>
-                <span class="contact__direct-key">Email</span>
-                <a href="mailto:maja.milic@mayashomes.com" class="contact__direct-value">maja.milic@mayashomes.com</a>
-              </li>
-              <li>
-                <span class="contact__direct-key">WhatsApp</span>
-                <a href="https://wa.me/351913037527" class="contact__direct-value">+351 913 037 527</a>
-              </li>
-              <li>
-                <span class="contact__direct-key">Studio</span>
-                <span class="contact__direct-value">Alcabideche &middot; Cascais &middot; Portugal</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <form class="contact__form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="contact__honeypot" hidden aria-hidden="true">
-            <label>Don&rsquo;t fill this out: <input name="bot-field" /></label>
-          </p>
-          <div class="contact__field">
-            <label class="contact__label" for="contact-name">Your name</label>
-            <input class="contact__input" type="text" id="contact-name" name="name" autocomplete="name" required>
-            <span class="contact__error" data-error-for="contact-name" aria-live="polite"></span>
+        <aside class="contact-page__aside">
+          <div class="contact-page__aside-block">
+            <p class="eyebrow">&mdash; Or reach Maja directly</p>
+            <dl class="contact-page__direct">
+              <div><dt>Email</dt><dd><a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a></dd></div>
+              <div><dt>WhatsApp</dt><dd><a href="https://wa.me/351913037527">+351 913 037 527</a></dd></div>
+              <div><dt>Studio</dt><dd>Alcabideche &middot; Cascais &middot; Portugal</dd></div>
+              <div><dt>Hours</dt><dd>Mon&ndash;Fri &middot; 8 &mdash; 5 WET</dd></div>
+            </dl>
           </div>
 
-          <div class="contact__field">
-            <label class="contact__label" for="contact-email">Email</label>
-            <input class="contact__input" type="email" id="contact-email" name="email" autocomplete="email" required>
-            <span class="contact__error" data-error-for="contact-email" aria-live="polite"></span>
+          <div class="contact-page__aside-block">
+            <p class="eyebrow">&mdash; What to include</p>
+            <p class="contact-page__guide">The most useful first messages tell us where the property is, what state it is in (apartment, villa, listed, just-bought, mid-renovation), roughly when you&rsquo;d like to start, and what you are hoping the home will feel like when it is finished. None of this is required &mdash; a single sentence is also a fine first message.</p>
+          </div>
+        </aside>
+
+        <form class="contact-page__form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/contact/thanks/">
+          <header class="contact-page__form-header">
+            <p class="eyebrow">&mdash; Write to Maja</p>
+            <h2 class="contact-page__h2 contact-page__form-h2">Send a first message.</h2>
+          </header>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="contact-page__honeypot"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
+
+          <div class="contact-page__field">
+            <label for="contact-name">Your name</label>
+            <input id="contact-name" name="name" type="text" required autocomplete="name">
           </div>
 
-          <div class="contact__field">
-            <label class="contact__label" for="contact-phone">Phone (optional)</label>
-            <input class="contact__input" type="tel" id="contact-phone" name="phone" autocomplete="tel">
+          <div class="contact-page__field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" required autocomplete="email">
           </div>
 
-          <div class="contact__field">
-            <label class="contact__label" for="contact-message">Tell Maja about the project</label>
-            <textarea class="contact__textarea" id="contact-message" name="message" rows="5" required></textarea>
-            <span class="contact__error" data-error-for="contact-message" aria-live="polite"></span>
+          <div class="contact-page__field">
+            <label for="contact-phone">Phone <span class="contact-page__field-opt">(optional)</span></label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="contact-page__field">
+            <label for="contact-where">Where is the property? <span class="contact-page__field-opt">(optional)</span></label>
+            <input type="text" id="contact-where" name="where" placeholder="A three-bed apartment in Saldanha&hellip;" />
+          </div>
+
+          <div class="contact-page__field">
+            <label for="contact-message">Tell us about the project</label>
+            <textarea id="contact-message" name="message" rows="6" required></textarea>
           </div>
 
           <button type="submit" class="contact__submit">
             <span>Send to Maja</span>
-            <span aria-hidden="true">&rarr;</span>
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
           </button>
+
+          <p class="contact-page__form-note"><em>Your message goes directly to Maja. Nothing is added to a list, nothing is shared.</em></p>
         </form>
 
-        <div class="contact__sent" data-contact-sent hidden>
-          <p class="contact__sent-title">Message sent.</p>
-          <p class="contact__sent-body">Maja replies personally&nbsp;— usually within the week.</p>
-        </div>
-
       </div>
-
     </section>
   </main>
 
@@ -1051,14 +1102,7 @@
             </a>
           </li>
           <li>
-            <a href="https://www.pinterest.com/mayashomes/" target="_blank" rel="noopener" aria-label="Pinterest">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/maja-milic" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/mayas-homes/?viewAsMember=true" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
@@ -1084,11 +1128,9 @@
       <nav class="footer__nav" aria-label="Footer navigation">
         <p class="footer__nav-label">Site</p>
         <ul>
-          <li><a href="/studio/">Studio</a></li>
+          <li><a href="/profile/">Profile</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/services/">Services</a></li>
-          <li><a href="/process/">Process</a></li>
-          <li><a href="/local/">Local</a></li>
           <li><a href="/journal/">Journal</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -1106,7 +1148,7 @@
             <a href="https://wa.me/351913037527" class="footer__contact-value">+351 913 037 527</a>
           </li>
           <li>
-            <span class="footer__contact-key">Studio</span>
+            <span class="footer__contact-key">Location</span>
             <span class="footer__contact-value">Alcabideche &middot; Cascais &middot; Portugal</span>
           </li>
           <li>
@@ -1123,18 +1165,18 @@
          (centre), sister practice + legal links (right). One band
          carries every legal/affiliation line. -->
     <div class="footer__credentials">
-      <p class="footer__credentials-line footer__credentials-line--left">
+      <div class="footer__credentials-row">
+        <p class="footer__credentials-line footer__credentials-line--left">
         &copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Founded by Maja Mili&ccaron;
       </p>
-      <p class="footer__credentials-line footer__credentials-line--center">
+        <p class="footer__credentials-line footer__credentials-line--center">
         Licensed renovation contractor &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698
       </p>
-      <p class="footer__credentials-line footer__credentials-line--right">
+        <p class="footer__credentials-line footer__credentials-line--right">
         Maya&rsquo;s Care opening soon
-        <a href="#contact" class="footer__credentials-link">→</a> &middot;
-        <a href="/privacy" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Privacy</a> &middot;
-        <a href="/terms" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Terms</a>
-      </p>
+        <a href="#contact" class="footer__credentials-link">→</a></p>
+      </div>
+      <p class="footer__credentials-line footer__credentials-legal"><a href="/privacy/" class="footer__credentials-link">Privacy</a> &middot; <a href="/terms/" class="footer__credentials-link">Terms</a> &middot; <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" class="footer__credentials-link">Livro de Reclama&ccedil;&otilde;es</a></p>
     </div>
 
   </footer>
@@ -1151,7 +1193,7 @@
   <script src="js/nav.js?v=236" type="module"></script>
   <script src="/js/nav-drawer.js?v=236" defer></script>
   <script src="js/magnetic.js?v=236"></script>
+  <script src="/js/transformations-carousel.js?v=236" defer></script>
   <script src="js/scroll-brand.js" defer></script>
-  <script src="js/intro.js" defer></script>
 </body>
 </html>

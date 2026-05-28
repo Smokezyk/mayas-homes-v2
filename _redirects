@@ -1,0 +1,112 @@
+# ============================================================
+# Maya's Homes — Netlify redirects
+# ============================================================
+# Format: <from> <to> <status> [<conditions>]
+# 301 = permanent (passes link equity, GSC-friendly)
+#
+# Three groups:
+#   1. Internal site reorgs — pages we moved or renamed
+#   2. Wix legacy patterns — common URLs Wix sites publish
+#   3. Catch-all safety nets
+#
+# If you have a specific list of indexed Wix URLs from Google
+# Search Console, paste them at the top of group 2 with the
+# correct destination. Without that list, the patterns below
+# cover the standard Wix slug shapes (/about, /about-1,
+# /services-1, /projects-1, /post/*, etc.).
+# ============================================================
+
+
+# ─── 1. Internal site reorgs ──────────────────────────────
+# /studio/ was renamed to /profile/ during the V2 rebuild.
+/studio                          /profile/             301
+/studio/                         /profile/             301
+/studio/*                        /profile/             301
+
+# /local/ and /process/ were folded into /services/ + /profile/.
+/local                           /services/            301
+/local/                          /services/            301
+/process                         /profile/             301
+/process/                        /profile/             301
+
+# Common legacy thank-you pages (we now use /contact/thanks/).
+/thanks                          /contact/thanks/      301
+/thanks/                         /contact/thanks/      301
+
+
+# ─── 2. Wix legacy URL patterns ───────────────────────────
+# Replace these with the exact slugs from Google Search Console
+# when you have them. Until then, the standard Wix shapes:
+
+# Home / about variants
+/home                            /                     301
+/home-1                          /                     301
+/about                           /profile/             301
+/about-1                         /profile/             301
+/about-us                        /profile/             301
+/the-studio                      /profile/             301
+/maja                            /profile/             301
+/maja-milic                      /profile/             301
+/founder                         /profile/             301
+
+# Services variants (Wix often appends -1, -7, etc.)
+/services-1                      /services/            301
+/services-2                      /services/            301
+/services-7                      /services/            301
+/our-services                    /services/            301
+/what-we-do                      /services/            301
+/full-home                       /services/#full-home  301
+/turnkey                         /services/#turnkey    301
+/kitchens                        /services/#kitchens   301
+/bathrooms                       /services/#kitchens   301
+/structural                      /services/#structural 301
+
+# Projects / portfolio variants
+/projects-1                      /projects/            301
+/portfolio                       /projects/            301
+/portfolio-1                     /projects/            301
+/work                            /projects/            301
+/our-work                        /projects/            301
+
+# Contact variants
+/contact-1                       /contact/             301
+/contact-us                      /contact/             301
+/get-in-touch                    /contact/             301
+/inquiry                         /contact/             301
+/inquire                         /contact/             301
+
+# Wix blog (any /post/ slug → journal index, since we only have
+# one published article)
+/blog                            /journal/             301
+/blog-1                          /journal/             301
+/post                            /journal/             301
+/post/*                          /journal/             301
+/blog-feed                       /journal/             301
+/category/*                      /journal/             301
+
+# Wix often publishes capitalised duplicates — catch the most
+# common ones that show up in GSC's indexed list:
+/About                           /profile/             301
+/Services                        /services/            301
+/Projects                        /projects/            301
+/Contact                         /contact/             301
+/Portfolio                       /projects/            301
+
+
+# ─── 3. Catch-all safety nets ─────────────────────────────
+# Old Wix URLs sometimes carry trailing parameters (?wix-id=...).
+# Netlify's _redirects strips query strings by default unless we
+# preserve them; for legacy redirects this is fine.
+
+# Anything under /pt/ that we don't have a page for yet falls
+# through to the English version of the same path (graceful
+# degradation). Once a /pt/ page ships, that rule is satisfied
+# by the real file and the redirect is skipped.
+# (Add specific /pt/<slug> → /<slug> 302 fallbacks here as needed.)
+
+
+# Final fallback: serve the 404 page rather than Netlify's
+# default. NOTE: Netlify automatically uses /404.html if it
+# exists — we don't have one yet. Add a /404.html later and
+# uncomment the rule below.
+# /*                              /404.html             404

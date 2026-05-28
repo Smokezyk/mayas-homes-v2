@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#F4EFE6" />
+  <!-- Cookie consent + consent-gated GA4 (G-0W5WYQL10G). GA4 loads only after the visitor clicks Accept. See js/consent.js. -->
+  <script src="/js/consent.js?v=1" defer></script>
 
   <title>The Journal · Maya&rsquo;s Homes</title>
-  <meta name="description" content="Slow editorial dispatches from the studio &mdash; on materials, process, place, and the conversations that shape a home. Updated when there is something worth saying." />
+  <meta name="description" content="Slow editorial dispatches on Portuguese interior design and renovation &mdash; on materials, process, place, and the conversations that shape a home. Updated when there is something worth saying." />
   <link rel="canonical" href="https://mayashomes.com/journal/" />
-  <link rel="alternate" hreflang="en" href="https://mayashomes.com/journal/" />
-  <link rel="alternate" hreflang="x-default" href="https://mayashomes.com/journal/" />
-
+    
   <meta property="og:type" content="website" />
   <meta property="og:title" content="The Journal · Maya's Homes" />
   <meta property="og:description" content="Slow editorial dispatches from the studio." />
@@ -22,8 +22,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=250" />
-  <link rel="stylesheet" href="/css/animations.css?v=250" />
+  <link rel="stylesheet" href="/css/index.css?v=364" />
+  <link rel="stylesheet" href="/css/animations.css?v=338" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mayashomes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://mayashomes.com/journal/" }
+    ]
+  }
+  </script>
+  <link rel="alternate" hreflang="en" href="https://mayashomes.com/journal/" />
+  <link rel="alternate" hreflang="pt-PT" href="https://mayashomes.com/pt/journal/" />
+  <link rel="alternate" hreflang="x-default" href="https://mayashomes.com/journal/" />
 </head>
 <body class="page-journal">
 
@@ -34,16 +48,19 @@
     </a>
 
     <nav class="nav-links" aria-label="Primary">
-      <a href="/studio/">Studio</a>
+      <a href="/profile/">Profile</a>
       <a href="/projects/">Projects</a>
       <a href="/services/">Services</a>
-      <a href="/process/">Process</a>
-      <a href="/local/">Local</a>
       <a href="/journal/" class="is-current">Journal</a>
       <a href="/contact/">Contact</a>
     </nav>
 
   <div class="nav-tools">
+    <div class="nav-lang-toggle">
+      <a href="/journal/" class="is-active">EN</a>
+      <span aria-hidden="true">/</span>
+      <a href="/pt/journal/">PT</a>
+    </div>
       <a class="nav-social" href="https://facebook.com/mayashomes" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
       </a>
@@ -73,17 +90,20 @@
 
       <nav class="nav-drawer__links" aria-label="Primary">
         <a href="/">Home</a>
-        <a href="/studio/">Studio</a>
+        <a href="/profile/">Profile</a>
         <a href="/projects/">Projects</a>
         <a href="/services/">Services</a>
-        <a href="/process/">Process</a>
-        <a href="/local/">Local</a>
         <a href="/journal/" class="is-current">Journal</a>
         <a href="/contact/">Contact</a>
       </nav>
 
+      
+      <div class="nav-drawer__lang">
+        <a href="/journal/" class="is-active">EN</a>
+        <span aria-hidden="true">/</span>
+        <a href="/pt/journal/">PT</a>
+      </div>
       <div class="nav-drawer__footer">
-        <p class="nav-drawer__invite">Whatever you dream,<br>we bring it to life.</p>
         <a class="btn-silver" href="/contact/">Begin a Project</a>
       </div>
     </div>
@@ -100,130 +120,56 @@
       </div>
     </section>
 
-    <!-- 02 — Categories filter -->
-    <nav class="journal__filter" aria-label="Filter by category">
-      <div class="wrap journal__filter-inner">
-        <a href="#" class="journal__filter-link is-active">All</a>
-        <a href="#" class="journal__filter-link">On Materials</a>
-        <a href="#" class="journal__filter-link">On Process</a>
-        <a href="#" class="journal__filter-link">On Place</a>
-        <a href="#" class="journal__filter-link">Conversations</a>
-      </div>
-    </nav>
-
-    <!-- 03 — Featured: Piso Radiante -->
+    <!-- 02 — Featured: Piso Radiante (stacked editorial cover) -->
     <section class="journal__featured fade-in">
-      <div class="wrap journal__featured-grid">
-        <a href="/journal/piso-radiante/" class="journal__featured-image">
-          <div class="ph-block ph-block--landscape" aria-label="Piso Radiante — underfloor heating laid in a Cascais bathroom">
-            <span class="ph-block__label">Hero &mdash; Piso Radiante</span>
-          </div>
-        </a>
-        <div class="journal__featured-text">
-          <p class="eyebrow">— Featured · On Materials</p>
-          <h2 class="journal__featured-title">Piso Radiante. Why the studio quietly insists on it.</h2>
-          <p class="journal__featured-dek"><em>Underfloor heating is the one specification we never let a client value-engineer out. A long answer to why.</em></p>
-          <p class="journal__featured-meta">On Materials &middot; May 2026 &middot; 9 minute read</p>
-          <p class="journal__featured-pull">Of all the choices a renovation invites, the heating system is the one most often delegated, deferred, or quietly removed from the budget. The studio refuses, every time, on the same grounds. The argument has nothing to do with cost.</p>
-          <a href="/journal/piso-radiante/" class="journal__featured-link">Read the piece <span aria-hidden="true">→</span></a>
-        </div>
+      <a href="/journal/piso-radiante/" class="journal__featured-image">
+        <img src="/assets/images/blog-1.webp" alt="Piso Radiante &mdash; underfloor heating laid in a Cascais bathroom" loading="lazy" decoding="async" />
+      </a>
+      <div class="journal__featured-text">
+        <p class="eyebrow eyebrow--centered">&mdash; Em destaque &middot; Materiais</p>
+        <h2 class="journal__featured-title">Piso Radiante: <em>Guia Completo</em> para a Sua Casa.</h2>
+        <p class="journal__featured-dek"><em>Tudo o que precisa de saber sobre piso radiante em Portugal &mdash; tipos, custos, vantagens e como escolher o sistema certo para a sua remodela&ccedil;&atilde;o.</em></p>
+        <p class="journal__featured-meta">Materiais &middot; Atualizado em mar&ccedil;o de 2026 &middot; Leitura: 8 minutos</p>
+        <p class="journal__featured-pull">O piso radiante &eacute;, na minha opini&atilde;o, a melhor forma de aquecer uma casa. Vem do ch&atilde;o, os p&eacute;s ficam quentes, o corpo fica quente &mdash; e utiliza muito menos energia do que os radiadores.</p>
+        <a href="/journal/piso-radiante/" class="btn-glass journal__featured-cta">Ler o artigo <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
-    <!-- 04 — The index, asymmetric grid -->
-    <section class="journal__index fade-in">
+    <!-- 03 — Archive grid. Activates when piece #2 publishes.
+         WORKFLOW when a new piece ships:
+           1. Edit Section 02 above to point at the NEW piece (title, dek,
+              meta, pull, hero image, /journal/[new-slug]/ link).
+           2. Uncomment this entire <section> block.
+           3. Inside .journal__archive-grid, add an <article> card for
+              every previous piece — newest-first. The template card for
+              "Piso Radiante" is already filled in below, ready to use.
+           4. For piece #3+, duplicate the <article> block and edit. -->
+    <!--
+    <section class="journal__archive fade-in">
       <div class="wrap">
-        <p class="eyebrow">— The Index</p>
-        <h2 class="journal__h2">More from the studio.</h2>
+        <p class="eyebrow eyebrow--centered">&mdash; Do arquivo</p>
+        <div class="journal__archive-grid">
 
-        <div class="journal-grid">
-
-          <article class="journal-card journal-card--large">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--landscape" aria-label="Article — On the Cascais light">
-                <span class="ph-block__label">Article &mdash; On the Cascais Light</span>
-              </div>
+          <article class="journal__archive-card">
+            <a href="/journal/piso-radiante/" class="journal__archive-card-image">
+              <img src="/assets/images/blog-1.webp" alt="Piso Radiante &mdash; instala&ccedil;&atilde;o num projeto Maya&rsquo;s Homes" loading="lazy" decoding="async" />
             </a>
-            <p class="eyebrow">— On Place</p>
-            <h3 class="journal-card__title">The light that runs east to west.</h3>
-            <p class="journal-card__dek"><em>Why every project we draw is rotated, in some small way, around the angle of an Atlantic afternoon.</em></p>
-            <p class="journal-card__meta">On Place &middot; Coming soon</p>
-          </article>
-
-          <article class="journal-card journal-card--small">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--portrait" aria-label="Article — Bronze hardware that survives salt">
-                <span class="ph-block__label">Article &mdash; Bronze hardware</span>
-              </div>
-            </a>
-            <p class="eyebrow">— On Materials</p>
-            <h3 class="journal-card__title">A short defence of bronze.</h3>
-            <p class="journal-card__meta">On Materials &middot; Coming soon</p>
-          </article>
-
-          <article class="journal-card journal-card--medium">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--landscape" aria-label="Article — A conversation with Iurie">
-                <span class="ph-block__label">Conversation &mdash; Iurie, tiler</span>
-              </div>
-            </a>
-            <p class="eyebrow">— Conversations</p>
-            <h3 class="journal-card__title">Twenty-five years under the tile.</h3>
-            <p class="journal-card__dek"><em>A long talk with Iurie, who has tiled every Maya&rsquo;s Homes bathroom for the last ten years.</em></p>
-            <p class="journal-card__meta">Conversations &middot; Coming soon</p>
-          </article>
-
-          <article class="journal-card journal-card--medium">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--landscape" aria-label="Article — The day a wall comes down">
-                <span class="ph-block__label">Article &mdash; Demolition day</span>
-              </div>
-            </a>
-            <p class="eyebrow">— On Process</p>
-            <h3 class="journal-card__title">The day a wall comes down.</h3>
-            <p class="journal-card__dek"><em>Demolition is the loudest, fastest, and most carefully planned phase of any project. Notes from the morning of.</em></p>
-            <p class="journal-card__meta">On Process &middot; Coming soon</p>
-          </article>
-
-          <article class="journal-card journal-card--small">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--portrait" aria-label="Article — Limewash">
-                <span class="ph-block__label">Article &mdash; Limewash</span>
-              </div>
-            </a>
-            <p class="eyebrow">— On Materials</p>
-            <h3 class="journal-card__title">The case for limewash.</h3>
-            <p class="journal-card__meta">On Materials &middot; Coming soon</p>
-          </article>
-
-          <article class="journal-card journal-card--small">
-            <a href="#" class="journal-card__image" data-todo="future-page" aria-disabled="true" tabindex="-1">
-              <div class="ph-block ph-block--portrait" aria-label="Article — A note on aftercare">
-                <span class="ph-block__label">Article &mdash; Aftercare</span>
-              </div>
-            </a>
-            <p class="eyebrow">— On Process</p>
-            <h3 class="journal-card__title">Year three. A short piece on staying.</h3>
-            <p class="journal-card__meta">On Process &middot; Coming soon</p>
+            <p class="eyebrow">&mdash; Materiais</p>
+            <h3 class="journal__archive-card-title">Piso Radiante: Guia Completo para a Sua Casa.</h3>
+            <p class="journal__archive-card-meta">Materiais &middot; Mar&ccedil;o 2026 &middot; 8 min</p>
+            <a href="/journal/piso-radiante/" class="btn-glass journal__archive-card-cta">Ler o artigo <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
           </article>
 
         </div>
       </div>
     </section>
+    -->
 
-    <!-- 05 — Cadence note -->
+    <!-- 04 — Cadence note (page-closer) -->
     <section class="journal__cadence">
       <div class="wrap wrap--narrow">
-        <p class="eyebrow eyebrow--centered">— On the cadence</p>
+        <p class="eyebrow eyebrow--centered">&mdash; On the cadence</p>
         <p class="journal__cadence-body">The studio publishes when there is something worth publishing &mdash; usually four or five times a year, usually on the long side. If you would like the next piece in your inbox, you can write to us directly. There is no list to subscribe to.</p>
-
-        <div class="section-closer">
-          <p class="section-closer__eyebrow">— To begin a project</p>
-          <a href="/contact/" class="section-closer__link">
-            <span>Tell Maja about the home you have in mind</span>
-            <span class="section-closer__arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -243,14 +189,7 @@
             </a>
           </li>
           <li>
-            <a href="https://www.pinterest.com/mayashomes/" target="_blank" rel="noopener" aria-label="Pinterest">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/maja-milic" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/mayas-homes/?viewAsMember=true" target="_blank" rel="noopener" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
@@ -275,11 +214,9 @@
       <nav class="footer__nav" aria-label="Footer navigation">
         <p class="footer__nav-label">Site</p>
         <ul>
-          <li><a href="/studio/">Studio</a></li>
+          <li><a href="/profile/">Profile</a></li>
           <li><a href="/projects/">Projects</a></li>
           <li><a href="/services/">Services</a></li>
-          <li><a href="/process/">Process</a></li>
-          <li><a href="/local/">Local</a></li>
           <li><a href="/journal/">Journal</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
@@ -289,15 +226,18 @@
         <ul>
           <li><span class="footer__contact-key">Email</span><a href="mailto:maja.milic@mayashomes.com" class="footer__contact-value">maja.milic@mayashomes.com</a></li>
           <li><span class="footer__contact-key">WhatsApp</span><a href="https://wa.me/351913037527" class="footer__contact-value">+351 913 037 527</a></li>
-          <li><span class="footer__contact-key">Studio</span><span class="footer__contact-value">Alcabideche &middot; Cascais &middot; Portugal</span></li>
+          <li><span class="footer__contact-key">Location</span><span class="footer__contact-value">Alcabideche &middot; Cascais &middot; Portugal</span></li>
           <li><span class="footer__contact-key">Hours</span><span class="footer__contact-value">Mon&ndash;Fri &middot; 8&nbsp;&mdash;&nbsp;5 WET</span></li>
         </ul>
       </div>
     </div>
     <div class="footer__credentials">
-      <p class="footer__credentials-line footer__credentials-line--left">&copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Founded by Maja Mili&ccaron;</p>
-      <p class="footer__credentials-line footer__credentials-line--center">Licensed renovation contractor &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698</p>
-      <p class="footer__credentials-line footer__credentials-line--right">Maya&rsquo;s Care opening soon <a href="/contact/" class="footer__credentials-link">→</a> &middot; <a href="/privacy" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Privacy</a> &middot; <a href="/terms" class="footer__credentials-link" data-todo="future-page" aria-disabled="true" tabindex="-1">Terms</a></p>
+      <div class="footer__credentials-row">
+        <p class="footer__credentials-line footer__credentials-line--left">&copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Founded by Maja Mili&ccaron;</p>
+        <p class="footer__credentials-line footer__credentials-line--center">Licensed renovation contractor &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698</p>
+        <p class="footer__credentials-line footer__credentials-line--right">Maya&rsquo;s Care opening soon <a href="/contact/" class="footer__credentials-link">→</a></p>
+      </div>
+      <p class="footer__credentials-line footer__credentials-legal"><a href="/privacy/" class="footer__credentials-link">Privacy</a> &middot; <a href="/terms/" class="footer__credentials-link">Terms</a> &middot; <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" class="footer__credentials-link">Livro de Reclama&ccedil;&otilde;es</a></p>
     </div>
   </footer>
 

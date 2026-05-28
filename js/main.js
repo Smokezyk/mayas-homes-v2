@@ -110,10 +110,10 @@ const io = new IntersectionObserver((entries) => {
 
 // Skip elements inside the hero — GSAP owns those reveals.
 const heroEl = document.querySelector('[data-hero]');
-document.querySelectorAll('.display, .reveal, .eyebrow, blockquote, .tile, .contact__row')
+document.querySelectorAll('.display, .reveal, .eyebrow, blockquote, .tile, .contact__row, .fade-in')
   .forEach((el) => {
     if (heroEl && heroEl.contains(el)) return;
-    el.classList.add('reveal');
+    if (!el.classList.contains('fade-in')) el.classList.add('reveal');
     io.observe(el);
   });
 
@@ -127,7 +127,7 @@ if (pillarList) io.observe(pillarList);
      on scroll-in, same treatment as the hero brand. CSS owns the
      transition; the observer just toggles `.is-in`. Both the Method
      section quote and the Craft section quote share this reveal. */
-document.querySelectorAll('[data-method-quote], [data-craft-quote], [data-cascais-quote]')
+document.querySelectorAll('[data-method-quote], [data-craft-quote], [data-cascais-quote], [data-studio-quote]')
   .forEach((el) => io.observe(el));
 
 /* — Living portraits — autoplay loop while in viewport, pause when
@@ -199,37 +199,11 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
      with caption immediate, lede +200ms, quote +400ms (transition-delay
      does the staggering — JS just toggles classes). Clicking the active
      tab a second time returns to the overview state. */
-(function initLocalMastery() {
-  const root = document.querySelector('.local-mastery');
-  if (!root) return;
-
-  const tabs     = root.querySelectorAll('.local-mastery__tab');
-  const maps     = root.querySelectorAll('.local-mastery__map');
-  const captions = root.querySelectorAll('.local-mastery__caption');
-  const ledes    = root.querySelectorAll('.local-mastery__lede-text');
-  const quotes   = root.querySelectorAll('.local-mastery__quote-text');
-
-  function setActive(target) {
-    root.dataset.active = target;
-    tabs.forEach((t) => {
-      const active = t.dataset.target === target;
-      t.classList.toggle('is-active', active);
-      t.setAttribute('aria-selected', active ? 'true' : 'false');
-    });
-    maps.forEach((m)     => m.classList.toggle('is-active', m.dataset.state === target));
-    captions.forEach((c) => c.classList.toggle('is-active', c.dataset.state === target));
-    ledes.forEach((l)    => l.classList.toggle('is-active', l.dataset.state === target));
-    quotes.forEach((q)   => q.classList.toggle('is-active', q.dataset.state === target));
-  }
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.target;
-      // Click the active tab again → return to overview.
-      setActive(root.dataset.active === target ? 'overview' : target);
-    });
-  });
-})();
+/* Local Mastery widget was collapsed to a single static map +
+   caption + lede + quote. The four-state tab/arrow/click-to-
+   advance controllers that used to live here (initLocalMastery
+   IIFE + arrow-nav handler further down) were removed in the
+   same commit. */
 
 /* — Magnetic primary buttons. Listens at the document level so
      buttons drift toward the cursor when it enters an 80 px buffer
@@ -367,6 +341,55 @@ if (gsap && ScrollTrigger) {
       });
     },
   });
+
+  /* /studio/ §08 Facts grid — count-up animation on the four big
+     serif numbers (25 / 8 / 7 / 72) when the grid enters viewport.
+     Markup ships final values so fast scrollers or no-GSAP visitors
+     see correct numbers either way. /services/ uses the homepage
+     .stats markup directly so it's handled by the .stats trigger
+     above, not here. */
+  ScrollTrigger.create({
+    trigger: '.studio__facts-grid',
+    start: 'top 85%',
+    once: true,
+    onEnter: () => {
+      document.querySelectorAll('.studio__facts-number').forEach((el) => {
+        const target = parseInt(el.dataset.factsCount, 10);
+        const digit = el.querySelector('.studio__facts-digit');
+        if (!digit || isNaN(target) || target === 0) return;
+
+        digit.textContent = '0';
+        const obj = { value: 0 };
+        gsap.to(obj, {
+          value: target,
+          duration: 1.1,
+          ease: 'power2.out',
+          snap: { value: 1 },
+          onUpdate: () => { digit.textContent = obj.value | 0; },
+        });
+      });
+    },
+  });
+
+  /* /studio/ §06 Bench — staggered portrait reveal. Adds
+     .is-revealed to the grid when it enters viewport; CSS handles
+     the per-cell stagger via :nth-child transition-delay. */
+  ScrollTrigger.create({
+    trigger: '.studio__people-grid',
+    start: 'top 80%',
+    once: true,
+    onEnter: (self) => self.trigger.classList.add('is-revealed'),
+  });
+
+  /* /studio/ §07 Triptych — sequential frame reveal. Same
+     .is-revealed pattern; CSS staggers the three frames 200 ms
+     apart so the visitor reads them left-to-right as a process. */
+  ScrollTrigger.create({
+    trigger: '.studio__triptych',
+    start: 'top 80%',
+    once: true,
+    onEnter: (self) => self.trigger.classList.add('is-revealed'),
+  });
 }
 
 /* =========================================================
@@ -396,11 +419,16 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   if (video.readyState >= 1) lockFrameZero();
   else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
 
-  // Click-to-reveal — the magic.
+  // Click-to-reveal / click-to-restart — the magic.
+  // If the tile is already revealed (animation finished, overlay
+  // showing), clicking it strips the revealed state and replays from
+  // frame 0. The "View Project" pill (sibling of the trigger) keeps
+  // its own click path to the project page, untouched.
   const play = (e) => {
     if (e) e.preventDefault();
-    // If already playing, ignore — let the morph finish naturally.
+    // If currently mid-play, ignore — let the morph finish naturally.
     if (!video.paused && !video.ended) return;
+    tile.classList.remove('is-revealed');
     tile.classList.add('is-playing');
     try { video.currentTime = 0; } catch (_) {}
     const p = video.play();
@@ -414,8 +442,10 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   if (btn) btn.addEventListener('click', play);
 
   // When the morph completes, video sits on its true last frame
-  // (the "after" state). Mark `is-revealed` so the hint stays gone.
+  // (the "after" state). Drop is-playing and mark is-revealed so the
+  // overlay + View Project pill surface.
   video.addEventListener('ended', () => {
+    tile.classList.remove('is-playing');
     tile.classList.add('is-revealed');
   });
 });
@@ -618,34 +648,6 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
 })();
 
 // =====================================================================
-// Cascais map tap-to-advance. Tap on the map (or the prev/next arrows
-// beneath it) advances to the next state by triggering a synthetic
-// click on the corresponding tab in the toggle bar -- so the existing
-// tab JS keeps running unchanged.
-// =====================================================================
-(() => {
-  const mapBtn = document.querySelector('[data-map-advance]');
-  const arrows = Array.from(document.querySelectorAll('[data-map-nav] [data-direction]'));
-  const tabs = Array.from(document.querySelectorAll('.local-mastery__tab'));
-  const counter = document.querySelector('[data-map-count]');
-  if (!mapBtn || tabs.length === 0) return;
-
-  const advance = (dir = 1) => {
-    const activeIdx = tabs.findIndex((t) => t.classList.contains('is-active'));
-    const nextIdx = ((activeIdx === -1 ? 0 : activeIdx) + dir + tabs.length) % tabs.length;
-    tabs[nextIdx].click();
-    if (counter) counter.textContent = `${nextIdx + 1} / ${tabs.length}`;
-  };
-
-  mapBtn.addEventListener('click', () => advance(1));
-  arrows.forEach((arrow) => {
-    arrow.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const dir = parseInt(arrow.dataset.direction, 10) || 1;
-      advance(dir);
-    });
-  });
-
-  const activeIdx = tabs.findIndex((t) => t.classList.contains('is-active'));
-  if (counter) counter.textContent = `${(activeIdx === -1 ? 0 : activeIdx) + 1} / ${tabs.length}`;
-})();
+// (Removed: the Cascais map tap-to-advance + arrow nav handler.
+// The map widget was collapsed to a single static frame, so the
+// advance + counter logic no longer has anything to drive.)

@@ -3,7 +3,7 @@
 ## The Identity
 - **Brand:** High-end boutique renovation. 
 - **The "Vibe":** Approachable Luxury (Cascais meets Architectural Digest).
-- **Goal:** Transform the existing "Mias Homes" site from a standard construction page into a "Visual Experience."
+- **Goal:** Transform the existing "Mayas Homes" site from a standard construction page into a "Visual Experience."
 
 ## Visual & Motion Requirements
 - **Hero Transformation:** Use `hero-transformation.mp4`. It MUST be tied to the scroll position (scrubbing). 

@@ -100,6 +100,12 @@ if (nav) {
   const navBrandLink = document.querySelector('.nav-brand');
   if (navBrandLink) {
     navBrandLink.addEventListener('click', (e) => {
+      // On the home page, intercept and scroll to top. On every other page,
+      // let the native anchor navigation fire so the brand actually returns
+      // visitors to /.
+      const path = window.location.pathname;
+      const onHome = path === '/' || path === '' || path === '/index.html';
+      if (!onHome) return;
       e.preventDefault();
       e.stopImmediatePropagation();
       const lenis = window.__lenis;

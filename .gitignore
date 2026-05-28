@@ -34,3 +34,8 @@ build/
 # Temp
 *.tmp
 *.bak
+
+# Heavy unused asset dumps — keep originals/backups out of git so the
+# repo stays pushable. Working copies live locally only.
+assets/images/heavy_backups/
+scripts/_audit/
