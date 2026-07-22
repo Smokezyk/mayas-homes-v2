@@ -10904,7 +10904,7 @@ body.nav-locked { overflow: hidden; }
     width: max-content;
     max-width: calc(100vw - 80px);
     padding: 13px 22px 13px 26px;
-    gap: 32px;
+    gap: clamp(16px, 2.2vw, 32px);
     border-radius: 999px;
     background: rgba(248, 246, 240, 0.82);
     backdrop-filter: blur(22px);
@@ -10914,7 +10914,7 @@ body.nav-locked { overflow: hidden; }
   }
 
   .nav-tools {
-    gap: 24px;
+    gap: clamp(12px, 1.6vw, 24px);
   }
 
   .nav-menu-toggle,
@@ -10946,7 +10946,7 @@ body.nav-locked { overflow: hidden; }
   .nav-links {
     display: inline-flex;
     flex: 0 0 auto;
-    gap: 32px;
+    gap: clamp(18px, 2.2vw, 32px);
   }
 
   .nav-links a {
@@ -10996,6 +10996,8 @@ body.nav-locked { overflow: hidden; }
     padding: 11px 20px;
     font-size: 11px;
     letter-spacing: 0.16em;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 
@@ -11386,7 +11388,7 @@ body.nav-locked { overflow: hidden; }
 .studio__people-controls {
   display: none;
 }
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
   .studio__people-grid {
     position: relative;
     grid-template-columns: 1fr;
@@ -11516,7 +11518,7 @@ body.nav-locked { overflow: hidden; }
   color: var(--mid);
   margin: 0;
 }
-@media (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 900px) {
   .studio__people-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(28px, 4vw, 36px);
