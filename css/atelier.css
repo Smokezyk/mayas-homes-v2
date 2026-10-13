@@ -1,0 +1,213 @@
+/* DRAFT — Atlantic Atelier, 6 October 2026.
+   The decorative plaster is an existing site asset. Project photographs,
+   transformations and their established frames keep their own rules. */
+body.atelier-refined {
+  --atelier-paper: #f7f3eb;
+  --atelier-stone: #e9e5dc;
+  --atelier-green: #264e4a;
+  --atelier-rule: #c9c7b9;
+  --atelier-margin: clamp(24px, 5vw, 80px);
+}
+body.atelier-refined::before { display: none; }
+.atelier-refined :focus-visible { outline: 2px solid #264e4a; outline-offset: 5px; }
+.atelier-refined .floating-nav {
+  min-height: 80px;
+  padding-block: 14px;
+  border-bottom-color: #d6d3c8 !important;
+}
+.atelier-refined .nav-brand .nav-wordmark {
+  letter-spacing: .09em; opacity: 1 !important; visibility: visible !important;
+  transform: none !important;
+}
+.atelier-refined :is(.nav-cta, .home-button, .contact__submit, .btn-silver) {
+  border-radius: 0 !important;
+  transition: background-color 180ms ease, color 180ms ease, transform 100ms ease-out;
+}
+.atelier-refined :is(.nav-cta, .home-button, .contact__submit, .btn-silver):active { transform: scale(.98); }
+.atelier-refined :is(.home-text-link, .section-closer__link) { text-underline-offset: .35em; }
+.atelier-refined :is(.home-text-link, .section-closer__link):hover { text-decoration: underline; }
+.atelier-refined .nav-drawer { background-color: var(--atelier-paper); }
+.atelier-refined .eyebrow { font: 500 10px/1.6 var(--sans); letter-spacing: .16em; }
+.atelier-refined .display { font-weight: 400; letter-spacing: -.035em; }
+.atelier-refined .reveal { transform: translateY(10px); transition-duration: 450ms; }
+.atelier-refined .reveal.is-in { transform: none; }
+/* Essential headings are readable on arrival; photography supplies the drama. */
+.atelier-refined .display .word { overflow: visible; }
+.atelier-refined .display .word > span { transform: none; transition: none; }
+.atelier-refined :is(.services__hero, .portfolio__hero, .studio__opening,
+  .contact-page__hero, .journal__hero) {
+  position: relative; isolation: isolate;
+}
+.atelier-refined :is(.services__hero, .portfolio__hero, .studio__opening,
+  .contact-page__hero, .journal__hero)::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url('/assets/textures/figueiras-plaster.webp') center / cover;
+  opacity: .12; mix-blend-mode: multiply;
+}
+
+/* The opening is a room and an invitation, composed as a single spread. */
+body.atelier-refined.page-home .atelier-hero {
+  display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.3fr);
+  position: relative; isolation: isolate;
+  padding: 116px var(--atelier-margin) 0;
+  background: var(--atelier-paper);
+  gap: 0 clamp(28px, 4vw, 68px);
+}
+.atelier-hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url('/assets/textures/figueiras-plaster.webp') center / cover;
+  opacity: .16; mix-blend-mode: multiply;
+}
+.atelier-hero__copy { align-self: center; padding: 28px 0 36px; }
+.atelier-hero__eyebrow { font: 500 10px/1.7 var(--sans); text-transform: uppercase; letter-spacing: .18em; color: #45534a; }
+.atelier-hero__title {
+  margin: 28px 0 26px; color: var(--atelier-green);
+  font: 400 clamp(54px, 6.5vw, 104px)/.98 var(--serif);
+  letter-spacing: -.045em; max-width: 10ch; font-optical-sizing: auto;
+}
+.atelier-hero__title em { font-weight: 400; }
+.atelier-hero__lead { max-width: 35ch; font: 15px/1.8 var(--sans); color: #343b38; }
+.atelier-hero__actions { display: flex; align-items: flex-start; gap: 12px; flex-direction: column; margin-top: 28px; }
+.atelier-hero__actions .home-button { min-height: 48px; padding-inline: 22px; }
+.atelier-hero__actions .home-text-link { font-size: 12px; min-height: 44px; }
+.atelier-hero__photo { margin: 0; align-self: stretch; min-width: 0; display: flex; flex-direction: column; }
+.atelier-hero__image-link { display: block; flex: 1; min-height: 0; }
+.atelier-hero__photo img {
+  width: 100%; height: 100%; min-height: 510px; max-height: 690px;
+  object-fit: cover; object-position: 53% 50%;
+}
+.atelier-hero__caption {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 14px 0; color: #3a443e; font: 11px/1.5 var(--sans);
+}
+.atelier-hero__caption a { display: inline-flex; align-items: center; gap: 24px; min-height: 32px; text-decoration: underline; text-underline-offset: 4px; }
+.atelier-hero__caption span { font: 10px/1.5 var(--mono); }
+.atelier-hero__footnote {
+  grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 24px;
+  padding: 25px 0; margin-top: 28px; border-top: 1px solid var(--atelier-rule);
+  font: 10px/1.5 var(--sans); letter-spacing: .13em; text-transform: uppercase; color: #465047;
+}
+
+/* An editorial introduction frames the original six transformation panels. */
+body.atelier-refined.page-home .projects { padding: 86px var(--atelier-margin) 100px; }
+.atelier-refined.page-home .projects__head {
+  max-width: 1320px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .7fr);
+  column-gap: 70px; align-items: end; margin-bottom: 38px;
+}
+.atelier-refined.page-home .projects__head .eyebrow { grid-column: 1 / -1; margin-bottom: 12px; }
+.atelier-refined.page-home .projects__head .display { margin: 0; font-size: clamp(42px, 5vw, 72px); max-width: 15ch; }
+.atelier-refined.page-home .projects__head .projects__lede { font-size: 14px; max-width: 38ch; padding-bottom: 8px; }
+.atelier-refined .tile__view {
+  background: #f7f3eb; color: #264e4a; border: 0; border-radius: 0;
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.atelier-refined .tile__view::before, .atelier-refined .tile__view::after { display: none; }
+.atelier-refined .tile__hover-hint { border-radius: 0; }
+
+/* A quieter, darker chapter makes the personal service tangible. */
+body.atelier-refined.page-home .manifesto {
+  background: var(--atelier-green) !important; padding: 94px var(--atelier-margin) 68px; border: 0;
+}
+.atelier-refined.page-home .manifesto__intro { max-width: 1280px; grid-template-columns: .9fr 1fr; gap: clamp(40px, 8vw, 128px); }
+.atelier-refined.page-home .manifesto__copy .display { font-size: clamp(42px, 5vw, 70px); line-height: 1.04; }
+.atelier-refined.page-home .manifesto :is(.eyebrow, .display, .manifesto__lede, .section-closer__link, figcaption) { color: #f7f3eb; }
+.atelier-refined.page-home .manifesto__lede { font-size: 15px; opacity: .92; }
+.atelier-refined.page-home .manifesto__portrait { border: 0; background: transparent; box-shadow: none; }
+.atelier-refined.page-home .manifesto__portrait figcaption { padding: 12px 16px; font: 10px/1.5 var(--mono); background: rgba(38, 78, 74, .86); }
+.atelier-refined.page-home .manifesto .section-closer { max-width: 1280px; text-align: left; margin-top: 30px; }
+.atelier-refined.page-home .manifesto a:focus-visible { outline-color: #f7f3eb; }
+body.atelier-refined.page-home .services { padding: 96px var(--atelier-margin); background: var(--atelier-paper); }
+.atelier-refined.page-home .services__head { max-width: 1320px; }
+.atelier-refined.page-home .services__head .display { font-size: clamp(44px, 4.8vw, 70px); }
+.atelier-refined.page-home .services__grid { max-width: 1320px; gap: 36px 22px; }
+.atelier-refined.page-home .services__title { font-size: 30px; line-height: 1.1; margin-top: 24px; }
+.atelier-refined.page-home .services__copy { font-size: 14px; }
+body.atelier-refined.page-home .home-process {
+  position: relative; isolation: isolate; max-width: none; background: var(--atelier-stone) !important;
+  padding: 96px var(--atelier-margin); border: 0; gap: clamp(44px, 10vw, 160px);
+}
+.atelier-refined.page-home .home-process::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url('/assets/textures/figueiras-plaster.webp') center / cover; opacity: .14; mix-blend-mode: multiply;
+}
+.atelier-refined.page-home .home-process h2 { font-size: clamp(48px, 5vw, 72px); max-width: 10ch; line-height: 1.02; }
+.atelier-refined.page-home .home-process__lead { font-size: 15px; }
+/* Reassurance items contain copy only; there is no separate number column. */
+.atelier-refined.page-home .home-process__steps li { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 30px 0; border-color: #c9c7b9; }
+.atelier-refined.page-home .home-process__number { font: italic 26px/1.4 var(--serif); }
+.atelier-refined.page-home .home-process__steps h3 { font: 500 17px/1.5 var(--sans); margin-bottom: 12px; }
+.atelier-refined.page-home .home-process__steps p { font-size: 14px; max-width: 52ch; }
+body.atelier-refined.page-home .testimonials { padding: 94px var(--atelier-margin); background: var(--atelier-paper); }
+.atelier-refined.page-home .testimonials__head .display { font-size: clamp(40px, 4vw, 60px); }
+body.atelier-refined.page-home .contact-page__form-section { background: var(--atelier-green) !important; padding: 92px var(--atelier-margin); }
+.atelier-refined.page-home .contact-page__form-section :is(h2, p, label, dt, dd, a, .eyebrow) { color: #f7f3eb; }
+.atelier-refined.page-home .contact-page__form-section :is(input, textarea, select) { color: #f7f3eb; background: transparent; border-color: #92a49b; }
+.atelier-refined.page-home .contact-page__form-section :is(input, textarea)::placeholder { color: #cad4cd; }
+.atelier-refined.page-home .contact-page__form-section .contact-page__field-opt { color: #cad4cd; opacity: 1; }
+.atelier-refined.page-home .contact-page__form-section :is(.field-error, .contact__error, .form-error) { color: #ffddd0; }
+.atelier-refined.page-home .contact-page__form-section .contact__submit { color: #264e4a !important; background: #f7f3eb !important; border-color: #f7f3eb !important; }
+.atelier-refined.page-home .contact-page__form-section :focus-visible { outline-color: #f7f3eb; }
+.atelier-refined.page-home .contact-page__h2 { font-size: clamp(42px, 4.5vw, 64px); }
+
+/* Carry the material language through the shared shell and reading pages. */
+body.atelier-refined .footer { background: #e6e5da !important; border-top: 0; }
+.atelier-refined .footer__details { max-width: 1440px; padding: 76px var(--atelier-margin); }
+.atelier-refined .footer__nav a, .atelier-refined .footer__contact-value { font: 14px/1.7 var(--sans); }
+.atelier-refined .footer__nav-label, .atelier-refined .footer__contact-label { color: #465047; }
+.atelier-refined.page-services .process { background: #e9e5dc !important; }
+.atelier-refined.page-contact .contact-page__faq { background: #e9e5dc !important; }
+
+@media (min-width: 1700px) {
+  body.atelier-refined.page-home .atelier-hero { padding-inline: max(80px, calc((100vw - 1540px) / 2)); }
+}
+@media (max-width: 1100px) {
+  .atelier-hero__title { font-size: clamp(54px, 7vw, 78px); }
+  .atelier-hero__photo img { min-height: 460px; }
+  .atelier-refined.page-home .projects__head { column-gap: 36px; }
+}
+@media (max-width: 768px) {
+  .atelier-refined .floating-nav { min-height: 70px; padding-block: 10px; }
+  .atelier-refined .nav-brand .nav-wordmark { display: inline-block; opacity: 1; visibility: visible; font-size: 13px; letter-spacing: .04em; }
+  body.atelier-refined.page-home .atelier-hero { grid-template-columns: 1fr; padding: 104px 24px 0; gap: 24px; }
+  .atelier-hero__copy { padding: 0; }
+  .atelier-hero__eyebrow { font-size: 9px; letter-spacing: .13em; }
+  .atelier-hero__title { font-size: clamp(49px, 12.8vw, 82px); max-width: 12ch; margin: 20px 0 18px; line-height: .98; }
+  .atelier-hero__lead { font-size: 14px; line-height: 1.7; max-width: 40ch; }
+  .atelier-hero__actions { flex-direction: row; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; align-items: center; }
+  .atelier-hero__actions .home-button { font-size: 12px; padding: 13px 18px; min-height: 44px; }
+  .atelier-hero__actions .home-text-link { font-size: 11px; }
+  .atelier-hero__photo img { height: auto; width: 100%; min-height: 0; max-height: none; aspect-ratio: 4/3; object-fit: cover; }
+  .atelier-hero__caption { padding: 9px 0 0; font-size: 10px; gap: 12px; }
+  .atelier-hero__caption span { font-size: 9px; }
+  .atelier-hero__footnote { margin: 0; padding: 18px 0; font-size: 8px; letter-spacing: .07em; gap: 12px; }
+  body.atelier-refined.page-home .projects { padding: 58px 24px 62px; }
+  .atelier-refined.page-home .projects__head { display: block; margin-bottom: 28px; }
+  .atelier-refined.page-home .projects__head .display { font-size: 44px; margin: 14px 0 18px; }
+  .atelier-refined.page-home .projects__head .projects__lede { font-size: 14px; }
+  .atelier-refined.page-home .projects__mobile-hint { margin-top: 12px; text-align: left; font-size: 9px; color: #465047; }
+  body.atelier-refined.page-home .manifesto { padding: 58px 24px 44px; }
+  .atelier-refined.page-home .manifesto__intro { grid-template-columns: 1fr; gap: 34px; }
+  .atelier-refined.page-home .manifesto__copy .display { font-size: 46px; }
+  body.atelier-refined.page-home :is(.services, .home-process, .testimonials, .contact-page__form-section) { padding: 60px 24px; }
+  .atelier-refined.page-home .services__grid { grid-template-columns: 1fr 1fr; gap: 34px 18px; }
+  .atelier-refined.page-home .services__title { font-size: 26px; }
+  .atelier-refined.page-home .services__copy { font-size: 13px; }
+  .atelier-refined.page-home .home-process { gap: 30px; }
+  .atelier-refined.page-home .home-process h2 { font-size: 48px; max-width: 12ch; }
+  .atelier-refined.page-home .home-process__steps li { padding: 24px 0; gap: 14px; }
+  .atelier-refined .footer__details { padding: 58px 24px; gap: 36px; }
+}
+@media (max-width: 360px) {
+  body.atelier-refined.page-home .atelier-hero { padding-inline: 20px; }
+  .atelier-hero__title { font-size: 46px; }
+  .atelier-refined .nav-brand .nav-wordmark { font-size: 11px; }
+  .atelier-hero__caption { flex-wrap: wrap; gap: 0; }
+  .atelier-refined.page-home .services__grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atelier-refined *, .atelier-refined *::before, .atelier-refined *::after { scroll-behavior: auto !important; transition-delay: 0s !important; }
+  .atelier-refined :is(.reveal, .fade-in, [data-fade]) { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .atelier-refined .display .word { overflow: visible !important; }
+  .atelier-refined .display .word > span { transform: none !important; transition: none !important; }
+  .atelier-refined :is(.nav-cta, .home-button, .contact__submit, .btn-silver):active { transform: none; }
+}

@@ -28,6 +28,8 @@
     return;
   }
 
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  motionPreference.addEventListener('change', updateScrollProgress);
   let ticking = false;
   let cachedHeroHeight = heroSection.offsetHeight;
 
@@ -44,6 +46,15 @@
   }
 
   function updateScrollProgress() {
+    if (motionPreference.matches) {
+      heroBrand.style.opacity = '1';
+      heroBrand.style.transform = 'none';
+      navBrandText.style.opacity = '1';
+      navBrandText.style.transform = 'none';
+      navBrandText.style.pointerEvents = 'auto';
+      ticking = false;
+      return;
+    }
     const scrollY = window.scrollY || window.pageYOffset;
     const triggerEnd = cachedHeroHeight * 0.33;
 

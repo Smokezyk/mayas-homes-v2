@@ -1,0 +1,57 @@
+/* Audit refinement: natural team framing and a quiet, people-led Profile. */
+body.portfolio-redesign.page-studio .atelier-profile-opening .studio__hero-inner {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+}
+body.portfolio-redesign.page-studio .atelier-profile-opening .studio__intro-portrait {
+  max-width: clamp(320px, 32vw, 520px);
+  width: 100%;
+  justify-self: end;
+  margin-top: 0;
+}
+body.portfolio-redesign.page-studio .atelier-profile-opening .studio__intro-portrait img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+body.portfolio-redesign.page-studio .studio-method {
+  scroll-margin-top: 120px;
+  padding: clamp(72px, 9vw, 140px) var(--folio-gutter);
+  background: var(--folio-paper);
+}
+body.portfolio-redesign.page-studio .studio-method__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(56px, 10vw, 160px);
+  max-width: 1300px;
+  padding: 0;
+}
+body.portfolio-redesign.page-studio .studio-method .studio__h2 { max-width: 12ch; }
+body.portfolio-redesign.page-studio .studio-method__details { display: grid; gap: 48px; }
+body.portfolio-redesign.page-studio .studio-method__details h3 {
+  margin: 0 0 14px;
+  color: var(--folio-ink);
+  font: 400 clamp(25px, 2.4vw, 34px)/1.25 var(--serif);
+  letter-spacing: -.025em;
+}
+body.portfolio-redesign.page-studio .studio-method__details p {
+  margin: 0;
+  max-width: 48ch;
+  color: #514f47;
+  font: 400 15px/1.85 var(--sans);
+}
+body.portfolio-redesign.page-contact .enquiry-privacy {
+  margin: 0;
+  max-width: 54ch;
+  font: 400 12px/1.75 var(--sans);
+  color: #514f47;
+}
+.enquiry-privacy a { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.enquiry-privacy a:focus-visible { outline: 2px solid var(--folio-accent); outline-offset: 4px; }
+@media (max-width: 900px) {
+  body.portfolio-redesign.page-studio .atelier-profile-opening .studio__hero-inner,
+  body.portfolio-redesign.page-studio .studio-method__inner { grid-template-columns: 1fr; }
+  body.portfolio-redesign.page-studio .atelier-profile-opening .studio__intro-portrait { max-width: none; }
+  body.portfolio-redesign.page-studio .studio-method__details { gap: 40px; }
+}

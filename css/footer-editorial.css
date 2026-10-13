@@ -1,0 +1,232 @@
+/* Shared wayfinding and closing signature, owner review — 11 October 2026.
+   The five destinations use the same names everywhere. */
+body.portfolio-redesign .floating-nav {
+  gap: clamp(16px, 2vw, 28px);
+  background: #f7f3eb !important;
+}
+body.portfolio-redesign .nav-links { gap: clamp(18px, 2vw, 30px); }
+body.portfolio-redesign .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 3px;
+  font: 400 12px/1.5 var(--sans);
+  color: #51544c;
+  white-space: nowrap;
+  text-decoration: none;
+}
+body.portfolio-redesign .nav-links a[aria-current],
+body.portfolio-redesign .nav-links a:hover {
+  color: #264e4a;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+body.portfolio-redesign .nav-links a[aria-current] { font-weight: 600; }
+body.portfolio-redesign .nav-brand__text { display: flex; flex-direction: column; gap: 7px; }
+body.portfolio-redesign .nav-current-page { display: none; }
+body.portfolio-redesign .floating-nav .nav-cta {
+  gap: 14px;
+  min-height: 46px;
+  padding: 12px 22px;
+  font: 500 12px/1.5 var(--sans);
+  background: #264e4a !important;
+}
+body.portfolio-redesign .nav-cta[aria-current] { outline: 2px solid #264e4a; outline-offset: 4px; }
+body.portfolio-redesign .nav-cta__arrow { font-size: 17px; line-height: 1; }
+body.portfolio-redesign .nav-drawer { background: #f4f0e7; }
+body.portfolio-redesign .nav-drawer__inner { padding: 88px 32px 44px; }
+body.portfolio-redesign .nav-drawer__eyebrow {
+  margin: 0 0 16px;
+  font: 500 10px/1.5 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #565b50;
+}
+body.portfolio-redesign .nav-drawer__links { margin-top: 0; gap: 12px; }
+body.portfolio-redesign .nav-drawer__links a {
+  justify-content: flex-start;
+  gap: 18px;
+  min-height: 52px;
+  padding: 8px 0;
+  font: 500 clamp(29px, 5vw, 44px)/1.2 var(--serif);
+  letter-spacing: -.035em;
+  color: #292b26;
+}
+body.portfolio-redesign .nav-drawer__links a[aria-current] { color: #264e4a; }
+body.portfolio-redesign .nav-drawer__links a[aria-current]::after {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+body.portfolio-redesign .nav-drawer__close { width: 44px; height: 44px; border: 0; }
+body.portfolio-redesign .nav-drawer__lang { margin: 30px 0 0; justify-content: flex-start; }
+body.portfolio-redesign .nav-drawer__lang a { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; }
+body.portfolio-redesign .nav-drawer__footer { margin-top: 20px; align-items: flex-start; text-align: left; }
+body.portfolio-redesign .nav-drawer__note {
+  max-width: 32ch;
+  margin: 0;
+  font: 400 12px/1.8 var(--sans);
+  color: #565b50;
+}
+body.portfolio-redesign .footer {
+  --footer-ink: #292b26;
+  --footer-muted: #565b50;
+  background: #f4f0e7 !important;
+  color: var(--footer-ink);
+  border: 0;
+  border-bottom: 8px solid #e4e5da;
+}
+body.portfolio-redesign .footer::before,
+body.portfolio-redesign .footer::after { display: none; }
+body.portfolio-redesign .footer__details {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas: 'brand contact' 'site site';
+  align-items: start;
+  gap: 52px clamp(44px, 8vw, 140px);
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 76px var(--folio-gutter, 5vw) 24px;
+  border: 0;
+}
+body.portfolio-redesign .footer__brand { grid-area: brand; gap: 22px; margin: 0; }
+body.portfolio-redesign .footer__brand-row { flex-direction: row; align-items: center; gap: 18px; }
+body.portfolio-redesign .footer__logo { width: 38px; height: 38px; margin: 0; filter: none; }
+body.portfolio-redesign .footer__wordmark {
+  font: 400 clamp(32px, 3vw, 44px)/1.05 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -.035em;
+  color: #000;
+  white-space: nowrap;
+}
+body.portfolio-redesign .footer__tagline { max-width: 38ch; font: 400 13px/1.85 var(--sans); color: var(--footer-muted); }
+body.portfolio-redesign .footer__social { gap: 8px; margin: 0; }
+body.portfolio-redesign .footer__social a {
+  width: 44px;
+  height: 44px;
+  color: #264e4a;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  transition: background-color 200ms cubic-bezier(.22,.72,.2,1);
+}
+body.portfolio-redesign .footer__social a:hover { background: #f4f0e7; }
+body.portfolio-redesign .footer__nav { grid-area: site; margin: 0; }
+body.portfolio-redesign .footer__contact { grid-area: contact; min-width: 0; margin: 0; }
+body.portfolio-redesign .footer__nav-label { display: none; }
+body.portfolio-redesign .footer__contact-label {
+  font: 500 10px/1.6 var(--sans);
+  letter-spacing: .14em;
+  color: var(--footer-muted);
+  margin: 0 0 24px;
+}
+body.portfolio-redesign .footer__nav ul { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px clamp(24px, 4vw, 64px); }
+body.portfolio-redesign .footer__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  font: 500 21px/1.3 var(--serif);
+  letter-spacing: -.025em;
+  color: var(--footer-ink);
+  border: 0;
+  text-decoration: none;
+  text-underline-offset: 6px;
+}
+body.portfolio-redesign .footer__nav a:hover,
+body.portfolio-redesign .footer__nav a[aria-current] { color: #264e4a; text-decoration: underline; text-decoration-thickness: 1px; }
+body.portfolio-redesign .footer__contact ul { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 22px 30px; }
+body.portfolio-redesign .footer__contact li { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 4px; }
+body.portfolio-redesign .footer__contact-key { display: block; margin: 0; font: 400 10px/1.5 var(--sans); letter-spacing: .1em; color: var(--footer-muted); }
+body.portfolio-redesign .footer__contact-value {
+  display: block;
+  font: 400 13px/1.75 var(--sans);
+  color: var(--footer-ink);
+  letter-spacing: 0;
+  border: 0;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+body.portfolio-redesign a.footer__contact-value {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  margin: -5px 0;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+body.portfolio-redesign a.footer__contact-value:hover { text-decoration: underline; }
+body.portfolio-redesign .footer__credentials {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 20px 44px;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 28px var(--folio-gutter, 5vw) 30px;
+}
+body.portfolio-redesign .footer__credentials-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 7px; }
+body.portfolio-redesign .footer__credentials-line { margin: 0; color: var(--footer-muted); font: 400 11px/1.8 var(--sans); letter-spacing: .015em; text-align: left !important; }
+body.portfolio-redesign .footer__credentials-legal { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0 20px; padding: 0; border: 0; font-size: 0; }
+body.portfolio-redesign .footer__credentials-link,
+body.portfolio-redesign .footer .mh-consent-settings {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font: 400 11px/1.5 var(--sans);
+  letter-spacing: .015em;
+  color: var(--footer-muted);
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+body.portfolio-redesign .footer__credentials-link:hover,
+body.portfolio-redesign .footer .mh-consent-settings:hover { color: #264e4a; text-decoration: underline; }
+body.portfolio-redesign :is(.floating-nav, .nav-drawer, .footer) :is(a, button):focus-visible { outline: 2px solid #264e4a; outline-offset: 5px; border-radius: 3px; }
+@media (max-width: 1100px) {
+  body.portfolio-redesign .nav-current-page {
+    display: block;
+    font: 500 10px/1.2 var(--sans);
+    letter-spacing: .025em;
+    color: #264e4a;
+    white-space: nowrap;
+  }
+  body.portfolio-redesign .nav-brand .nav-wordmark { font-size: 16px; text-transform: none; letter-spacing: .04em; }
+  body.portfolio-redesign .footer__details { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 42px; }
+  body.portfolio-redesign .footer__contact ul { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+  body.portfolio-redesign .footer__credentials { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  body.portfolio-redesign .footer__credentials-legal { justify-content: flex-start; }
+}
+@media (max-width: 760px) {
+  body.portfolio-redesign .footer__details { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'brand' 'contact' 'site'; padding: 52px 24px 18px; gap: 36px; }
+  body.portfolio-redesign .footer__brand { gap: 18px; }
+  body.portfolio-redesign .footer__brand-row { gap: 14px; }
+  body.portfolio-redesign .footer__logo { width: 32px; height: 32px; }
+  body.portfolio-redesign .footer__wordmark { font-size: clamp(31px, 8vw, 38px); }
+  body.portfolio-redesign .footer__contact-label { margin-bottom: 18px; }
+  body.portfolio-redesign .footer__contact ul { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px 24px; }
+  body.portfolio-redesign .footer__contact li:first-child { grid-column: 1/-1; }
+  body.portfolio-redesign a.footer__contact-value { font-size: 14px; }
+  body.portfolio-redesign .footer__nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 24px; }
+  body.portfolio-redesign .footer__nav a { font-size: 21px; }
+  body.portfolio-redesign .footer__credentials { padding: 16px 24px 24px; gap: 13px; }
+  body.portfolio-redesign .footer__credentials-legal { gap: 0 18px; }
+}
+@media (max-width: 380px) {
+  body.portfolio-redesign .nav-brand .nav-wordmark { font-size: 12px; }
+  body.portfolio-redesign .nav-brand__text { gap: 6px; }
+  body.portfolio-redesign .nav-current-page { font-size: 9px; }
+  body.portfolio-redesign .footer__contact ul { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.portfolio-redesign :is(.floating-nav, .nav-drawer, .footer) a { transition: none; }
+}

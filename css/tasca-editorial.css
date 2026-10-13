@@ -1,0 +1,284 @@
+/* DRAFT — The Tasca, editorial refinement, 6 October 2026.
+   Only reading surfaces, type and navigation are refined here. The existing
+   hero, figure markup, image dimensions, crops and photographic sequence stay
+   in index.css. This page draws its warmth from its own brick/oak palette. */
+body.site-refined.page-the-tasca {
+  --tasca-paper: #f7f3eb;
+  --tasca-stone: #f1e2ce;
+  --tasca-clay: #7a4d3a;
+  --tasca-ink: #1f1b17;
+  --tasca-rule: #c8b59f;
+}
+.site-refined.page-the-tasca .project {
+  background: var(--tasca-stone);
+}
+.site-refined.page-the-tasca .tasca-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 17px var(--pad-x);
+  background: var(--tasca-paper);
+  border-bottom: 1px solid var(--tasca-rule);
+  font: 13px/1.4 var(--sans);
+}
+.site-refined.page-the-tasca .tasca-index a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  gap: 10px;
+  color: var(--tasca-ink);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+.site-refined.page-the-tasca .tasca-index a:hover {
+  color: var(--tasca-clay);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.site-refined.page-the-tasca .tasca-index a:active { color: #000; }
+.site-refined.page-the-tasca .tasca-index a:focus-visible {
+  outline: 2px solid var(--tasca-clay);
+  outline-offset: 5px;
+}
+.site-refined.page-the-tasca .tasca-index__chapters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px clamp(20px, 3vw, 48px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-refined.page-the-tasca .tasca-index__number {
+  font: 10px/1.4 var(--mono);
+  color: #6b5948;
+}
+.site-refined.page-the-tasca :is(.project__brief, .project__before, .project__during, .project__after, .project__details) {
+  scroll-margin-top: 112px;
+}
+.site-refined.page-the-tasca .project__brief {
+  padding-block: clamp(64px, 8vw, 116px);
+  background: var(--tasca-paper);
+}
+.site-refined.page-the-tasca .project__brief-inner {
+  grid-template-columns: minmax(210px, .7fr) minmax(0, 1.55fr);
+  gap: clamp(44px, 8vw, 128px);
+}
+.site-refined.page-the-tasca .project__brief-aside {
+  border-top: 1px solid var(--tasca-rule);
+  padding-top: 24px;
+  gap: 28px;
+}
+.site-refined.page-the-tasca .project__brief-aside .eyebrow {
+  color: var(--tasca-clay);
+  font-size: 10px;
+  letter-spacing: .16em;
+}
+.site-refined.page-the-tasca .project__brief-meta { gap: 20px; }
+.site-refined.page-the-tasca .project__brief-meta-item dt {
+  color: #65594d;
+  font-size: 10px;
+  letter-spacing: .1em;
+  margin-bottom: 5px;
+}
+.site-refined.page-the-tasca .project__brief-meta-item dd {
+  font: 15px/1.6 var(--sans);
+  color: var(--tasca-ink);
+}
+.site-refined.page-the-tasca .project__brief-body-col .display {
+  font: 400 clamp(42px, 5.6vw, 80px)/1.03 var(--serif);
+  letter-spacing: -.035em;
+  color: var(--tasca-ink);
+  margin-bottom: 34px;
+  max-width: 19ch;
+  text-wrap: balance;
+}
+.site-refined.page-the-tasca .project__brief-body-col .display em {
+  color: var(--tasca-clay);
+  font-weight: 400;
+}
+.site-refined.page-the-tasca .project__brief-body {
+  color: #3d352d;
+  font: 16px/1.8 var(--sans);
+  max-width: 57ch;
+}
+.site-refined.page-the-tasca .project__brief-body strong { font-weight: 500; }
+.site-refined.page-the-tasca .project__brief-link {
+  padding-top: 24px;
+  margin-top: 28px;
+  border-top: 1px solid var(--tasca-rule);
+  color: #554638;
+}
+.site-refined.page-the-tasca .project__brief-link em { font-style: normal; }
+.site-refined.page-the-tasca .tasca-chapter {
+  max-width: var(--container);
+  margin: 0 auto 36px;
+  padding: 0 var(--pad-x);
+}
+.site-refined.page-the-tasca .tasca-chapter__index {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 17px;
+  font: 11px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--tasca-clay);
+}
+.site-refined.page-the-tasca .tasca-chapter__index span { color: #85705b; }
+.site-refined.page-the-tasca .tasca-chapter__title {
+  font: 400 clamp(34px, 3.8vw, 56px)/1.08 var(--serif);
+  letter-spacing: -.02em;
+  color: var(--tasca-ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.site-refined.page-the-tasca .tasca-chapter + :is(.project__detail, .project__pair) { margin-top: 0; }
+.site-refined.page-the-tasca .project__before {
+  padding-top: clamp(56px, 7vw, 100px);
+  padding-bottom: clamp(44px, 5vw, 72px);
+  background: var(--tasca-stone);
+}
+.site-refined.page-the-tasca .project__during {
+  padding-top: clamp(56px, 7vw, 96px);
+  background: #ece0cf;
+  border-top: 1px solid var(--tasca-rule);
+}
+.site-refined.page-the-tasca :is(.project__before-frame, .project__during .project__detail, .project__during .project__pair-frame) figcaption {
+  font: 12px/1.65 var(--sans);
+  font-style: normal;
+  letter-spacing: .015em;
+  color: #514639;
+  text-align: left;
+}
+.site-refined.page-the-tasca .project__quote {
+  isolation: isolate;
+  min-height: 0;
+  margin-bottom: 0;
+  padding-block: clamp(100px, 12vw, 174px);
+  background: var(--tasca-clay);
+  box-shadow: none;
+  overflow: hidden;
+}
+.site-refined.page-the-tasca .project__quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/assets/textures/the-tasca-texture.webp') center / cover;
+  opacity: .14;
+  pointer-events: none;
+}
+.site-refined.page-the-tasca .project__quote .maja-quote__text {
+  max-width: 21ch;
+  font-size: clamp(42px, 5.3vw, 78px);
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  color: var(--tasca-paper);
+  text-wrap: balance;
+}
+.site-refined.page-the-tasca .project__quote .project__quote-body {
+  max-width: 42ch;
+  font: 15px/1.7 var(--sans);
+  color: #f2e5d3;
+  margin-top: 30px;
+}
+.site-refined.page-the-tasca .project__quote .project__quote-body em { font-style: normal; }
+.site-refined.page-the-tasca .project__quote .maja-quote__cite {
+  color: #f2e5d3;
+  margin-top: 30px;
+  letter-spacing: .15em;
+}
+.site-refined.page-the-tasca .project__after {
+  background: var(--tasca-paper);
+  padding-top: clamp(64px, 8vw, 110px);
+}
+.site-refined.page-the-tasca .project__details {
+  background: var(--tasca-stone);
+  border-color: var(--tasca-rule);
+  padding-block: clamp(64px, 8vw, 110px);
+}
+.site-refined.page-the-tasca .project__details-grid {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.2fr);
+}
+.site-refined.page-the-tasca .project__details-col .eyebrow {
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--tasca-clay);
+}
+.site-refined.page-the-tasca .project__details-col .display {
+  font: 400 clamp(34px, 3.5vw, 52px)/1.08 var(--serif);
+  letter-spacing: -.025em;
+  color: var(--tasca-ink);
+  max-width: 15ch;
+}
+.site-refined.page-the-tasca .project__details-numbers {
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin: 0;
+}
+.site-refined.page-the-tasca .project__details-numbers .project__number dt {
+  color: #65594d;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+.site-refined.page-the-tasca .project__details-numbers .project__number dd {
+  font: 400 clamp(40px, 4.5vw, 68px)/1.08 var(--serif);
+  color: var(--tasca-ink);
+  letter-spacing: -.03em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.site-refined.page-the-tasca .project__details-materials li {
+  grid-template-columns: minmax(100px, .8fr) minmax(0, 1.35fr);
+  gap: 24px;
+  padding-block: 17px;
+  border-color: var(--tasca-rule);
+}
+.site-refined.page-the-tasca .project__details-materials span:first-child {
+  font: 11px/1.65 var(--sans);
+  letter-spacing: .03em;
+  color: #65594d;
+}
+.site-refined.page-the-tasca .project__details-materials span:last-child {
+  font: 14px/1.7 var(--sans);
+  color: var(--tasca-ink);
+}
+.site-refined.page-the-tasca .project__closer-cta {
+  padding-block: clamp(64px, 8vw, 116px);
+  margin-block: 0;
+}
+.site-refined.page-the-tasca .project__closer-cta-title {
+  font-size: clamp(42px, 5.4vw, 78px);
+  letter-spacing: -.03em;
+  color: var(--tasca-ink);
+}
+.site-refined.page-the-tasca .project__closer-cta-body {
+  color: #514639;
+  max-width: 44ch;
+}
+.site-refined.page-the-tasca .project__closer-cta-body em { font-style: normal; }
+@media (max-width: 900px) {
+  .site-refined.page-the-tasca .project__brief-inner { grid-template-columns: 1fr; gap: 40px; }
+  .site-refined.page-the-tasca .project__brief-aside { order: 1; }
+  .site-refined.page-the-tasca .project__brief-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-refined.page-the-tasca .project__details-grid { grid-template-columns: 1fr; gap: 48px; }
+  .site-refined.page-the-tasca .project__details-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .site-refined.page-the-tasca .tasca-index { align-items: flex-start; flex-direction: column; gap: 0; padding-block: 12px; }
+  .site-refined.page-the-tasca .tasca-index__chapters { justify-content: flex-start; width: 100%; gap: 0 24px; }
+  .site-refined.page-the-tasca .tasca-index__chapters a { gap: 7px; font-size: 12px; }
+  .site-refined.page-the-tasca .tasca-index__number { display: none; }
+  .site-refined.page-the-tasca .project__brief-body-col .display { font-size: clamp(39px, 10vw, 58px); }
+  .site-refined.page-the-tasca .tasca-chapter { margin-bottom: 28px; }
+  .site-refined.page-the-tasca .project__quote { padding-block: 84px; }
+  .site-refined.page-the-tasca .project__quote .maja-quote__text { font-size: clamp(36px, 9.5vw, 48px); }
+  .site-refined.page-the-tasca .project__details-materials li { grid-template-columns: minmax(84px, .7fr) minmax(0, 1.35fr); gap: 18px; }
+  .site-refined.page-the-tasca .project__details-materials span:last-child { font-size: 13px; }
+  .site-refined.page-the-tasca :is(.project__brief, .project__before, .project__during, .project__after, .project__details) { scroll-margin-top: 92px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-refined.page-the-tasca .tasca-index a { transition: none; }
+}

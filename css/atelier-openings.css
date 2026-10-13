@@ -1,0 +1,219 @@
+/* DRAFT — Services and Profile openings, 6 October 2026.
+   Original lead photographs move forward once, retaining their existing image
+   ratios and crop rules. Process media, project sequences and carousels stay
+   in their established order. */
+.atelier-refined .atelier-opening-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 44px;
+  margin-top: 22px;
+  font: 13px/1.5 var(--sans);
+  color: var(--atelier-green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.atelier-refined .atelier-opening-link:hover { color: #102f2c; }
+.atelier-refined .atelier-opening-link:active { color: #000; }
+
+/* A complete room shares the first screen with the service proposition. */
+body.atelier-refined.page-services .atelier-service-opening {
+  padding: 126px var(--atelier-margin) 62px;
+  min-height: 0;
+}
+body.atelier-refined.page-services .atelier-service-opening__inner {
+  display: grid;
+  grid-template-columns: minmax(0, .86fr) minmax(0, 1.35fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: center;
+  max-width: 1480px;
+  padding: 0;
+}
+.atelier-refined .atelier-service-opening__copy { min-width: 0; }
+.atelier-refined .atelier-service-opening__copy .eyebrow { margin: 0 0 22px; }
+body.atelier-refined .atelier-service-opening .services__title {
+  font: 400 clamp(48px, 5.5vw, 82px)/1.01 var(--serif);
+  letter-spacing: -.04em;
+  max-width: 13ch;
+  margin: 0 0 26px;
+  text-wrap: balance;
+}
+body.atelier-refined .atelier-service-opening .services__lede {
+  font: 15px/1.8 var(--sans);
+  max-width: 39ch;
+  margin: 0;
+  color: #343b38;
+}
+.atelier-refined .atelier-service-opening .services__chapter-photo--landscape {
+  border: 0;
+  max-width: none;
+  align-self: center;
+}
+.atelier-refined.page-services #turnkey {
+  padding: 58px var(--atelier-margin) 70px;
+  background: #e9e5dc !important;
+  border-top: 1px solid #d4d0c4;
+}
+.atelier-refined.page-services #turnkey .services__chapter-inner { max-width: 1320px; }
+.atelier-refined.page-services #turnkey .services__chapter-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 0 clamp(36px, 8vw, 124px);
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+.atelier-refined.page-services #turnkey .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0 0 20px;
+  text-align: left;
+}
+.atelier-refined.page-services #turnkey .services__chapter-title {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.07;
+  letter-spacing: -.03em;
+  text-align: left;
+  max-width: 15ch;
+  margin: 0;
+}
+.atelier-refined.page-services #turnkey .services__chapter-lede {
+  grid-column: 2;
+  text-align: left;
+  font-size: 15px;
+  margin: 0;
+  max-width: 52ch;
+}
+.atelier-refined.page-services #turnkey .services__chapter-cta {
+  grid-column: 2;
+  text-align: left;
+  margin: 18px 0 0;
+}
+.atelier-refined.page-services #turnkey .btn-silver {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--atelier-green) !important;
+  justify-content: flex-start;
+  padding: 10px 0;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* The founder is introduced beside the actual team photograph. */
+body.atelier-refined.page-studio .studio__opening .atelier-profile-opening {
+  padding: 120px var(--atelier-margin) 54px;
+  min-height: 0;
+}
+body.atelier-refined.page-studio .atelier-profile-opening .studio__hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: center;
+  max-width: 1264px;
+  width: 100%;
+  padding: 0;
+}
+.atelier-refined .atelier-profile-opening__copy { min-width: 0; }
+.atelier-refined .atelier-profile-opening__copy .eyebrow { margin: 0 0 26px; }
+body.atelier-refined .atelier-profile-opening .studio__name {
+  font: 400 clamp(62px, 7vw, 106px)/.96 var(--serif);
+  letter-spacing: -.045em;
+  max-width: 9ch;
+  margin: 0 0 28px;
+}
+body.atelier-refined .atelier-profile-opening .studio__lede {
+  font: 16px/1.8 var(--sans);
+  max-width: 35ch;
+  margin: 0;
+  color: #343b38;
+}
+.atelier-refined .atelier-profile-opening .studio__intro-portrait {
+  position: relative;
+  top: auto;
+  width: 100%;
+  max-width: 460px;
+  justify-self: end;
+  margin: 0;
+  border: 0;
+}
+.atelier-refined .atelier-profile-opening .studio__intro-portrait figcaption {
+  display: block;
+  padding: 12px 18px;
+  background: #f7f3eb;
+  color: #343b38;
+  font: 10px/1.5 var(--sans);
+  letter-spacing: .1em;
+}
+.atelier-refined.page-studio .studio__intro--bio {
+  padding-block: 68px;
+  background: #e9e5dc !important;
+}
+.atelier-refined.page-studio .studio__intro--bio .studio__intro-columns {
+  display: block;
+  max-width: none;
+  margin: 0;
+}
+.atelier-refined.page-studio .studio__intro--bio .studio__intro-text {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 0 clamp(40px, 8vw, 110px);
+}
+.atelier-refined.page-studio .studio__intro--bio .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0 0 20px;
+}
+.atelier-refined.page-studio .studio__intro--bio .studio__h2 {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  font-size: clamp(40px, 4.2vw, 60px);
+  line-height: 1.06;
+  letter-spacing: -.03em;
+  margin: 0;
+  max-width: 15ch;
+}
+.atelier-refined.page-studio .studio__intro--bio .studio__intro-text p:not(.eyebrow) {
+  grid-column: 2;
+  font-size: 15px;
+  margin: 0 0 18px;
+  max-width: 55ch;
+}
+.atelier-refined.page-studio #team { scroll-margin-top: 100px; }
+@media (max-width: 1000px) {
+  body.atelier-refined.page-services .atelier-service-opening__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 32px;
+  }
+  body.atelier-refined .atelier-service-opening .services__title { font-size: clamp(42px, 5.7vw, 60px); }
+  body.atelier-refined.page-studio .atelier-profile-opening .studio__hero-inner { gap: 40px; }
+  body.atelier-refined .atelier-profile-opening .studio__name { font-size: clamp(58px, 7.5vw, 80px); }
+}
+@media (max-width: 768px) {
+  body.atelier-refined.page-services .atelier-service-opening { padding: 108px 24px 38px; }
+  body.atelier-refined.page-services .atelier-service-opening__inner { grid-template-columns: 1fr; gap: 30px; }
+  body.atelier-refined .atelier-service-opening .services__title { font-size: clamp(44px, 11.2vw, 68px); max-width: 16ch; margin-bottom: 22px; }
+  body.atelier-refined .atelier-service-opening .services__lede { font-size: 14px; line-height: 1.75; max-width: 42ch; }
+  .atelier-refined .atelier-service-opening__copy .eyebrow { margin-bottom: 18px; }
+  .atelier-refined .atelier-opening-link { margin-top: 14px; font-size: 12px; }
+  .atelier-refined.page-services #turnkey { padding: 42px 24px 48px; }
+  .atelier-refined.page-services #turnkey .services__chapter-text { display: block; }
+  .atelier-refined.page-services #turnkey .services__chapter-title { font-size: 38px; margin-bottom: 22px; max-width: 16ch; }
+  .atelier-refined.page-services #turnkey .services__chapter-lede { font-size: 14px; }
+  body.atelier-refined.page-studio .studio__opening .atelier-profile-opening { padding: 108px 24px 34px; }
+  body.atelier-refined.page-studio .atelier-profile-opening .studio__hero-inner { grid-template-columns: 1fr; gap: 28px; }
+  body.atelier-refined .atelier-profile-opening .studio__name { font-size: clamp(60px, 15vw, 84px); max-width: none; margin-bottom: 22px; }
+  .atelier-refined .atelier-profile-opening__copy .eyebrow { margin-bottom: 22px; }
+  body.atelier-refined .atelier-profile-opening .studio__lede { font-size: 14px; line-height: 1.75; max-width: 44ch; }
+  .atelier-refined .atelier-profile-opening .studio__intro-portrait { max-width: 460px; justify-self: center; }
+  .atelier-refined .atelier-profile-opening .studio__intro-portrait figcaption { font-size: 9px; padding: 10px 14px; }
+  .atelier-refined.page-studio .studio__intro--bio { padding-block: 46px; }
+  .atelier-refined.page-studio .studio__intro--bio .studio__intro-text { display: block; }
+  .atelier-refined.page-studio .studio__intro--bio .studio__h2 { font-size: 40px; max-width: 16ch; margin-bottom: 24px; }
+  .atelier-refined.page-studio .studio__intro--bio .studio__intro-text p:not(.eyebrow) { font-size: 14px; }
+}
+@media (max-width: 360px) {
+  body.atelier-refined .atelier-service-opening .services__title { font-size: 41px; }
+  body.atelier-refined .atelier-profile-opening .studio__name { font-size: 54px; }
+}

@@ -1,0 +1,160 @@
+/* DRAFT · Transformation controls inherit the Projects typography and palette.
+   The established media aspect ratios, image crops and video sequences stay in index.css. */
+body.portfolio-redesign:is(.page-home, .page-studio) .projects__grid { row-gap: 42px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile { background: transparent; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile:hover { transform: none; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__media { border: 0; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__play-control {
+  position: absolute; left: 14px; bottom: 14px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 6px 15px 6px 6px; border-radius: 999px;
+  background: var(--folio-paper); color: var(--folio-ink);
+  font: 500 10px/1.45 var(--sans); letter-spacing: 0; white-space: nowrap;
+  pointer-events: none; transition: transform .35s var(--folio-ease);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__play-icon {
+  display: grid; place-items: center; flex: 0 0 30px; width: 30px; height: 30px;
+  color: var(--folio-paper); background: var(--folio-deep); border-radius: 50%;
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__play-icon svg { width: 16px; height: 16px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__icon-pause,
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__icon-replay { display: none; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:is([data-playback-state="playing"], [data-playback-state="loading"]) .tile__icon-play,
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:is([data-playback-state="ended"], [data-playback-state="error"]) .tile__icon-play { display: none; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:is([data-playback-state="playing"], [data-playback-state="loading"]) .tile__icon-pause,
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:is([data-playback-state="ended"], [data-playback-state="error"]) .tile__icon-replay { display: block; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:active .tile__play-control { transform: scale(.97); }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:focus-visible { outline: 3px solid var(--folio-accent); outline-offset: 5px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view {
+  position: static; inset: auto; transform: none !important;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; min-height: 80px; padding: 16px 0 0; margin: 0;
+  border: 0; border-radius: 0; background: transparent; color: var(--folio-ink);
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  opacity: 1 !important; pointer-events: auto !important;
+  white-space: normal; text-transform: none; text-decoration: none; text-align: left;
+  transition: color .35s var(--folio-ease);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__caption { display: flex; flex-direction: column; min-width: 0; gap: 5px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__caption-meta {
+  display: block; color: var(--folio-muted); font: 400 10px/1.6 var(--sans); letter-spacing: .06em;
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__caption-meta > span { margin-inline: 4px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile__caption-title {
+  display: block; font: 500 clamp(19px, 1.9vw, 26px)/1.25 var(--sans); letter-spacing: -.04em;
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__caption-arrow {
+  display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px;
+  border-radius: 50%; background: var(--folio-tint); color: var(--folio-accent);
+  transition: background .35s var(--folio-ease), color .35s var(--folio-ease);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__caption-arrow svg {
+  width: 18px; height: 18px; transform: none;
+  transition: transform .35s var(--folio-ease);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view:is(:hover, :focus-visible) { box-shadow: none; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view:is(:hover, :focus-visible) .tile__caption-arrow {
+  background: var(--folio-deep); color: var(--folio-paper);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view:is(:hover, :focus-visible) svg { transform: translate(2px, -2px); }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view:focus-visible { outline: 3px solid var(--folio-accent); outline-offset: 5px; }
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .media-playback-status {
+  color: var(--folio-muted); font: 400 12px/1.65 var(--sans); margin: 10px 0 0;
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .tile .media-playback-status:empty { display: none; }
+body.portfolio-redesign:is(.page-home, .page-studio) .projects__controls { padding: 0; }
+body.portfolio-redesign:is(.page-home, .page-studio) .projects__controls .projects__arrow {
+  border: 0; background: var(--folio-tint); color: var(--folio-accent);
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  transition: transform .35s var(--folio-ease);
+}
+body.portfolio-redesign:is(.page-home, .page-studio) .projects__counter { font: 400 11px/1.6 var(--sans); letter-spacing: .06em; color: var(--folio-muted); }
+
+/* Home photographs need space between them, especially in the preview's
+   narrower desktop pane. Keep the original frame ratios and mobile carousel. */
+@media (min-width: 769px) {
+  body.portfolio-redesign.page-home .projects__grid { row-gap: clamp(40px, 4vw, 60px); }
+  body.portfolio-redesign.page-home .projects__row { column-gap: clamp(24px, 2.8vw, 40px); }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+  body.portfolio-redesign.page-home .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    align-items: start;
+  }
+  body.portfolio-redesign.page-home .projects__row { display: contents; }
+}
+@media (max-width: 768px) {
+  body.portfolio-redesign:is(.page-home, .page-studio) .projects__grid { row-gap: 0; }
+  body.portfolio-redesign:is(.page-home, .page-studio) .tile__caption-title { font-size: 24px; }
+  body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view { padding-top: 18px; min-height: 88px; }
+  body.portfolio-redesign:is(.page-home, .page-studio) .projects__controls { margin-top: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.portfolio-redesign:is(.page-home, .page-studio) :is(.tile__view, .tile__play-control, .tile__caption-arrow, .tile__caption-arrow svg, .projects__arrow) { transition: none !important; }
+  body.portfolio-redesign:is(.page-home, .page-studio) .tile .tile__view:is(:hover, :focus-visible) svg,
+  body.portfolio-redesign:is(.page-home, .page-studio) .tile__link:active .tile__play-control { transform: none !important; }
+}
+
+/* The Profile carousel keeps its established play/replay interaction. */
+body.portfolio-redesign.page-studio .tile__legacy-replay { display: none; }
+body.portfolio-redesign.page-studio .tile.is-playing .tile__play-control { opacity: 0; }
+body.portfolio-redesign.page-studio .tile.is-revealed :is(.tile__legacy-initial, .tile__icon-play) { display: none; }
+body.portfolio-redesign.page-studio .tile.is-revealed :is(.tile__legacy-replay, .tile__icon-replay) { display: block; }
+body.portfolio-redesign.page-studio .projects__grid--solo .projects__arrow {
+  background: var(--folio-paper); color: var(--folio-accent); border: 0;
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+/* Service animations share the same quiet corner control, with their existing
+   play/replay states. Their photographs and sequence timing are unchanged. */
+body.portfolio-redesign.page-services .process__hint {
+  top: auto; left: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 6px 15px 6px 6px; border: 0; border-radius: 999px;
+  background: var(--folio-paper); color: var(--folio-ink);
+  font: 500 10px/1.45 var(--sans); letter-spacing: 0; text-transform: none; text-shadow: none;
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  transition: opacity .35s var(--folio-ease), transform .35s var(--folio-ease);
+}
+body.portfolio-redesign.page-services .process__play-icon {
+  display: grid; place-items: center; flex: 0 0 30px; width: 30px; height: 30px;
+  color: var(--folio-paper); background: var(--folio-deep); border-radius: 50%;
+}
+body.portfolio-redesign.page-services .process__play-icon svg { width: 16px; height: 16px; }
+body.portfolio-redesign.page-services .process__icon-replay { display: none; }
+body.portfolio-redesign.page-services [data-step].is-playing .process__hint { opacity: 0; }
+body.portfolio-redesign.page-services [data-step].is-revealed :is(.process__icon-play, .process__hint-label--initial) { display: none; }
+body.portfolio-redesign.page-services [data-step].is-revealed :is(.process__icon-replay, .process__hint-label--replay) { display: block; }
+body.portfolio-redesign.page-services [data-step].is-revealed .process__hint { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  body.portfolio-redesign.page-services .process__hint { transition: none !important; }
+}
+@media (max-width: 768px) {
+  body.portfolio-redesign.page-studio .projects__grid--solo .projects__arrow { background: var(--folio-tint); }
+}
+
+/* Enhanced Service controls keep pause and resume available on every frame. */
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__hint {
+  opacity: 1;
+  transform: none;
+}
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__hint-label--initial { display: inline; }
+body.portfolio-redesign.page-services [data-step][data-process-playback] :is(.process__hint-label--replay, .process__icon-play, .process__icon-pause, .process__icon-replay) { display: none; }
+body.portfolio-redesign.page-services [data-step][data-process-playback]:is([data-process-playback="idle"], [data-process-playback="paused"]) .process__icon-play,
+body.portfolio-redesign.page-services [data-step][data-process-playback]:is([data-process-playback="loading"], [data-process-playback="playing"]) .process__icon-pause,
+body.portfolio-redesign.page-services [data-step][data-process-playback]:is([data-process-playback="ended"], [data-process-playback="error"]) .process__icon-replay { display: block; }
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__step-link:focus-visible {
+  outline: 3px solid var(--folio-paper);
+  outline-offset: -6px;
+}
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__step-link:focus-visible .process__hint {
+  outline: 2px solid var(--folio-accent);
+  outline-offset: 3px;
+}
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__playback-status {
+  position: absolute; inset: 14px 14px auto; z-index: 6;
+  width: fit-content; max-width: calc(100% - 28px); margin: 0; padding: 10px 14px;
+  background: var(--folio-paper); color: var(--folio-ink);
+  font: 400 12px/1.5 var(--sans); pointer-events: none;
+}
+body.portfolio-redesign.page-services [data-step][data-process-playback] .process__playback-status:empty { display: none; }

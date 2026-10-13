@@ -3,27 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F4EFE6" />
+  <meta name="theme-color" content="#F7F3EB" />
   <!-- Cookie consent + consent-gated GA4 (G-0W5WYQL10G). GA4 loads only after the visitor clicks Accept. See js/consent.js. -->
-  <script src="/js/consent.js?v=1" defer></script>
+  <script src="/js/consent.js?v=20261011-cookie" defer></script>
 
   <title>Privacy &middot; Maya&rsquo;s Homes</title>
-  <meta name="description" content="How Maya&rsquo;s Homes handles your data &mdash; written in plain language. What we collect, why, how long, and your rights under GDPR." />
+  <meta name="description" content="Contact details, optional Google Analytics and cookie choices at Maya’s Homes." />
   <link rel="canonical" href="https://mayashomes.com/privacy/" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Privacy &middot; Maya&rsquo;s Homes" />
-  <meta property="og:description" content="How Maya&rsquo;s Homes handles your data &mdash; in plain language." />
+  <meta property="og:description" content="Contact details, optional Google Analytics and cookie choices at Maya’s Homes." />
   <meta property="og:locale" content="en_GB" />
   <meta name="robots" content="noindex,follow" />
 
   <link rel="icon" type="image/png" href="/logo/mayas-homes-mark.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=368" />
-  <link rel="stylesheet" href="/css/animations.css?v=338" />
+  <link rel="stylesheet" href="/css/build/base-08a0d16e3081297b.css" data-mh-css-group="g0" />
+  <link rel="stylesheet" href="/css/build/page-f252526d7b91ed14.css" data-mh-css-group="g1" />
 
   <script type="application/ld+json">
   {
@@ -38,21 +35,26 @@
   <link rel="alternate" hreflang="en" href="https://mayashomes.com/privacy/" />
   <link rel="alternate" hreflang="pt-PT" href="https://mayashomes.com/pt/privacy/" />
   <link rel="alternate" hreflang="x-default" href="https://mayashomes.com/privacy/" />
+
+  <script src="/js/enquiry-analytics.js?v=20261011a" defer></script>
+
+  <link rel="preload" href="/fonts/bodoni-moda-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin data-mh-font="true" />
+  <link rel="preload" href="/fonts/plus-jakarta-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin data-mh-font="true" />
 </head>
-<body class="page-legal page-privacy">
+<body class="page-legal page-privacy site-refined atelier-refined portfolio-redesign">
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <header class="floating-nav" data-nav>
     <a class="nav-brand" href="/" aria-label="Maya's Homes — home">
-      <img src="/logo/mayas-homes-mark.png?v=236" alt="" class="nav-mark" />
-      <span class="nav-wordmark" data-nav-brand data-wordmark-target>Maya&rsquo;s Homes</span>
+      <img src="/brand/mayas-homes-mark.png" alt="" class="nav-mark" />
+      <span class="nav-brand__text"><span class="nav-wordmark" data-nav-brand data-wordmark-target>Maya&rsquo;s Homes</span><span class="nav-current-page" aria-hidden="true">Privacy</span></span>
     </a>
 
     <nav class="nav-links" aria-label="Primary">
-      <a href="/profile/">Profile</a>
+      <a href="/">Home</a>
       <a href="/projects/">Projects</a>
-      <a href="/services/">Services</a>
-      <a href="/journal/">Journal</a>
-      <a href="/contact/">Contact</a>
+      <a href="/services/">The service</a>
+      <a href="/profile/">Maja &amp; the team</a>
     </nav>
 
   <div class="nav-tools">
@@ -79,7 +81,7 @@
         </span>
       </button>
     </div>
-  <a class="nav-cta btn-silver" href="/contact/" data-magnetic>Begin a Project</a>
+  <a class="nav-cta btn-silver" href="/contact/">Contact<span class="nav-cta__arrow" aria-hidden="true">↗</span></a>
   </header>
 
   <aside class="nav-drawer" data-drawer hidden>
@@ -88,12 +90,12 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
       </button>
 
+      <p class="nav-drawer__eyebrow">Explore</p>
       <nav class="nav-drawer__links" aria-label="Primary">
         <a href="/">Home</a>
-        <a href="/profile/">Profile</a>
         <a href="/projects/">Projects</a>
-        <a href="/services/">Services</a>
-        <a href="/journal/">Journal</a>
+        <a href="/services/">The service</a>
+        <a href="/profile/">Maja &amp; the team</a>
         <a href="/contact/">Contact</a>
       </nav>
 
@@ -104,82 +106,40 @@
         <a href="/pt/privacy/">PT</a>
       </div>
       <div class="nav-drawer__footer">
-        <a class="btn-silver" href="/contact/">Begin a Project</a>
+        <p class="nav-drawer__note">Design and works execution along the Cascais coastline to Lisbon.</p>
       </div>
     </div>
   </aside>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
 
     <section class="legal-hero" aria-labelledby="legal-hero-title">
       <div class="wrap">
         <p class="legal-hero__eyebrow">&mdash; Privacy</p>
         <h1 id="legal-hero-title" class="legal-hero__title"><em>Your data,</em> plainly.</h1>
-        <p class="legal-hero__subtext">How we handle the few things you share with us when you write in. No lists, no remarketing, no surprises.</p>
-        <p class="legal-hero__updated"><strong>Last updated</strong> &middot; 24 May 2026</p>
+        <p class="legal-hero__subtext">Your enquiries, optional analytics and the choices available to you.</p>
+        <p class="legal-hero__updated"><strong>Last revised</strong> · 11 October 2026</p>
       </div>
     </section>
 
     <article class="legal__article">
       <div class="wrap">
 
-        <h2>The short version</h2>
-        <p>If you email us or use the contact form, we keep what you sent so we can write back. We don&rsquo;t sell it. We don&rsquo;t hand it to ad networks. We don&rsquo;t put you on a mailing list you didn&rsquo;t ask for. If you ever want it gone, ask and it&rsquo;s gone.</p>
-
-        <h2>Who we are</h2>
-        <p>This website is run by <strong>Maja&rsquo;s Homes Unipessoal&nbsp;Lda</strong>, a Portuguese company based in Alcabideche, Cascais, trading as <em>Maya&rsquo;s Homes</em>. Maja Mili&ccaron; is the person responsible for how your data is handled. You can reach her directly at <a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a>.</p>
-
-        <h2>What we collect</h2>
-        <p>Three things, no more:</p>
-        <ul>
-          <li><strong>What you tell us.</strong> When you write through the <a href="/contact/">contact form</a> or by email, we receive your name, your email address, your phone number if you choose to share it, and whatever you wrote in the message itself.</li>
-          <li><strong>What our server records.</strong> Like any website, ours logs the basics &mdash; the IP address that visited, the browser used, the time, the page requested. This is technical housekeeping, used to keep the site running and to spot problems.</li>
-          <li><strong>What anonymous analytics tell us (if active).</strong> If we&rsquo;re using a privacy-friendly analytics tool, it counts visits in aggregate &mdash; how many people came, which pages held their attention &mdash; without identifying anyone individually. We never use anything that profiles you across the web.</li>
-        </ul>
-
-        <h2>Why we collect it</h2>
-        <p>Because you wrote in expecting a reply, and replying well is the studio&rsquo;s job. Once we&rsquo;re working on a project together, we keep the correspondence so we can refer back to what was discussed, what was promised, and when. That&rsquo;s the whole of it.</p>
-
-        <h2>Our legal basis</h2>
-        <p>Under the GDPR (Regulation&nbsp;EU 2016/679) we rely on:</p>
-        <ul>
-          <li><strong>Pre-contractual and contractual steps at your request</strong> &mdash; when you write in to discuss a possible project, and afterwards if we&rsquo;re working from a signed proposal (Article&nbsp;6(1)(b)).</li>
-          <li><strong>Legitimate interest</strong> in answering the enquiry you initiated and running a small business in a normal, recognisable way (Article&nbsp;6(1)(f)).</li>
-        </ul>
-        <p>We don&rsquo;t rely on consent for the contact form, because there&rsquo;s no separate tick-box: the form exists for the specific purpose of starting a conversation, and writing through it is the conversation.</p>
-
-        <h2>Where it goes</h2>
-        <p>Your data lives on the email inbox the studio uses and on the server hosting this website. Both are kept by reputable providers based in or operating under EU data-protection rules. We do not pass your information to advertising networks, data brokers or marketing lists.</p>
-
-        <h2>How long we keep it</h2>
-        <ul>
-          <li><strong>Enquiries we never respond to or that go nowhere</strong> are kept for up to three years, in case you write back.</li>
-          <li><strong>Active client correspondence</strong> is kept for the duration of the project plus the period the Portuguese commercial code requires us to retain commercial records (currently ten years).</li>
-          <li><strong>Server and analytics logs</strong> are kept only as long as needed to diagnose problems &mdash; typically weeks to a few months.</li>
-        </ul>
-
-        <h2>Your rights</h2>
-        <p>You can ask us, at any time, to:</p>
-        <ul>
-          <li>show you what we hold about you,</li>
-          <li>correct anything that&rsquo;s wrong,</li>
-          <li>delete what you no longer want us to have,</li>
-          <li>hand you a copy in a portable format,</li>
-          <li>stop using it in ways you&rsquo;re no longer comfortable with.</li>
-        </ul>
-        <p>Email <a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a> with the request. We aim to answer within a week.</p>
-        <p>If you think we&rsquo;ve mishandled your data and we haven&rsquo;t put it right, you can complain to the Portuguese data-protection authority &mdash; the <a href="https://www.cnpd.pt/" target="_blank" rel="noopener">Comiss&atilde;o Nacional de Prote&ccedil;&atilde;o de Dados (CNPD)</a>.</p>
-
-        <h2>Cookies</h2>
-        <p>The site does not set tracking cookies. If we ever add analytics, we&rsquo;ll prefer tools that work without cookies or with a single, anonymous one &mdash; and this page will say so.</p>
-
-        <h2>Updates to this page</h2>
-        <p>If we change how we handle data, we&rsquo;ll update this page and refresh the effective date below. If the change is material, we&rsquo;ll say so plainly in the page itself.</p>
-
-        <p class="article__meta"><em>Effective 24&nbsp;May&nbsp;2026.</em></p>
-
+        <h2>Contacting Maya’s Homes</h2>
+        <p>The website is operated by <strong>Maja’s Homes Unipessoal, Lda.</strong>, trading as Maya’s Homes, in Alcabideche, Cascais. For questions about your personal data, contact <a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a>.</p>
+        <h2>Your enquiry</h2>
+        <p>The contact form asks for your name, email address and message. You may also provide a telephone number, your property stage, project scope and location or preferred area. These details help us understand and respond to your enquiry.</p>
+        <p>For information about how a particular enquiry is stored, who can access it or how long it is retained, write to the contact above.</p>
+        <h2>Optional website analytics</h2>
+        <p>The website uses Google Analytics 4 to understand visits and how pages are used. Analytics loads only after you select <strong>Accept</strong> in the cookie notice. Selecting <strong>Decline</strong> leaves analytics disabled.</p>
+        <p>If you accept, Google processes visit and device information through its analytics service, which uses cookies. This is separate from the details you enter in the enquiry form. Read <a href="https://support.google.com/analytics/answer/12017362?hl=en">Google’s information about Analytics and privacy</a> for more about its processing.</p>
+        <h2>Your cookie choice</h2>
+        <p>Your choice is saved in your browser so you do not have to make it on every page. Use <strong>Cookie settings</strong> in the footer to change it. If you withdraw consent, the site disables analytics and removes the Google Analytics cookies it can access.</p>
+        <h2>Requests about your data</h2>
+        <p>You can request access to your personal data, correction of inaccurate information, or deletion. Depending on the circumstances, you can also request a portable copy, restrict processing or object to it. These rights have conditions and exceptions.</p>
+        <p>Send requests to <a href="mailto:maja.milic@mayashomes.com">maja.milic@mayashomes.com</a>. The <a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en">European Commission explains these rights</a>. You may also raise a complaint with Portugal’s data-protection authority, the <a href="https://www.cnpd.pt/">CNPD</a>.</p>
+        <p class="article__meta"><em>Revised 11 October 2026.</em></p>
         <p><a href="/" class="article__back"><span aria-hidden="true">&larr;</span> Back to the studio</a></p>
-
       </div>
     </article>
 
@@ -188,8 +148,8 @@
   <footer class="footer">
     <div class="footer__details">
       <div class="footer__brand">
-        <div class="footer__brand-row"><img class="footer__logo" src="/logo/mayas-homes-mark.png?v=236" alt="Maya&rsquo;s Homes" width="40" height="40" /><p class="footer__wordmark">Maya&rsquo;s Homes</p></div>
-        <p class="footer__tagline">Residential renovation in Cascais and Greater Lisbon.</p>
+        <div class="footer__brand-row"><img class="footer__logo" src="/brand/mayas-homes-mark.png" alt="Maya&rsquo;s Homes" width="40" height="40" /><p class="footer__wordmark">Maya&rsquo;s Homes</p></div>
+        <p class="footer__tagline">Design and works execution for your home. Along the Cascais coastline to Lisbon.</p>
         <ul class="footer__social" aria-label="Social media">
           <li>
             <a href="https://www.instagram.com/mayas.homes/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -222,12 +182,11 @@
         </ul>
       </div>
       <nav class="footer__nav" aria-label="Footer navigation">
-        <p class="footer__nav-label">Site</p>
         <ul>
-          <li><a href="/profile/">Profile</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/projects/">Projects</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/journal/">Journal</a></li>
+          <li><a href="/services/">The service</a></li>
+          <li><a href="/profile/">Maja &amp; the team</a></li>
           <li><a href="/contact/">Contact</a></li>
         </ul>
       </nav>
@@ -237,7 +196,7 @@
           <li><span class="footer__contact-key">Email</span><a href="mailto:maja.milic@mayashomes.com" class="footer__contact-value">maja.milic@mayashomes.com</a></li>
           <li><span class="footer__contact-key">WhatsApp</span><a href="https://wa.me/351913037527" class="footer__contact-value">+351 913 037 527</a></li>
           <li><span class="footer__contact-key">Location</span><span class="footer__contact-value">Alcabideche &middot; Cascais &middot; Portugal</span></li>
-          <li><span class="footer__contact-key">Hours</span><span class="footer__contact-value">Mon&ndash;Fri &middot; 8&nbsp;&mdash;&nbsp;5 WET</span></li>
+          <li><span class="footer__contact-key">Hours</span><span class="footer__contact-value">Mon–Fri · 8 am–5 pm</span></li>
         </ul>
       </div>
     </div>
@@ -245,7 +204,7 @@
       <div class="footer__credentials-row">
         <p class="footer__credentials-line footer__credentials-line--left">&copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Founded by Maja Mili&ccaron;</p>
         <p class="footer__credentials-line footer__credentials-line--center">Licensed renovation contractor &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698</p>
-        <p class="footer__credentials-line footer__credentials-line--right"><em>Maya&rsquo;s Care</em> opening soon <a href="/contact/" class="footer__credentials-link">&rarr;</a></p>
+        
       </div>
       <p class="footer__credentials-line footer__credentials-legal"><a href="/privacy/" class="footer__credentials-link is-current" aria-current="page">Privacy</a> &middot; <a href="/terms/" class="footer__credentials-link">Terms</a> &middot; <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" class="footer__credentials-link">Livro de Reclama&ccedil;&otilde;es</a></p>
     </div>
@@ -254,9 +213,12 @@
   <script src="/vendor/gsap.min.js?v=236"></script>
   <script src="/vendor/ScrollTrigger.min.js?v=236"></script>
   <script src="/vendor/lenis.min.js?v=236"></script>
-  <script src="/js/main.js?v=305" type="module"></script>
-  <script src="/js/nav.js?v=236" type="module"></script>
-  <script src="/js/nav-drawer.js?v=236" defer></script>
-  <script src="/js/magnetic.js?v=236"></script>
+  <script src="/js/main.js?v=20261011b" type="module"></script>
+  <script src="/js/nav.js?v=20261006" type="module"></script>
+  <script src="/js/nav-drawer.js?v=20261011-owner" defer></script>
+  <script src="/js/magnetic.js?v=20261006"></script>
+
+  <a class="whatsapp-contact" href="https://wa.me/351913037527?text=Hello%20Maja%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20project%20for%20my%20home." target="_blank" rel="noopener noreferrer" aria-label="Chat with Maja on WhatsApp (opens a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/></svg><span class="whatsapp-contact__label">Chat with Maja</span></a>
+  <script src="/js/whatsapp-contact.js?v=20261012" defer></script>
 </body>
 </html>

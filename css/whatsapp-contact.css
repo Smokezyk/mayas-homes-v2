@@ -1,0 +1,52 @@
+/* One quiet contact shortcut, below the navigation and consent layers. */
+.whatsapp-contact {
+  position: fixed;
+  z-index: 50;
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 14px 22px 14px 18px;
+  border: 1px solid rgba(247, 243, 235, .3);
+  border-radius: 999px;
+  background: #264e4a;
+  color: #f7f3eb;
+  box-shadow: 0 5px 20px rgba(20, 39, 35, .13);
+  font: 500 13px/1.3 var(--sans, 'Plus Jakarta Sans', sans-serif);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .2s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .2s cubic-bezier(.22, 1, .36, 1);
+}
+.whatsapp-contact svg { width: 25px; height: 25px; flex: none; fill: currentColor; }
+.whatsapp-contact__label { white-space: nowrap; }
+.whatsapp-contact:visited { color: #f7f3eb; }
+.whatsapp-contact:focus-visible { outline: 3px solid #f7f3eb; outline-offset: 3px; box-shadow: 0 0 0 7px #264e4a; }
+@media (hover: hover) {
+  .whatsapp-contact:hover { background: #1c3d39; color: #f7f3eb; box-shadow: 0 7px 24px rgba(20, 39, 35, .2); }
+}
+.whatsapp-contact:active { background: #1c3d39; }
+/* Do not compete with consent, a modal menu, or the footer's contact links. */
+body:has(.mh-consent) .whatsapp-contact,
+body.nav-locked .whatsapp-contact,
+body:has(dialog[open]) .whatsapp-contact,
+.whatsapp-contact.is-footer-visible {
+  visibility: hidden;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .whatsapp-contact {
+    left: max(16px, env(safe-area-inset-left));
+    bottom: max(16px, calc(env(safe-area-inset-bottom) + 10px));
+    width: 56px;
+    height: 56px;
+    padding: 15px;
+  }
+  .whatsapp-contact__label { display: none; }
+  body:has(input:focus, textarea:focus, select:focus) .whatsapp-contact { visibility: hidden; pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) { .whatsapp-contact { transition: none; } }
+@media print { .whatsapp-contact { display: none; } }

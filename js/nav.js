@@ -82,7 +82,7 @@ if (nav) {
 
   // Show nav on focus-in (keyboard users).
   document.addEventListener('focusin', (e) => {
-    if (introDone && nav.contains(e.target) === false) {
+    if (introDone && nav.contains(e.target)) {
       setVisible(true);
     }
   });
@@ -109,10 +109,11 @@ if (nav) {
       e.preventDefault();
       e.stopImmediatePropagation();
       const lenis = window.__lenis;
-      if (lenis && typeof lenis.scrollTo === 'function') {
-        lenis.scrollTo(0, { duration: 1.0, force: true, lock: true });
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (lenis && typeof lenis.scrollTo === 'function' && !reducedMotion) {
+        lenis.scrollTo(0, { duration: 1.0, force: true });
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
       }
     }, true);
   }
@@ -122,7 +123,7 @@ if (nav) {
    MAGNETIC HOVER — CTA button drifts toward the cursor.
    ========================================================= */
 const cta = document.querySelector('.nav__cta');
-if (cta && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (cta && !document.body.classList.contains('atelier-refined') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const STRENGTH = 0.28;          // how much the button follows the cursor
   let raf = 0;
 

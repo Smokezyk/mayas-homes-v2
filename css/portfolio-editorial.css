@@ -1,0 +1,468 @@
+/* DRAFT — Portfolio and six project stories, 6 October 2026.
+   Live typography and authentic photography. Original chronological gallery
+   layouts, image crops and media behaviour remain in their existing rules. */
+body.portfolio-redesign {
+  --serif: 'Bodoni Moda', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --folio-paper: #f4f0e7;
+  --folio-ink: #292b26;
+  --folio-muted: #625e55;
+  --folio-accent: #264e4a;
+  --folio-tint: #e4e5da;
+  --folio-deep: #293e38;
+  --folio-gutter: clamp(24px, 4.5vw, 80px);
+  --folio-ease: cubic-bezier(.22, .72, .2, 1);
+  background: var(--folio-paper) !important;
+  color: var(--folio-ink);
+}
+body.portfolio-redesign.page-vista { --folio-accent: #754b53; --folio-tint: #ebe2dc; --folio-deep: #513d40; }
+body.portfolio-redesign.page-belle-riviere { --folio-accent: #70513c; --folio-tint: #e6dfd3; --folio-deep: #4e3c2d; }
+body.portfolio-redesign.page-figueiras { --folio-accent: #655464; --folio-tint: #e7e0e7; --folio-deep: #4b414d; }
+body.portfolio-redesign.page-la-sala { --folio-accent: #32564b; --folio-tint: #e3e9df; --folio-deep: #263e36; }
+body.portfolio-redesign.page-the-tasca { --folio-accent: #754e39; --folio-tint: #ede1d0; --folio-deep: #533f2f; }
+body.portfolio-redesign.page-rosa { --folio-accent: #4f5650; --folio-tint: #e4e5df; --folio-deep: #333b37; }
+.portfolio-redesign :focus-visible { outline: 2px solid var(--folio-accent); outline-offset: 6px; }
+.portfolio-redesign .floating-nav {
+  top: 16px; left: 24px; right: 24px; width: auto; min-height: 70px;
+  padding: 12px 24px; border: 0 !important; border-radius: 16px !important;
+  background: rgba(247, 243, 235, .96) !important;
+  box-shadow: 0 8px 36px rgba(43, 39, 30, .06);
+}
+.portfolio-redesign .nav-brand .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, serif; }
+.portfolio-redesign .nav-cta { border-radius: 999px !important; background: var(--folio-accent) !important; color: #fff !important; }
+.portfolio-redesign .nav-links a { font-size: 12px; }
+.portfolio-redesign .footer { background: var(--folio-tint) !important; border: 0; }
+.portfolio-redesign .footer__wordmark { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* The index behaves as a collection of photographs, with no card chrome. */
+body.portfolio-redesign.page-projects .portfolio { padding: 0; }
+.portfolio-redesign .work-intro { padding: 156px var(--folio-gutter) 64px; max-width: 1720px; margin: auto; }
+.work-intro__eyebrow {
+  display: flex; justify-content: space-between; gap: 24px;
+  font: 500 11px/1.5 var(--sans); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--folio-accent); margin: 0 0 30px;
+}
+.work-intro__eyebrow span { font-variant-numeric: tabular-nums; }
+.work-intro__body { display: grid; grid-template-columns: 1.8fr 1fr; gap: 64px; align-items: end; }
+.work-intro__body h1 { font: 500 clamp(60px, 6.8vw, 112px)/1.06 var(--serif); letter-spacing: -.055em; margin: 0; color: var(--folio-ink); }
+.work-intro__body > p { font: 14px/1.8 var(--sans); max-width: 37ch; margin: 0 0 8px; color: #514f47; }
+.work-intro__location { font: 12px/1.6 var(--sans); color: var(--folio-muted); margin: 22px 0 0; }
+body.portfolio-redesign.page-projects .work-collection {
+  background: transparent !important; padding: 0 var(--folio-gutter) 128px;
+  max-width: 1720px; margin: auto;
+}
+body.portfolio-redesign.page-projects main > section::before,
+body.portfolio-redesign.page-projects main > section::after { display: none !important; }
+.work-collection__pair { display: grid; grid-template-columns: 1.2fr .9fr; gap: clamp(44px, 7vw, 112px); align-items: start; margin-bottom: 118px; }
+.work-collection__pair:last-child { margin-bottom: 0; }
+.work-collection__pair:nth-child(even) { grid-template-columns: .9fr 1.2fr; }
+.work-collection__pair:nth-child(odd) .work-piece:nth-child(2),
+.work-collection__pair:nth-child(even) .work-piece:nth-child(1) { margin-top: 128px; }
+.work-piece { min-width: 0; background: none; }
+.work-piece__image { display: block; overflow: hidden; background: #e1ddd3; }
+.work-piece__image img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; transition: transform 800ms var(--folio-ease); }
+.work-piece__meta { display: flex; gap: 18px; justify-content: space-between; font: 11px/1.6 var(--sans); margin: 19px 0 8px; color: var(--folio-muted); }
+.work-piece__meta span:first-child { font-variant-numeric: tabular-nums; }
+.work-piece__title-link { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--folio-ink); text-decoration: none; }
+.work-piece__title-link h2 { font: 500 clamp(26px, 2.4vw, 39px)/1.25 var(--sans); letter-spacing: -.055em; margin: 0; }
+.work-piece__arrow { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: #e4e5da; color: var(--folio-accent); font: 24px/1 var(--sans); transition: transform 400ms var(--folio-ease), background-color 400ms var(--folio-ease); }
+.work-piece__caption { max-width: 49ch; font: 13px/1.8 var(--sans); color: #514f47; margin: 11px 0 0; }
+@media (hover: hover) {
+  .work-piece__image:hover img { transform: scale(1.035); }
+  .work-piece__title-link:hover .work-piece__arrow { transform: rotate(45deg); background: #d7dece; }
+}
+.work-piece__title-link:active .work-piece__arrow { transform: scale(.94); }
+body.portfolio-redesign .portfolio__in-progress { background: var(--folio-tint) !important; border: 0; padding: 72px var(--folio-gutter); }
+.portfolio-redesign .portfolio__in-progress .wrap { padding: 0; max-width: 1480px; }
+.portfolio-redesign .portfolio__in-progress-head .eyebrow { text-align: left; color: var(--folio-accent); }
+.portfolio-redesign .portfolio__in-progress-row { gap: 64px; }
+.portfolio-redesign .portfolio__in-progress-amp { display: none; }
+.portfolio-redesign .portfolio__in-progress .portfolio__name { font: 500 clamp(26px, 3vw, 40px)/1.2 var(--sans); letter-spacing: -.04em; color: var(--folio-ink); }
+.portfolio-redesign .portfolio__in-progress :is(.portfolio__caption, .portfolio__in-progress-note) { font: 13px/1.8 var(--sans); color: #514f47; }
+.portfolio-redesign .portfolio__in-progress em { font-style: normal; }
+
+/* Project covers: live, scalable names outside clean finished photography. */
+body.portfolio-redesign.page-project .project { background: var(--folio-paper); padding-top: 124px; }
+.project-cover { padding: 0 var(--folio-gutter); max-width: 1720px; margin: auto; }
+.project-cover__top { display: flex; justify-content: space-between; align-items: center; gap: 24px; font: 11px/1.5 var(--sans); color: var(--folio-muted); }
+.project-cover__back { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--folio-muted); text-decoration: none; }
+.project-cover__back:hover { color: var(--folio-accent); }
+.project-cover__location { margin: 0; }
+.project-cover__title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; padding: 8px 0 36px; }
+.project-cover__title { margin: 0; font: 500 clamp(68px, 8.6vw, 144px)/1.09 var(--serif); letter-spacing: -.055em; color: var(--folio-accent); }
+.project-cover__summary { margin: 0 0 12px; font: 14px/1.6 var(--sans); max-width: 20ch; text-align: right; color: #514f47; }
+.project-cover__image { margin: 0; overflow: hidden; background: var(--folio-tint); }
+.project-cover__image img { display: block; width: 100%; height: auto; max-height: 760px; aspect-ratio: 1.88; object-fit: cover; object-position: center; }
+.project-chapters {
+  display: flex; justify-content: center; align-items: center; gap: clamp(26px, 4.5vw, 72px);
+  flex-wrap: wrap; padding: 26px var(--folio-gutter) 12px;
+  background: var(--folio-paper); margin: 0;
+}
+.project-chapters__link { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; font: 12px/1.5 var(--sans); color: #4b4e44; text-decoration: none; }
+.project-chapters__link:hover { color: var(--folio-accent); text-decoration: underline; text-underline-offset: 6px; }
+.project-chapters__number { font-size: 9px; color: var(--folio-muted); }
+
+/* Cohesive reading rhythm, while each home keeps its own material palette. */
+body.portfolio-redesign.page-project .project__brief { padding: 76px var(--folio-gutter) 96px; background: var(--folio-paper) !important; }
+body.portfolio-redesign.page-project .project__brief-inner { grid-template-columns: minmax(180px, .6fr) minmax(0, 1.5fr); gap: clamp(40px, 8vw, 140px); max-width: 1264px; }
+body.portfolio-redesign.page-project .project__brief-aside { border: 0; padding: 0; position: static; gap: 24px; }
+body.portfolio-redesign.page-project .project__brief-aside .eyebrow { color: var(--folio-accent); font: 500 10px/1.5 var(--sans); letter-spacing: .12em; }
+body.portfolio-redesign.page-project .project__brief-meta { gap: 18px; }
+body.portfolio-redesign.page-project .project__brief-meta-item dt { color: var(--folio-muted); font: 10px/1.5 var(--sans); letter-spacing: .05em; }
+body.portfolio-redesign.page-project .project__brief-meta-item dd { color: var(--folio-ink); font: 14px/1.6 var(--sans); }
+body.portfolio-redesign.page-project .project__brief-body-col .display { font: 500 clamp(32px, 3.4vw, 52px)/1.2 var(--serif); letter-spacing: -.045em; color: var(--folio-ink); max-width: 24ch; margin: 0 0 28px; }
+body.portfolio-redesign.page-project .project__brief-body-col .display em { color: var(--folio-accent); font-weight: 500; }
+body.portfolio-redesign.page-project .project__brief-body { font: 14px/1.85 var(--sans); color: #4d4b44; max-width: 60ch; }
+body.portfolio-redesign.page-project .project__brief-body strong { font-weight: 600; }
+body.portfolio-redesign.page-project .project__brief-link { margin-top: 24px; padding-top: 0; border: 0; font: 12px/1.7 var(--sans); color: var(--folio-muted); }
+body.portfolio-redesign.page-project .project__brief-link em { font-style: normal; }
+body.portfolio-redesign.page-project :is(.project__before, .project__design, .project__during, .project__after, .project__details) { scroll-margin-top: 110px; }
+body.portfolio-redesign.page-project :is(.project__before, .project__design, .project__during) { background: var(--folio-tint) !important; border: 0; padding-top: 76px; padding-bottom: 76px; }
+body.portfolio-redesign.page-project .project__after { background: var(--folio-paper) !important; padding-top: 92px; padding-bottom: 72px; }
+.project-chapter-heading { max-width: var(--container); margin: 0 auto 44px; padding: 0 var(--pad-x); display: grid; grid-template-columns: .6fr 1.5fr; align-items: start; column-gap: clamp(40px, 8vw, 140px); }
+.project-chapter-heading__number { font: 500 11px/1.6 var(--sans); color: var(--folio-accent); letter-spacing: .06em; margin: 10px 0 0; }
+.project-chapter-heading__title { margin: 0; font: 500 clamp(32px, 3.3vw, 52px)/1.18 var(--serif); letter-spacing: -.045em; color: var(--folio-ink); }
+/* Rosa's original gallery constrained the section itself, exposing a cream
+   frame around the coloured chapter. Extend the surface, keep the same inner
+   gallery width, and turn the former outer margins into coloured breathing room. */
+body.portfolio-redesign.page-project.page-rosa .project__during {
+  max-width: none;
+  margin: 0;
+  padding-inline: max(var(--pad-x), calc((100% - var(--container)) / 2 + var(--pad-x)));
+  padding-block: calc(76px + clamp(48px, 6vw, 88px));
+}
+body.portfolio-redesign.page-rosa .project__during > .project-chapter-heading { width: 100%; max-width: none; margin: 0; padding: 0; }
+body.portfolio-redesign.page-project :is(.project__before-frame, .project__design-frame, .project__during-frame, .project__pair-frame, .project__detail) { box-shadow: none; border: 0; }
+body.portfolio-redesign.page-project :is(.project__before, .project__design, .project__during) figcaption { font: 12px/1.7 var(--sans); color: #514f47; letter-spacing: 0; text-align: left; }
+body.portfolio-redesign.page-project figcaption em { font-style: normal; }
+
+/* Quotes punctuate the story without occupying an entire screen. */
+body.portfolio-redesign.page-project .project__quote {
+  min-height: 0; height: auto; margin: 0;
+  padding: 86px max(var(--folio-gutter), calc((100vw - 1000px) / 2));
+  background: var(--folio-deep) !important; border: 0; box-shadow: none;
+  display: block; text-align: left; color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project__quote::before,
+body.portfolio-redesign.page-project .project__quote::after { display: none; }
+body.portfolio-redesign.page-project .project__quote .maja-quote__text { font: 500 clamp(30px, 3.9vw, 58px)/1.2 var(--serif); color: var(--folio-paper); letter-spacing: -.025em; text-shadow: none; max-width: 28ch; margin: 0 0 24px; }
+body.portfolio-redesign.page-project .project__quote .project__quote-body { font: 14px/1.85 var(--sans); color: #f0ece3; max-width: 64ch; text-shadow: none; margin: 0 0 22px; }
+body.portfolio-redesign.page-project .project__quote .project__quote-body em { font-style: normal; }
+body.portfolio-redesign.page-project .project__quote .maja-quote__cite { font: 500 11px/1.6 var(--sans); color: var(--folio-paper); letter-spacing: .06em; opacity: 1; text-shadow: none; margin: 0; }
+
+body.portfolio-redesign.page-project .project__details { background: var(--folio-tint) !important; border: 0; padding: 88px var(--folio-gutter); }
+body.portfolio-redesign.page-project .project__details-grid { grid-template-columns: .8fr 1.2fr; gap: clamp(48px, 8vw, 128px); }
+body.portfolio-redesign.page-project .project__details-col .eyebrow { font: 500 10px/1.5 var(--sans); color: var(--folio-accent); }
+body.portfolio-redesign.page-project .project__details-col .display { font: 500 clamp(30px, 2.8vw, 44px)/1.2 var(--serif); letter-spacing: -.04em; color: var(--folio-ink); }
+body.portfolio-redesign.page-project .project__details-numbers { display: grid; grid-template-columns: 1fr; gap: 22px; }
+body.portfolio-redesign.page-project .project__number dt { font: 10px/1.6 var(--sans); letter-spacing: .06em; color: var(--folio-muted); }
+body.portfolio-redesign.page-project .project__number dd { font: 500 clamp(28px, 3vw, 44px)/1.3 var(--sans); letter-spacing: -.055em; color: var(--folio-accent); }
+body.portfolio-redesign.page-project .project__details-materials li { border: 0; padding: 11px 0; gap: 22px; grid-template-columns: minmax(100px, .8fr) minmax(0, 1.4fr); }
+body.portfolio-redesign.page-project .project__details-materials span:first-child { font: 11px/1.8 var(--sans); letter-spacing: .02em; color: var(--folio-muted); }
+body.portfolio-redesign.page-project .project__details-materials span:last-child { font: 13px/1.8 var(--sans); color: var(--folio-ink); }
+body.portfolio-redesign.page-project .project__closer-cta { background: var(--folio-paper) !important; padding: 96px var(--folio-gutter); }
+body.portfolio-redesign.page-project .project__closer-cta .eyebrow { color: var(--folio-accent); }
+body.portfolio-redesign.page-project .project__closer-cta-title { font: 500 clamp(38px, 4.6vw, 72px)/1.16 var(--serif); letter-spacing: -.045em; color: var(--folio-ink); }
+body.portfolio-redesign.page-project .project__closer-cta-body { font: 14px/1.8 var(--sans); color: #514f47; }
+body.portfolio-redesign.page-project .project__closer-cta-body em { font-style: normal; }
+body.portfolio-redesign.page-project .project__closer-cta .btn-silver { background: var(--folio-accent) !important; color: #fff !important; border: 0 !important; border-radius: 999px !important; box-shadow: none; padding: 16px 28px; font: 13px/1.6 var(--sans); }
+body.portfolio-redesign.page-project .project__upnext-tab { border: 0; box-shadow: none; background: var(--folio-paper); backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.portfolio-redesign.page-project .project__upnext:hover .project__upnext-tab { box-shadow: none; }
+body.portfolio-redesign.page-project .project__upnext-name { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; }
+
+@media (max-width: 1000px) {
+  .work-intro__body { grid-template-columns: 1.5fr 1fr; gap: 36px; }
+  .work-intro__body h1 { font-size: clamp(56px, 7vw, 76px); }
+  .work-collection__pair { gap: 40px; margin-bottom: 90px; }
+  .work-collection__pair:nth-child(odd) .work-piece:nth-child(2), .work-collection__pair:nth-child(even) .work-piece:nth-child(1) { margin-top: 84px; }
+  .project-cover__title { font-size: clamp(64px, 8.5vw, 100px); }
+  .project-cover__summary { font-size: 12px; }
+  body.portfolio-redesign.page-project .project__brief-inner { gap: 44px; grid-template-columns: .7fr 1.5fr; }
+  .project-chapter-heading { column-gap: 44px; grid-template-columns: .7fr 1.5fr; }
+}
+@media (max-width: 768px) {
+  .portfolio-redesign .floating-nav { top: 10px; left: 12px; right: 12px; min-height: 62px; padding: 8px 16px; border-radius: 13px !important; }
+  .portfolio-redesign .nav-brand .nav-wordmark { font-size: 12px; }
+  .portfolio-redesign .work-intro { padding: 118px 24px 42px; }
+  .work-intro__eyebrow { font-size: 9px; margin-bottom: 22px; }
+  .work-intro__body { display: block; }
+  .work-intro__body h1 { font-size: clamp(49px, 10.4vw, 76px); letter-spacing: -.06em; margin: 0 0 22px; }
+  .work-intro__body > p { font-size: 13px; max-width: 42ch; }
+  .work-intro__location { font-size: 11px; margin-top: 17px; }
+  body.portfolio-redesign.page-projects .work-collection { padding: 0 24px 64px; }
+  .work-collection__pair, .work-collection__pair:nth-child(even) { grid-template-columns: 1fr; gap: 54px; margin-bottom: 54px; }
+  .work-collection__pair:nth-child(odd) .work-piece:nth-child(2), .work-collection__pair:nth-child(even) .work-piece:nth-child(1) { margin-top: 0; }
+  .work-piece__meta { margin-top: 14px; font-size: 10px; }
+  .work-piece__title-link h2 { font-size: 27px; }
+  .work-piece__caption { font-size: 12px; line-height: 1.85; margin-top: 7px; }
+  body.portfolio-redesign .portfolio__in-progress { padding: 48px 24px; }
+  .portfolio-redesign .portfolio__in-progress-row { display: grid; grid-template-columns: 1fr; gap: 30px; }
+  body.portfolio-redesign.page-project .project { padding-top: 106px; }
+  .project-cover { padding: 0 24px; }
+  .project-cover__top { font-size: 10px; gap: 12px; }
+  .project-cover__title-row { display: block; padding: 12px 0 26px; }
+  .project-cover__title { font-size: clamp(50px, 13.2vw, 84px); line-height: 1.06; letter-spacing: -.06em; }
+  .project-cover__summary { font-size: 12px; text-align: left; max-width: none; margin: 18px 0 0; }
+  .project-cover__image img { aspect-ratio: 3/2; height: auto; max-height: none; }
+  .project-chapters { padding: 20px 24px 0; gap: 0 18px; justify-content: flex-start; }
+  .project-chapters__link { font-size: 11px; gap: 5px; }
+  .project-chapters__number { display: none; }
+  body.portfolio-redesign.page-project .project__brief { padding: 46px 24px 54px; }
+  body.portfolio-redesign.page-project .project__brief-inner { display: flex; flex-direction: column; gap: 32px; }
+  body.portfolio-redesign.page-project .project__brief-aside { width: 100%; gap: 18px; }
+  body.portfolio-redesign.page-project .project__brief-meta { grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+  body.portfolio-redesign.page-project .project__brief-body-col .display { font-size: 33px; line-height: 1.2; }
+  body.portfolio-redesign.page-project .project__brief-body { font-size: 13px; }
+  body.portfolio-redesign.page-project :is(.project__before, .project__design, .project__during, .project__after) { padding-top: 48px; padding-bottom: 48px; }
+  body.portfolio-redesign.page-project.page-rosa .project__during { padding-block: calc(48px + clamp(48px, 6vw, 88px)); }
+  .project-chapter-heading { display: block; margin-bottom: 28px; padding: 0 var(--pad-x); }
+  .project-chapter-heading__number { font-size: 10px; margin: 0 0 14px; }
+  .project-chapter-heading__title { font-size: 34px; }
+  body.portfolio-redesign.page-project .project__quote { padding: 56px 24px; }
+  body.portfolio-redesign.page-project .project__quote .maja-quote__text { font-size: 34px; }
+  body.portfolio-redesign.page-project .project__quote .project__quote-body { font-size: 13px; }
+  body.portfolio-redesign.page-project .project__details { padding: 54px 24px; }
+  body.portfolio-redesign.page-project .project__details-grid { grid-template-columns: 1fr; gap: 48px; }
+  body.portfolio-redesign.page-project .project__details-numbers { grid-template-columns: 1fr 1fr; gap: 20px; }
+  body.portfolio-redesign.page-project .project__details-col .display { font-size: 34px; }
+  body.portfolio-redesign.page-project .project__number dd { font-size: 30px; }
+  body.portfolio-redesign.page-project .project__details-materials li { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+  body.portfolio-redesign.page-project .project__closer-cta { padding: 60px 24px; }
+  body.portfolio-redesign.page-project .project__closer-cta-title { font-size: 42px; }
+}
+@media (max-width: 360px) {
+  .portfolio-redesign .floating-nav { padding-inline: 12px; }
+  .portfolio-redesign .nav-brand .nav-wordmark { font-size: 10px; }
+  .work-intro__body h1 { font-size: 45px; }
+  .project-cover__title { font-size: 47px; }
+  .project-cover__location { max-width: 15ch; text-align: right; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-redesign *, .portfolio-redesign *::before, .portfolio-redesign *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+  .portfolio-redesign .work-piece__image img, .portfolio-redesign .work-piece__arrow { transform: none !important; }
+}
+
+/* Owner refinement — 11 October 2026. Quiet project notes, factual summaries
+   and reliable navigation. No gallery frames or media choreography change. */
+body.portfolio-redesign.page-project .project-cover__top {
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+}
+body.portfolio-redesign.page-project .project-cover__back {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 6px 18px 6px 8px;
+  border-radius: 999px;
+  background: var(--folio-tint);
+  color: var(--folio-ink);
+  font: 500 13px/1.5 var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transform: none !important;
+}
+body.portfolio-redesign.page-project .project-cover__back-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font: 20px/1 var(--sans);
+}
+body.portfolio-redesign.page-project .project-cover__back > span { pointer-events: none; }
+body.portfolio-redesign.page-project .project-cover__back:hover,
+body.portfolio-redesign.page-project .project-cover__back:focus-visible {
+  background: var(--folio-accent);
+  color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project-cover__back:focus-visible,
+body.portfolio-redesign.page-project .project-pagination a:focus-visible {
+  outline: 2px solid var(--folio-accent);
+  outline-offset: 5px;
+}
+body.portfolio-redesign.page-project .project-note {
+  display: block;
+  padding: clamp(64px, 7vw, 112px) var(--folio-gutter);
+  margin: 0;
+  background: var(--folio-deep);
+  color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project-note__inner {
+  display: grid;
+  grid-template-columns: minmax(160px, .6fr) minmax(0, 1.5fr);
+  gap: clamp(40px, 8vw, 140px);
+  max-width: 1264px;
+  margin-inline: auto;
+}
+body.portfolio-redesign.page-project .project-note__label {
+  margin: 9px 0 0;
+  font: 500 11px/1.6 var(--sans);
+  letter-spacing: .05em;
+  color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project-note__title {
+  margin: 0 0 24px;
+  max-width: 23ch;
+  font: 500 clamp(30px, 3.2vw, 48px)/1.22 var(--serif);
+  letter-spacing: -.03em;
+  color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project-note__body {
+  max-width: 52ch;
+  margin: 0;
+  font: 14px/1.85 var(--sans);
+  color: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project__details.project-summary {
+  padding: clamp(64px, 7vw, 104px) var(--folio-gutter);
+}
+body.portfolio-redesign.page-project .project-summary__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(56px, 10vw, 150px);
+  max-width: 1264px;
+  margin-inline: auto;
+}
+body.portfolio-redesign.page-project .project-summary__label {
+  margin: 0 0 28px;
+  font: 500 11px/1.6 var(--sans);
+  letter-spacing: .05em;
+  color: var(--folio-accent);
+}
+body.portfolio-redesign.page-project .project-summary__title {
+  margin: 0 0 32px;
+  font: 500 clamp(32px, 3vw, 46px)/1.2 var(--serif);
+  letter-spacing: -.04em;
+  color: var(--folio-ink);
+}
+body.portfolio-redesign.page-project .project-summary__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+  margin: 0;
+}
+body.portfolio-redesign.page-project .project-summary__fact {
+  min-width: 0;
+  max-width: 100%;
+}
+body.portfolio-redesign.page-project .project-summary__fact dt {
+  margin: 0 0 8px;
+  font: 12px/1.6 var(--sans);
+  color: var(--folio-muted);
+}
+body.portfolio-redesign.page-project .project-summary__fact dd {
+  margin: 0;
+  font: 500 17px/1.6 var(--sans);
+  color: var(--folio-ink);
+}
+body.portfolio-redesign.page-project .project-summary__list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body.portfolio-redesign.page-project .project-summary__list li {
+  font: 15px/1.75 var(--sans);
+  color: var(--folio-ink);
+  max-width: 38ch;
+}
+body.portfolio-redesign.page-project .project-pagination {
+  padding: 28px var(--folio-gutter) 40px;
+  background: var(--folio-paper);
+}
+body.portfolio-redesign.page-project .project-pagination__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  max-width: 1264px;
+  margin-inline: auto;
+}
+body.portfolio-redesign.page-project .project-pagination__link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  min-height: 76px;
+  padding: 12px 0;
+  color: var(--folio-ink);
+  text-decoration: none;
+  touch-action: manipulation;
+}
+body.portfolio-redesign.page-project .project-pagination__link > span:not(.project-pagination__arrow) { min-width: 0; }
+body.portfolio-redesign.page-project .project-pagination__link--next { justify-content: flex-end; text-align: right; }
+body.portfolio-redesign.page-project .project-pagination__label {
+  display: block;
+  margin-bottom: 6px;
+  font: 11px/1.6 var(--sans);
+  color: var(--folio-muted);
+}
+body.portfolio-redesign.page-project .project-pagination__name {
+  display: block;
+  font: 500 clamp(23px, 2.1vw, 31px)/1.3 var(--serif);
+  letter-spacing: -.025em;
+  overflow-wrap: break-word;
+}
+body.portfolio-redesign.page-project .project-pagination__arrow {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--folio-tint);
+  color: var(--folio-accent);
+  font: 21px/1 var(--sans);
+}
+body.portfolio-redesign.page-project .project-pagination__collection {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 16px;
+  font: 500 12px/1.6 var(--sans);
+  color: var(--folio-accent);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  touch-action: manipulation;
+}
+body.portfolio-redesign.page-project .project-pagination__link:hover .project-pagination__name {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+body.portfolio-redesign.page-project .project-pagination__link:hover .project-pagination__arrow {
+  background: var(--folio-accent);
+  color: var(--folio-paper);
+}
+@media (max-width: 768px) {
+  body.portfolio-redesign.page-project .project-cover__top { gap: 12px 20px; }
+  body.portfolio-redesign.page-project .project-cover__location { font-size: 11px; }
+  body.portfolio-redesign.page-project .project-note { padding: 56px 24px; }
+  body.portfolio-redesign.page-project .project-note__inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  body.portfolio-redesign.page-project .project-note__label { margin: 0; }
+  body.portfolio-redesign.page-project .project-note__title { font-size: 32px; }
+  body.portfolio-redesign.page-project .project__details.project-summary { padding: 56px 24px; }
+  body.portfolio-redesign.page-project .project-summary__inner { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  body.portfolio-redesign.page-project .project-summary__label { margin-bottom: 22px; }
+  body.portfolio-redesign.page-project .project-summary__title { margin-bottom: 26px; }
+  body.portfolio-redesign.page-project .project-summary__list { gap: 14px; }
+  body.portfolio-redesign.page-project .project-pagination { padding: 12px 24px 30px; }
+  body.portfolio-redesign.page-project .project-pagination__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
+  body.portfolio-redesign.page-project .project-pagination__link { align-items: flex-start; flex-direction: column; gap: 12px; }
+  body.portfolio-redesign.page-project .project-pagination__link--next { align-items: flex-end; }
+  body.portfolio-redesign.page-project .project-pagination__link--next .project-pagination__arrow { order: -1; }
+  body.portfolio-redesign.page-project .project-pagination__collection { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+  body.portfolio-redesign.page-project .project-pagination__name { font-size: 25px; }
+}
+/* Legacy per-project hover colours are too pale on the new paper controls. */
+body.portfolio-redesign.page-project .project-cover__back:hover,
+body.portfolio-redesign.page-project .project-cover__back:focus-visible { color: var(--folio-paper) !important; }
+body.portfolio-redesign.page-project .project-pagination__link:hover { color: var(--folio-ink) !important; }
+body.portfolio-redesign.page-project .project-pagination__collection:hover { color: var(--folio-accent) !important; }

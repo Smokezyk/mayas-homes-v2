@@ -36,17 +36,22 @@
     video.muted = true;
     video.playsInline = true;
     video.setAttribute('webkit-playsinline', '');
-    // Pointer-fine (desktop) only: on touch devices, seeking before a
-    // user gesture drops the <video> poster and shows a gray surface.
-    // Leave the poster in place there; the video is only touched on tap.
-    const lockFrameZero = () => {
-      try { video.currentTime = 0; } catch (_) {}
-      try { video.pause(); } catch (_) {}
+    const reportFailure = () => {
+      card.classList.remove('is-playing');
+      card.querySelector('.studio__work-card-media')?.classList.remove('is-playing');
+      let status = card.querySelector('.media-playback-status');
+      if (!status) {
+        status = document.createElement('p');
+        status.className = 'media-playback-status';
+        status.setAttribute('role', 'status');
+        card.append(status);
+      }
+      status.textContent = document.documentElement.lang.startsWith('pt')
+        ? 'A animação não está disponível. Pode continuar a explorar o projeto.'
+        : 'The animation is unavailable. You can still explore the project.';
     };
-    if (window.matchMedia('(pointer: fine)').matches) {
-      if (video.readyState >= 1) lockFrameZero();
-      else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
-    }
+    video.addEventListener('error', reportFailure);
+    video.addEventListener('playbackfailed', reportFailure);
 
     // When the morph completes, mark the card revealed so the
     // hint pill swaps from "Click to animate" → "Play again",
@@ -80,7 +85,6 @@
       const video = card.querySelector('[data-tile-video]');
       if (video) {
         try { video.pause(); } catch (_) {}
-        try { video.currentTime = 0; } catch (_) {}
       }
     });
     showcase.dataset.activeProject = String(nextIndex);
@@ -142,7 +146,9 @@
       card.classList.add('is-playing');
       try { video.currentTime = 0; } catch (_) {}
       const p = video.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
+      if (p && typeof p.catch === 'function') p.catch(() => {
+        video.dispatchEvent(new Event('playbackfailed'));
+      });
     });
   });
 })();

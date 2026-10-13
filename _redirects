@@ -59,7 +59,7 @@
 /turnkey                         /services/#turnkey    301
 /kitchens                        /services/#kitchens   301
 /bathrooms                       /services/#kitchens   301
-/structural                      /services/#structural 301
+/structural                      /services/#full-home  301
 
 # Projects / portfolio variants
 /projects-1                      /projects/            301
@@ -105,8 +105,5 @@
 # (Add specific /pt/<slug> → /<slug> 302 fallbacks here as needed.)
 
 
-# Final fallback: serve the 404 page rather than Netlify's
-# default. NOTE: Netlify automatically uses /404.html if it
-# exists — we don't have one yet. Add a /404.html later and
-# uncomment the rule below.
-# /*                              /404.html             404
+# Netlify serves /404.html automatically for unknown routes, with HTTP 404.
+# Keep existing-file routing and real error status; no SPA catch-all rewrite.

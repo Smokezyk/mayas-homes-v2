@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F4EFE6" />
+  <meta name="theme-color" content="#F7F3EB" />
   <!-- Cookie consent + consent-gated GA4 (G-0W5WYQL10G). GA4 loads only after the visitor clicks Accept. See js/consent.js. -->
-  <script src="/js/consent.js?v=1" defer></script>
+  <script src="/js/consent.js?v=20261011-cookie" defer></script>
 
   <title>Termos &middot; Maya&rsquo;s Homes</title>
   <meta name="description" content="Termos de utiliza&ccedil;&atilde;o do sítio da Maya&rsquo;s Homes &mdash; o que este sítio &eacute;, o que n&atilde;o &eacute;, e como contratar o atelier de forma correta." />
@@ -18,12 +18,9 @@
   <meta name="robots" content="noindex,follow" />
 
   <link rel="icon" type="image/png" href="/logo/mayas-homes-mark.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Sacramento&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/css/index.css?v=368" />
-  <link rel="stylesheet" href="/css/animations.css?v=338" />
+  <link rel="stylesheet" href="/css/build/base-08a0d16e3081297b.css" data-mh-css-group="g0" />
+  <link rel="stylesheet" href="/css/build/page-f252526d7b91ed14.css" data-mh-css-group="g1" />
 
   <script type="application/ld+json">
   {
@@ -38,21 +35,26 @@
   <link rel="alternate" hreflang="en" href="https://mayashomes.com/terms/" />
   <link rel="alternate" hreflang="pt-PT" href="https://mayashomes.com/pt/terms/" />
   <link rel="alternate" hreflang="x-default" href="https://mayashomes.com/terms/" />
+
+  <script src="/js/enquiry-analytics.js?v=20261011a" defer></script>
+
+  <link rel="preload" href="/fonts/bodoni-moda-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin data-mh-font="true" />
+  <link rel="preload" href="/fonts/plus-jakarta-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin data-mh-font="true" />
 </head>
-<body class="page-legal page-terms">
+<body class="page-legal page-terms site-refined atelier-refined portfolio-redesign">
+  <a class="skip-link" href="#top">Saltar para o conteúdo</a>
 
   <header class="floating-nav" data-nav>
     <a class="nav-brand" href="/pt/" aria-label="Maya's Homes — início">
-      <img src="/logo/mayas-homes-mark.png?v=236" alt="" class="nav-mark" />
-      <span class="nav-wordmark" data-nav-brand data-wordmark-target>Maya&rsquo;s Homes</span>
+      <img src="/brand/mayas-homes-mark.png" alt="" class="nav-mark" />
+      <span class="nav-brand__text"><span class="nav-wordmark" data-nav-brand data-wordmark-target>Maya&rsquo;s Homes</span><span class="nav-current-page" aria-hidden="true">Termos</span></span>
     </a>
 
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/pt/profile/">Perfil</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="/pt/">Início</a>
       <a href="/pt/projects/">Projetos</a>
-      <a href="/pt/services/">Servi&ccedil;os</a>
-      <a href="/pt/journal/">Journal</a>
-      <a href="/pt/contact/">Contacto</a>
+      <a href="/pt/services/">O serviço</a>
+      <a href="/pt/profile/">Maja e a equipa</a>
     </nav>
 
   <div class="nav-tools">
@@ -79,7 +81,7 @@
         </span>
       </button>
     </div>
-  <a class="nav-cta btn-silver" href="/pt/contact/" data-magnetic>Iniciar Projeto</a>
+  <a class="nav-cta btn-silver" href="/pt/contact/">Contacto<span class="nav-cta__arrow" aria-hidden="true">↗</span></a>
   </header>
 
   <aside class="nav-drawer" data-drawer hidden>
@@ -88,12 +90,12 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
       </button>
 
+      <p class="nav-drawer__eyebrow">Explorar</p>
       <nav class="nav-drawer__links" aria-label="Primary">
-        <a href="/pt/">In&iacute;cio</a>
-        <a href="/pt/profile/">Perfil</a>
+        <a href="/pt/">Início</a>
         <a href="/pt/projects/">Projetos</a>
-        <a href="/pt/services/">Servi&ccedil;os</a>
-        <a href="/pt/journal/">Journal</a>
+        <a href="/pt/services/">O serviço</a>
+        <a href="/pt/profile/">Maja e a equipa</a>
         <a href="/pt/contact/">Contacto</a>
       </nav>
 
@@ -104,12 +106,12 @@
         <a href="/pt/terms/" class="is-active">PT</a>
       </div>
       <div class="nav-drawer__footer">
-        <a class="btn-silver" href="/pt/contact/">Iniciar Projeto</a>
+        <p class="nav-drawer__note">Design e execução de obras, na linha de Cascais até Lisboa.</p>
       </div>
     </div>
   </aside>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
 
     <section class="legal-hero" aria-labelledby="legal-hero-title">
       <div class="wrap">
@@ -181,8 +183,8 @@
   <footer class="footer">
     <div class="footer__details">
       <div class="footer__brand">
-        <div class="footer__brand-row"><img class="footer__logo" src="/logo/mayas-homes-mark.png?v=236" alt="Maya&rsquo;s Homes" width="40" height="40" /><p class="footer__wordmark">Maya&rsquo;s Homes</p></div>
-        <p class="footer__tagline">Remodela&ccedil;&atilde;o residencial em Cascais e na Grande Lisboa.</p>
+        <div class="footer__brand-row"><img class="footer__logo" src="/brand/mayas-homes-mark.png" alt="Maya&rsquo;s Homes" width="40" height="40" /><p class="footer__wordmark">Maya&rsquo;s Homes</p></div>
+        <p class="footer__tagline">Design e execução de obras para a sua casa. Na linha de Cascais, até Lisboa.</p>
         <ul class="footer__social" aria-label="Social media">
           <li>
             <a href="https://www.instagram.com/mayas.homes/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -214,13 +216,12 @@
           </li>
         </ul>
       </div>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <p class="footer__nav-label">Sítio</p>
+      <nav class="footer__nav" aria-label="Navegação do rodapé">
         <ul>
-          <li><a href="/pt/profile/">Perfil</a></li>
+          <li><a href="/pt/">Início</a></li>
           <li><a href="/pt/projects/">Projetos</a></li>
-          <li><a href="/pt/services/">Servi&ccedil;os</a></li>
-          <li><a href="/pt/journal/">Journal</a></li>
+          <li><a href="/pt/services/">O serviço</a></li>
+          <li><a href="/pt/profile/">Maja e a equipa</a></li>
           <li><a href="/pt/contact/">Contacto</a></li>
         </ul>
       </nav>
@@ -230,7 +231,7 @@
           <li><span class="footer__contact-key">Email</span><a href="mailto:maja.milic@mayashomes.com" class="footer__contact-value">maja.milic@mayashomes.com</a></li>
           <li><span class="footer__contact-key">WhatsApp</span><a href="https://wa.me/351913037527" class="footer__contact-value">+351 913 037 527</a></li>
           <li><span class="footer__contact-key">Local</span><span class="footer__contact-value">Alcabideche &middot; Cascais &middot; Portugal</span></li>
-          <li><span class="footer__contact-key">Hor&aacute;rio</span><span class="footer__contact-value">Seg&ndash;Sex &middot; 8&nbsp;&mdash;&nbsp;17 WET</span></li>
+          <li><span class="footer__contact-key">Hor&aacute;rio</span><span class="footer__contact-value">Seg–Sex · 8h–17h</span></li>
         </ul>
       </div>
     </div>
@@ -238,7 +239,7 @@
       <div class="footer__credentials-row">
         <p class="footer__credentials-line footer__credentials-line--left">&copy; <span data-year>2026</span> Maya&rsquo;s Homes &middot; Fundado por Maja Mili&ccaron;</p>
         <p class="footer__credentials-line footer__credentials-line--center">Empreiteiro de remodela&ccedil;&atilde;o licenciado &middot; IMPIC 97976&#8209;PAR &middot; AMI 18698</p>
-        <p class="footer__credentials-line footer__credentials-line--right"><em>Maya&rsquo;s Care</em> em breve <a href="/pt/contact/" class="footer__credentials-link">&rarr;</a></p>
+        
       </div>
       <p class="footer__credentials-line footer__credentials-legal"><a href="/pt/privacy/" class="footer__credentials-link">Privacidade</a> &middot; <a href="/pt/terms/" class="footer__credentials-link is-current" aria-current="page">Termos</a> &middot; <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" class="footer__credentials-link">Livro de Reclama&ccedil;&otilde;es</a></p>
     </div>
@@ -247,9 +248,12 @@
   <script src="/vendor/gsap.min.js?v=236"></script>
   <script src="/vendor/ScrollTrigger.min.js?v=236"></script>
   <script src="/vendor/lenis.min.js?v=236"></script>
-  <script src="/js/main.js?v=305" type="module"></script>
-  <script src="/js/nav.js?v=236" type="module"></script>
-  <script src="/js/nav-drawer.js?v=236" defer></script>
-  <script src="/js/magnetic.js?v=236"></script>
+  <script src="/js/main.js?v=20261011b" type="module"></script>
+  <script src="/js/nav.js?v=20261006" type="module"></script>
+  <script src="/js/nav-drawer.js?v=20261011-owner" defer></script>
+  <script src="/js/magnetic.js?v=20261006"></script>
+
+  <a class="whatsapp-contact" href="https://wa.me/351913037527?text=Ol%C3%A1%20Maja%2C%20gostaria%20de%20falar%20sobre%20um%20projeto%20para%20a%20minha%20casa." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Maja no WhatsApp (abre um novo separador)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/></svg><span class="whatsapp-contact__label">Falar com a Maja</span></a>
+  <script src="/js/whatsapp-contact.js?v=20261012" defer></script>
 </body>
 </html>

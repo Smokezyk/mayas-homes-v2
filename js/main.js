@@ -6,6 +6,7 @@
 const { gsap } = window;
 const ScrollTrigger = window.ScrollTrigger;
 const Lenis = window.Lenis;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 /* — Lenis: silky momentum scroll wired into ScrollTrigger — */
 let lenis;
@@ -22,12 +23,12 @@ if (Lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
   if (gsap && ScrollTrigger) {
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.add((time) => lenis?.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
     requestAnimationFrame(() => ScrollTrigger.refresh());
   } else {
     requestAnimationFrame(function raf(time) {
-      lenis.raf(time);
+      lenis?.raf(time);
       requestAnimationFrame(raf);
     });
   }
@@ -49,10 +50,16 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
     if (lenis) {
-      lenis.scrollTo(target, { offset: -20, duration: 1.2 });
+      const editorialPage = document.body.classList.contains('portfolio-redesign');
+      const anchorGap = editorialPage
+        ? parseFloat(getComputedStyle(target).scrollMarginTop) || 20
+        : 20;
+      lenis.scrollTo(target, { offset: -anchorGap, duration: editorialPage ? 0.7 : 1.2 });
     } else {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: motionPreference.matches ? 'auto' : 'smooth', block: 'start' });
     }
   });
 });
@@ -139,7 +146,7 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
   const portraitObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const video = entry.target;
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !motionPreference.matches) {
         // Only start play if the video hasn't already finished a full
         // playthrough this session. Once .ended, it stays frozen on
         // its final frame for the rest of the session.
@@ -158,40 +165,157 @@ if (livingPortraits.length && 'IntersectionObserver' in window) {
   livingPortraits.forEach((v) => portraitObserver.observe(v));
 }
 
-/* — Process Timeline animations (four steps + Result closer): click
-     anywhere on the video frame to play. The hint pill in the top-
-     left switches its label from 'Click to reveal' to 'Play again'
-     once the video has played through; clicking again replays. Full
-     video data only loads after the user opts in, so the five
-     videos don't share initial-load bandwidth. */
-document.querySelectorAll('[data-step]').forEach((figure) => {
-  const video = figure.querySelector('[data-step-video]');
-  const link  = figure.querySelector('.process__step-link');
-  if (!video || !link) return;
+// Optional media never blocks project links; report failures accessibly.
+function showMediaError(video) {
+  const container = video.closest('[data-tile], [data-step]') || video.parentElement;
+  container.classList.remove('is-playing');
+  let status = container.querySelector('.media-playback-status');
+  if (!status) {
+    status = document.createElement('p');
+    status.className = 'media-playback-status';
+    status.setAttribute('role', 'status');
+    container.append(status);
+  }
+  status.textContent = document.documentElement.lang.startsWith('pt')
+    ? 'A animação não está disponível. Pode continuar a explorar o projeto.'
+    : 'The animation is unavailable. You can still explore the project.';
+}
 
-  // Belt-and-braces playback flags — same as the intro and tile videos.
-  video.muted = true;
-  video.playsInline = true;
-  video.setAttribute('webkit-playsinline', '');
+/* — Service animations stay user-controlled: pause/resume in place, replay
+     after completion, and keep a visible control throughout playback. — */
+(() => {
+  const isPortuguese = document.documentElement.lang.startsWith('pt');
+  const labels = isPortuguese
+    ? { idle: 'Ver animação', loading: 'A carregar…', playing: 'Pausar', paused: 'Continuar', ended: 'Repetir', error: 'Tentar novamente' }
+    : { idle: 'Play animation', loading: 'Loading…', playing: 'Pause', paused: 'Resume', ended: 'Replay', error: 'Try again' };
+  const players = [];
 
-  const play = (e) => {
-    if (e) e.preventDefault();
-    figure.classList.add('is-playing');
-    figure.classList.remove('is-revealed');
-    try { video.currentTime = 0; } catch (_) {}
-    const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
-  };
+  document.querySelectorAll('[data-step]').forEach((figure) => {
+    const video = figure.querySelector('[data-step-video]');
+    const button = figure.querySelector('.process__step-link');
+    const label = figure.querySelector('.process__hint-label--initial');
+    const icon = figure.querySelector('.process__play-icon');
+    if (!video || !button || !label || !icon) return;
 
-  link.addEventListener('click', play);
+    const subject = (button.getAttribute('aria-label') || (isPortuguese ? 'a animação' : 'animation'))
+      .replace(/^(?:Play animation:|Ver animação:)\s*/i, '')
+      .replace(/^(?:Play|Reproduzir)\s+/i, '')
+      .replace(/^the\s+|\s+animation$/gi, '')
+      .replace(/^(?:a\s+)?animação\s+(?:de|do|da)\s+/i, '');
+    const pauseIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    pauseIcon.setAttribute('class', 'process__icon-pause');
+    pauseIcon.setAttribute('viewBox', '0 0 20 20');
+    pauseIcon.setAttribute('aria-hidden', 'true');
+    const pausePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pausePath.setAttribute('d', 'M6 4h3v12H6zm5 0h3v12h-3z');
+    pausePath.setAttribute('fill', 'currentColor');
+    pauseIcon.append(pausePath);
+    icon.append(pauseIcon);
 
-  // When the morph completes, swap from is-playing → is-revealed so
-  // the hint pill returns reading 'Play again'.
-  video.addEventListener('ended', () => {
-    figure.classList.remove('is-playing');
-    figure.classList.add('is-revealed');
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute('webkit-playsinline', '');
+    let state = 'idle';
+    let wantsPlayback = false;
+    let request = 0;
+    let status;
+
+    const render = (nextState) => {
+      state = nextState;
+      figure.dataset.processPlayback = state;
+      figure.classList.toggle('is-playing', state === 'playing');
+      figure.classList.toggle('is-revealed', state === 'ended');
+      label.textContent = labels[state];
+      // Keep the visible label verbatim in the accessible name for voice control.
+      button.setAttribute('aria-label', `${labels[state]}: ${subject}`);
+    };
+    const pause = () => {
+      wantsPlayback = false;
+      request += 1;
+      video.pause();
+      if (state !== 'ended' && state !== 'error') render(video.currentTime > 0 ? 'paused' : 'idle');
+    };
+    const fail = () => {
+      wantsPlayback = false;
+      request += 1;
+      video.pause();
+      render('error');
+      if (!status) {
+        status = document.createElement('p');
+        status.className = 'process__playback-status';
+        status.setAttribute('role', 'status');
+        figure.append(status);
+      }
+      status.textContent = isPortuguese
+        ? 'Não foi possível carregar a animação. Tente novamente.'
+        : 'This animation could not load. Try again.';
+    };
+    players.push({ figure, pause, isActive: () => wantsPlayback });
+
+    button.addEventListener('click', () => {
+      if (wantsPlayback) {
+        pause();
+        return;
+      }
+      players.forEach((player) => { if (player.figure !== figure && player.isActive()) player.pause(); });
+      if (status) status.textContent = '';
+      if (state === 'error') video.load();
+      if (state === 'ended' || video.ended) {
+        try { video.currentTime = 0; } catch (_) {}
+      }
+      wantsPlayback = true;
+      const currentRequest = ++request;
+      render('loading');
+      try {
+        const playback = video.play();
+        if (playback && typeof playback.catch === 'function') {
+          playback.catch(() => {
+            // A cancelled request must not overwrite a newer click's state.
+            if (currentRequest === request && wantsPlayback) fail();
+          });
+        }
+      } catch (_) {
+        if (currentRequest === request && wantsPlayback) fail();
+      }
+    });
+    video.addEventListener('playing', () => {
+      if (!wantsPlayback || document.hidden) {
+        pause();
+        return;
+      }
+      render('playing');
+    });
+    video.addEventListener('waiting', () => { if (wantsPlayback) render('loading'); });
+    video.addEventListener('pause', () => {
+      if (!video.paused || video.ended || state === 'error') return;
+      wantsPlayback = false;
+      request += 1;
+      render(video.currentTime > 0 ? 'paused' : 'idle');
+    });
+    video.addEventListener('ended', () => {
+      wantsPlayback = false;
+      request += 1;
+      render('ended');
+    });
+    video.addEventListener('error', fail);
+    render('idle');
   });
-});
+
+  if (!players.length) return;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) players.forEach((player) => { if (player.isActive()) player.pause(); });
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.1) return;
+        const player = players.find((item) => item.figure === entry.target);
+        if (player?.isActive()) player.pause();
+      });
+    }, { threshold: [0, 0.1] });
+    players.forEach((player) => observer.observe(player.figure));
+  }
+})();
 
 
 /* — Local Mastery: three magazine-style tabs (Area / Permits / Climate).
@@ -216,6 +340,7 @@ document.querySelectorAll('[data-step]').forEach((figure) => {
      are removed and the button springs back to rest. rAF-coalesced
      so a single mousemove update covers every button per frame. */
 (function initMagneticButtons() {
+  if (document.body.classList.contains('atelier-refined')) return;
   const buttons = Array.from(document.querySelectorAll(
     '.nav__cta, .contact__submit, .footer__outro-cta, .btn-glass'
   ));
@@ -305,7 +430,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (form) form.hidden = true;
   if (panel) panel.hidden = false;
   const contact = document.getElementById('contact');
-  if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (contact) contact.scrollIntoView({ behavior: motionPreference.matches ? 'auto' : 'smooth', block: 'start' });
 })();
 
 /* =========================================================
@@ -318,8 +443,15 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
    "0" and tween them up to the target. If GSAP never runs, or
    the user scrolls past too fast, the markup values stand.
    ========================================================= */
-if (gsap && ScrollTrigger) {
-  ScrollTrigger.create({
+if (motionPreference.matches) {
+  document.querySelectorAll('.studio__people-grid, .studio__triptych').forEach((el) => el.classList.add('is-revealed'));
+}
+if (gsap && ScrollTrigger && !motionPreference.matches) {
+  const createSectionTrigger = (options) => {
+    const target = document.querySelector(options.trigger);
+    if (target) ScrollTrigger.create({ ...options, trigger: target });
+  };
+  createSectionTrigger({
     trigger: '.stats',
     start: 'top 85%',
     once: true,
@@ -348,7 +480,7 @@ if (gsap && ScrollTrigger) {
      see correct numbers either way. /services/ uses the homepage
      .stats markup directly so it's handled by the .stats trigger
      above, not here. */
-  ScrollTrigger.create({
+  createSectionTrigger({
     trigger: '.studio__facts-grid',
     start: 'top 85%',
     once: true,
@@ -374,7 +506,7 @@ if (gsap && ScrollTrigger) {
   /* /studio/ §06 Bench — staggered portrait reveal. Adds
      .is-revealed to the grid when it enters viewport; CSS handles
      the per-cell stagger via :nth-child transition-delay. */
-  ScrollTrigger.create({
+  createSectionTrigger({
     trigger: '.studio__people-grid',
     start: 'top 80%',
     once: true,
@@ -384,7 +516,7 @@ if (gsap && ScrollTrigger) {
   /* /studio/ §07 Triptych — sequential frame reveal. Same
      .is-revealed pattern; CSS staggers the three frames 200 ms
      apart so the visitor reads them left-to-right as a process. */
-  ScrollTrigger.create({
+  createSectionTrigger({
     trigger: '.studio__triptych',
     start: 'top 80%',
     once: true,
@@ -401,6 +533,7 @@ if (gsap && ScrollTrigger) {
    so the problem-solving copy reads as the morph transforms.
    ========================================================= */
 document.querySelectorAll('[data-tile]').forEach((tile) => {
+  if (tile.closest('[data-transformations-controls]')) return;
   const video = tile.querySelector('[data-tile-video]');
   if (!video) return;
 
@@ -409,22 +542,7 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   video.playsInline = true;
   video.setAttribute('webkit-playsinline', '');
 
-  // Pre-decode frame 0 once metadata arrives, so the user always
-  // sees the actual first frame ("before") rather than the poster
-  // or a blank canvas while the browser is deciding what to show.
-  // ONLY on pointer-fine (desktop) devices: on touch devices —
-  // iOS Safari especially — seeking currentTime before a user gesture
-  // drops the <video> poster and exposes a blank/gray surface (the
-  // browser won't buffer a frame without a tap). There we leave the
-  // poster in place and only touch the video on tap (play()).
-  const lockFrameZero = () => {
-    try { video.currentTime = 0; } catch (_) {}
-    try { video.pause(); } catch (_) {}
-  };
-  if (window.matchMedia('(pointer: fine)').matches) {
-    if (video.readyState >= 1) lockFrameZero();
-    else video.addEventListener('loadedmetadata', lockFrameZero, { once: true });
-  }
+  video.addEventListener('error', () => showMediaError(video));
 
   // Click-to-reveal / click-to-restart — the magic.
   // If the tile is already revealed (animation finished, overlay
@@ -439,7 +557,9 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
     tile.classList.add('is-playing');
     try { video.currentTime = 0; } catch (_) {}
     const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
+    if (p && typeof p.catch === 'function') p.catch(() => {
+      showMediaError(video);
+    });
   };
 
   // The button wrapper is the natural click + keyboard target.
@@ -456,77 +576,6 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
     tile.classList.add('is-revealed');
   });
 });
-
-
-// =====================================================================
-// Contact form — custom inline validation. Replaces the browser-native
-// "Please fill out this field" tooltip with editorial-styled error
-// lines. <form novalidate> suppresses the default UI; required attrs
-// still drive the per-field check.
-// =====================================================================
-(() => {
-  const form = document.querySelector('.contact__form');
-  if (!form) return;
-
-  const messages = {
-    'contact-name': {
-      empty: 'Please add your name.',
-    },
-    'contact-email': {
-      empty: 'Please add your email.',
-      invalid: 'Please check the email format.',
-    },
-    'contact-message': {
-      empty: 'Please tell us about the project.',
-    },
-  };
-
-  const validateField = (field) => {
-    const errorEl = form.querySelector(`[data-error-for="${field.id}"]`);
-    if (!errorEl) return true;
-    const config = messages[field.id];
-    if (!config) return true;
-
-    field.parentElement.classList.remove('contact__field--invalid');
-    errorEl.textContent = '';
-
-    if (!field.value.trim()) {
-      errorEl.textContent = config.empty;
-      field.parentElement.classList.add('contact__field--invalid');
-      return false;
-    }
-    if (field.type === 'email' && !field.checkValidity()) {
-      errorEl.textContent = config.invalid;
-      field.parentElement.classList.add('contact__field--invalid');
-      return false;
-    }
-    return true;
-  };
-
-  form.addEventListener('submit', (e) => {
-    let allValid = true;
-    form.querySelectorAll('[required]').forEach((field) => {
-      if (!validateField(field)) allValid = false;
-    });
-    if (!allValid) {
-      e.preventDefault();
-      const firstInvalid = form.querySelector('.contact__field--invalid input, .contact__field--invalid textarea');
-      if (firstInvalid) firstInvalid.focus();
-    }
-  });
-
-  form.querySelectorAll('[required]').forEach((field) => {
-    field.addEventListener('blur', () => {
-      if (field.value.trim()) validateField(field);
-    });
-    field.addEventListener('input', () => {
-      const errorEl = form.querySelector(`[data-error-for="${field.id}"]`);
-      if (errorEl && errorEl.textContent && field.value.trim()) {
-        validateField(field);
-      }
-    });
-  });
-})();
 
 
 // =====================================================================
@@ -571,7 +620,7 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
       const rect = first.getBoundingClientRect();
       const gap = 32;
       const step = rect.width + gap;
-      list.scrollBy({ left: dir * step, behavior: 'smooth' });
+      list.scrollBy({ left: dir * step, behavior: motionPreference.matches ? 'auto' : 'smooth' });
     } else {
       // Mobile: cycle .is-active.
       items[idx].classList.remove('is-active');
@@ -632,3 +681,93 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
 // (Removed: the Cascais map tap-to-advance + arrow nav handler.
 // The map widget was collapsed to a single static frame, so the
 // advance + counter logic no longer has anything to drive.)
+
+
+// Decorative background video is optional and can always be paused.
+(() => {
+  document.querySelectorAll('video[autoplay]').forEach((video) => {
+    const pt = document.documentElement.lang.startsWith('pt');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'video-motion-toggle';
+    let manuallyPaused = false;
+    const sync = () => {
+      button.textContent = video.paused ? (pt ? 'Reproduzir animação' : 'Play animation') : (pt ? 'Pausar animação' : 'Pause animation');
+    };
+    const applyPreference = () => {
+      if (motionPreference.matches) {
+        video.autoplay = false;
+        video.pause();
+      } else if (!manuallyPaused) {
+        video.play().catch(sync);
+      }
+      sync();
+    };
+    button.addEventListener('click', () => {
+      if (video.paused) { manuallyPaused = false; video.play().catch(sync); }
+      else { manuallyPaused = true; video.pause(); }
+      sync();
+    });
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    video.insertAdjacentElement('afterend', button);
+    motionPreference.addEventListener('change', applyPreference);
+    applyPreference();
+  });
+  motionPreference.addEventListener('change', () => {
+    if (motionPreference.matches) {
+      if (lenis) { lenis.destroy(); lenis = undefined; window.__lenis = undefined; }
+      document.querySelectorAll('[data-living-portrait]').forEach((video) => video.pause());
+    }
+  });
+})();
+
+// Preserve native field validation and retain the enquiry on delivery failure.
+// A success page is reached only after the form endpoint accepts the request.
+(() => {
+  document.querySelectorAll('form[data-netlify]').forEach((form) => {
+    const pt = document.documentElement.lang.startsWith('pt');
+    const status = document.createElement('p');
+    status.className = 'form-delivery-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    form.append(status);
+    let sending = false;
+    form.addEventListener('submit', async (event) => {
+      if (event.defaultPrevented) return;
+      event.preventDefault();
+      if (sending || !form.reportValidity()) return;
+      sending = true;
+      const submitters = [...form.querySelectorAll('button[type="submit"], input[type="submit"]')];
+      const priorDisabled = submitters.map((button) => button.disabled);
+      submitters.forEach((button) => { button.disabled = true; });
+      form.setAttribute('aria-busy', 'true');
+      status.textContent = pt ? 'A enviar a sua mensagem…' : 'Sending your message…';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
+      try {
+        const data = new URLSearchParams(new FormData(form));
+        if (!data.has('form-name')) data.set('form-name', form.name);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data.toString(),
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error('Form endpoint did not accept the request');
+        // Endpoint acceptance is distinct from inbox delivery or a qualified lead.
+        form.dispatchEvent(new CustomEvent('mh:enquiry-accepted', { bubbles: true }));
+        window.location.assign(form.action);
+      } catch (error) {
+        status.textContent = pt
+          ? 'Não conseguimos confirmar o envio. Os seus dados continuam aqui. Tente novamente ou contacte-nos por telefone ou email.'
+          : 'We could not confirm delivery. Your details are still here. Please try again or contact us by phone or email.';
+      } finally {
+        clearTimeout(timeout);
+        sending = false;
+        form.removeAttribute('aria-busy');
+        submitters.forEach((button, index) => { button.disabled = priorDisabled[index]; });
+      }
+    });
+  });
+})();

@@ -39,3 +39,6 @@ build/
 # repo stays pushable. Working copies live locally only.
 assets/images/heavy_backups/
 scripts/_audit/
+
+# Local Netlify linking state
+.netlify/

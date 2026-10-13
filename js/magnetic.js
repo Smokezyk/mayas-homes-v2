@@ -4,14 +4,21 @@
 // read as charming attention without feeling sticky.
 
 (function () {
+  if (document.body.classList.contains('atelier-refined')) return;
   const elements = document.querySelectorAll('[data-magnetic]');
   if (!elements.length) return;
+
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  motionPreference.addEventListener('change', () => {
+    if (motionPreference.matches) elements.forEach((el) => { el.style.transform = ''; });
+  });
 
   const STRENGTH = 0.4;
   const RANGE = 90;
 
   elements.forEach((el) => {
     function onMove(e) {
+      if (motionPreference.matches) return;
       const rect = el.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;

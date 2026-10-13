@@ -1,0 +1,259 @@
+/* DRAFT — Supporting pages share the portfolio's editorial language.
+   Presentation only: forms, legal wording and article content are unchanged. */
+
+body.portfolio-redesign.page-contact .contact-page__hero,
+body.portfolio-redesign.page-journal .journal__hero,
+body.portfolio-redesign.page-legal .legal-hero {
+  padding: 156px 0 56px;
+  min-height: 0;
+  height: auto;
+  text-align: left;
+  background: var(--folio-paper) !important;
+}
+body.portfolio-redesign :is(.contact-page__hero, .journal__hero, .legal-hero) > .wrap {
+  width: 100%; max-width: 1720px; margin-inline: auto;
+  padding-inline: var(--folio-gutter); align-items: start; text-align: left;
+}
+body.portfolio-redesign :is(.contact-page__title, .journal__title, .legal-hero__title) {
+  font: 500 clamp(60px, 6.8vw, 112px)/1.06 var(--serif);
+  letter-spacing: -.055em; color: var(--folio-ink);
+  margin: 25px 0 28px; max-width: 19ch;
+}
+body.portfolio-redesign :is(.contact-page__lede, .journal__lede, .legal-hero__subtext) {
+  font: 14px/1.85 var(--sans); color: #514f47; max-width: 60ch; margin: 0;
+}
+body.portfolio-redesign :is(.legal-hero__eyebrow, .legal-hero__updated) {
+  font: 500 10px/1.7 var(--sans); letter-spacing: .1em; color: var(--folio-muted);
+  opacity: 1; text-align: left;
+}
+body.portfolio-redesign .legal-hero__updated { margin: 24px 0 0; }
+
+/* Enquiry: a clear work surface, with a smaller, quieter contact column. */
+body.portfolio-redesign.page-contact .contact-page__form-section {
+  padding: 16px 0 104px; background: var(--folio-paper) !important;
+}
+body.portfolio-redesign.page-contact .contact-page__form-grid {
+  max-width: 1720px; padding-inline: var(--folio-gutter);
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(56px, 10vw, 160px);
+}
+body.portfolio-redesign.page-contact .contact-page__aside-block {
+  border: 0; padding-bottom: 0; margin-bottom: 44px;
+}
+body.portfolio-redesign.page-contact .contact-page__direct { gap: 20px; }
+body.portfolio-redesign.page-contact .contact-page__direct dt {
+  font: 500 10px/1.6 var(--sans); letter-spacing: .09em; color: var(--folio-muted);
+}
+body.portfolio-redesign.page-contact .contact-page__direct dd {
+  font: 14px/1.75 var(--sans); color: var(--folio-ink);
+}
+body.portfolio-redesign.page-contact .contact-page__direct a { border: 0; }
+body.portfolio-redesign.page-contact :is(.contact-page__guide, .contact-page__form-note) {
+  font: 13px/1.85 var(--sans); color: var(--folio-muted); max-width: 49ch;
+}
+body.portfolio-redesign.page-contact .contact-page__h2 {
+  font: 500 clamp(32px, 3.3vw, 52px)/1.2 var(--serif);
+  letter-spacing: -.045em; color: var(--folio-ink); text-align: left;
+}
+body.portfolio-redesign.page-contact .contact-page__form { gap: 26px; }
+body.portfolio-redesign.page-contact .contact-page__field label {
+  font: 500 12px/1.6 var(--sans); color: var(--folio-ink);
+}
+body.portfolio-redesign.page-contact .contact-page__field-opt {
+  font: 400 11px/1.6 var(--sans); color: var(--folio-muted);
+}
+body.portfolio-redesign.page-contact .contact-page__field :is(input, select, textarea) {
+  width: 100%; min-width: 0; min-height: 52px; padding: 11px 14px;
+  font: 400 16px/1.6 var(--sans); color: var(--folio-ink);
+  background-color: #eeece4; border: 1px solid #919487; border-radius: 6px;
+}
+body.portfolio-redesign.page-contact .contact-page__field select {
+  padding-right: 38px; background-position: right 14px center;
+}
+body.portfolio-redesign.page-contact .contact-page__field textarea { min-height: 154px; }
+body.portfolio-redesign.page-contact .contact-page__field :is(input, textarea)::placeholder { color: #625e55; }
+body.portfolio-redesign.page-contact .contact-page__form-note { margin: 0; }
+body.portfolio-redesign.page-contact .contact-page__faq {
+  background: var(--folio-tint) !important; border: 0; padding: 80px 0;
+}
+body.portfolio-redesign.page-contact .contact-page__faq > .wrap {
+  max-width: 1280px; padding-inline: var(--folio-gutter);
+}
+body.portfolio-redesign.page-contact .contact-page__faq .eyebrow { text-align: left; }
+body.portfolio-redesign.page-contact .faq-list { margin-top: 38px; gap: 8px; }
+body.portfolio-redesign.page-contact .faq-list__item { border: 0; padding: 20px 0; }
+body.portfolio-redesign.page-contact .faq-list__q {
+  font: 500 clamp(16px, 1.6vw, 20px)/1.6 var(--sans);
+  letter-spacing: -.025em; color: var(--folio-ink); min-height: 44px;
+}
+body.portfolio-redesign.page-contact .faq-list__q::after { color: var(--folio-accent); }
+body.portfolio-redesign.page-contact .faq-list__a { font: 14px/1.85 var(--sans); color: #514f47; max-width: 65ch; }
+
+/* Journal: the same asymmetric photograph-and-caption composition as Work. */
+body.portfolio-redesign.page-journal .journal__featured {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr);
+  align-items: center; gap: clamp(40px, 7vw, 112px); max-width: 1720px;
+  margin: auto; padding: 16px var(--folio-gutter) 104px;
+  background: var(--folio-paper) !important;
+}
+body.portfolio-redesign.page-journal .journal__featured-image { max-width: none; margin: 0; padding: 0; }
+body.portfolio-redesign.page-journal .journal__featured-text { max-width: 45ch; margin: 0; padding: 0; text-align: left; }
+body.portfolio-redesign.page-journal .journal__featured-text .eyebrow { text-align: left; }
+body.portfolio-redesign.page-journal .journal__featured-title {
+  font: 500 clamp(32px, 3.4vw, 52px)/1.2 var(--serif);
+  letter-spacing: -.045em; color: var(--folio-ink); margin: 22px 0;
+}
+body.portfolio-redesign.page-journal :is(.journal__featured-dek, .journal__featured-pull, .journal__cadence-body) {
+  font: 14px/1.85 var(--sans); color: #514f47;
+}
+body.portfolio-redesign.page-journal .journal__featured-dek em { font-style: normal; }
+body.portfolio-redesign.page-journal .journal__featured-meta {
+  border: 0; padding: 0; margin: 26px 0; font: 11px/1.8 var(--sans);
+  letter-spacing: .02em; text-transform: none; color: var(--folio-muted);
+}
+body.portfolio-redesign.page-journal .journal__cadence {
+  background: var(--folio-tint) !important; border: 0; padding: 56px var(--folio-gutter);
+}
+body.portfolio-redesign.page-journal .journal__cadence .wrap { max-width: 1720px; padding: 0; }
+body.portfolio-redesign.page-journal .journal__cadence-body { text-align: left; margin: 0; max-width: 65ch; }
+body.portfolio-redesign.page-journal .article { padding: 156px 0 96px; background: var(--folio-paper); }
+body.portfolio-redesign.page-journal .article .wrap--narrow { max-width: 1120px; padding-inline: var(--folio-gutter); }
+body.portfolio-redesign.page-journal .article__title {
+  font: 500 clamp(42px, 5.3vw, 80px)/1.12 var(--serif);
+  letter-spacing: -.05em; color: var(--folio-ink); margin: 24px 0;
+}
+body.portfolio-redesign.page-journal .article__dek { font: 15px/1.85 var(--sans); color: #514f47; max-width: 60ch; }
+body.portfolio-redesign.page-journal .article__dek em { font-style: normal; }
+body.portfolio-redesign.page-journal .article__byline {
+  font: 11px/1.8 var(--sans); letter-spacing: .03em; text-transform: none;
+  color: var(--folio-muted); opacity: 1; margin-bottom: 40px;
+}
+body.portfolio-redesign.page-journal .article__prose { max-width: 68ch; font: 15px/1.85 var(--sans); }
+body.portfolio-redesign.page-journal .article__prose :is(p, ul li) { font: 15px/1.85 var(--sans); color: #464840; }
+body.portfolio-redesign.page-journal .article__prose h2 {
+  font: 500 clamp(30px, 3vw, 42px)/1.25 var(--serif); letter-spacing: -.04em;
+  color: var(--folio-ink); margin-top: 58px;
+}
+body.portfolio-redesign.page-journal .article__prose h3 { font: 500 19px/1.5 var(--sans); color: var(--folio-ink); letter-spacing: -.02em; }
+body.portfolio-redesign.page-journal .article__prose strong { font-weight: 600; }
+body.portfolio-redesign.page-journal .article__prose blockquote {
+  font: 500 28px/1.4 var(--serif); color: var(--folio-accent);
+  background: var(--folio-tint); border: 0; padding: 28px;
+}
+body.portfolio-redesign .article__back { font: 12px/1.7 var(--sans); color: var(--folio-accent); }
+
+/* Legal reading pages retain their exact wording and hierarchy. */
+body.portfolio-redesign.page-legal .legal__article { padding: 12px 0 96px; background: var(--folio-paper); }
+body.portfolio-redesign.page-legal .legal__article .wrap { max-width: calc(68ch + 2 * var(--folio-gutter)); padding-inline: var(--folio-gutter); font: 15px/1.85 var(--sans); }
+body.portfolio-redesign.page-legal .legal__article h2 {
+  font: 500 clamp(28px, 2.8vw, 40px)/1.25 var(--serif); letter-spacing: -.04em;
+  color: var(--folio-ink); margin-top: 52px;
+}
+body.portfolio-redesign.page-legal .legal__article :is(p, ul li) { font: 15px/1.85 var(--sans); color: #464840; }
+body.portfolio-redesign.page-legal .legal__article .article__meta {
+  border: 0; font: 11px/1.8 var(--sans); letter-spacing: .02em; opacity: 1;
+  color: var(--folio-muted); margin-top: 56px; padding-top: 0;
+}
+
+/* Kitchens is a reading page. These classes do not occur on the service hub. */
+body.portfolio-redesign.page-services .page-header {
+  max-width: 1720px; padding: 156px var(--folio-gutter) 56px; gap: 25px;
+}
+body.portfolio-redesign.page-services .page-header__title {
+  font: 500 clamp(60px, 6.8vw, 112px)/1.06 var(--serif);
+  letter-spacing: -.055em; color: var(--folio-ink); margin: 0;
+}
+body.portfolio-redesign.page-services .page-header__eyebrow { font: 500 11px/1.7 var(--sans); letter-spacing: .08em; }
+body.portfolio-redesign.page-services .page-header__lede { font: 14px/1.85 var(--sans); color: #514f47; }
+body.portfolio-redesign.page-services main > .page-section {
+  max-width: 1280px; padding: 48px var(--folio-gutter); background: var(--folio-paper) !important;
+}
+body.portfolio-redesign.page-services .page-section__head { gap: 20px; margin-bottom: 26px; }
+body.portfolio-redesign.page-services .page-section__eyebrow { font: 500 10px/1.6 var(--sans); letter-spacing: .1em; color: var(--folio-accent); }
+body.portfolio-redesign.page-services .page-section__title {
+  font: 500 clamp(32px, 3.3vw, 52px)/1.2 var(--serif); letter-spacing: -.045em; color: var(--folio-ink);
+}
+body.portfolio-redesign.page-services :is(.page-section__body, .page-section__lede, .kb-materials p) { font: 14px/1.85 var(--sans); color: #514f47; }
+body.portfolio-redesign.page-services .kb-materials { gap: 36px 52px; }
+body.portfolio-redesign.page-services .kb-materials li { border: 0; padding: 0; }
+body.portfolio-redesign.page-services .kb-materials h3 { font: 500 19px/1.5 var(--sans); letter-spacing: -.025em; color: var(--folio-ink); }
+body.portfolio-redesign.page-services .page-section--cta { align-items: flex-start; text-align: left; padding-bottom: 96px; }
+
+/* Completion and recovery use the same typography without excess ceremony. */
+body.portfolio-redesign.page-contact .contact-thanks { padding: 156px 0 100px; }
+body.portfolio-redesign.page-contact .contact-thanks__inner .wrap { max-width: 1280px; padding-inline: var(--folio-gutter); }
+body.portfolio-redesign.page-contact .contact-thanks__inner .eyebrow { text-align: left; }
+body.portfolio-redesign.page-contact .contact-thanks__title {
+  font: 500 clamp(50px, 6.8vw, 96px)/1.12 var(--serif); letter-spacing: -.055em;
+  color: var(--folio-ink); text-align: left; max-width: 17ch;
+}
+body.portfolio-redesign.page-contact .contact-thanks__dek { font: 14px/1.85 var(--sans); color: #514f47; text-align: left; max-width: 58ch; }
+body.portfolio-redesign.page-contact .contact-thanks__links { justify-content: flex-start; gap: 28px; }
+body.portfolio-redesign.page-contact .contact-thanks__links .section-closer__link {
+  font: 13px/1.7 var(--sans); color: var(--folio-accent); background: transparent;
+  border: 0; box-shadow: none; padding: 12px 0; min-height: 44px;
+}
+body.portfolio-redesign.page-contact .contact-thanks__links .section-closer__link::before,
+body.portfolio-redesign.page-contact .contact-thanks__links .section-closer__link::after { display: none; }
+body.portfolio-redesign.thank-you { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; min-height: 100svh; }
+body.portfolio-redesign.thank-you .thank-you__inner {
+  width: 100%; max-width: 880px; margin-inline: auto; text-align: left;
+  padding: 80px var(--folio-gutter); flex: 1; display: flex; flex-direction: column; justify-content: center;
+}
+body.portfolio-redesign.thank-you .mh-consent-settings-wrap { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 var(--folio-gutter) 24px; }
+body.portfolio-redesign.thank-you .mh-consent-settings { font: 11px/1.7 var(--sans); color: var(--folio-muted); padding: 10px 0; min-height: 44px; }
+body.portfolio-redesign.thank-you .display { font: 500 clamp(48px, 6.5vw, 88px)/1.12 var(--serif); letter-spacing: -.05em; }
+body.portfolio-redesign.thank-you .thank-you__lede { font: 14px/1.85 var(--sans); color: #514f47; }
+body.portfolio-redesign.thank-you .thank-you__back { font: 13px/1.7 var(--sans); text-transform: none; letter-spacing: 0; border: 0; color: var(--folio-accent); }
+body.portfolio-redesign.page-not-found .wrap { max-width: 1280px; padding: 48px var(--folio-gutter); }
+body.portfolio-redesign.page-not-found .skip-link {
+  position: absolute; top: 8px; left: 8px; z-index: 2; transform: translateY(-200%);
+  padding: 12px 18px; font: 13px/1.6 var(--sans); background: var(--folio-paper); color: var(--folio-accent);
+}
+body.portfolio-redesign.page-not-found .skip-link:focus { transform: none; }
+body.portfolio-redesign.page-not-found main { padding: 64px 0 24px; }
+body.portfolio-redesign.page-not-found h1 { font: 500 clamp(52px, 6.8vw, 96px)/1.1 var(--serif); letter-spacing: -.055em; color: var(--folio-ink); }
+body.portfolio-redesign.page-not-found p { font: 14px/1.85 var(--sans); color: #514f47; }
+body.portfolio-redesign.page-not-found .eyebrow { font: 500 10px/1.7 var(--sans); letter-spacing: .1em; color: var(--folio-accent); }
+body.portfolio-redesign.page-not-found nav { align-items: center; font: 12px/1.7 var(--sans); }
+body.portfolio-redesign.page-not-found nav a:first-child { border-radius: 999px; }
+body.portfolio-redesign.page-not-found .pt { border: 0; margin-top: 40px; }
+body.portfolio-redesign.page-not-found .pt h2 { font: 500 32px/1.25 var(--serif); letter-spacing: -.035em; }
+
+@media (max-width: 768px) {
+  body.portfolio-redesign.page-contact .contact-page__hero,
+  body.portfolio-redesign.page-journal .journal__hero,
+  body.portfolio-redesign.page-legal .legal-hero { padding: 118px 0 40px; }
+  body.portfolio-redesign :is(.contact-page__title, .journal__title, .legal-hero__title) {
+    font-size: clamp(44px, 10.4vw, 76px); margin: 20px 0; letter-spacing: -.055em;
+  }
+  body.portfolio-redesign :is(.contact-page__lede, .journal__lede, .legal-hero__subtext) { font-size: 13px; }
+  body.portfolio-redesign.page-contact .contact-page__form-section { padding: 4px 0 58px; }
+  body.portfolio-redesign.page-contact .contact-page__form-grid { grid-template-columns: 1fr; gap: 48px; }
+  body.portfolio-redesign.page-contact .contact-page__aside-block { margin-bottom: 30px; }
+  body.portfolio-redesign.page-contact .contact-page__h2 { font-size: 34px; }
+  body.portfolio-redesign.page-contact .contact-page__faq { padding: 52px 0; }
+  body.portfolio-redesign.page-contact .faq-list { margin-top: 22px; }
+  body.portfolio-redesign.page-contact .faq-list__a { font-size: 13px; }
+  body.portfolio-redesign.page-journal .journal__featured { grid-template-columns: 1fr; gap: 32px; padding-top: 0; padding-bottom: 60px; }
+  body.portfolio-redesign.page-journal .journal__featured-title { font-size: 36px; }
+  body.portfolio-redesign.page-journal .journal__featured-text { max-width: none; }
+  body.portfolio-redesign.page-journal .journal__cadence { padding-block: 42px; }
+  body.portfolio-redesign.page-journal .article { padding: 118px 0 60px; }
+  body.portfolio-redesign.page-journal .article__title { font-size: clamp(38px, 9.4vw, 64px); }
+  body.portfolio-redesign.page-journal .article__dek { font-size: 14px; }
+  body.portfolio-redesign.page-journal .article__prose h2 { font-size: 32px; margin-top: 44px; }
+  body.portfolio-redesign.page-journal .article__prose :is(p, ul li) { font-size: 14px; }
+  body.portfolio-redesign.page-legal .legal__article { padding-bottom: 60px; }
+  body.portfolio-redesign.page-legal .legal__article :is(p, ul li) { font-size: 14px; }
+  body.portfolio-redesign.page-services .page-header { padding-top: 118px; padding-bottom: 36px; gap: 20px; }
+  body.portfolio-redesign.page-services .page-header__title { font-size: clamp(44px, 10.4vw, 76px); }
+  body.portfolio-redesign.page-services main > .page-section { padding-block: 36px; }
+  body.portfolio-redesign.page-services .kb-materials { grid-template-columns: 1fr; gap: 28px; }
+  body.portfolio-redesign.page-services .page-section--cta { padding-bottom: 60px; }
+  body.portfolio-redesign.page-contact .contact-thanks { padding: 118px 0 64px; }
+  body.portfolio-redesign.page-contact .contact-thanks__title { font-size: clamp(44px, 10.4vw, 70px); }
+  body.portfolio-redesign.page-not-found .wrap { padding-block: 30px; }
+  body.portfolio-redesign.page-not-found main { padding-top: 42px; }
+  body.portfolio-redesign.page-not-found h1 { font-size: clamp(46px, 10.4vw, 68px); }
+}

@@ -1,51 +1,74 @@
-// =====================================================================
-// Floating-nav drawer — opens a full-bleed bone overlay with the seven
-// nav links + the "Begin a Project" silver pill. Toggle is the
-// hamburger inside the floating nav; close on X click, link click, or
-// Escape key. Body scroll locks while open.
-// =====================================================================
+// Accessible modal navigation; keep all background content inert while open.
 (function () {
   const toggle = document.querySelector('[data-menu-open]');
   const closeBtn = document.querySelector('[data-menu-close]');
   const drawer = document.querySelector('[data-drawer]');
   if (!toggle || !drawer) return;
-
+  const pt = document.documentElement.lang.startsWith('pt');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let opened = false;
+  let previousFocus;
+  let hideTimer;
+  const background = new Map();
+  drawer.id ||= 'navigation-drawer';
+  drawer.setAttribute('role', 'dialog');
+  drawer.setAttribute('aria-modal', 'true');
+  drawer.setAttribute('aria-label', pt ? 'Navegação principal' : 'Main navigation');
+  toggle.setAttribute('aria-controls', drawer.id);
+  const focusable = () => [...drawer.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]')]
+    .filter((el) => el.getClientRects().length && !el.closest('[hidden]'));
   const open = () => {
+    if (opened) return;
+    clearTimeout(hideTimer);
+    opened = true;
+    previousFocus = document.activeElement;
     drawer.hidden = false;
-    requestAnimationFrame(() => drawer.classList.add('is-open'));
+    drawer.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close menu');
+    toggle.setAttribute('aria-label', pt ? 'Fechar menu' : 'Close menu');
     document.body.classList.add('nav-locked');
+    // Handle both a body child drawer and templates nesting it in a wrapper.
+    let branch = drawer;
+    while (branch.parentElement) {
+      [...branch.parentElement.children].forEach((el) => {
+        if (el === branch || ['SCRIPT', 'STYLE', 'LINK'].includes(el.tagName)) return;
+        background.set(el, el.inert);
+        el.inert = true;
+      });
+      if (branch.parentElement === document.body) break;
+      branch = branch.parentElement;
+    }
+    (closeBtn || focusable()[0])?.focus();
   };
-
   const close = () => {
+    if (!opened) return;
+    opened = false;
     drawer.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
+    toggle.setAttribute('aria-label', pt ? 'Abrir menu' : 'Open menu');
     document.body.classList.remove('nav-locked');
-    setTimeout(() => { drawer.hidden = true; }, 450);
+    background.forEach((wasInert, el) => { el.inert = wasInert; });
+    background.clear();
+    if (previousFocus?.isConnected && previousFocus.getClientRects().length) previousFocus.focus();
+    hideTimer = setTimeout(() => { if (!opened) drawer.hidden = true; }, motion.matches ? 0 : 450);
   };
-
-  toggle.addEventListener('click', () => {
-    drawer.classList.contains('is-open') ? close() : open();
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', close);
-
-  drawer.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') close();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
-  });
-
-  // Resize guard: if the user widens past the desktop breakpoint
-  // while the drawer is open, the toggle is now hidden -- close
-  // the drawer so it doesn't get stranded.
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024 && drawer.classList.contains('is-open')) {
-      close();
+  toggle.addEventListener('click', () => opened ? close() : open());
+  closeBtn?.addEventListener('click', close);
+  drawer.addEventListener('click', (event) => { if (event.target.closest('a[href]')) close(); });
+  document.addEventListener('keydown', (event) => {
+    if (!opened) return;
+    if (event.key === 'Escape') { event.preventDefault(); close(); }
+    if (event.key === 'Tab') {
+      const items = focusable();
+      const first = items[0], last = items[items.length - 1];
+      if (!first) { event.preventDefault(); return; }
+      if (event.shiftKey && (document.activeElement === first || !drawer.contains(document.activeElement))) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !drawer.contains(document.activeElement))) {
+        event.preventDefault(); first.focus();
+      }
     }
   });
+  // Match the shared CSS breakpoint; a tablet menu remains usable up to 1100px.
+  window.addEventListener('resize', () => { if (window.matchMedia('(min-width: 1101px)').matches) close(); });
 })();

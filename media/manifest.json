@@ -1,0 +1,6562 @@
+{
+  "format": "Original-preserving responsive WebP derivatives",
+  "widths": [
+    480,
+    800,
+    1200,
+    1800,
+    2400
+  ],
+  "images": {
+    "/assets/images/1tasca-removingallwaste.jpeg": {
+      "source": "/assets/images/1tasca-removingallwaste.jpeg",
+      "source_sha256": "3b71f2ecebfccc50d7b84b786114c5b3d817026877ac38be370fefbf999a6c65",
+      "source_bytes": 3080199,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-1tasca-removingallwaste-3b71f2eceb-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 30650
+        },
+        {
+          "src": "/media/images-1tasca-removingallwaste-3b71f2eceb-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 71856
+        },
+        {
+          "src": "/media/images-1tasca-removingallwaste-3b71f2eceb-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 146012
+        },
+        {
+          "src": "/media/images-1tasca-removingallwaste-3b71f2eceb-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 295188
+        },
+        {
+          "src": "/media/images-1tasca-removingallwaste-3b71f2eceb-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 481446
+        }
+      ]
+    },
+    "/assets/images/2-foundwater-rose.jpeg": {
+      "source": "/assets/images/2-foundwater-rose.jpeg",
+      "source_sha256": "f5cdf541fe7498f5429ffbc485e16b0028a16d5958b2a0cdf434dc78dd200068",
+      "source_bytes": 4599468,
+      "width": 3024,
+      "height": 4032,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-2-foundwater-rose-f5cdf541fe-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 89082
+        },
+        {
+          "src": "/media/images-2-foundwater-rose-f5cdf541fe-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 249886
+        },
+        {
+          "src": "/media/images-2-foundwater-rose-f5cdf541fe-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 518996
+        },
+        {
+          "src": "/media/images-2-foundwater-rose-f5cdf541fe-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 1010760
+        },
+        {
+          "src": "/media/images-2-foundwater-rose-f5cdf541fe-2400.webp",
+          "width": 2400,
+          "height": 3200,
+          "bytes": 1593558
+        }
+      ]
+    },
+    "/assets/images/2-tasca-startingconstruction.jpeg": {
+      "source": "/assets/images/2-tasca-startingconstruction.jpeg",
+      "source_sha256": "885169ff235dc8a7ab6de4892451ff09519eaa3b8cb8847a283bea152900d22a",
+      "source_bytes": 3783592,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-2-tasca-startingconstruction-885169ff23-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 44934
+        },
+        {
+          "src": "/media/images-2-tasca-startingconstruction-885169ff23-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 113346
+        },
+        {
+          "src": "/media/images-2-tasca-startingconstruction-885169ff23-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 235626
+        },
+        {
+          "src": "/media/images-2-tasca-startingconstruction-885169ff23-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 473394
+        },
+        {
+          "src": "/media/images-2-tasca-startingconstruction-885169ff23-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 757494
+        }
+      ]
+    },
+    "/assets/images/3-removingtiles-rose.jpeg": {
+      "source": "/assets/images/3-removingtiles-rose.jpeg",
+      "source_sha256": "985a52455a12d2023c0c2b7f81c0c0e2195b530862156a3a7c27e0bae8917065",
+      "source_bytes": 4575174,
+      "width": 3024,
+      "height": 4032,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-3-removingtiles-rose-985a52455a-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 88256
+        },
+        {
+          "src": "/media/images-3-removingtiles-rose-985a52455a-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 233472
+        },
+        {
+          "src": "/media/images-3-removingtiles-rose-985a52455a-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 508622
+        },
+        {
+          "src": "/media/images-3-removingtiles-rose-985a52455a-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 1092966
+        },
+        {
+          "src": "/media/images-3-removingtiles-rose-985a52455a-2400.webp",
+          "width": 2400,
+          "height": 3200,
+          "bytes": 1833878
+        }
+      ]
+    },
+    "/assets/images/3-tasca-removingroof.jpeg": {
+      "source": "/assets/images/3-tasca-removingroof.jpeg",
+      "source_sha256": "aa14763d298486911c5ea7701446466e03288c3eca1ab79ebc9d7b925687b5fd",
+      "source_bytes": 3293251,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-3-tasca-removingroof-aa14763d29-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 39436
+        },
+        {
+          "src": "/media/images-3-tasca-removingroof-aa14763d29-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 94730
+        },
+        {
+          "src": "/media/images-3-tasca-removingroof-aa14763d29-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 184172
+        },
+        {
+          "src": "/media/images-3-tasca-removingroof-aa14763d29-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 349074
+        },
+        {
+          "src": "/media/images-3-tasca-removingroof-aa14763d29-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 555140
+        }
+      ]
+    },
+    "/assets/images/4tasca-fixingroof.jpeg": {
+      "source": "/assets/images/4tasca-fixingroof.jpeg",
+      "source_sha256": "bd89eb900b84b25766ed6eafaeb08411113759020fa74adae3797f05f3d608c6",
+      "source_bytes": 2841902,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-4tasca-fixingroof-bd89eb900b-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34576
+        },
+        {
+          "src": "/media/images-4tasca-fixingroof-bd89eb900b-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 78730
+        },
+        {
+          "src": "/media/images-4tasca-fixingroof-bd89eb900b-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 148942
+        },
+        {
+          "src": "/media/images-4tasca-fixingroof-bd89eb900b-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 283536
+        },
+        {
+          "src": "/media/images-4tasca-fixingroof-bd89eb900b-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 423604
+        }
+      ]
+    },
+    "/assets/images/5-rose.jpeg": {
+      "source": "/assets/images/5-rose.jpeg",
+      "source_sha256": "fc04315d02aca61a53ea5820985d9181d81be588af75903a08abd31eec0cb66b",
+      "source_bytes": 4438747,
+      "width": 3024,
+      "height": 4032,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-5-rose-fc04315d02-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 71570
+        },
+        {
+          "src": "/media/images-5-rose-fc04315d02-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 190090
+        },
+        {
+          "src": "/media/images-5-rose-fc04315d02-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 393364
+        },
+        {
+          "src": "/media/images-5-rose-fc04315d02-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 844296
+        },
+        {
+          "src": "/media/images-5-rose-fc04315d02-2400.webp",
+          "width": 2400,
+          "height": 3200,
+          "bytes": 1421194
+        }
+      ]
+    },
+    "/assets/images/5tasca-removingwindowns.jpeg": {
+      "source": "/assets/images/5tasca-removingwindowns.jpeg",
+      "source_sha256": "ef72946b0f43d441d3f36c40eab700b10d329508d549a727fe4dfc807ad7ad81",
+      "source_bytes": 3564482,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-5tasca-removingwindowns-ef72946b0f-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 26502
+        },
+        {
+          "src": "/media/images-5tasca-removingwindowns-ef72946b0f-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 71042
+        },
+        {
+          "src": "/media/images-5tasca-removingwindowns-ef72946b0f-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 164610
+        },
+        {
+          "src": "/media/images-5tasca-removingwindowns-ef72946b0f-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 376098
+        },
+        {
+          "src": "/media/images-5tasca-removingwindowns-ef72946b0f-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 635388
+        }
+      ]
+    },
+    "/assets/images/6-rose.JPEG": {
+      "source": "/assets/images/6-rose.JPEG",
+      "source_sha256": "99619b132769002fa59506679e9b4c5148088b45688540fb110c00051d20c5ba",
+      "source_bytes": 2574280,
+      "width": 2160,
+      "height": 3840,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-6-rose-99619b1327-480.webp",
+          "width": 480,
+          "height": 853,
+          "bytes": 108814
+        },
+        {
+          "src": "/media/images-6-rose-99619b1327-800.webp",
+          "width": 800,
+          "height": 1422,
+          "bytes": 277172
+        },
+        {
+          "src": "/media/images-6-rose-99619b1327-1200.webp",
+          "width": 1200,
+          "height": 2133,
+          "bytes": 513132
+        },
+        {
+          "src": "/media/images-6-rose-99619b1327-1800.webp",
+          "width": 1800,
+          "height": 3200,
+          "bytes": 912142
+        },
+        {
+          "src": "/media/images-6-rose-99619b1327-2160.webp",
+          "width": 2160,
+          "height": 3840,
+          "bytes": 1134442
+        }
+      ]
+    },
+    "/assets/images/6tascasetting-upfinal-fixesbeforepainting.JPEG": {
+      "source": "/assets/images/6tascasetting-upfinal-fixesbeforepainting.JPEG",
+      "source_sha256": "0e18ac61ca3248579af58188b541375d76eece86fe22a2352d112d9ac72a32c2",
+      "source_bytes": 133173,
+      "width": 1640,
+      "height": 1232,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-6tascasetting-upfinal-fixesbeforepainting-0e18ac61ca-480.webp",
+          "width": 480,
+          "height": 361,
+          "bytes": 14846
+        },
+        {
+          "src": "/media/images-6tascasetting-upfinal-fixesbeforepainting-0e18ac61ca-800.webp",
+          "width": 800,
+          "height": 601,
+          "bytes": 31794
+        },
+        {
+          "src": "/media/images-6tascasetting-upfinal-fixesbeforepainting-0e18ac61ca-1200.webp",
+          "width": 1200,
+          "height": 901,
+          "bytes": 57322
+        },
+        {
+          "src": "/media/images-6tascasetting-upfinal-fixesbeforepainting-0e18ac61ca-1640.webp",
+          "width": 1640,
+          "height": 1232,
+          "bytes": 86642
+        }
+      ]
+    },
+    "/assets/images/7tasca-final-touches.jpeg": {
+      "source": "/assets/images/7tasca-final-touches.jpeg",
+      "source_sha256": "ff9ad02d86f9edb349e0f26c67db07d01636a4486c7f83aaed68677c94e1c41d",
+      "source_bytes": 3001042,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-7tasca-final-touches-ff9ad02d86-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 33590
+        },
+        {
+          "src": "/media/images-7tasca-final-touches-ff9ad02d86-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 79972
+        },
+        {
+          "src": "/media/images-7tasca-final-touches-ff9ad02d86-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 161836
+        },
+        {
+          "src": "/media/images-7tasca-final-touches-ff9ad02d86-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 302250
+        },
+        {
+          "src": "/media/images-7tasca-final-touches-ff9ad02d86-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 478060
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/1.webp": {
+      "source": "/assets/images/Belle-riviere/1.webp",
+      "source_sha256": "56c78b31a2081ed3a4d1f7fe51d9c172a06edb404e5f9d123a5359e48704b1fb",
+      "source_bytes": 262338,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-1-56c78b31a2-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18528
+        },
+        {
+          "src": "/media/images-belle-riviere-1-56c78b31a2-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 42928
+        },
+        {
+          "src": "/media/images-belle-riviere-1-56c78b31a2-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 83116
+        },
+        {
+          "src": "/media/images-belle-riviere-1-56c78b31a2-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 148854
+        },
+        {
+          "src": "/media/images-belle-riviere-1-56c78b31a2-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 220562
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/10.webp": {
+      "source": "/assets/images/Belle-riviere/10.webp",
+      "source_sha256": "27fad46c41353d58dbba84e1abbb7e90070fd5445e37001f56fbae3ed72d2b81",
+      "source_bytes": 177900,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-10-27fad46c41-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13634
+        },
+        {
+          "src": "/media/images-belle-riviere-10-27fad46c41-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 31578
+        },
+        {
+          "src": "/media/images-belle-riviere-10-27fad46c41-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 59664
+        },
+        {
+          "src": "/media/images-belle-riviere-10-27fad46c41-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 107464
+        },
+        {
+          "src": "/media/images-belle-riviere-10-27fad46c41-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 160690
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/11.webp": {
+      "source": "/assets/images/Belle-riviere/11.webp",
+      "source_sha256": "4f7f2f75108c1f6c55c461247237d5eb941d29d18b10645bc6148a5e9069d953",
+      "source_bytes": 111290,
+      "width": 2500,
+      "height": 1689,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-11-4f7f2f7510-480.webp",
+          "width": 480,
+          "height": 324,
+          "bytes": 10560
+        },
+        {
+          "src": "/media/images-belle-riviere-11-4f7f2f7510-800.webp",
+          "width": 800,
+          "height": 540,
+          "bytes": 21426
+        },
+        {
+          "src": "/media/images-belle-riviere-11-4f7f2f7510-1200.webp",
+          "width": 1200,
+          "height": 811,
+          "bytes": 39308
+        },
+        {
+          "src": "/media/images-belle-riviere-11-4f7f2f7510-1800.webp",
+          "width": 1800,
+          "height": 1216,
+          "bytes": 69102
+        },
+        {
+          "src": "/media/images-belle-riviere-11-4f7f2f7510-2400.webp",
+          "width": 2400,
+          "height": 1621,
+          "bytes": 101624
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/12.webp": {
+      "source": "/assets/images/Belle-riviere/12.webp",
+      "source_sha256": "e72906f1f854b096590fbafb8583af6870fb04b62eaf03c44bb38e3162fee551",
+      "source_bytes": 246784,
+      "width": 2500,
+      "height": 1666,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-12-e72906f1f8-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 17668
+        },
+        {
+          "src": "/media/images-belle-riviere-12-e72906f1f8-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 40762
+        },
+        {
+          "src": "/media/images-belle-riviere-12-e72906f1f8-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 77432
+        },
+        {
+          "src": "/media/images-belle-riviere-12-e72906f1f8-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 146652
+        },
+        {
+          "src": "/media/images-belle-riviere-12-e72906f1f8-2400.webp",
+          "width": 2400,
+          "height": 1599,
+          "bytes": 218956
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/13.webp": {
+      "source": "/assets/images/Belle-riviere/13.webp",
+      "source_sha256": "e09673b5794cb525b1d8c44633985c0bb04fffeb45c7c96cc6078b7c1a872763",
+      "source_bytes": 309680,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-13-e09673b579-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23140
+        },
+        {
+          "src": "/media/images-belle-riviere-13-e09673b579-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 53528
+        },
+        {
+          "src": "/media/images-belle-riviere-13-e09673b579-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 102348
+        },
+        {
+          "src": "/media/images-belle-riviere-13-e09673b579-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 188758
+        },
+        {
+          "src": "/media/images-belle-riviere-13-e09673b579-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 282612
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/14.webp": {
+      "source": "/assets/images/Belle-riviere/14.webp",
+      "source_sha256": "01fb20f820019f0ffcd04aba19aa804b9e8714dba3a517bc439bb84ddbd21e83",
+      "source_bytes": 305718,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-14-01fb20f820-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22836
+        },
+        {
+          "src": "/media/images-belle-riviere-14-01fb20f820-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 52708
+        },
+        {
+          "src": "/media/images-belle-riviere-14-01fb20f820-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 97872
+        },
+        {
+          "src": "/media/images-belle-riviere-14-01fb20f820-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 183474
+        },
+        {
+          "src": "/media/images-belle-riviere-14-01fb20f820-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 274384
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/15.webp": {
+      "source": "/assets/images/Belle-riviere/15.webp",
+      "source_sha256": "0635369789b1be89e335b914bc84cd880aa1a5d7a6cf025ed0eb18c47659301c",
+      "source_bytes": 231066,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-15-0635369789-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 19536
+        },
+        {
+          "src": "/media/images-belle-riviere-15-0635369789-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 42832
+        },
+        {
+          "src": "/media/images-belle-riviere-15-0635369789-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 79020
+        },
+        {
+          "src": "/media/images-belle-riviere-15-0635369789-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 143424
+        },
+        {
+          "src": "/media/images-belle-riviere-15-0635369789-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 213330
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/16.webp": {
+      "source": "/assets/images/Belle-riviere/16.webp",
+      "source_sha256": "41c135a2c9305dd7278085ef4be3e1227b64a0ab4fdf1ca1c2dc8e02d6c57809",
+      "source_bytes": 349210,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-16-41c135a2c9-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 27186
+        },
+        {
+          "src": "/media/images-belle-riviere-16-41c135a2c9-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 64152
+        },
+        {
+          "src": "/media/images-belle-riviere-16-41c135a2c9-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 122842
+        },
+        {
+          "src": "/media/images-belle-riviere-16-41c135a2c9-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 221958
+        },
+        {
+          "src": "/media/images-belle-riviere-16-41c135a2c9-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 325418
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/17.jpg": {
+      "source": "/assets/images/Belle-riviere/17.jpg",
+      "source_sha256": "631c27f10bd8d86a1d3fda011982212e64e1db2df2a66beef3db839704fd72b7",
+      "source_bytes": 1599017,
+      "width": 3000,
+      "height": 2001,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-17-631c27f10b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23934
+        },
+        {
+          "src": "/media/images-belle-riviere-17-631c27f10b-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 54924
+        },
+        {
+          "src": "/media/images-belle-riviere-17-631c27f10b-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 105956
+        },
+        {
+          "src": "/media/images-belle-riviere-17-631c27f10b-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 213892
+        },
+        {
+          "src": "/media/images-belle-riviere-17-631c27f10b-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 338060
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/18.jpg": {
+      "source": "/assets/images/Belle-riviere/18.jpg",
+      "source_sha256": "5c5eec8470c15d15a8d01652a038dc2406828e155813b5ae9190ed64030c45e7",
+      "source_bytes": 1733356,
+      "width": 3000,
+      "height": 2008,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-18-5c5eec8470-480.webp",
+          "width": 480,
+          "height": 321,
+          "bytes": 26106
+        },
+        {
+          "src": "/media/images-belle-riviere-18-5c5eec8470-800.webp",
+          "width": 800,
+          "height": 535,
+          "bytes": 63180
+        },
+        {
+          "src": "/media/images-belle-riviere-18-5c5eec8470-1200.webp",
+          "width": 1200,
+          "height": 803,
+          "bytes": 123316
+        },
+        {
+          "src": "/media/images-belle-riviere-18-5c5eec8470-1800.webp",
+          "width": 1800,
+          "height": 1205,
+          "bytes": 235850
+        },
+        {
+          "src": "/media/images-belle-riviere-18-5c5eec8470-2400.webp",
+          "width": 2400,
+          "height": 1606,
+          "bytes": 369888
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/19.jpg": {
+      "source": "/assets/images/Belle-riviere/19.jpg",
+      "source_sha256": "9677ef1aa672b39a50fe9e65607b126172d75d42824689f61bb2f21e3499704b",
+      "source_bytes": 2352373,
+      "width": 3000,
+      "height": 2002,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-19-9677ef1aa6-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 32484
+        },
+        {
+          "src": "/media/images-belle-riviere-19-9677ef1aa6-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 85572
+        },
+        {
+          "src": "/media/images-belle-riviere-19-9677ef1aa6-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 186534
+        },
+        {
+          "src": "/media/images-belle-riviere-19-9677ef1aa6-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 394496
+        },
+        {
+          "src": "/media/images-belle-riviere-19-9677ef1aa6-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 645266
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/2.webp": {
+      "source": "/assets/images/Belle-riviere/2.webp",
+      "source_sha256": "73e96ea6005e7a3620fbba2d90d36c0b7cb06bc86e8f1c70cd9efbb78baf15c2",
+      "source_bytes": 279314,
+      "width": 2500,
+      "height": 1670,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-2-73e96ea600-480.webp",
+          "width": 480,
+          "height": 321,
+          "bytes": 21504
+        },
+        {
+          "src": "/media/images-belle-riviere-2-73e96ea600-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 48248
+        },
+        {
+          "src": "/media/images-belle-riviere-2-73e96ea600-1200.webp",
+          "width": 1200,
+          "height": 802,
+          "bytes": 90416
+        },
+        {
+          "src": "/media/images-belle-riviere-2-73e96ea600-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 167718
+        },
+        {
+          "src": "/media/images-belle-riviere-2-73e96ea600-2400.webp",
+          "width": 2400,
+          "height": 1603,
+          "bytes": 250192
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/3.webp": {
+      "source": "/assets/images/Belle-riviere/3.webp",
+      "source_sha256": "beb94727efde1a27bbf3b1f6b5371a7ddf649996c753c8db6de161b7082b97dd",
+      "source_bytes": 197520,
+      "width": 2500,
+      "height": 1665,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-3-beb94727ef-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18080
+        },
+        {
+          "src": "/media/images-belle-riviere-3-beb94727ef-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 37994
+        },
+        {
+          "src": "/media/images-belle-riviere-3-beb94727ef-1200.webp",
+          "width": 1200,
+          "height": 799,
+          "bytes": 68468
+        },
+        {
+          "src": "/media/images-belle-riviere-3-beb94727ef-1800.webp",
+          "width": 1800,
+          "height": 1199,
+          "bytes": 123904
+        },
+        {
+          "src": "/media/images-belle-riviere-3-beb94727ef-2400.webp",
+          "width": 2400,
+          "height": 1598,
+          "bytes": 182422
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/4.webp": {
+      "source": "/assets/images/Belle-riviere/4.webp",
+      "source_sha256": "3b64b2afda572c0c7b3f6a5911c7b5aaf7d0bcf1c71fdacb563fd71da4b9a5d1",
+      "source_bytes": 276156,
+      "width": 2500,
+      "height": 1665,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-4-3b64b2afda-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22436
+        },
+        {
+          "src": "/media/images-belle-riviere-4-3b64b2afda-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 49354
+        },
+        {
+          "src": "/media/images-belle-riviere-4-3b64b2afda-1200.webp",
+          "width": 1200,
+          "height": 799,
+          "bytes": 93030
+        },
+        {
+          "src": "/media/images-belle-riviere-4-3b64b2afda-1800.webp",
+          "width": 1800,
+          "height": 1199,
+          "bytes": 169652
+        },
+        {
+          "src": "/media/images-belle-riviere-4-3b64b2afda-2400.webp",
+          "width": 2400,
+          "height": 1598,
+          "bytes": 252544
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/5.webp": {
+      "source": "/assets/images/Belle-riviere/5.webp",
+      "source_sha256": "01069e8d37be375e37b70f06451e6f9437ef5c040c9b559d227e7a7298ba20ee",
+      "source_bytes": 287298,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-5-01069e8d37-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23848
+        },
+        {
+          "src": "/media/images-belle-riviere-5-01069e8d37-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 54778
+        },
+        {
+          "src": "/media/images-belle-riviere-5-01069e8d37-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 101868
+        },
+        {
+          "src": "/media/images-belle-riviere-5-01069e8d37-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 183296
+        },
+        {
+          "src": "/media/images-belle-riviere-5-01069e8d37-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 268546
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/6.webp": {
+      "source": "/assets/images/Belle-riviere/6.webp",
+      "source_sha256": "e961ec6b7c8c7404350ab64fd3381d947d4e2d3c7421a720c5c94919b3a8b342",
+      "source_bytes": 307526,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-6-e961ec6b7c-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 21770
+        },
+        {
+          "src": "/media/images-belle-riviere-6-e961ec6b7c-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 49802
+        },
+        {
+          "src": "/media/images-belle-riviere-6-e961ec6b7c-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 95552
+        },
+        {
+          "src": "/media/images-belle-riviere-6-e961ec6b7c-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 181066
+        },
+        {
+          "src": "/media/images-belle-riviere-6-e961ec6b7c-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 276502
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/7.webp": {
+      "source": "/assets/images/Belle-riviere/7.webp",
+      "source_sha256": "e8d97f5930a7482450bae681c462a9b8abaf6da111a2b1fb3b67f5d11cc0018e",
+      "source_bytes": 120668,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-7-e8d97f5930-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11376
+        },
+        {
+          "src": "/media/images-belle-riviere-7-e8d97f5930-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23510
+        },
+        {
+          "src": "/media/images-belle-riviere-7-e8d97f5930-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 41312
+        },
+        {
+          "src": "/media/images-belle-riviere-7-e8d97f5930-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 72698
+        },
+        {
+          "src": "/media/images-belle-riviere-7-e8d97f5930-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 106378
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/8.webp": {
+      "source": "/assets/images/Belle-riviere/8.webp",
+      "source_sha256": "77b8ff19e021500e19aef7e69ce858bf28e036a130b42ce99fb600fdd92ac5e9",
+      "source_bytes": 173318,
+      "width": 2500,
+      "height": 1668,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-8-77b8ff19e0-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 16128
+        },
+        {
+          "src": "/media/images-belle-riviere-8-77b8ff19e0-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 35232
+        },
+        {
+          "src": "/media/images-belle-riviere-8-77b8ff19e0-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 64820
+        },
+        {
+          "src": "/media/images-belle-riviere-8-77b8ff19e0-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 113286
+        },
+        {
+          "src": "/media/images-belle-riviere-8-77b8ff19e0-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 162136
+        }
+      ]
+    },
+    "/assets/images/Belle-riviere/9.webp": {
+      "source": "/assets/images/Belle-riviere/9.webp",
+      "source_sha256": "7609b7796f3e1e783e4c6b699a40b7394f93c9e66b6d701ae89cd72cac9403ca",
+      "source_bytes": 114370,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-belle-riviere-9-7609b7796f-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 9214
+        },
+        {
+          "src": "/media/images-belle-riviere-9-7609b7796f-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 20094
+        },
+        {
+          "src": "/media/images-belle-riviere-9-7609b7796f-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 36124
+        },
+        {
+          "src": "/media/images-belle-riviere-9-7609b7796f-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 65440
+        },
+        {
+          "src": "/media/images-belle-riviere-9-7609b7796f-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 98510
+        }
+      ]
+    },
+    "/assets/images/Figueiras/1.webp": {
+      "source": "/assets/images/Figueiras/1.webp",
+      "source_sha256": "426577e27b8838877bdaadc62701c1c642e050a05d6789ba37116e72a28487f3",
+      "source_bytes": 400002,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-1-426577e27b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13120
+        },
+        {
+          "src": "/media/images-figueiras-1-426577e27b-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 29630
+        },
+        {
+          "src": "/media/images-figueiras-1-426577e27b-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 58794
+        },
+        {
+          "src": "/media/images-figueiras-1-426577e27b-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 121572
+        },
+        {
+          "src": "/media/images-figueiras-1-426577e27b-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 228158
+        }
+      ]
+    },
+    "/assets/images/Figueiras/10.webp": {
+      "source": "/assets/images/Figueiras/10.webp",
+      "source_sha256": "41e6cef5e27926113b20c8dfeb29a6be8d4aac237b21f2b2e0d8ba2f3bccc665",
+      "source_bytes": 561846,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-10-41e6cef5e2-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12044
+        },
+        {
+          "src": "/media/images-figueiras-10-41e6cef5e2-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 29182
+        },
+        {
+          "src": "/media/images-figueiras-10-41e6cef5e2-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 62618
+        },
+        {
+          "src": "/media/images-figueiras-10-41e6cef5e2-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 140498
+        },
+        {
+          "src": "/media/images-figueiras-10-41e6cef5e2-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 284630
+        }
+      ]
+    },
+    "/assets/images/Figueiras/11.webp": {
+      "source": "/assets/images/Figueiras/11.webp",
+      "source_sha256": "969478d1020381ccab41a13caef56a9291d9327eae653d90a608d1d3e46ba68c",
+      "source_bytes": 220088,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-11-969478d102-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6170
+        },
+        {
+          "src": "/media/images-figueiras-11-969478d102-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14130
+        },
+        {
+          "src": "/media/images-figueiras-11-969478d102-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 27858
+        },
+        {
+          "src": "/media/images-figueiras-11-969478d102-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 58710
+        },
+        {
+          "src": "/media/images-figueiras-11-969478d102-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 123258
+        }
+      ]
+    },
+    "/assets/images/Figueiras/12.webp": {
+      "source": "/assets/images/Figueiras/12.webp",
+      "source_sha256": "625c8a9fbb3f53fcdc89c968c2c6decbc8fabb2fa03910a4e0a1f97f95fa9120",
+      "source_bytes": 279754,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-12-625c8a9fbb-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11544
+        },
+        {
+          "src": "/media/images-figueiras-12-625c8a9fbb-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 24830
+        },
+        {
+          "src": "/media/images-figueiras-12-625c8a9fbb-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 45424
+        },
+        {
+          "src": "/media/images-figueiras-12-625c8a9fbb-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 84720
+        },
+        {
+          "src": "/media/images-figueiras-12-625c8a9fbb-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 143214
+        }
+      ]
+    },
+    "/assets/images/Figueiras/13.webp": {
+      "source": "/assets/images/Figueiras/13.webp",
+      "source_sha256": "dd6fe0158ea5f1e00170ba8d08fcaa4fa1d29579d688d561a1655232b49d4c4b",
+      "source_bytes": 660118,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-13-dd6fe0158e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 21512
+        },
+        {
+          "src": "/media/images-figueiras-13-dd6fe0158e-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 50970
+        },
+        {
+          "src": "/media/images-figueiras-13-dd6fe0158e-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 103534
+        },
+        {
+          "src": "/media/images-figueiras-13-dd6fe0158e-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 213936
+        },
+        {
+          "src": "/media/images-figueiras-13-dd6fe0158e-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 388670
+        }
+      ]
+    },
+    "/assets/images/Figueiras/2.webp": {
+      "source": "/assets/images/Figueiras/2.webp",
+      "source_sha256": "77343251f43127d7e2d2ab5e167d4fe311d7f667deaec2e4da2f5e143462b761",
+      "source_bytes": 242530,
+      "width": 2400,
+      "height": 1602,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-2-77343251f4-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 10110
+        },
+        {
+          "src": "/media/images-figueiras-2-77343251f4-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 21360
+        },
+        {
+          "src": "/media/images-figueiras-2-77343251f4-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 40528
+        },
+        {
+          "src": "/media/images-figueiras-2-77343251f4-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 75766
+        },
+        {
+          "src": "/media/images-figueiras-2-77343251f4-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 126612
+        }
+      ]
+    },
+    "/assets/images/Figueiras/3.webp": {
+      "source": "/assets/images/Figueiras/3.webp",
+      "source_sha256": "e1b638d2a8b48f6e199d9204602721ba08e1de841bbae2317a5044b5c538834c",
+      "source_bytes": 328252,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-3-e1b638d2a8-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 14214
+        },
+        {
+          "src": "/media/images-figueiras-3-e1b638d2a8-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 30670
+        },
+        {
+          "src": "/media/images-figueiras-3-e1b638d2a8-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 58012
+        },
+        {
+          "src": "/media/images-figueiras-3-e1b638d2a8-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 110170
+        },
+        {
+          "src": "/media/images-figueiras-3-e1b638d2a8-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 201766
+        }
+      ]
+    },
+    "/assets/images/Figueiras/4.webp": {
+      "source": "/assets/images/Figueiras/4.webp",
+      "source_sha256": "73703593774123016ff4f2c7335eda14d719b362b871027c19085626887c2f17",
+      "source_bytes": 257344,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-4-7370359377-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 9256
+        },
+        {
+          "src": "/media/images-figueiras-4-7370359377-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 19114
+        },
+        {
+          "src": "/media/images-figueiras-4-7370359377-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 35952
+        },
+        {
+          "src": "/media/images-figueiras-4-7370359377-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 70112
+        },
+        {
+          "src": "/media/images-figueiras-4-7370359377-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 126674
+        }
+      ]
+    },
+    "/assets/images/Figueiras/5.webp": {
+      "source": "/assets/images/Figueiras/5.webp",
+      "source_sha256": "af2561506f3c676ffd8163e3bce0d2fb50e44bde76f0e09978f571df40306a2b",
+      "source_bytes": 266732,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-5-af2561506f-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12672
+        },
+        {
+          "src": "/media/images-figueiras-5-af2561506f-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 25996
+        },
+        {
+          "src": "/media/images-figueiras-5-af2561506f-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 47216
+        },
+        {
+          "src": "/media/images-figueiras-5-af2561506f-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 86892
+        },
+        {
+          "src": "/media/images-figueiras-5-af2561506f-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 146064
+        }
+      ]
+    },
+    "/assets/images/Figueiras/6.webp": {
+      "source": "/assets/images/Figueiras/6.webp",
+      "source_sha256": "292fe66a8e622433470ab80b1e6b776c199f4ab0d6a71bfb0fec4533f0d34416",
+      "source_bytes": 198802,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-6-292fe66a8e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 7564
+        },
+        {
+          "src": "/media/images-figueiras-6-292fe66a8e-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14910
+        },
+        {
+          "src": "/media/images-figueiras-6-292fe66a8e-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 26282
+        },
+        {
+          "src": "/media/images-figueiras-6-292fe66a8e-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 51562
+        },
+        {
+          "src": "/media/images-figueiras-6-292fe66a8e-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 92500
+        }
+      ]
+    },
+    "/assets/images/Figueiras/7.webp": {
+      "source": "/assets/images/Figueiras/7.webp",
+      "source_sha256": "226f1232e5c67713c1642bad7fdaa2a41285d81f8e5f2ee982a627991151b16e",
+      "source_bytes": 216432,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-7-226f1232e5-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6792
+        },
+        {
+          "src": "/media/images-figueiras-7-226f1232e5-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14604
+        },
+        {
+          "src": "/media/images-figueiras-7-226f1232e5-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 27064
+        },
+        {
+          "src": "/media/images-figueiras-7-226f1232e5-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 55418
+        },
+        {
+          "src": "/media/images-figueiras-7-226f1232e5-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 110326
+        }
+      ]
+    },
+    "/assets/images/Figueiras/8.webp": {
+      "source": "/assets/images/Figueiras/8.webp",
+      "source_sha256": "2d5df57c45fdb8ef59d4e31986dc33c1a7fb42318b519012319ea8db22c73af6",
+      "source_bytes": 425192,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-8-2d5df57c45-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12582
+        },
+        {
+          "src": "/media/images-figueiras-8-2d5df57c45-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 31802
+        },
+        {
+          "src": "/media/images-figueiras-8-2d5df57c45-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 68982
+        },
+        {
+          "src": "/media/images-figueiras-8-2d5df57c45-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 146134
+        },
+        {
+          "src": "/media/images-figueiras-8-2d5df57c45-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 280892
+        }
+      ]
+    },
+    "/assets/images/Figueiras/9.webp": {
+      "source": "/assets/images/Figueiras/9.webp",
+      "source_sha256": "6a595358a8f16291b28f786b453c0c0db1b1ed75db03eb036047e318139cf685",
+      "source_bytes": 433562,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-9-6a595358a8-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 15880
+        },
+        {
+          "src": "/media/images-figueiras-9-6a595358a8-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 41314
+        },
+        {
+          "src": "/media/images-figueiras-9-6a595358a8-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 84078
+        },
+        {
+          "src": "/media/images-figueiras-9-6a595358a8-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 167078
+        },
+        {
+          "src": "/media/images-figueiras-9-6a595358a8-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 291874
+        }
+      ]
+    },
+    "/assets/images/La-Sala/1.webp": {
+      "source": "/assets/images/La-Sala/1.webp",
+      "source_sha256": "9feb4b282a9cb32c222d0ec1e1e15e154c20774df952cfb8e451a374c110cfa7",
+      "source_bytes": 252574,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-1-9feb4b282a-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 14608
+        },
+        {
+          "src": "/media/images-la-sala-1-9feb4b282a-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 29262
+        },
+        {
+          "src": "/media/images-la-sala-1-9feb4b282a-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 50348
+        },
+        {
+          "src": "/media/images-la-sala-1-9feb4b282a-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 87080
+        },
+        {
+          "src": "/media/images-la-sala-1-9feb4b282a-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 135260
+        }
+      ]
+    },
+    "/assets/images/La-Sala/10.webp": {
+      "source": "/assets/images/La-Sala/10.webp",
+      "source_sha256": "8fd87767bf0dd5d1e11a50114bd065b7411c9e5df4d2d760bdccf10091cb6574",
+      "source_bytes": 337008,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-10-8fd87767bf-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11080
+        },
+        {
+          "src": "/media/images-la-sala-10-8fd87767bf-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23816
+        },
+        {
+          "src": "/media/images-la-sala-10-8fd87767bf-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 43190
+        },
+        {
+          "src": "/media/images-la-sala-10-8fd87767bf-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 82412
+        },
+        {
+          "src": "/media/images-la-sala-10-8fd87767bf-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 139438
+        }
+      ]
+    },
+    "/assets/images/La-Sala/11.webp": {
+      "source": "/assets/images/La-Sala/11.webp",
+      "source_sha256": "88a62bff1e6ae2cb1acb8eef2291f5e1bfe4015bab38ae99f34250f5fd413b04",
+      "source_bytes": 195112,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-11-88a62bff1e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6366
+        },
+        {
+          "src": "/media/images-la-sala-11-88a62bff1e-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14374
+        },
+        {
+          "src": "/media/images-la-sala-11-88a62bff1e-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 27222
+        },
+        {
+          "src": "/media/images-la-sala-11-88a62bff1e-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 53408
+        },
+        {
+          "src": "/media/images-la-sala-11-88a62bff1e-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 92646
+        }
+      ]
+    },
+    "/assets/images/La-Sala/12.webp": {
+      "source": "/assets/images/La-Sala/12.webp",
+      "source_sha256": "83940429938ef2416fb5728df61b4d4a4ff1088a122f927e5bdf10a3cb20f4de",
+      "source_bytes": 373946,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-12-8394042993-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13554
+        },
+        {
+          "src": "/media/images-la-sala-12-8394042993-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 30302
+        },
+        {
+          "src": "/media/images-la-sala-12-8394042993-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 58142
+        },
+        {
+          "src": "/media/images-la-sala-12-8394042993-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 114856
+        },
+        {
+          "src": "/media/images-la-sala-12-8394042993-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 202982
+        }
+      ]
+    },
+    "/assets/images/La-Sala/13.webp": {
+      "source": "/assets/images/La-Sala/13.webp",
+      "source_sha256": "2970687a81bb05a7c8170ea8303a0b6a2bafd18ab81566dbbe9ca375787e64f4",
+      "source_bytes": 535632,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-13-2970687a81-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20508
+        },
+        {
+          "src": "/media/images-la-sala-13-2970687a81-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 47802
+        },
+        {
+          "src": "/media/images-la-sala-13-2970687a81-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 92296
+        },
+        {
+          "src": "/media/images-la-sala-13-2970687a81-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 181518
+        },
+        {
+          "src": "/media/images-la-sala-13-2970687a81-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 331278
+        }
+      ]
+    },
+    "/assets/images/La-Sala/2.webp": {
+      "source": "/assets/images/La-Sala/2.webp",
+      "source_sha256": "22b427e67aa5542ff96cc9346e023fb6328ffae0dd5f5c824d5e8abd214f4dec",
+      "source_bytes": 349250,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-2-22b427e67a-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 9572
+        },
+        {
+          "src": "/media/images-la-sala-2-22b427e67a-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 22182
+        },
+        {
+          "src": "/media/images-la-sala-2-22b427e67a-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 43098
+        },
+        {
+          "src": "/media/images-la-sala-2-22b427e67a-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 88810
+        },
+        {
+          "src": "/media/images-la-sala-2-22b427e67a-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 167776
+        }
+      ]
+    },
+    "/assets/images/La-Sala/3.webp": {
+      "source": "/assets/images/La-Sala/3.webp",
+      "source_sha256": "12379ce493be22778b7676854914517d21d77c861fc7e6e92e1e45f6671edf48",
+      "source_bytes": 395900,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-3-12379ce493-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 16040
+        },
+        {
+          "src": "/media/images-la-sala-3-12379ce493-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 36162
+        },
+        {
+          "src": "/media/images-la-sala-3-12379ce493-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 71152
+        },
+        {
+          "src": "/media/images-la-sala-3-12379ce493-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 139876
+        },
+        {
+          "src": "/media/images-la-sala-3-12379ce493-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 247294
+        }
+      ]
+    },
+    "/assets/images/La-Sala/4.webp": {
+      "source": "/assets/images/La-Sala/4.webp",
+      "source_sha256": "1b80a749660a2a885a8a740f9b9dbc756a277995e6e6e86b22b5558597aa1f45",
+      "source_bytes": 458076,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-4-1b80a74966-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18282
+        },
+        {
+          "src": "/media/images-la-sala-4-1b80a74966-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 43534
+        },
+        {
+          "src": "/media/images-la-sala-4-1b80a74966-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 85550
+        },
+        {
+          "src": "/media/images-la-sala-4-1b80a74966-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 168576
+        },
+        {
+          "src": "/media/images-la-sala-4-1b80a74966-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 283100
+        }
+      ]
+    },
+    "/assets/images/La-Sala/5.webp": {
+      "source": "/assets/images/La-Sala/5.webp",
+      "source_sha256": "3896dc146569072c3d01d0056f653a839fddb89133e699a61185dadb8d779915",
+      "source_bytes": 439618,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-5-3896dc1465-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 17226
+        },
+        {
+          "src": "/media/images-la-sala-5-3896dc1465-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 40576
+        },
+        {
+          "src": "/media/images-la-sala-5-3896dc1465-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 78342
+        },
+        {
+          "src": "/media/images-la-sala-5-3896dc1465-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 153638
+        },
+        {
+          "src": "/media/images-la-sala-5-3896dc1465-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 267888
+        }
+      ]
+    },
+    "/assets/images/La-Sala/6.webp": {
+      "source": "/assets/images/La-Sala/6.webp",
+      "source_sha256": "bdcda3753310b27264e53b0068ec7ee1eb8e931cf61f605cee6139b67a1bf2d2",
+      "source_bytes": 251148,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-6-bdcda37533-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6508
+        },
+        {
+          "src": "/media/images-la-sala-6-bdcda37533-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14944
+        },
+        {
+          "src": "/media/images-la-sala-6-bdcda37533-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 29174
+        },
+        {
+          "src": "/media/images-la-sala-6-bdcda37533-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 60834
+        },
+        {
+          "src": "/media/images-la-sala-6-bdcda37533-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 115986
+        }
+      ]
+    },
+    "/assets/images/La-Sala/7.webp": {
+      "source": "/assets/images/La-Sala/7.webp",
+      "source_sha256": "20026891eea7f326a155a8c92d2a9e80ff62f5b624825c9792d34db22645d50b",
+      "source_bytes": 166160,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-7-20026891ee-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8118
+        },
+        {
+          "src": "/media/images-la-sala-7-20026891ee-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 17572
+        },
+        {
+          "src": "/media/images-la-sala-7-20026891ee-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 32332
+        },
+        {
+          "src": "/media/images-la-sala-7-20026891ee-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 58544
+        },
+        {
+          "src": "/media/images-la-sala-7-20026891ee-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 92332
+        }
+      ]
+    },
+    "/assets/images/La-Sala/8.webp": {
+      "source": "/assets/images/La-Sala/8.webp",
+      "source_sha256": "1b416b4d2adc2d134f6d511216e96e6bf3e67886d44e92628f8500f9af62553b",
+      "source_bytes": 336164,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-8-1b416b4d2a-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12936
+        },
+        {
+          "src": "/media/images-la-sala-8-1b416b4d2a-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 31250
+        },
+        {
+          "src": "/media/images-la-sala-8-1b416b4d2a-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 62828
+        },
+        {
+          "src": "/media/images-la-sala-8-1b416b4d2a-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 124102
+        },
+        {
+          "src": "/media/images-la-sala-8-1b416b4d2a-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 213036
+        }
+      ]
+    },
+    "/assets/images/La-Sala/9.webp": {
+      "source": "/assets/images/La-Sala/9.webp",
+      "source_sha256": "155d5feb539dc0cd24064e797f1b2f8a61901617f431a9d6a0ac7ade91f791e9",
+      "source_bytes": 382216,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-la-sala-9-155d5feb53-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13780
+        },
+        {
+          "src": "/media/images-la-sala-9-155d5feb53-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 34442
+        },
+        {
+          "src": "/media/images-la-sala-9-155d5feb53-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 68474
+        },
+        {
+          "src": "/media/images-la-sala-9-155d5feb53-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 132586
+        },
+        {
+          "src": "/media/images-la-sala-9-155d5feb53-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 223392
+        }
+      ]
+    },
+    "/assets/images/RIV-DURING.webp": {
+      "source": "/assets/images/RIV-DURING.webp",
+      "source_sha256": "1670c4bf88b0f4abd0126c4310306c1dda0111f5f4868476737e239b2ef5ad0f",
+      "source_bytes": 396172,
+      "width": 2500,
+      "height": 1875,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-during-1670c4bf88-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 32792
+        },
+        {
+          "src": "/media/images-riv-during-1670c4bf88-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 77720
+        },
+        {
+          "src": "/media/images-riv-during-1670c4bf88-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 148018
+        },
+        {
+          "src": "/media/images-riv-during-1670c4bf88-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 264436
+        },
+        {
+          "src": "/media/images-riv-during-1670c4bf88-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 374460
+        }
+      ]
+    },
+    "/assets/images/RIV-DURING2.webp": {
+      "source": "/assets/images/RIV-DURING2.webp",
+      "source_sha256": "0389abd3778b452a78e812c0084d646911c4eb5b0b2bb6c301fd915a08d993ac",
+      "source_bytes": 776544,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-during2-0389abd377-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 77726
+        },
+        {
+          "src": "/media/images-riv-during2-0389abd377-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 180834
+        },
+        {
+          "src": "/media/images-riv-during2-0389abd377-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 332832
+        },
+        {
+          "src": "/media/images-riv-during2-0389abd377-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 577992
+        },
+        {
+          "src": "/media/images-riv-during2-0389abd377-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 644034
+        }
+      ]
+    },
+    "/assets/images/Rosa/1.webp": {
+      "source": "/assets/images/Rosa/1.webp",
+      "source_sha256": "b7fc4e6c095ee3a4e14f36a75585151b65e87922665777981bf2e541228c080b",
+      "source_bytes": 528558,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-1-b7fc4e6c09-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22016
+        },
+        {
+          "src": "/media/images-rosa-1-b7fc4e6c09-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 52648
+        },
+        {
+          "src": "/media/images-rosa-1-b7fc4e6c09-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 99022
+        },
+        {
+          "src": "/media/images-rosa-1-b7fc4e6c09-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 191116
+        },
+        {
+          "src": "/media/images-rosa-1-b7fc4e6c09-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 312090
+        }
+      ]
+    },
+    "/assets/images/Rosa/10.webp": {
+      "source": "/assets/images/Rosa/10.webp",
+      "source_sha256": "5b8e07a2723b42bb3d60fe2bd5d657cce6808869eb4cfcdc3aa6f50d6c920960",
+      "source_bytes": 326966,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-10-5b8e07a272-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 19792
+        },
+        {
+          "src": "/media/images-rosa-10-5b8e07a272-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 40558
+        },
+        {
+          "src": "/media/images-rosa-10-5b8e07a272-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 69898
+        },
+        {
+          "src": "/media/images-rosa-10-5b8e07a272-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 121516
+        },
+        {
+          "src": "/media/images-rosa-10-5b8e07a272-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 194040
+        }
+      ]
+    },
+    "/assets/images/Rosa/11.webp": {
+      "source": "/assets/images/Rosa/11.webp",
+      "source_sha256": "89b7fc6a1350e7628886dcbea860abd0f0bbdc5755a07772b0d25be5b7dc0dd6",
+      "source_bytes": 593074,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-11-89b7fc6a13-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 19854
+        },
+        {
+          "src": "/media/images-rosa-11-89b7fc6a13-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 44858
+        },
+        {
+          "src": "/media/images-rosa-11-89b7fc6a13-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 87906
+        },
+        {
+          "src": "/media/images-rosa-11-89b7fc6a13-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 178724
+        },
+        {
+          "src": "/media/images-rosa-11-89b7fc6a13-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 336240
+        }
+      ]
+    },
+    "/assets/images/Rosa/12.webp": {
+      "source": "/assets/images/Rosa/12.webp",
+      "source_sha256": "a592a11922a5bcd13d46325622f42908cfa69563cc0f48035e8267176ba8a3d7",
+      "source_bytes": 159688,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-12-a592a11922-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 7264
+        },
+        {
+          "src": "/media/images-rosa-12-a592a11922-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14272
+        },
+        {
+          "src": "/media/images-rosa-12-a592a11922-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 23602
+        },
+        {
+          "src": "/media/images-rosa-12-a592a11922-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 41406
+        },
+        {
+          "src": "/media/images-rosa-12-a592a11922-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 69232
+        }
+      ]
+    },
+    "/assets/images/Rosa/13.webp": {
+      "source": "/assets/images/Rosa/13.webp",
+      "source_sha256": "09b1be7da4d46330403ab7cac9dad8bfabcd9e4394a37fd901ad00954f9f08d8",
+      "source_bytes": 554400,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-13-09b1be7da4-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 24254
+        },
+        {
+          "src": "/media/images-rosa-13-09b1be7da4-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 53756
+        },
+        {
+          "src": "/media/images-rosa-13-09b1be7da4-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 103562
+        },
+        {
+          "src": "/media/images-rosa-13-09b1be7da4-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 194160
+        },
+        {
+          "src": "/media/images-rosa-13-09b1be7da4-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 327856
+        }
+      ]
+    },
+    "/assets/images/Rosa/14.webp": {
+      "source": "/assets/images/Rosa/14.webp",
+      "source_sha256": "2f8b69cb057882398901e80e92d69c835b140eb3aa03a5b7b0fe085771e6e97b",
+      "source_bytes": 604356,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-14-2f8b69cb05-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 27048
+        },
+        {
+          "src": "/media/images-rosa-14-2f8b69cb05-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 63100
+        },
+        {
+          "src": "/media/images-rosa-14-2f8b69cb05-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 117042
+        },
+        {
+          "src": "/media/images-rosa-14-2f8b69cb05-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 224780
+        },
+        {
+          "src": "/media/images-rosa-14-2f8b69cb05-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 383232
+        }
+      ]
+    },
+    "/assets/images/Rosa/15.webp": {
+      "source": "/assets/images/Rosa/15.webp",
+      "source_sha256": "c4d96d0d4f9ee5809ae88dfb6919c220df799342424c4395e52b23c1ab1e74bf",
+      "source_bytes": 621654,
+      "width": 2400,
+      "height": 1603,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-15-c4d96d0d4f-480.webp",
+          "width": 480,
+          "height": 321,
+          "bytes": 25188
+        },
+        {
+          "src": "/media/images-rosa-15-c4d96d0d4f-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 60070
+        },
+        {
+          "src": "/media/images-rosa-15-c4d96d0d4f-1200.webp",
+          "width": 1200,
+          "height": 802,
+          "bytes": 117194
+        },
+        {
+          "src": "/media/images-rosa-15-c4d96d0d4f-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 221212
+        },
+        {
+          "src": "/media/images-rosa-15-c4d96d0d4f-2400.webp",
+          "width": 2400,
+          "height": 1603,
+          "bytes": 376726
+        }
+      ]
+    },
+    "/assets/images/Rosa/16.webp": {
+      "source": "/assets/images/Rosa/16.webp",
+      "source_sha256": "8f3e68d2e73589313b61d73abcc5411f3e41f5c025c7eacada3d7170a3ffc51e",
+      "source_bytes": 571148,
+      "width": 2400,
+      "height": 1602,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-16-8f3e68d2e7-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23138
+        },
+        {
+          "src": "/media/images-rosa-16-8f3e68d2e7-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 51406
+        },
+        {
+          "src": "/media/images-rosa-16-8f3e68d2e7-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 99238
+        },
+        {
+          "src": "/media/images-rosa-16-8f3e68d2e7-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 188416
+        },
+        {
+          "src": "/media/images-rosa-16-8f3e68d2e7-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 343318
+        }
+      ]
+    },
+    "/assets/images/Rosa/2.webp": {
+      "source": "/assets/images/Rosa/2.webp",
+      "source_sha256": "754277295b4932a8cc95cb503ec76720e66f5319144af3d5ec877431c32e7de6",
+      "source_bytes": 572800,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-2-754277295b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20520
+        },
+        {
+          "src": "/media/images-rosa-2-754277295b-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 47422
+        },
+        {
+          "src": "/media/images-rosa-2-754277295b-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 96206
+        },
+        {
+          "src": "/media/images-rosa-2-754277295b-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 194998
+        },
+        {
+          "src": "/media/images-rosa-2-754277295b-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 344914
+        }
+      ]
+    },
+    "/assets/images/Rosa/3.webp": {
+      "source": "/assets/images/Rosa/3.webp",
+      "source_sha256": "b97f7c053ecc35f9b706913570a91138ca432639aca208b621a57894110a293d",
+      "source_bytes": 464216,
+      "width": 2400,
+      "height": 1598,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-3-b97f7c053e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 21082
+        },
+        {
+          "src": "/media/images-rosa-3-b97f7c053e-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 47188
+        },
+        {
+          "src": "/media/images-rosa-3-b97f7c053e-1200.webp",
+          "width": 1200,
+          "height": 799,
+          "bytes": 88034
+        },
+        {
+          "src": "/media/images-rosa-3-b97f7c053e-1800.webp",
+          "width": 1800,
+          "height": 1198,
+          "bytes": 160548
+        },
+        {
+          "src": "/media/images-rosa-3-b97f7c053e-2400.webp",
+          "width": 2400,
+          "height": 1598,
+          "bytes": 266638
+        }
+      ]
+    },
+    "/assets/images/Rosa/4.webp": {
+      "source": "/assets/images/Rosa/4.webp",
+      "source_sha256": "87ad5c541a92bc2243d347f3f542a4c8141291fb8073282eeedbd44707fc4b14",
+      "source_bytes": 303570,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-4-87ad5c541a-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 17146
+        },
+        {
+          "src": "/media/images-rosa-4-87ad5c541a-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 36804
+        },
+        {
+          "src": "/media/images-rosa-4-87ad5c541a-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 63042
+        },
+        {
+          "src": "/media/images-rosa-4-87ad5c541a-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 111028
+        },
+        {
+          "src": "/media/images-rosa-4-87ad5c541a-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 175348
+        }
+      ]
+    },
+    "/assets/images/Rosa/5.webp": {
+      "source": "/assets/images/Rosa/5.webp",
+      "source_sha256": "6c2bd7e88bbbce117b9c16bad54a488908f73a482e64a8d4a8b3a336024082e9",
+      "source_bytes": 335562,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-5-6c2bd7e88b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18624
+        },
+        {
+          "src": "/media/images-rosa-5-6c2bd7e88b-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 38680
+        },
+        {
+          "src": "/media/images-rosa-5-6c2bd7e88b-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 71942
+        },
+        {
+          "src": "/media/images-rosa-5-6c2bd7e88b-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 130320
+        },
+        {
+          "src": "/media/images-rosa-5-6c2bd7e88b-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 200162
+        }
+      ]
+    },
+    "/assets/images/Rosa/6.webp": {
+      "source": "/assets/images/Rosa/6.webp",
+      "source_sha256": "d1ef6e95e97be1abec4c09040cc8a441df74ed1e22def8510597c3249c1817f2",
+      "source_bytes": 429172,
+      "width": 2400,
+      "height": 1599,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-6-d1ef6e95e9-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18372
+        },
+        {
+          "src": "/media/images-rosa-6-d1ef6e95e9-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 41018
+        },
+        {
+          "src": "/media/images-rosa-6-d1ef6e95e9-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 77414
+        },
+        {
+          "src": "/media/images-rosa-6-d1ef6e95e9-1800.webp",
+          "width": 1800,
+          "height": 1199,
+          "bytes": 145346
+        },
+        {
+          "src": "/media/images-rosa-6-d1ef6e95e9-2400.webp",
+          "width": 2400,
+          "height": 1599,
+          "bytes": 230600
+        }
+      ]
+    },
+    "/assets/images/Rosa/7.webp": {
+      "source": "/assets/images/Rosa/7.webp",
+      "source_sha256": "58a5146d7ec246c92186df107d8b603b6cfc7a36a801afcd0271acd2ea2bf3f5",
+      "source_bytes": 520800,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-7-58a5146d7e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20322
+        },
+        {
+          "src": "/media/images-rosa-7-58a5146d7e-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 47378
+        },
+        {
+          "src": "/media/images-rosa-7-58a5146d7e-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 89608
+        },
+        {
+          "src": "/media/images-rosa-7-58a5146d7e-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 168284
+        },
+        {
+          "src": "/media/images-rosa-7-58a5146d7e-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 284350
+        }
+      ]
+    },
+    "/assets/images/Rosa/8.webp": {
+      "source": "/assets/images/Rosa/8.webp",
+      "source_sha256": "91d8a7d637a8c329a71ac90f85d9421970ece638bec8d90de2a18d1c1388b5c5",
+      "source_bytes": 365292,
+      "width": 2400,
+      "height": 1598,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-8-91d8a7d637-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13274
+        },
+        {
+          "src": "/media/images-rosa-8-91d8a7d637-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 30062
+        },
+        {
+          "src": "/media/images-rosa-8-91d8a7d637-1200.webp",
+          "width": 1200,
+          "height": 799,
+          "bytes": 61318
+        },
+        {
+          "src": "/media/images-rosa-8-91d8a7d637-1800.webp",
+          "width": 1800,
+          "height": 1198,
+          "bytes": 123546
+        },
+        {
+          "src": "/media/images-rosa-8-91d8a7d637-2400.webp",
+          "width": 2400,
+          "height": 1598,
+          "bytes": 215470
+        }
+      ]
+    },
+    "/assets/images/Rosa/9.webp": {
+      "source": "/assets/images/Rosa/9.webp",
+      "source_sha256": "212b66e5c5b24fd756638ddbe59ec7877941cb1bfe00a127e7f6b397ae79f8d7",
+      "source_bytes": 382526,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-9-212b66e5c5-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13312
+        },
+        {
+          "src": "/media/images-rosa-9-212b66e5c5-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 30702
+        },
+        {
+          "src": "/media/images-rosa-9-212b66e5c5-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 58802
+        },
+        {
+          "src": "/media/images-rosa-9-212b66e5c5-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 108822
+        },
+        {
+          "src": "/media/images-rosa-9-212b66e5c5-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 198350
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/1.webp": {
+      "source": "/assets/images/The-Tasca/1.webp",
+      "source_sha256": "efcdbd2af1995e175a513956e7bb003f3166b134adfba745aa7ae377b8c3c8d1",
+      "source_bytes": 563708,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-1-efcdbd2af1-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 17942
+        },
+        {
+          "src": "/media/images-the-tasca-1-efcdbd2af1-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 41770
+        },
+        {
+          "src": "/media/images-the-tasca-1-efcdbd2af1-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 81050
+        },
+        {
+          "src": "/media/images-the-tasca-1-efcdbd2af1-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 167322
+        },
+        {
+          "src": "/media/images-the-tasca-1-efcdbd2af1-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 341014
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/10.webp": {
+      "source": "/assets/images/The-Tasca/10.webp",
+      "source_sha256": "07159437d1e5fd03744c65b1f832b51e208a8ef301437b644f923768c3932eed",
+      "source_bytes": 817668,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-10-07159437d1-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23736
+        },
+        {
+          "src": "/media/images-the-tasca-10-07159437d1-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 54826
+        },
+        {
+          "src": "/media/images-the-tasca-10-07159437d1-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 115962
+        },
+        {
+          "src": "/media/images-the-tasca-10-07159437d1-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 251812
+        },
+        {
+          "src": "/media/images-the-tasca-10-07159437d1-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 491892
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/11.webp": {
+      "source": "/assets/images/The-Tasca/11.webp",
+      "source_sha256": "1ee3c484a23d8c95429c65aa0164a7f68c9a7881eaf71e0012f0e088ef968e26",
+      "source_bytes": 594172,
+      "width": 2400,
+      "height": 1602,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-11-1ee3c484a2-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 25930
+        },
+        {
+          "src": "/media/images-the-tasca-11-1ee3c484a2-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 57908
+        },
+        {
+          "src": "/media/images-the-tasca-11-1ee3c484a2-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 111382
+        },
+        {
+          "src": "/media/images-the-tasca-11-1ee3c484a2-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 208924
+        },
+        {
+          "src": "/media/images-the-tasca-11-1ee3c484a2-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 345940
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/12.webp": {
+      "source": "/assets/images/The-Tasca/12.webp",
+      "source_sha256": "d1156cf4bfc58a4258bf0916eb986452a3d1ee415e0dcb1fb8b1876e500bd109",
+      "source_bytes": 867002,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-12-d1156cf4bf-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 26644
+        },
+        {
+          "src": "/media/images-the-tasca-12-d1156cf4bf-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 69252
+        },
+        {
+          "src": "/media/images-the-tasca-12-d1156cf4bf-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 151414
+        },
+        {
+          "src": "/media/images-the-tasca-12-d1156cf4bf-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 325470
+        },
+        {
+          "src": "/media/images-the-tasca-12-d1156cf4bf-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 577122
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/13.webp": {
+      "source": "/assets/images/The-Tasca/13.webp",
+      "source_sha256": "c8139ba508a6282f4eb34d2bddad8b667ccdd818e80afdbb807b6bf84163a391",
+      "source_bytes": 731778,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-13-c8139ba508-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 28114
+        },
+        {
+          "src": "/media/images-the-tasca-13-c8139ba508-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 66234
+        },
+        {
+          "src": "/media/images-the-tasca-13-c8139ba508-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 123810
+        },
+        {
+          "src": "/media/images-the-tasca-13-c8139ba508-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 246826
+        },
+        {
+          "src": "/media/images-the-tasca-13-c8139ba508-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 431020
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/14.webp": {
+      "source": "/assets/images/The-Tasca/14.webp",
+      "source_sha256": "8f4935255f51d4fd962939c7c30c5830d74e6d0059ba9f512b04f6917356f4c4",
+      "source_bytes": 646438,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-14-8f4935255f-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 24616
+        },
+        {
+          "src": "/media/images-the-tasca-14-8f4935255f-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 56338
+        },
+        {
+          "src": "/media/images-the-tasca-14-8f4935255f-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 112036
+        },
+        {
+          "src": "/media/images-the-tasca-14-8f4935255f-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 219814
+        },
+        {
+          "src": "/media/images-the-tasca-14-8f4935255f-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 381248
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/15.webp": {
+      "source": "/assets/images/The-Tasca/15.webp",
+      "source_sha256": "15d2b3ab45e824b8390a724b29470a7a1f4fbc49849180132b041c1d17201d4a",
+      "source_bytes": 497752,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-15-15d2b3ab45-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23764
+        },
+        {
+          "src": "/media/images-the-tasca-15-15d2b3ab45-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 56582
+        },
+        {
+          "src": "/media/images-the-tasca-15-15d2b3ab45-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 107862
+        },
+        {
+          "src": "/media/images-the-tasca-15-15d2b3ab45-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 204622
+        },
+        {
+          "src": "/media/images-the-tasca-15-15d2b3ab45-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 328356
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/16.webp": {
+      "source": "/assets/images/The-Tasca/16.webp",
+      "source_sha256": "a3aedcc5685cb3dc4309610708ecbb3bbeb4e8f8aa605bf31782cd4f83db03b5",
+      "source_bytes": 784962,
+      "width": 2400,
+      "height": 1597,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-16-a3aedcc568-480.webp",
+          "width": 480,
+          "height": 319,
+          "bytes": 26014
+        },
+        {
+          "src": "/media/images-the-tasca-16-a3aedcc568-800.webp",
+          "width": 800,
+          "height": 532,
+          "bytes": 67072
+        },
+        {
+          "src": "/media/images-the-tasca-16-a3aedcc568-1200.webp",
+          "width": 1200,
+          "height": 798,
+          "bytes": 137444
+        },
+        {
+          "src": "/media/images-the-tasca-16-a3aedcc568-1800.webp",
+          "width": 1800,
+          "height": 1198,
+          "bytes": 286100
+        },
+        {
+          "src": "/media/images-the-tasca-16-a3aedcc568-2400.webp",
+          "width": 2400,
+          "height": 1597,
+          "bytes": 491308
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/2.webp": {
+      "source": "/assets/images/The-Tasca/2.webp",
+      "source_sha256": "940f7b000f2413ad60357e70e4bfea6ff2c2369778fda5e7f322f03bef0b805a",
+      "source_bytes": 738576,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-2-940f7b000f-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 32254
+        },
+        {
+          "src": "/media/images-the-tasca-2-940f7b000f-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 76590
+        },
+        {
+          "src": "/media/images-the-tasca-2-940f7b000f-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 149762
+        },
+        {
+          "src": "/media/images-the-tasca-2-940f7b000f-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 289016
+        },
+        {
+          "src": "/media/images-the-tasca-2-940f7b000f-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 490700
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/3.webp": {
+      "source": "/assets/images/The-Tasca/3.webp",
+      "source_sha256": "8f7101e745812c01d6ca29dc91a0b608c04ddcbe7c947da8591699c28a901a96",
+      "source_bytes": 770468,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-3-8f7101e745-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 29454
+        },
+        {
+          "src": "/media/images-the-tasca-3-8f7101e745-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 70816
+        },
+        {
+          "src": "/media/images-the-tasca-3-8f7101e745-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 137396
+        },
+        {
+          "src": "/media/images-the-tasca-3-8f7101e745-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 269152
+        },
+        {
+          "src": "/media/images-the-tasca-3-8f7101e745-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 482310
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/4.webp": {
+      "source": "/assets/images/The-Tasca/4.webp",
+      "source_sha256": "ffac5fbb58b6b5ed7e9827c130e01f5241ab7b2f0b49ee87d93ca932cc43242a",
+      "source_bytes": 888070,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-4-ffac5fbb58-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 37946
+        },
+        {
+          "src": "/media/images-the-tasca-4-ffac5fbb58-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 89230
+        },
+        {
+          "src": "/media/images-the-tasca-4-ffac5fbb58-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 174474
+        },
+        {
+          "src": "/media/images-the-tasca-4-ffac5fbb58-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 338930
+        },
+        {
+          "src": "/media/images-the-tasca-4-ffac5fbb58-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 586306
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/5.webp": {
+      "source": "/assets/images/The-Tasca/5.webp",
+      "source_sha256": "811d6d2a630506b4a8ca71d96d18e348d8c3ef123fd47f58a5121384363217c5",
+      "source_bytes": 461634,
+      "width": 2400,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-5-811d6d2a63-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22604
+        },
+        {
+          "src": "/media/images-the-tasca-5-811d6d2a63-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 48800
+        },
+        {
+          "src": "/media/images-the-tasca-5-811d6d2a63-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 92096
+        },
+        {
+          "src": "/media/images-the-tasca-5-811d6d2a63-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 165508
+        },
+        {
+          "src": "/media/images-the-tasca-5-811d6d2a63-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 266554
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/6.webp": {
+      "source": "/assets/images/The-Tasca/6.webp",
+      "source_sha256": "3864c302385a5cc56e7994795682bb751ba36ccfdfbbc842f0ed4e77064e35f9",
+      "source_bytes": 477674,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-6-3864c30238-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 18512
+        },
+        {
+          "src": "/media/images-the-tasca-6-3864c30238-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 43234
+        },
+        {
+          "src": "/media/images-the-tasca-6-3864c30238-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 83166
+        },
+        {
+          "src": "/media/images-the-tasca-6-3864c30238-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 162478
+        },
+        {
+          "src": "/media/images-the-tasca-6-3864c30238-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 289418
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/7.webp": {
+      "source": "/assets/images/The-Tasca/7.webp",
+      "source_sha256": "d73bce515c60bcb4fad4005fb5b3b95ff00b10d51ee61fd14a22873160242835",
+      "source_bytes": 567798,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-7-d73bce515c-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 28460
+        },
+        {
+          "src": "/media/images-the-tasca-7-d73bce515c-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 63794
+        },
+        {
+          "src": "/media/images-the-tasca-7-d73bce515c-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 115182
+        },
+        {
+          "src": "/media/images-the-tasca-7-d73bce515c-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 212884
+        },
+        {
+          "src": "/media/images-the-tasca-7-d73bce515c-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 344350
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/8.webp": {
+      "source": "/assets/images/The-Tasca/8.webp",
+      "source_sha256": "98035322cae7ab1ad58d4d235c3a39a9e821e348d7622fbb92346dfe2add5cf5",
+      "source_bytes": 531766,
+      "width": 2400,
+      "height": 1601,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-8-98035322ca-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22074
+        },
+        {
+          "src": "/media/images-the-tasca-8-98035322ca-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 48856
+        },
+        {
+          "src": "/media/images-the-tasca-8-98035322ca-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 91038
+        },
+        {
+          "src": "/media/images-the-tasca-8-98035322ca-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 170912
+        },
+        {
+          "src": "/media/images-the-tasca-8-98035322ca-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 302026
+        }
+      ]
+    },
+    "/assets/images/The-Tasca/9.webp": {
+      "source": "/assets/images/The-Tasca/9.webp",
+      "source_sha256": "780ca4f1bb586248b8ed310209a09498b9eb46d8d7bc41efbf11fa74940e6022",
+      "source_bytes": 429066,
+      "width": 2400,
+      "height": 1602,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-the-tasca-9-780ca4f1bb-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 20982
+        },
+        {
+          "src": "/media/images-the-tasca-9-780ca4f1bb-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 45392
+        },
+        {
+          "src": "/media/images-the-tasca-9-780ca4f1bb-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 83720
+        },
+        {
+          "src": "/media/images-the-tasca-9-780ca4f1bb-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 150068
+        },
+        {
+          "src": "/media/images-the-tasca-9-780ca4f1bb-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 239366
+        }
+      ]
+    },
+    "/assets/images/VISTA/1.webp": {
+      "source": "/assets/images/VISTA/1.webp",
+      "source_sha256": "13dae92af80891012f0658d60543c6818d07afe57f02e317222a758bf053e200",
+      "source_bytes": 339768,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-1-13dae92af8-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 21216
+        },
+        {
+          "src": "/media/images-vista-1-13dae92af8-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 52638
+        },
+        {
+          "src": "/media/images-vista-1-13dae92af8-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 106220
+        },
+        {
+          "src": "/media/images-vista-1-13dae92af8-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 204416
+        },
+        {
+          "src": "/media/images-vista-1-13dae92af8-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 315968
+        }
+      ]
+    },
+    "/assets/images/VISTA/10.webp": {
+      "source": "/assets/images/VISTA/10.webp",
+      "source_sha256": "199e9fe5eb2a08e9622234a500a629d469ebf63e5b228b900c7f460d8bcbb797",
+      "source_bytes": 158640,
+      "width": 2500,
+      "height": 1666,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-10-199e9fe5eb-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 11656
+        },
+        {
+          "src": "/media/images-vista-10-199e9fe5eb-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 26268
+        },
+        {
+          "src": "/media/images-vista-10-199e9fe5eb-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 48364
+        },
+        {
+          "src": "/media/images-vista-10-199e9fe5eb-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 89476
+        },
+        {
+          "src": "/media/images-vista-10-199e9fe5eb-2400.webp",
+          "width": 2400,
+          "height": 1599,
+          "bytes": 135200
+        }
+      ]
+    },
+    "/assets/images/VISTA/11.webp": {
+      "source": "/assets/images/VISTA/11.webp",
+      "source_sha256": "ef09ad367d8b9e0c34279414903d66aa3968bb3c2f43c5c78de3656b06c68f18",
+      "source_bytes": 235330,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-11-ef09ad367d-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8892
+        },
+        {
+          "src": "/media/images-vista-11-ef09ad367d-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23718
+        },
+        {
+          "src": "/media/images-vista-11-ef09ad367d-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 54160
+        },
+        {
+          "src": "/media/images-vista-11-ef09ad367d-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 115248
+        },
+        {
+          "src": "/media/images-vista-11-ef09ad367d-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 180688
+        }
+      ]
+    },
+    "/assets/images/VISTA/12.webp": {
+      "source": "/assets/images/VISTA/12.webp",
+      "source_sha256": "e257acddd803db8abdcd2fd9ebab2f6e68b776d8e42b5ceb6986de427c61cfeb",
+      "source_bytes": 471666,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-12-e257acddd8-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 28402
+        },
+        {
+          "src": "/media/images-vista-12-e257acddd8-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 71144
+        },
+        {
+          "src": "/media/images-vista-12-e257acddd8-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 144106
+        },
+        {
+          "src": "/media/images-vista-12-e257acddd8-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 282698
+        },
+        {
+          "src": "/media/images-vista-12-e257acddd8-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 426020
+        }
+      ]
+    },
+    "/assets/images/VISTA/2.webp": {
+      "source": "/assets/images/VISTA/2.webp",
+      "source_sha256": "f94b640b9ebda60daa57256bb001ba2140e9470f8010b508f9b8844b9b082260",
+      "source_bytes": 141162,
+      "width": 2500,
+      "height": 1668,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-2-f94b640b9e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12638
+        },
+        {
+          "src": "/media/images-vista-2-f94b640b9e-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 26496
+        },
+        {
+          "src": "/media/images-vista-2-f94b640b9e-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 48806
+        },
+        {
+          "src": "/media/images-vista-2-f94b640b9e-1800.webp",
+          "width": 1800,
+          "height": 1201,
+          "bytes": 87126
+        },
+        {
+          "src": "/media/images-vista-2-f94b640b9e-2400.webp",
+          "width": 2400,
+          "height": 1601,
+          "bytes": 129616
+        }
+      ]
+    },
+    "/assets/images/VISTA/3.webp": {
+      "source": "/assets/images/VISTA/3.webp",
+      "source_sha256": "332716bb15d4ae00aa4a86f28f5cc67ed682585210f47a69b4cf254a1fcd6437",
+      "source_bytes": 130686,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-3-332716bb15-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 13636
+        },
+        {
+          "src": "/media/images-vista-3-332716bb15-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 27574
+        },
+        {
+          "src": "/media/images-vista-3-332716bb15-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 48312
+        },
+        {
+          "src": "/media/images-vista-3-332716bb15-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 82730
+        },
+        {
+          "src": "/media/images-vista-3-332716bb15-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 118744
+        }
+      ]
+    },
+    "/assets/images/VISTA/4.webp": {
+      "source": "/assets/images/VISTA/4.webp",
+      "source_sha256": "3f1d7f660d86b599ada2565b37f0d99b0777361d8757b883643abab43ea14e15",
+      "source_bytes": 161296,
+      "width": 2500,
+      "height": 1669,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-4-3f1d7f660d-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12894
+        },
+        {
+          "src": "/media/images-vista-4-3f1d7f660d-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 28462
+        },
+        {
+          "src": "/media/images-vista-4-3f1d7f660d-1200.webp",
+          "width": 1200,
+          "height": 801,
+          "bytes": 53496
+        },
+        {
+          "src": "/media/images-vista-4-3f1d7f660d-1800.webp",
+          "width": 1800,
+          "height": 1202,
+          "bytes": 98776
+        },
+        {
+          "src": "/media/images-vista-4-3f1d7f660d-2400.webp",
+          "width": 2400,
+          "height": 1602,
+          "bytes": 146304
+        }
+      ]
+    },
+    "/assets/images/VISTA/5.webp": {
+      "source": "/assets/images/VISTA/5.webp",
+      "source_sha256": "83dd0ee8f47abd71325fc99bbabea7ed8e3b9e44090ce70e77103fbe94e90dff",
+      "source_bytes": 189700,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-5-83dd0ee8f4-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 15342
+        },
+        {
+          "src": "/media/images-vista-5-83dd0ee8f4-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 33326
+        },
+        {
+          "src": "/media/images-vista-5-83dd0ee8f4-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 57346
+        },
+        {
+          "src": "/media/images-vista-5-83dd0ee8f4-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 105682
+        },
+        {
+          "src": "/media/images-vista-5-83dd0ee8f4-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 159826
+        }
+      ]
+    },
+    "/assets/images/VISTA/6.webp": {
+      "source": "/assets/images/VISTA/6.webp",
+      "source_sha256": "b139d82315385a59919774ee3a43aa091863d6d59b8037f343ab9a4eaa76c93c",
+      "source_bytes": 151278,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-6-b139d82315-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 12152
+        },
+        {
+          "src": "/media/images-vista-6-b139d82315-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 25036
+        },
+        {
+          "src": "/media/images-vista-6-b139d82315-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 45178
+        },
+        {
+          "src": "/media/images-vista-6-b139d82315-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 80590
+        },
+        {
+          "src": "/media/images-vista-6-b139d82315-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 121946
+        }
+      ]
+    },
+    "/assets/images/VISTA/7.webp": {
+      "source": "/assets/images/VISTA/7.webp",
+      "source_sha256": "a5745e360f586e8a582691083c15ddc7efe0c1ad2cd66e6fa1b3f7ca4b35b879",
+      "source_bytes": 148104,
+      "width": 2500,
+      "height": 1667,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-7-a5745e360f-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 9186
+        },
+        {
+          "src": "/media/images-vista-7-a5745e360f-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 20598
+        },
+        {
+          "src": "/media/images-vista-7-a5745e360f-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 39188
+        },
+        {
+          "src": "/media/images-vista-7-a5745e360f-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 76142
+        },
+        {
+          "src": "/media/images-vista-7-a5745e360f-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 115188
+        }
+      ]
+    },
+    "/assets/images/VISTA/8.jpg": {
+      "source": "/assets/images/VISTA/8.jpg",
+      "source_sha256": "155a5dc823e0869ffc2108a6b90b3f965d53bca61f1c093cb8efb65b780b3282",
+      "source_bytes": 993054,
+      "width": 3000,
+      "height": 2000,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-8-155a5dc823-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 10598
+        },
+        {
+          "src": "/media/images-vista-8-155a5dc823-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 23040
+        },
+        {
+          "src": "/media/images-vista-8-155a5dc823-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 43238
+        },
+        {
+          "src": "/media/images-vista-8-155a5dc823-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 83874
+        },
+        {
+          "src": "/media/images-vista-8-155a5dc823-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 134126
+        }
+      ]
+    },
+    "/assets/images/VISTA/9.webp": {
+      "source": "/assets/images/VISTA/9.webp",
+      "source_sha256": "51ae33c7adfcfebede1018965a21d3f544903a17d4951270b01a8a73450bff7c",
+      "source_bytes": 393394,
+      "width": 2500,
+      "height": 1671,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-9-51ae33c7ad-480.webp",
+          "width": 480,
+          "height": 321,
+          "bytes": 19886
+        },
+        {
+          "src": "/media/images-vista-9-51ae33c7ad-800.webp",
+          "width": 800,
+          "height": 535,
+          "bytes": 53966
+        },
+        {
+          "src": "/media/images-vista-9-51ae33c7ad-1200.webp",
+          "width": 1200,
+          "height": 802,
+          "bytes": 112974
+        },
+        {
+          "src": "/media/images-vista-9-51ae33c7ad-1800.webp",
+          "width": 1800,
+          "height": 1203,
+          "bytes": 233648
+        },
+        {
+          "src": "/media/images-vista-9-51ae33c7ad-2400.webp",
+          "width": 2400,
+          "height": 1604,
+          "bytes": 372178
+        }
+      ]
+    },
+    "/assets/images/Vista-During.webp": {
+      "source": "/assets/images/Vista-During.webp",
+      "source_sha256": "058771afd25671565716403a3df063d8a6258ae8945e64e1cbffa453326960f5",
+      "source_bytes": 356330,
+      "width": 2500,
+      "height": 1875,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-during-058771afd2-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 30462
+        },
+        {
+          "src": "/media/images-vista-during-058771afd2-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 69096
+        },
+        {
+          "src": "/media/images-vista-during-058771afd2-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 129448
+        },
+        {
+          "src": "/media/images-vista-during-058771afd2-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 227158
+        },
+        {
+          "src": "/media/images-vista-during-058771afd2-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 333334
+        }
+      ]
+    },
+    "/assets/images/Vista-Plan.webp": {
+      "source": "/assets/images/Vista-Plan.webp",
+      "source_sha256": "5d3092f6f686aaeff338e45e9979ccee2b5884a201493d7dcab201f3dac230ff",
+      "source_bytes": 112664,
+      "width": 2500,
+      "height": 1678,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-vista-plan-5d3092f6f6-480.webp",
+          "width": 480,
+          "height": 322,
+          "bytes": 16786
+        },
+        {
+          "src": "/media/images-vista-plan-5d3092f6f6-800.webp",
+          "width": 800,
+          "height": 537,
+          "bytes": 33476
+        },
+        {
+          "src": "/media/images-vista-plan-5d3092f6f6-1200.webp",
+          "width": 1200,
+          "height": 805,
+          "bytes": 56788
+        },
+        {
+          "src": "/media/images-vista-plan-5d3092f6f6-1800.webp",
+          "width": 1800,
+          "height": 1208,
+          "bytes": 93668
+        },
+        {
+          "src": "/media/images-vista-plan-5d3092f6f6-2400.webp",
+          "width": 2400,
+          "height": 1611,
+          "bytes": 131088
+        }
+      ]
+    },
+    "/assets/images/Vista-bathroom-before.jpeg": {
+      "source": "/assets/images/Vista-bathroom-before.jpeg",
+      "source_sha256": "251eddd91751a58889941b88264bc983ae29f2b2f3ca2abdd7567967a97cbeca",
+      "source_bytes": 382946,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-bathroom-before-251eddd917-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 18014
+        },
+        {
+          "src": "/media/images-vista-bathroom-before-251eddd917-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 39198
+        },
+        {
+          "src": "/media/images-vista-bathroom-before-251eddd917-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 69780
+        }
+      ]
+    },
+    "/assets/images/Vista-bedroom-before.jpeg": {
+      "source": "/assets/images/Vista-bedroom-before.jpeg",
+      "source_sha256": "12a109293ad644681c333a16f5b983114db25c39a06c5830f9c2eb37423ab97b",
+      "source_bytes": 576817,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-bedroom-before-12a109293a-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 43264
+        },
+        {
+          "src": "/media/images-vista-bedroom-before-12a109293a-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 108280
+        },
+        {
+          "src": "/media/images-vista-bedroom-before-12a109293a-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 199486
+        }
+      ]
+    },
+    "/assets/images/Vista-kitchen-before.jpeg": {
+      "source": "/assets/images/Vista-kitchen-before.jpeg",
+      "source_sha256": "0abb8b0d02d644be2f3cbef5cb4f610f27b4fc11f1ab1e8cd1fb5fce9ee2c772",
+      "source_bytes": 621010,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-kitchen-before-0abb8b0d02-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 54784
+        },
+        {
+          "src": "/media/images-vista-kitchen-before-0abb8b0d02-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 130536
+        },
+        {
+          "src": "/media/images-vista-kitchen-before-0abb8b0d02-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 223758
+        }
+      ]
+    },
+    "/assets/images/Vista-materials.jpeg": {
+      "source": "/assets/images/Vista-materials.jpeg",
+      "source_sha256": "bc2bc723b420aef8c252b5bc8d7670d79fa7dd58f17a0aa03cbadf025ddeeeef",
+      "source_bytes": 452195,
+      "width": 1125,
+      "height": 1500,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-vista-materials-bc2bc723b4-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 34214
+        },
+        {
+          "src": "/media/images-vista-materials-bc2bc723b4-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 95130
+        },
+        {
+          "src": "/media/images-vista-materials-bc2bc723b4-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 185628
+        }
+      ]
+    },
+    "/assets/images/alvide-before.jpg": {
+      "source": "/assets/images/alvide-before.jpg",
+      "source_sha256": "f2e0c31637028a3e4b3376f53583bc57ded8e72340697c9949d44f83869e974e",
+      "source_bytes": 843565,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-alvide-before-f2e0c31637-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 29778
+        },
+        {
+          "src": "/media/images-alvide-before-f2e0c31637-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 67324
+        },
+        {
+          "src": "/media/images-alvide-before-f2e0c31637-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 126392
+        },
+        {
+          "src": "/media/images-alvide-before-f2e0c31637-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 218728
+        },
+        {
+          "src": "/media/images-alvide-before-f2e0c31637-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 303638
+        }
+      ]
+    },
+    "/assets/images/amoreira-before.jpg": {
+      "source": "/assets/images/amoreira-before.jpg",
+      "source_sha256": "f5085d9b7ca385e78be4418fbecccc5f4c19e3add691d4c9db7f50ff9b328196",
+      "source_bytes": 751333,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-amoreira-before-f5085d9b7c-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34418
+        },
+        {
+          "src": "/media/images-amoreira-before-f5085d9b7c-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 69880
+        },
+        {
+          "src": "/media/images-amoreira-before-f5085d9b7c-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 114128
+        },
+        {
+          "src": "/media/images-amoreira-before-f5085d9b7c-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 175152
+        },
+        {
+          "src": "/media/images-amoreira-before-f5085d9b7c-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 240644
+        }
+      ]
+    },
+    "/assets/images/artur.webp": {
+      "source": "/assets/images/artur.webp",
+      "source_sha256": "3c4d0d3b12965919004281f9ca33cadf29c075d030b26c3b2afb66fa549dbda8",
+      "source_bytes": 55832,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-artur-3c4d0d3b12-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 22048
+        },
+        {
+          "src": "/media/images-artur-3c4d0d3b12-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 45184
+        }
+      ]
+    },
+    "/assets/images/azulejo-design.webp": {
+      "source": "/assets/images/azulejo-design.webp",
+      "source_sha256": "f6d6e5d14c63686c430762c59bc20349c2d08497950f32018834aa312a93135a",
+      "source_bytes": 120438,
+      "width": 1200,
+      "height": 1608,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-azulejo-design-f6d6e5d14c-480.webp",
+          "width": 480,
+          "height": 643,
+          "bytes": 36032
+        },
+        {
+          "src": "/media/images-azulejo-design-f6d6e5d14c-800.webp",
+          "width": 800,
+          "height": 1072,
+          "bytes": 76122
+        },
+        {
+          "src": "/media/images-azulejo-design-f6d6e5d14c-1200.webp",
+          "width": 1200,
+          "height": 1608,
+          "bytes": 125178
+        }
+      ]
+    },
+    "/assets/images/azulejo-install.webp": {
+      "source": "/assets/images/azulejo-install.webp",
+      "source_sha256": "9a46c296201bef7f21fa9c4007afc7fc388d7c5409074de20463b223b27c0d7e",
+      "source_bytes": 182102,
+      "width": 1200,
+      "height": 1600,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-azulejo-install-9a46c29620-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 51266
+        },
+        {
+          "src": "/media/images-azulejo-install-9a46c29620-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 106816
+        },
+        {
+          "src": "/media/images-azulejo-install-9a46c29620-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 187320
+        }
+      ]
+    },
+    "/assets/images/azulejo-samples.webp": {
+      "source": "/assets/images/azulejo-samples.webp",
+      "source_sha256": "9af58d55f5c5190139f5bb64896752fc09936ca915ee128ca059182849fb59eb",
+      "source_bytes": 196444,
+      "width": 1200,
+      "height": 1608,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-azulejo-samples-9af58d55f5-480.webp",
+          "width": 480,
+          "height": 643,
+          "bytes": 55794
+        },
+        {
+          "src": "/media/images-azulejo-samples-9af58d55f5-800.webp",
+          "width": 800,
+          "height": 1072,
+          "bytes": 124012
+        },
+        {
+          "src": "/media/images-azulejo-samples-9af58d55f5-1200.webp",
+          "width": 1200,
+          "height": 1608,
+          "bytes": 202046
+        }
+      ]
+    },
+    "/assets/images/blog-1.webp": {
+      "source": "/assets/images/blog-1.webp",
+      "source_sha256": "a0e668e58c6ac7b873cd1cfd4eb89a65dbb18a5d06f830bf874e897f586f4c3c",
+      "source_bytes": 90176,
+      "width": 1536,
+      "height": 1024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-blog-1-a0e668e58c-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 22030
+        },
+        {
+          "src": "/media/images-blog-1-a0e668e58c-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 43436
+        },
+        {
+          "src": "/media/images-blog-1-a0e668e58c-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 71244
+        },
+        {
+          "src": "/media/images-blog-1-a0e668e58c-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 91584
+        }
+      ]
+    },
+    "/assets/images/bogdan.webp": {
+      "source": "/assets/images/bogdan.webp",
+      "source_sha256": "8a869c55b6c1fa5fca74c09be5008edad888296255008def6f636361a8a3e82c",
+      "source_bytes": 29922,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-bogdan-8a869c55b6-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 12012
+        },
+        {
+          "src": "/media/images-bogdan-8a869c55b6-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 24792
+        }
+      ]
+    },
+    "/assets/images/design-figueiras.webp": {
+      "source": "/assets/images/design-figueiras.webp",
+      "source_sha256": "dc8dda832d480cab24ed97e0e8b0042be2f124f5f2ff9c39dddf24b5f2f2b0f3",
+      "source_bytes": 66120,
+      "width": 2500,
+      "height": 1396,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-design-figueiras-dc8dda832d-480.webp",
+          "width": 480,
+          "height": 268,
+          "bytes": 7718
+        },
+        {
+          "src": "/media/images-design-figueiras-dc8dda832d-800.webp",
+          "width": 800,
+          "height": 447,
+          "bytes": 16142
+        },
+        {
+          "src": "/media/images-design-figueiras-dc8dda832d-1200.webp",
+          "width": 1200,
+          "height": 670,
+          "bytes": 28034
+        },
+        {
+          "src": "/media/images-design-figueiras-dc8dda832d-1800.webp",
+          "width": 1800,
+          "height": 1005,
+          "bytes": 48876
+        },
+        {
+          "src": "/media/images-design-figueiras-dc8dda832d-2400.webp",
+          "width": 2400,
+          "height": 1340,
+          "bytes": 71944
+        }
+      ]
+    },
+    "/assets/images/design-sala.webp": {
+      "source": "/assets/images/design-sala.webp",
+      "source_sha256": "4a6e5a6f512ca0fdf3b4887aa778d5ec92e1ec5709e9db2ff29ae301893e0c85",
+      "source_bytes": 79194,
+      "width": 2500,
+      "height": 1396,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-design-sala-4a6e5a6f51-480.webp",
+          "width": 480,
+          "height": 268,
+          "bytes": 10440
+        },
+        {
+          "src": "/media/images-design-sala-4a6e5a6f51-800.webp",
+          "width": 800,
+          "height": 447,
+          "bytes": 21494
+        },
+        {
+          "src": "/media/images-design-sala-4a6e5a6f51-1200.webp",
+          "width": 1200,
+          "height": 670,
+          "bytes": 36856
+        },
+        {
+          "src": "/media/images-design-sala-4a6e5a6f51-1800.webp",
+          "width": 1800,
+          "height": 1005,
+          "bytes": 63202
+        },
+        {
+          "src": "/media/images-design-sala-4a6e5a6f51-2400.webp",
+          "width": 2400,
+          "height": 1340,
+          "bytes": 89974
+        }
+      ]
+    },
+    "/assets/images/during-rosa-waterproofing.webp": {
+      "source": "/assets/images/during-rosa-waterproofing.webp",
+      "source_sha256": "fd0fc4f28dccce33a8e5054d5a68e8ecec835c20a48d30368b1de634c42137c0",
+      "source_bytes": 1239974,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-during-rosa-waterproofing-fd0fc4f28d-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 60538
+        },
+        {
+          "src": "/media/images-during-rosa-waterproofing-fd0fc4f28d-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 191898
+        },
+        {
+          "src": "/media/images-during-rosa-waterproofing-fd0fc4f28d-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 445236
+        },
+        {
+          "src": "/media/images-during-rosa-waterproofing-fd0fc4f28d-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 886306
+        },
+        {
+          "src": "/media/images-during-rosa-waterproofing-fd0fc4f28d-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 993842
+        }
+      ]
+    },
+    "/assets/images/duringvista.webp": {
+      "source": "/assets/images/duringvista.webp",
+      "source_sha256": "cd6e754288f46d76e42a318f0094aa6af26559ad4cd17c770a8151298ba7ef87",
+      "source_bytes": 425574,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-duringvista-cd6e754288-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 47808
+        },
+        {
+          "src": "/media/images-duringvista-cd6e754288-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 102188
+        },
+        {
+          "src": "/media/images-duringvista-cd6e754288-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 175562
+        },
+        {
+          "src": "/media/images-duringvista-cd6e754288-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 290580
+        },
+        {
+          "src": "/media/images-duringvista-cd6e754288-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 322490
+        }
+      ]
+    },
+    "/assets/images/figueiras-bath.webp": {
+      "source": "/assets/images/figueiras-bath.webp",
+      "source_sha256": "2932ae4a171a3747928d6147aa28aecfb91c6ed8c6270b3f420589feae50c2d9",
+      "source_bytes": 138858,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-bath-2932ae4a17-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 16768
+        },
+        {
+          "src": "/media/images-figueiras-bath-2932ae4a17-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 33944
+        },
+        {
+          "src": "/media/images-figueiras-bath-2932ae4a17-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 56432
+        },
+        {
+          "src": "/media/images-figueiras-bath-2932ae4a17-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 93392
+        },
+        {
+          "src": "/media/images-figueiras-bath-2932ae4a17-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 102386
+        }
+      ]
+    },
+    "/assets/images/figueiras-before.jpg": {
+      "source": "/assets/images/figueiras-before.jpg",
+      "source_sha256": "545e2eeecbe56954fb34d9689c373425cc45d5ce5b61f4b9e2bf218e2fb970a5",
+      "source_bytes": 314706,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-before-545e2eeecb-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 10202
+        },
+        {
+          "src": "/media/images-figueiras-before-545e2eeecb-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 19830
+        },
+        {
+          "src": "/media/images-figueiras-before-545e2eeecb-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 32676
+        },
+        {
+          "src": "/media/images-figueiras-before-545e2eeecb-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 56086
+        },
+        {
+          "src": "/media/images-figueiras-before-545e2eeecb-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 83584
+        }
+      ]
+    },
+    "/assets/images/figueiras-during.jpeg": {
+      "source": "/assets/images/figueiras-during.jpeg",
+      "source_sha256": "dbeda82bd8b55538e09333ba0dd9de859a41ef9497af94f7a1b23c79e0f7184d",
+      "source_bytes": 2077810,
+      "width": 4032,
+      "height": 3024,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-during-dbeda82bd8-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 28010
+        },
+        {
+          "src": "/media/images-figueiras-during-dbeda82bd8-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 62368
+        },
+        {
+          "src": "/media/images-figueiras-during-dbeda82bd8-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 118832
+        },
+        {
+          "src": "/media/images-figueiras-during-dbeda82bd8-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 217038
+        },
+        {
+          "src": "/media/images-figueiras-during-dbeda82bd8-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 330290
+        }
+      ]
+    },
+    "/assets/images/figueiras-during2.webp": {
+      "source": "/assets/images/figueiras-during2.webp",
+      "source_sha256": "c5f1f31ff71743af53d2e190bc982916e81abb33c0d507208e953dc60d506d40",
+      "source_bytes": 471838,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-during2-c5f1f31ff7-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 53244
+        },
+        {
+          "src": "/media/images-figueiras-during2-c5f1f31ff7-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 115956
+        },
+        {
+          "src": "/media/images-figueiras-during2-c5f1f31ff7-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 200948
+        },
+        {
+          "src": "/media/images-figueiras-during2-c5f1f31ff7-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 334206
+        },
+        {
+          "src": "/media/images-figueiras-during2-c5f1f31ff7-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 376046
+        }
+      ]
+    },
+    "/assets/images/figueiras-kitchen.webp": {
+      "source": "/assets/images/figueiras-kitchen.webp",
+      "source_sha256": "5491c13fc6fe42bbf78770e54d1f5d86501f75e34da1fe2d77fa037b4bce2b40",
+      "source_bytes": 249612,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-kitchen-5491c13fc6-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 26956
+        },
+        {
+          "src": "/media/images-figueiras-kitchen-5491c13fc6-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 58498
+        },
+        {
+          "src": "/media/images-figueiras-kitchen-5491c13fc6-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 102614
+        },
+        {
+          "src": "/media/images-figueiras-kitchen-5491c13fc6-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 170928
+        },
+        {
+          "src": "/media/images-figueiras-kitchen-5491c13fc6-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 194500
+        }
+      ]
+    },
+    "/assets/images/figueiras-living.webp": {
+      "source": "/assets/images/figueiras-living.webp",
+      "source_sha256": "60bd7ae0628f5cc618bbdad5441087a827458e4da954adcae4eb1271e88c70f4",
+      "source_bytes": 281696,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-living-60bd7ae062-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 25470
+        },
+        {
+          "src": "/media/images-figueiras-living-60bd7ae062-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 61370
+        },
+        {
+          "src": "/media/images-figueiras-living-60bd7ae062-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 113910
+        },
+        {
+          "src": "/media/images-figueiras-living-60bd7ae062-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 201726
+        },
+        {
+          "src": "/media/images-figueiras-living-60bd7ae062-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 223278
+        }
+      ]
+    },
+    "/assets/images/figueiras-room.webp": {
+      "source": "/assets/images/figueiras-room.webp",
+      "source_sha256": "66a0f9a98425c3872c4e0315391935895cbade21b13bb4b7655b76483fe054b9",
+      "source_bytes": 184550,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-figueiras-room-66a0f9a984-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 21006
+        },
+        {
+          "src": "/media/images-figueiras-room-66a0f9a984-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 41700
+        },
+        {
+          "src": "/media/images-figueiras-room-66a0f9a984-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 69780
+        },
+        {
+          "src": "/media/images-figueiras-room-66a0f9a984-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 114598
+        },
+        {
+          "src": "/media/images-figueiras-room-66a0f9a984-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 134434
+        }
+      ]
+    },
+    "/assets/images/ivan.webp": {
+      "source": "/assets/images/ivan.webp",
+      "source_sha256": "fb38445fdb12b65e219b95c46466cc676fa5c498b0ccdb0d992f3d3960091e40",
+      "source_bytes": 51438,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-ivan-fb38445fdb-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 21348
+        },
+        {
+          "src": "/media/images-ivan-fb38445fdb-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 42182
+        }
+      ]
+    },
+    "/assets/images/jhon.webp": {
+      "source": "/assets/images/jhon.webp",
+      "source_sha256": "0108f50cf3c38fbfb79d180de9cb278ddbc26692b10da184e6fdaa524f8d7235",
+      "source_bytes": 49360,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-jhon-0108f50cf3-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 20548
+        },
+        {
+          "src": "/media/images-jhon-0108f50cf3-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 42010
+        }
+      ]
+    },
+    "/assets/images/lukas.webp": {
+      "source": "/assets/images/lukas.webp",
+      "source_sha256": "30e618b9d2e31063c8068b14d29492ada21e1173aa67787e506a10e5beee9c17",
+      "source_bytes": 39330,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-lukas-30e618b9d2-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 15542
+        },
+        {
+          "src": "/media/images-lukas-30e618b9d2-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 32888
+        }
+      ]
+    },
+    "/assets/images/maja-aboutsection.webp": {
+      "source": "/assets/images/maja-aboutsection.webp",
+      "source_sha256": "3192f504a10eac58d263f380e20ef78ccbdaa30a124fc1b74a4ee2e07f54b76d",
+      "source_bytes": 232866,
+      "width": 2500,
+      "height": 3500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-maja-aboutsection-3192f504a1-480.webp",
+          "width": 480,
+          "height": 672,
+          "bytes": 28128
+        },
+        {
+          "src": "/media/images-maja-aboutsection-3192f504a1-800.webp",
+          "width": 800,
+          "height": 1120,
+          "bytes": 49650
+        },
+        {
+          "src": "/media/images-maja-aboutsection-3192f504a1-1200.webp",
+          "width": 1200,
+          "height": 1680,
+          "bytes": 81960
+        },
+        {
+          "src": "/media/images-maja-aboutsection-3192f504a1-1800.webp",
+          "width": 1800,
+          "height": 2520,
+          "bytes": 135418
+        },
+        {
+          "src": "/media/images-maja-aboutsection-3192f504a1-2400.webp",
+          "width": 2400,
+          "height": 3360,
+          "bytes": 196624
+        }
+      ]
+    },
+    "/assets/images/maja-living-room.webp": {
+      "source": "/assets/images/maja-living-room.webp",
+      "source_sha256": "0385ee034904fb6513b2f1c525e9cc1dd31e8e1e4556582c79aec152e6710ad3",
+      "source_bytes": 190982,
+      "width": 1800,
+      "height": 1200,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-maja-living-room-0385ee0349-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 16900
+        },
+        {
+          "src": "/media/images-maja-living-room-0385ee0349-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 40934
+        },
+        {
+          "src": "/media/images-maja-living-room-0385ee0349-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 79350
+        },
+        {
+          "src": "/media/images-maja-living-room-0385ee0349-1800.webp",
+          "width": 1800,
+          "height": 1200,
+          "bytes": 164184
+        }
+      ]
+    },
+    "/assets/images/materials-figueiras.webp": {
+      "source": "/assets/images/materials-figueiras.webp",
+      "source_sha256": "f2313b048fb3c5ffce2e267023b142e8088832f5dfb801871e68723b3ac75b89",
+      "source_bytes": 340410,
+      "width": 2500,
+      "height": 3727,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-materials-figueiras-f2313b048f-480.webp",
+          "width": 480,
+          "height": 716,
+          "bytes": 33018
+        },
+        {
+          "src": "/media/images-materials-figueiras-f2313b048f-800.webp",
+          "width": 800,
+          "height": 1193,
+          "bytes": 79304
+        },
+        {
+          "src": "/media/images-materials-figueiras-f2313b048f-1200.webp",
+          "width": 1200,
+          "height": 1789,
+          "bytes": 147206
+        },
+        {
+          "src": "/media/images-materials-figueiras-f2313b048f-1800.webp",
+          "width": 1800,
+          "height": 2683,
+          "bytes": 243598
+        },
+        {
+          "src": "/media/images-materials-figueiras-f2313b048f-2400.webp",
+          "width": 2400,
+          "height": 3578,
+          "bytes": 348960
+        }
+      ]
+    },
+    "/assets/images/materials-sala.webp": {
+      "source": "/assets/images/materials-sala.webp",
+      "source_sha256": "4df776115d85c1ba951a2e0cb6a3c4951dc69cf6d8aa9a4d8fb8b11cbe7ce6d2",
+      "source_bytes": 465562,
+      "width": 2500,
+      "height": 3727,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-materials-sala-4df776115d-480.webp",
+          "width": 480,
+          "height": 716,
+          "bytes": 60982
+        },
+        {
+          "src": "/media/images-materials-sala-4df776115d-800.webp",
+          "width": 800,
+          "height": 1193,
+          "bytes": 137620
+        },
+        {
+          "src": "/media/images-materials-sala-4df776115d-1200.webp",
+          "width": 1200,
+          "height": 1789,
+          "bytes": 229280
+        },
+        {
+          "src": "/media/images-materials-sala-4df776115d-1800.webp",
+          "width": 1800,
+          "height": 2683,
+          "bytes": 374694
+        },
+        {
+          "src": "/media/images-materials-sala-4df776115d-2400.webp",
+          "width": 2400,
+          "height": 3578,
+          "bytes": 513670
+        }
+      ]
+    },
+    "/assets/images/rebelva-before.jpg": {
+      "source": "/assets/images/rebelva-before.jpg",
+      "source_sha256": "e2a8e8b86ef78b70f08b96b5901670d6ba7052ee80d4ab32712cbdcee9912707",
+      "source_bytes": 411495,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rebelva-before-e2a8e8b86e-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 19262
+        },
+        {
+          "src": "/media/images-rebelva-before-e2a8e8b86e-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 35042
+        },
+        {
+          "src": "/media/images-rebelva-before-e2a8e8b86e-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 54682
+        },
+        {
+          "src": "/media/images-rebelva-before-e2a8e8b86e-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 85010
+        },
+        {
+          "src": "/media/images-rebelva-before-e2a8e8b86e-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 118150
+        }
+      ]
+    },
+    "/assets/images/riv-before-balcony.jpeg": {
+      "source": "/assets/images/riv-before-balcony.jpeg",
+      "source_sha256": "d7fa09cec62011129b30c306529b154c55dd1fc55bb7371775d1c1ae55d640fe",
+      "source_bytes": 504372,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-before-balcony-d7fa09cec6-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 28562
+        },
+        {
+          "src": "/media/images-riv-before-balcony-d7fa09cec6-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 81928
+        },
+        {
+          "src": "/media/images-riv-before-balcony-d7fa09cec6-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 163462
+        }
+      ]
+    },
+    "/assets/images/riv-before-bathroom.jpeg": {
+      "source": "/assets/images/riv-before-bathroom.jpeg",
+      "source_sha256": "c073c38197b61c17fb0f68e35517a08a5379f27b90ba7cb11036ef6164231a1e",
+      "source_bytes": 452803,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-before-bathroom-c073c38197-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 21664
+        },
+        {
+          "src": "/media/images-riv-before-bathroom-c073c38197-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 46992
+        },
+        {
+          "src": "/media/images-riv-before-bathroom-c073c38197-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 96968
+        }
+      ]
+    },
+    "/assets/images/riv-before-corridor.jpeg": {
+      "source": "/assets/images/riv-before-corridor.jpeg",
+      "source_sha256": "3a2721cecfaba3d9baeb129978676eb3c9c779472a4202f43a46f1b93a882994",
+      "source_bytes": 396184,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-before-corridor-3a2721cecf-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 11732
+        },
+        {
+          "src": "/media/images-riv-before-corridor-3a2721cecf-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 29204
+        },
+        {
+          "src": "/media/images-riv-before-corridor-3a2721cecf-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 65954
+        }
+      ]
+    },
+    "/assets/images/riv-before-kitchen.jpeg": {
+      "source": "/assets/images/riv-before-kitchen.jpeg",
+      "source_sha256": "c8c8a2490e1eb1b0bac5804068562d350f62980fb6e053fff3e3bb5bc0831533",
+      "source_bytes": 486747,
+      "width": 1125,
+      "height": 1500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riv-before-kitchen-c8c8a2490e-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 32928
+        },
+        {
+          "src": "/media/images-riv-before-kitchen-c8c8a2490e-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 71488
+        },
+        {
+          "src": "/media/images-riv-before-kitchen-c8c8a2490e-1125.webp",
+          "width": 1125,
+          "height": 1500,
+          "bytes": 126998
+        }
+      ]
+    },
+    "/assets/images/riv-design.webp": {
+      "source": "/assets/images/riv-design.webp",
+      "source_sha256": "a3b7ddaebdb5249be11b8769fe87e48b42e045daa9fd496f049b875834116ec1",
+      "source_bytes": 148098,
+      "width": 2500,
+      "height": 1396,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-riv-design-a3b7ddaebd-480.webp",
+          "width": 480,
+          "height": 268,
+          "bytes": 18632
+        },
+        {
+          "src": "/media/images-riv-design-a3b7ddaebd-800.webp",
+          "width": 800,
+          "height": 447,
+          "bytes": 39570
+        },
+        {
+          "src": "/media/images-riv-design-a3b7ddaebd-1200.webp",
+          "width": 1200,
+          "height": 670,
+          "bytes": 70716
+        },
+        {
+          "src": "/media/images-riv-design-a3b7ddaebd-1800.webp",
+          "width": 1800,
+          "height": 1005,
+          "bytes": 118034
+        },
+        {
+          "src": "/media/images-riv-design-a3b7ddaebd-2400.webp",
+          "width": 2400,
+          "height": 1340,
+          "bytes": 168102
+        }
+      ]
+    },
+    "/assets/images/riv-materials.webp": {
+      "source": "/assets/images/riv-materials.webp",
+      "source_sha256": "1e70ccd24a9c598f11419fd444fc18fba846197f7e8c2df3d0111d8e8c7bb62c",
+      "source_bytes": 437178,
+      "width": 2500,
+      "height": 4480,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-riv-materials-1e70ccd24a-480.webp",
+          "width": 480,
+          "height": 860,
+          "bytes": 58324
+        },
+        {
+          "src": "/media/images-riv-materials-1e70ccd24a-800.webp",
+          "width": 800,
+          "height": 1434,
+          "bytes": 128664
+        },
+        {
+          "src": "/media/images-riv-materials-1e70ccd24a-1200.webp",
+          "width": 1200,
+          "height": 2150,
+          "bytes": 220752
+        },
+        {
+          "src": "/media/images-riv-materials-1e70ccd24a-1800.webp",
+          "width": 1800,
+          "height": 3226,
+          "bytes": 345488
+        },
+        {
+          "src": "/media/images-riv-materials-1e70ccd24a-2400.webp",
+          "width": 2400,
+          "height": 4301,
+          "bytes": 481658
+        }
+      ]
+    },
+    "/assets/images/riviera-before.jpg": {
+      "source": "/assets/images/riviera-before.jpg",
+      "source_sha256": "5f0102af37587e7ac3f279b80fc133f528023346bb1ec9c262a695ab8ea1ec8e",
+      "source_bytes": 1014425,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-riviera-before-5f0102af37-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 37056
+        },
+        {
+          "src": "/media/images-riviera-before-5f0102af37-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 90560
+        },
+        {
+          "src": "/media/images-riviera-before-5f0102af37-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 166968
+        },
+        {
+          "src": "/media/images-riviera-before-5f0102af37-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 273266
+        },
+        {
+          "src": "/media/images-riviera-before-5f0102af37-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 381178
+        }
+      ]
+    },
+    "/assets/images/rosa-balcony.webp": {
+      "source": "/assets/images/rosa-balcony.webp",
+      "source_sha256": "a5442a27f9c38f75919433729b6803431415d0b9e0763a22e4b8ed4ec916bdfa",
+      "source_bytes": 743790,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-balcony-a5442a27f9-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 57016
+        },
+        {
+          "src": "/media/images-rosa-balcony-a5442a27f9-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 143610
+        },
+        {
+          "src": "/media/images-rosa-balcony-a5442a27f9-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 285358
+        },
+        {
+          "src": "/media/images-rosa-balcony-a5442a27f9-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 522198
+        },
+        {
+          "src": "/media/images-rosa-balcony-a5442a27f9-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 603536
+        }
+      ]
+    },
+    "/assets/images/rosa-bathroom.webp": {
+      "source": "/assets/images/rosa-bathroom.webp",
+      "source_sha256": "912bb8c828beffba9896f8410300b4d3171fa4eb90ecfa0bf2f0f7822b652321",
+      "source_bytes": 168772,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-bathroom-912bb8c828-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 15036
+        },
+        {
+          "src": "/media/images-rosa-bathroom-912bb8c828-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 30036
+        },
+        {
+          "src": "/media/images-rosa-bathroom-912bb8c828-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 50398
+        },
+        {
+          "src": "/media/images-rosa-bathroom-912bb8c828-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 88912
+        },
+        {
+          "src": "/media/images-rosa-bathroom-912bb8c828-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 108600
+        }
+      ]
+    },
+    "/assets/images/rosa-kitchen.webp": {
+      "source": "/assets/images/rosa-kitchen.webp",
+      "source_sha256": "133c4f83be82fc653b4fe3d4d8b1b012edde944132aa99e1aeb550e85775d59b",
+      "source_bytes": 255032,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-kitchen-133c4f83be-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 23392
+        },
+        {
+          "src": "/media/images-rosa-kitchen-133c4f83be-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 51494
+        },
+        {
+          "src": "/media/images-rosa-kitchen-133c4f83be-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 91930
+        },
+        {
+          "src": "/media/images-rosa-kitchen-133c4f83be-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 158912
+        },
+        {
+          "src": "/media/images-rosa-kitchen-133c4f83be-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 177206
+        }
+      ]
+    },
+    "/assets/images/rosa-living.webp": {
+      "source": "/assets/images/rosa-living.webp",
+      "source_sha256": "793bde6b7d49793d421ff65fe9454b1a5cbd3dc87648800b50978d3e9bdf43c1",
+      "source_bytes": 124002,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosa-living-793bde6b7d-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 12142
+        },
+        {
+          "src": "/media/images-rosa-living-793bde6b7d-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 25424
+        },
+        {
+          "src": "/media/images-rosa-living-793bde6b7d-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 47246
+        },
+        {
+          "src": "/media/images-rosa-living-793bde6b7d-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 81836
+        },
+        {
+          "src": "/media/images-rosa-living-793bde6b7d-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 91840
+        }
+      ]
+    },
+    "/assets/images/rosa-removingtilesandcreatingnewstructure.JPEG": {
+      "source": "/assets/images/rosa-removingtilesandcreatingnewstructure.JPEG",
+      "source_sha256": "9517bc50a8bc3c5937ee0eda543d8308ab6ff15588a613b2ae37cdd0e45b7c67",
+      "source_bytes": 365481,
+      "width": 2000,
+      "height": 1500,
+      "quality": 86,
+      "variants": [
+        {
+          "src": "/media/images-rosa-removingtilesandcreatingnewstructure-9517bc50a8-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 32054
+        },
+        {
+          "src": "/media/images-rosa-removingtilesandcreatingnewstructure-9517bc50a8-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 86390
+        },
+        {
+          "src": "/media/images-rosa-removingtilesandcreatingnewstructure-9517bc50a8-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 180142
+        },
+        {
+          "src": "/media/images-rosa-removingtilesandcreatingnewstructure-9517bc50a8-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 337616
+        },
+        {
+          "src": "/media/images-rosa-removingtilesandcreatingnewstructure-9517bc50a8-2000.webp",
+          "width": 2000,
+          "height": 1500,
+          "bytes": 391344
+        }
+      ]
+    },
+    "/assets/images/rosario-before.jpg": {
+      "source": "/assets/images/rosario-before.jpg",
+      "source_sha256": "6b7bf53bc083511e0ea168b4c22d9785213cea870e3b306c586851769b1465ce",
+      "source_bytes": 787797,
+      "width": 3324,
+      "height": 2492,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-rosario-before-6b7bf53bc0-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 21164
+        },
+        {
+          "src": "/media/images-rosario-before-6b7bf53bc0-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 51232
+        },
+        {
+          "src": "/media/images-rosario-before-6b7bf53bc0-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 101124
+        },
+        {
+          "src": "/media/images-rosario-before-6b7bf53bc0-1800.webp",
+          "width": 1800,
+          "height": 1349,
+          "bytes": 177058
+        },
+        {
+          "src": "/media/images-rosario-before-6b7bf53bc0-2400.webp",
+          "width": 2400,
+          "height": 1799,
+          "bytes": 259870
+        }
+      ]
+    },
+    "/assets/images/sala-bath.JPEG": {
+      "source": "/assets/images/sala-bath.JPEG",
+      "source_sha256": "56c7c4048e04675f89b445feeda1afe5e6c52755357e48d754b96afa0af9de18",
+      "source_bytes": 150407,
+      "width": 1440,
+      "height": 1919,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-bath-56c7c4048e-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 21274
+        },
+        {
+          "src": "/media/images-sala-bath-56c7c4048e-800.webp",
+          "width": 800,
+          "height": 1066,
+          "bytes": 39460
+        },
+        {
+          "src": "/media/images-sala-bath-56c7c4048e-1200.webp",
+          "width": 1200,
+          "height": 1599,
+          "bytes": 65588
+        },
+        {
+          "src": "/media/images-sala-bath-56c7c4048e-1440.webp",
+          "width": 1440,
+          "height": 1919,
+          "bytes": 86172
+        }
+      ]
+    },
+    "/assets/images/sala-coridor.webp": {
+      "source": "/assets/images/sala-coridor.webp",
+      "source_sha256": "d0f8eedec0dbbe2677e0a71d8776ec83eb29872c7ea7a789fc818d60f68082f9",
+      "source_bytes": 414966,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-coridor-d0f8eedec0-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 20916
+        },
+        {
+          "src": "/media/images-sala-coridor-d0f8eedec0-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 48460
+        },
+        {
+          "src": "/media/images-sala-coridor-d0f8eedec0-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 105398
+        },
+        {
+          "src": "/media/images-sala-coridor-d0f8eedec0-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 215240
+        },
+        {
+          "src": "/media/images-sala-coridor-d0f8eedec0-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 266794
+        }
+      ]
+    },
+    "/assets/images/sala-during.webp": {
+      "source": "/assets/images/sala-during.webp",
+      "source_sha256": "7666d22b0bc12c6fededc960a6fbc79e91ebf99c3ba6857e4d222da8f453685d",
+      "source_bytes": 352518,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-during-7666d22b0b-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 29902
+        },
+        {
+          "src": "/media/images-sala-during-7666d22b0b-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 72042
+        },
+        {
+          "src": "/media/images-sala-during-7666d22b0b-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 137494
+        },
+        {
+          "src": "/media/images-sala-during-7666d22b0b-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 246190
+        },
+        {
+          "src": "/media/images-sala-during-7666d22b0b-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 277748
+        }
+      ]
+    },
+    "/assets/images/sala-during2.JPEG": {
+      "source": "/assets/images/sala-during2.JPEG",
+      "source_sha256": "a8baba2accbbea1b26105d0bc0a0e59304a7c5a784b66f0f5b8290f4a776e85f",
+      "source_bytes": 167322,
+      "width": 1920,
+      "height": 1296,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-during2-a8baba2acc-480.webp",
+          "width": 480,
+          "height": 324,
+          "bytes": 18710
+        },
+        {
+          "src": "/media/images-sala-during2-a8baba2acc-800.webp",
+          "width": 800,
+          "height": 540,
+          "bytes": 35998
+        },
+        {
+          "src": "/media/images-sala-during2-a8baba2acc-1200.webp",
+          "width": 1200,
+          "height": 810,
+          "bytes": 60536
+        },
+        {
+          "src": "/media/images-sala-during2-a8baba2acc-1800.webp",
+          "width": 1800,
+          "height": 1215,
+          "bytes": 102204
+        },
+        {
+          "src": "/media/images-sala-during2-a8baba2acc-1920.webp",
+          "width": 1920,
+          "height": 1296,
+          "bytes": 108214
+        }
+      ]
+    },
+    "/assets/images/sala-kitchen.webp": {
+      "source": "/assets/images/sala-kitchen.webp",
+      "source_sha256": "ca2d7960617ec43558bb47f3dfda49bae6959a6e2cd8d93bec8d23a780459e65",
+      "source_bytes": 178296,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-kitchen-ca2d796061-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 19792
+        },
+        {
+          "src": "/media/images-sala-kitchen-ca2d796061-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 39944
+        },
+        {
+          "src": "/media/images-sala-kitchen-ca2d796061-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 67016
+        },
+        {
+          "src": "/media/images-sala-kitchen-ca2d796061-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 113708
+        },
+        {
+          "src": "/media/images-sala-kitchen-ca2d796061-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 129574
+        }
+      ]
+    },
+    "/assets/images/sala-living.webp": {
+      "source": "/assets/images/sala-living.webp",
+      "source_sha256": "0869a5906b4303d18260b9bd0cd70c2469cc9ee7ff5f5ed1b45915d1d0924371",
+      "source_bytes": 145570,
+      "width": 1875,
+      "height": 2500,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-sala-living-0869a5906b-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 16232
+        },
+        {
+          "src": "/media/images-sala-living-0869a5906b-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 31036
+        },
+        {
+          "src": "/media/images-sala-living-0869a5906b-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 52582
+        },
+        {
+          "src": "/media/images-sala-living-0869a5906b-1800.webp",
+          "width": 1800,
+          "height": 2400,
+          "bytes": 90276
+        },
+        {
+          "src": "/media/images-sala-living-0869a5906b-1875.webp",
+          "width": 1875,
+          "height": 2500,
+          "bytes": 102988
+        }
+      ]
+    },
+    "/assets/images/service-1.webp": {
+      "source": "/assets/images/service-1.webp",
+      "source_sha256": "4ef7271a7220f79df5770342db3f6a4bffa2502ac6e8c87ece0c6c2136e71e17",
+      "source_bytes": 305036,
+      "width": 1800,
+      "height": 2250,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-service-1-4ef7271a72-480.webp",
+          "width": 480,
+          "height": 600,
+          "bytes": 32500
+        },
+        {
+          "src": "/media/images-service-1-4ef7271a72-800.webp",
+          "width": 800,
+          "height": 1000,
+          "bytes": 69388
+        },
+        {
+          "src": "/media/images-service-1-4ef7271a72-1200.webp",
+          "width": 1200,
+          "height": 1500,
+          "bytes": 120714
+        },
+        {
+          "src": "/media/images-service-1-4ef7271a72-1800.webp",
+          "width": 1800,
+          "height": 2250,
+          "bytes": 229032
+        }
+      ]
+    },
+    "/assets/images/service-2.webp": {
+      "source": "/assets/images/service-2.webp",
+      "source_sha256": "f94f89231aab51157945992393a5820dc544f0677d7b7752ddfb172a222724a9",
+      "source_bytes": 358218,
+      "width": 2500,
+      "height": 1407,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-service-2-f94f89231a-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 18844
+        },
+        {
+          "src": "/media/images-service-2-f94f89231a-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 45698
+        },
+        {
+          "src": "/media/images-service-2-f94f89231a-1200.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 93592
+        },
+        {
+          "src": "/media/images-service-2-f94f89231a-1800.webp",
+          "width": 1800,
+          "height": 1013,
+          "bytes": 193946
+        },
+        {
+          "src": "/media/images-service-2-f94f89231a-2400.webp",
+          "width": 2400,
+          "height": 1351,
+          "bytes": 319786
+        }
+      ]
+    },
+    "/assets/images/service-bath.webp": {
+      "source": "/assets/images/service-bath.webp",
+      "source_sha256": "e8f82bdf3e93f4ad7a2293968dd2221a128e044b9313e16a402eb8f7d0d1f551",
+      "source_bytes": 180134,
+      "width": 1600,
+      "height": 2385,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-service-bath-e8f82bdf3e-480.webp",
+          "width": 480,
+          "height": 716,
+          "bytes": 30442
+        },
+        {
+          "src": "/media/images-service-bath-e8f82bdf3e-800.webp",
+          "width": 800,
+          "height": 1192,
+          "bytes": 63354
+        },
+        {
+          "src": "/media/images-service-bath-e8f82bdf3e-1200.webp",
+          "width": 1200,
+          "height": 1789,
+          "bytes": 104318
+        },
+        {
+          "src": "/media/images-service-bath-e8f82bdf3e-1600.webp",
+          "width": 1600,
+          "height": 2385,
+          "bytes": 152108
+        }
+      ]
+    },
+    "/assets/images/service-kitchen.webp": {
+      "source": "/assets/images/service-kitchen.webp",
+      "source_sha256": "f72bb8bca9e48b0ba7fc8d6d9f14c699eb7bbbb72551d4d7b2cac9fba00c264d",
+      "source_bytes": 157656,
+      "width": 1600,
+      "height": 2385,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-service-kitchen-f72bb8bca9-480.webp",
+          "width": 480,
+          "height": 716,
+          "bytes": 25016
+        },
+        {
+          "src": "/media/images-service-kitchen-f72bb8bca9-800.webp",
+          "width": 800,
+          "height": 1192,
+          "bytes": 53676
+        },
+        {
+          "src": "/media/images-service-kitchen-f72bb8bca9-1200.webp",
+          "width": 1200,
+          "height": 1789,
+          "bytes": 89128
+        },
+        {
+          "src": "/media/images-service-kitchen-f72bb8bca9-1600.webp",
+          "width": 1600,
+          "height": 2385,
+          "bytes": 131990
+        }
+      ]
+    },
+    "/assets/images/studio-at-home.webp": {
+      "source": "/assets/images/studio-at-home.webp",
+      "source_sha256": "645ce7c32979cac6b5912346fa9a467d240b842e37d9aea620b43bb4ac7f51b6",
+      "source_bytes": 422312,
+      "width": 2500,
+      "height": 1867,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-studio-at-home-645ce7c329-480.webp",
+          "width": 480,
+          "height": 358,
+          "bytes": 36048
+        },
+        {
+          "src": "/media/images-studio-at-home-645ce7c329-800.webp",
+          "width": 800,
+          "height": 597,
+          "bytes": 85140
+        },
+        {
+          "src": "/media/images-studio-at-home-645ce7c329-1200.webp",
+          "width": 1200,
+          "height": 896,
+          "bytes": 161910
+        },
+        {
+          "src": "/media/images-studio-at-home-645ce7c329-1800.webp",
+          "width": 1800,
+          "height": 1344,
+          "bytes": 281120
+        },
+        {
+          "src": "/media/images-studio-at-home-645ce7c329-2400.webp",
+          "width": 2400,
+          "height": 1792,
+          "bytes": 403406
+        }
+      ]
+    },
+    "/assets/images/tasca-bar-counter.webp": {
+      "source": "/assets/images/tasca-bar-counter.webp",
+      "source_sha256": "501e96c4021867d714ed6734a20904f0c777b091c647e2a99fed551fa9fe1122",
+      "source_bytes": 268230,
+      "width": 1600,
+      "height": 1200,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-tasca-bar-counter-501e96c402-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 37220
+        },
+        {
+          "src": "/media/images-tasca-bar-counter-501e96c402-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 91156
+        },
+        {
+          "src": "/media/images-tasca-bar-counter-501e96c402-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 173556
+        },
+        {
+          "src": "/media/images-tasca-bar-counter-501e96c402-1600.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 259186
+        }
+      ]
+    },
+    "/assets/images/tasca-bathroom.webp": {
+      "source": "/assets/images/tasca-bathroom.webp",
+      "source_sha256": "cd0f4d3b96b2f532276dc0412eafcca08865fe225d60f5b12d4ea8b51444f7b5",
+      "source_bytes": 382266,
+      "width": 2500,
+      "height": 1875,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-tasca-bathroom-cd0f4d3b96-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 28292
+        },
+        {
+          "src": "/media/images-tasca-bathroom-cd0f4d3b96-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 63286
+        },
+        {
+          "src": "/media/images-tasca-bathroom-cd0f4d3b96-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 119044
+        },
+        {
+          "src": "/media/images-tasca-bathroom-cd0f4d3b96-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 213830
+        },
+        {
+          "src": "/media/images-tasca-bathroom-cd0f4d3b96-2400.webp",
+          "width": 2400,
+          "height": 1800,
+          "bytes": 320460
+        }
+      ]
+    },
+    "/assets/images/tasca-dining.webp": {
+      "source": "/assets/images/tasca-dining.webp",
+      "source_sha256": "7f481dc624fca13469ed84ba7564c873315252472480e46f5d3f17d3435ae549",
+      "source_bytes": 233932,
+      "width": 1600,
+      "height": 1200,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-tasca-dining-7f481dc624-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 34524
+        },
+        {
+          "src": "/media/images-tasca-dining-7f481dc624-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 81444
+        },
+        {
+          "src": "/media/images-tasca-dining-7f481dc624-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 145082
+        },
+        {
+          "src": "/media/images-tasca-dining-7f481dc624-1600.webp",
+          "width": 1600,
+          "height": 1200,
+          "bytes": 222058
+        }
+      ]
+    },
+    "/assets/images/tasca-exterior.webp": {
+      "source": "/assets/images/tasca-exterior.webp",
+      "source_sha256": "010bcfe39892a99551990826307cda529b5739a2adb17b44c555fd4582bbc6f2",
+      "source_bytes": 243960,
+      "width": 1600,
+      "height": 1201,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-tasca-exterior-010bcfe398-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 35298
+        },
+        {
+          "src": "/media/images-tasca-exterior-010bcfe398-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 84684
+        },
+        {
+          "src": "/media/images-tasca-exterior-010bcfe398-1200.webp",
+          "width": 1200,
+          "height": 901,
+          "bytes": 161780
+        },
+        {
+          "src": "/media/images-tasca-exterior-010bcfe398-1600.webp",
+          "width": 1600,
+          "height": 1201,
+          "bytes": 236032
+        }
+      ]
+    },
+    "/assets/images/van-foto-cascais.webp": {
+      "source": "/assets/images/van-foto-cascais.webp",
+      "source_sha256": "6b4008068608f60ffda572743d4960d6c8b23b80390d031c5c869336812fcd5f",
+      "source_bytes": 470306,
+      "width": 2500,
+      "height": 1407,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-van-foto-cascais-6b40080686-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 33128
+        },
+        {
+          "src": "/media/images-van-foto-cascais-6b40080686-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 79484
+        },
+        {
+          "src": "/media/images-van-foto-cascais-6b40080686-1200.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 159768
+        },
+        {
+          "src": "/media/images-van-foto-cascais-6b40080686-1800.webp",
+          "width": 1800,
+          "height": 1013,
+          "bytes": 300868
+        },
+        {
+          "src": "/media/images-van-foto-cascais-6b40080686-2400.webp",
+          "width": 2400,
+          "height": 1351,
+          "bytes": 455460
+        }
+      ]
+    },
+    "/assets/images/vista-before-balcony.webp": {
+      "source": "/assets/images/vista-before-balcony.webp",
+      "source_sha256": "2cba67b0aa77f2ef097aa984cdb23faeddc6679af92f00535c80672e35e0c5fb",
+      "source_bytes": 185880,
+      "width": 1200,
+      "height": 1600,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vista-before-balcony-2cba67b0aa-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 42574
+        },
+        {
+          "src": "/media/images-vista-before-balcony-2cba67b0aa-800.webp",
+          "width": 800,
+          "height": 1067,
+          "bytes": 94664
+        },
+        {
+          "src": "/media/images-vista-before-balcony-2cba67b0aa-1200.webp",
+          "width": 1200,
+          "height": 1600,
+          "bytes": 171420
+        }
+      ]
+    },
+    "/assets/images/vlad.webp": {
+      "source": "/assets/images/vlad.webp",
+      "source_sha256": "cca65b7d5ca04e11ffbca6c25d24537009318483d69b594278ab95b5c328aa53",
+      "source_bytes": 104342,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-vlad-cca65b7d5c-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 39832
+        },
+        {
+          "src": "/media/images-vlad-cca65b7d5c-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 85582
+        }
+      ]
+    },
+    "/assets/images/yurii.webp": {
+      "source": "/assets/images/yurii.webp",
+      "source_sha256": "c340c09a7bf6d7f0920a78f36a4905f3e38053a002318e4587ffe4e7bec7109f",
+      "source_bytes": 50240,
+      "width": 800,
+      "height": 1333,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/images-yurii-c340c09a7b-480.webp",
+          "width": 480,
+          "height": 800,
+          "bytes": 21318
+        },
+        {
+          "src": "/media/images-yurii-c340c09a7b-800.webp",
+          "width": 800,
+          "height": 1333,
+          "bytes": 42022
+        }
+      ]
+    },
+    "/assets/videos/anim-convert-1-poster.jpg": {
+      "source": "/assets/videos/anim-convert-1-poster.jpg",
+      "source_sha256": "2279904027b2bb5042aedd4d52f096e36fc10300b08913b5d32d97297cdb92fd",
+      "source_bytes": 136563,
+      "width": 1920,
+      "height": 1434,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/videos-anim-convert-1-poster-2279904027-480.webp",
+          "width": 480,
+          "height": 358,
+          "bytes": 12116
+        },
+        {
+          "src": "/media/videos-anim-convert-1-poster-2279904027-800.webp",
+          "width": 800,
+          "height": 598,
+          "bytes": 22392
+        },
+        {
+          "src": "/media/videos-anim-convert-1-poster-2279904027-1200.webp",
+          "width": 1200,
+          "height": 896,
+          "bytes": 35342
+        },
+        {
+          "src": "/media/videos-anim-convert-1-poster-2279904027-1800.webp",
+          "width": 1800,
+          "height": 1344,
+          "bytes": 57422
+        },
+        {
+          "src": "/media/videos-anim-convert-1-poster-2279904027-1920.webp",
+          "width": 1920,
+          "height": 1434,
+          "bytes": 62826
+        }
+      ]
+    },
+    "/assets/videos/anim-convert-2-poster.jpg": {
+      "source": "/assets/videos/anim-convert-2-poster.jpg",
+      "source_sha256": "5cabeb8ebcec2cc69ef76fd17436a97d95927e3e688c7ffad46f4b75739e21dc",
+      "source_bytes": 336554,
+      "width": 1920,
+      "height": 1440,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/videos-anim-convert-2-poster-5cabeb8ebc-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 21866
+        },
+        {
+          "src": "/media/videos-anim-convert-2-poster-5cabeb8ebc-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 47894
+        },
+        {
+          "src": "/media/videos-anim-convert-2-poster-5cabeb8ebc-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 86188
+        },
+        {
+          "src": "/media/videos-anim-convert-2-poster-5cabeb8ebc-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 141324
+        },
+        {
+          "src": "/media/videos-anim-convert-2-poster-5cabeb8ebc-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 151146
+        }
+      ]
+    },
+    "/assets/videos/anim-convert-3-poster.jpg": {
+      "source": "/assets/videos/anim-convert-3-poster.jpg",
+      "source_sha256": "280fae21974c469ef219267f18395891570cc8c064bd476e5801105d06416378",
+      "source_bytes": 279263,
+      "width": 1920,
+      "height": 1440,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/videos-anim-convert-3-poster-280fae2197-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 21876
+        },
+        {
+          "src": "/media/videos-anim-convert-3-poster-280fae2197-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 43778
+        },
+        {
+          "src": "/media/videos-anim-convert-3-poster-280fae2197-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 70856
+        },
+        {
+          "src": "/media/videos-anim-convert-3-poster-280fae2197-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 114736
+        },
+        {
+          "src": "/media/videos-anim-convert-3-poster-280fae2197-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 122346
+        }
+      ]
+    },
+    "/assets/videos/anim-convert-4-poster.jpg": {
+      "source": "/assets/videos/anim-convert-4-poster.jpg",
+      "source_sha256": "9738b044e8336f2b69882b11f71ed0d02cda978ac8da1eb7f875a8d22ddf9a56",
+      "source_bytes": 347614,
+      "width": 1920,
+      "height": 1440,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/videos-anim-convert-4-poster-9738b044e8-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 29120
+        },
+        {
+          "src": "/media/videos-anim-convert-4-poster-9738b044e8-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 67570
+        },
+        {
+          "src": "/media/videos-anim-convert-4-poster-9738b044e8-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 115962
+        },
+        {
+          "src": "/media/videos-anim-convert-4-poster-9738b044e8-1800.webp",
+          "width": 1800,
+          "height": 1350,
+          "bytes": 185288
+        },
+        {
+          "src": "/media/videos-anim-convert-4-poster-9738b044e8-1920.webp",
+          "width": 1920,
+          "height": 1440,
+          "bytes": 197224
+        }
+      ]
+    },
+    "/assets/videos/anim-convert-5-poster.jpg": {
+      "source": "/assets/videos/anim-convert-5-poster.jpg",
+      "source_sha256": "cca1bfcba67a5a50ee30da4cdfc3c94ce8473a71ab64799772c3073a06a0d6e5",
+      "source_bytes": 229285,
+      "width": 1920,
+      "height": 2562,
+      "quality": 82,
+      "variants": [
+        {
+          "src": "/media/videos-anim-convert-5-poster-cca1bfcba6-480.webp",
+          "width": 480,
+          "height": 640,
+          "bytes": 16520
+        },
+        {
+          "src": "/media/videos-anim-convert-5-poster-cca1bfcba6-800.webp",
+          "width": 800,
+          "height": 1068,
+          "bytes": 32364
+        },
+        {
+          "src": "/media/videos-anim-convert-5-poster-cca1bfcba6-1200.webp",
+          "width": 1200,
+          "height": 1601,
+          "bytes": 53108
+        },
+        {
+          "src": "/media/videos-anim-convert-5-poster-cca1bfcba6-1800.webp",
+          "width": 1800,
+          "height": 2402,
+          "bytes": 88086
+        },
+        {
+          "src": "/media/videos-anim-convert-5-poster-cca1bfcba6-1920.webp",
+          "width": 1920,
+          "height": 2562,
+          "bytes": 96700
+        }
+      ]
+    }
+  }
+}

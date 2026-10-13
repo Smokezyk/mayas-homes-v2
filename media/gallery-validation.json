@@ -1,0 +1,74 @@
+[
+  {
+    "page": "projects/belle-riviere/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Belle-riviere/6.webp",
+    "remaining_after_images": 18
+  },
+  {
+    "page": "projects/figueiras/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Figueiras/3.webp",
+    "remaining_after_images": 12
+  },
+  {
+    "page": "projects/la-sala/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/La-Sala/4.webp",
+    "remaining_after_images": 12
+  },
+  {
+    "page": "projects/rosa/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Rosa/3.webp",
+    "remaining_after_images": 15
+  },
+  {
+    "page": "projects/the-tasca/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/The-Tasca/7.webp",
+    "remaining_after_images": 15
+  },
+  {
+    "page": "projects/vista/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/VISTA/1.webp",
+    "remaining_after_images": 11
+  },
+  {
+    "page": "pt/projects/belle-riviere/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Belle-riviere/6.webp",
+    "remaining_after_images": 18
+  },
+  {
+    "page": "pt/projects/figueiras/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Figueiras/3.webp",
+    "remaining_after_images": 12
+  },
+  {
+    "page": "pt/projects/la-sala/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/La-Sala/4.webp",
+    "remaining_after_images": 12
+  },
+  {
+    "page": "pt/projects/rosa/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/Rosa/3.webp",
+    "remaining_after_images": 15
+  },
+  {
+    "page": "pt/projects/the-tasca/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/The-Tasca/7.webp",
+    "remaining_after_images": 15
+  },
+  {
+    "page": "pt/projects/vista/index.html",
+    "before_during_preserved": true,
+    "removed_duplicate_cover": "/assets/images/VISTA/1.webp",
+    "remaining_after_images": 11
+  }
+]
