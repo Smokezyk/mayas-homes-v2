@@ -42,3 +42,7 @@ scripts/_audit/
 
 # Local Netlify linking state
 .netlify/
+
+# The static website ships these prepared stylesheet bundles.
+!css/build/
+!css/build/*.css

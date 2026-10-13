@@ -1,3 +1,3 @@
 [build]
-  publish = "."
-  command = ""
+  publish = "dist/site"
+  command = "bash scripts/prepare_netlify_publish.sh"
