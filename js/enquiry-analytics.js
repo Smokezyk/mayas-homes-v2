@@ -5,17 +5,6 @@
   'use strict';
 
   var PRODUCTION_HOSTS = ['mayashomes.com', 'www.mayashomes.com'];
-  var PROPERTY_STAGES = {
-    'Looking for a property': 'looking',
-    'Considering a property': 'considering',
-    'Already own a property': 'owned'
-  };
-  var SERVICES = {
-    'Not sure yet': 'unsure',
-    'Design and complete renovation': 'complete_home',
-    'Kitchen & Bathroom': 'kitchen_bathroom',
-    'Structural Work': 'structural'
-  };
 
   function allowed() {
     if (PRODUCTION_HOSTS.indexOf(window.location.hostname) === -1) return false;
@@ -79,13 +68,9 @@
   document.addEventListener('mh:enquiry-accepted', function (event) {
     if (!allowed()) return;
     var form = event.target;
-    if (!form || !form.matches || !form.matches('form[data-netlify]') || form.name !== 'contact') return;
-    var stage = form.querySelector('input[name="property-stage"]:checked');
-    var scope = form.querySelector('select[name="scope"]');
+    if (!form || !form.matches || !form.matches('form[data-enquiry-form]') || form.name !== 'contact') return;
     send('enquiry_endpoint_accepted', {
-      form_id: 'contact',
-      property_stage: stage && PROPERTY_STAGES[stage.value] || 'unspecified',
-      service_interest: scope && SERVICES[scope.value] || 'unspecified'
+      form_id: 'contact'
     });
   });
 })();
