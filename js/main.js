@@ -725,7 +725,8 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
 // Preserve native field validation and retain the enquiry on delivery failure.
 // A success page is reached only after the form endpoint accepts the request.
 (() => {
-  document.querySelectorAll('form[data-netlify]').forEach((form) => {
+  // Netlify removes its detection attribute during deploy; this marker survives.
+  document.querySelectorAll('form[data-enquiry-form]').forEach((form) => {
     const pt = document.documentElement.lang.startsWith('pt');
     const status = document.createElement('p');
     status.className = 'form-delivery-status';
