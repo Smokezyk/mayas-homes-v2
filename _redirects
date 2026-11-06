@@ -18,6 +18,14 @@
 
 
 # ─── 1. Internal site reorgs ──────────────────────────────
+# Retired standalone kitchen/bathroom service; keep old links usable.
+/services/kitchens-bathrooms       /services/             301
+/services/kitchens-bathrooms/      /services/             301
+/services/kitchens-bathrooms/*     /services/             301
+/pt/services/kitchens-bathrooms    /pt/services/          301
+/pt/services/kitchens-bathrooms/   /pt/services/          301
+/pt/services/kitchens-bathrooms/*  /pt/services/          301
+
 # /studio/ was renamed to /profile/ during the V2 rebuild.
 /studio                          /profile/             301
 /studio/                         /profile/             301
@@ -57,8 +65,8 @@
 /what-we-do                      /services/            301
 /full-home                       /services/#full-home  301
 /turnkey                         /services/#turnkey    301
-/kitchens                        /services/#kitchens   301
-/bathrooms                       /services/#kitchens   301
+/kitchens                        /services/            301
+/bathrooms                       /services/            301
 /structural                      /services/#full-home  301
 
 # Projects / portfolio variants

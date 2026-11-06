@@ -124,15 +124,15 @@ body.portfolio-redesign .footer__contact-label {
   color: var(--footer-muted);
   margin: 0 0 24px;
 }
-body.portfolio-redesign .footer__nav ul { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px clamp(24px, 4vw, 64px); }
+body.portfolio-redesign .footer__nav ul { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px clamp(20px, 2.5vw, 36px); }
 body.portfolio-redesign .footer__nav a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
   padding: 8px 0;
-  font: 500 21px/1.3 var(--serif);
-  letter-spacing: -.025em;
-  color: var(--footer-ink);
+  font: 400 13px/1.5 var(--sans);
+  letter-spacing: 0;
+  color: #51544c;
   border: 0;
   text-decoration: none;
   text-underline-offset: 6px;
@@ -217,7 +217,7 @@ body.portfolio-redesign :is(.floating-nav, .nav-drawer, .footer) :is(a, button):
   body.portfolio-redesign .footer__contact li:first-child { grid-column: 1/-1; }
   body.portfolio-redesign a.footer__contact-value { font-size: 14px; }
   body.portfolio-redesign .footer__nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 24px; }
-  body.portfolio-redesign .footer__nav a { font-size: 21px; }
+  body.portfolio-redesign .footer__nav a { font-size: 14px; }
   body.portfolio-redesign .footer__credentials { padding: 16px 24px 24px; gap: 13px; }
   body.portfolio-redesign .footer__credentials-legal { gap: 0 18px; }
 }
