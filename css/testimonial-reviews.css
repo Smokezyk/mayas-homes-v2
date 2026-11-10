@@ -1,0 +1,35 @@
+/* Direct review links keep the entire testimonial usable as one target. */
+.page-home .testimonial__review-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.page-home .testimonial__review-link:focus-visible::after {
+  outline: 2px solid var(--folio-accent, #264e4a);
+  outline-offset: -4px;
+}
+
+.page-home .testimonial__context {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  color: #625e55;
+  font: 400 12px/1.6 var(--sans);
+  letter-spacing: 0;
+}
+
+.page-home .testimonials__count {
+  font-size: 12px;
+}
+
+@media (min-width: 1024px) {
+  .page-home .testimonials__grid {
+    --testimonial-gap: 48px;
+    gap: var(--testimonial-gap);
+  }
+
+  .page-home .testimonials__grid > .testimonial {
+    flex-basis: calc((100% - 2 * var(--testimonial-gap)) / 3);
+  }
+}
