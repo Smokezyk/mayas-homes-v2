@@ -66,12 +66,30 @@
     var pageLocation = canonical ? canonical.href : location.origin + location.pathname;
     var referrerOrigin = '';
     try { if (document.referrer) referrerOrigin = new URL(document.referrer).origin; } catch (e) {}
-    gtag('config', GA4_ID, {
+    var config = {
       page_location: pageLocation,
       page_referrer: referrerOrigin,
       allow_google_signals: false,
       allow_ad_personalization_signals: false
-    });
+    };
+    // Keep URLs clean while preserving the one approved Google profile campaign.
+    // Only fixed labels are sent; arbitrary query values are never forwarded.
+    // https://support.google.com/analytics/answer/11259997
+    var campaign = new URLSearchParams(location.search);
+    var approvedCampaign = {
+      utm_source: 'google',
+      utm_medium: 'organic',
+      utm_campaign: 'gbp'
+    };
+    if (Object.keys(approvedCampaign).every(function (key) {
+      var values = campaign.getAll(key);
+      return values.length === 1 && values[0] === approvedCampaign[key];
+    })) {
+      config.campaign_source = 'google';
+      config.campaign_medium = 'organic';
+      config.campaign_name = 'gbp';
+    }
+    gtag('config', GA4_ID, config);
   }
 
   function readConsent() {
