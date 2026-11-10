@@ -593,41 +593,69 @@ document.querySelectorAll('[data-tile]').forEach((tile) => {
   const arrows = Array.from(document.querySelectorAll('[data-testimonials-nav] [data-direction]'));
   const counter = document.querySelector('[data-testimonials-count]');
 
-  // Mobile state
   let idx = items.findIndex((el) => el.classList.contains('is-active'));
-  if (idx < 0) {
-    idx = 0;
-    items[0].classList.add('is-active');
-  }
-  if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
-
+  if (idx < 0) idx = 0;
   const desktopMQ = window.matchMedia('(min-width: 1024px)');
+  let wasDesktop = desktopMQ.matches;
+  let desktopIndex = 0;
+  if (counter) {
+    counter.setAttribute('aria-live', 'polite');
+    counter.setAttribute('aria-atomic', 'true');
+  }
 
-  const updateOverflow = () => {
-    if (desktopMQ.matches && items.length > 3) {
-      section.classList.add('has-overflow');
-    } else {
-      section.classList.remove('has-overflow');
-    }
+  // Use actual card positions, including the responsive gap.
+  const cardStart = (index) => items[index].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
+  const nearestCard = () => items.reduce((nearest, item, index) => (
+    Math.abs(cardStart(index) - list.scrollLeft) < Math.abs(cardStart(nearest) - list.scrollLeft) ? index : nearest
+  ), 0);
+
+  const syncCards = () => {
+    items.forEach((item, index) => {
+      const hidden = !desktopMQ.matches && index !== idx;
+      item.classList.toggle('is-active', index === idx);
+      item.inert = hidden;
+      if (hidden) item.setAttribute('aria-hidden', 'true');
+      else item.removeAttribute('aria-hidden');
+    });
+    if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
   };
-  updateOverflow();
-  window.addEventListener('resize', updateOverflow);
+
+  const syncLayout = () => {
+    const desktop = desktopMQ.matches;
+    if (!desktop && wasDesktop) {
+      const focused = items.findIndex((item) => item.contains(document.activeElement));
+      idx = focused >= 0 ? focused : desktopIndex;
+    }
+    section.classList.toggle('has-overflow', desktop && items.length > 3);
+    syncCards();
+    if (desktop && !wasDesktop) {
+      list.scrollTo({ left: Math.min(cardStart(idx), list.scrollWidth - list.clientWidth), behavior: 'instant' });
+      desktopIndex = nearestCard();
+    }
+    wasDesktop = desktop;
+  };
+  syncLayout();
+  desktopMQ.addEventListener('change', syncLayout);
+  list.addEventListener('scroll', () => {
+    if (desktopMQ.matches) desktopIndex = nearestCard();
+  }, { passive: true });
 
   const navigate = (dir) => {
-    if (desktopMQ.matches) {
-      // Desktop: scroll the snapped row by one card width.
-      const first = items[0];
-      const rect = first.getBoundingClientRect();
-      const gap = 32;
-      const step = rect.width + gap;
-      list.scrollBy({ left: dir * step, behavior: motionPreference.matches ? 'auto' : 'smooth' });
-    } else {
-      // Mobile: cycle .is-active.
-      items[idx].classList.remove('is-active');
+    if (!desktopMQ.matches) {
       idx = (idx + dir + items.length) % items.length;
-      items[idx].classList.add('is-active');
-      if (counter) counter.textContent = `${idx + 1} / ${items.length}`;
+      syncCards();
+      return;
     }
+
+    const maxScroll = Math.max(0, list.scrollWidth - list.clientWidth);
+    const current = nearestCard();
+    const target = dir > 0
+      ? (list.scrollLeft >= maxScroll - 2 ? 0 : Math.min(current + 3, items.length - 1))
+      : (list.scrollLeft <= 2 ? items.length - 1 : Math.max(current - 3, 0));
+    list.scrollTo({
+      left: Math.min(cardStart(target), maxScroll),
+      behavior: motionPreference.matches ? 'instant' : 'smooth'
+    });
   };
 
   arrows.forEach((arrow) => {
