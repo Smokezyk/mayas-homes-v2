@@ -27,7 +27,7 @@
     else if (/^\/(?:pt\/)?services\//.test(path)) area = 'services';
     else if (/^\/(?:pt\/)?profile\/$/.test(path)) area = 'profile';
     else if (/^\/(?:pt\/)?journal\//.test(path)) area = 'journal';
-    var safePath = /^\/(?:pt\/)?(?:contact\/|profile\/|projects\/|services\/(?:kitchens-bathrooms\/)?|journal\/(?:piso-radiante\/)?)?$/.test(path) || project
+    var safePath = /^\/(?:pt\/)?(?:contact\/|profile\/|projects\/|services\/(?:kitchens-bathrooms\/)?|journal\/(?:(?:piso-radiante|renovation-planning)\/)?)?$/.test(path) || project
       ? path : '/';
     return {
       page_area: area,
